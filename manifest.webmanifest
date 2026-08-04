@@ -1,0 +1,13 @@
+{
+  "name": "笔顺 · Ordem dos Traços Chineses",
+  "short_name": "Bǐshùn",
+  "description": "Curso interativo de ordem dos traços, pronúncia e escrita chinesa.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f1e5",
+  "theme_color": "#9d2929",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

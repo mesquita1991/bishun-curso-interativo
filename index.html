@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Curso interativo e progressivo sobre a ordem dos traços chineses — 笔顺 (bǐshùn) — com animação, pronúncia, prática individual e acompanhamento de domínio.">
+  <meta name="theme-color" content="#9d2929">
+  <meta name="application-name" content="Bǐshùn">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta property="og:title" content="笔顺 · Ordem dos Traços Chineses">
+  <meta property="og:description" content="Aprenda ordem, direção, pronúncia e escrita chinesa em um percurso interativo.">
+  <meta property="og:type" content="website">
+  <title>笔顺 · Ordem dos Traços Chineses</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Voltar ao início">
+      <span class="brand-mark" aria-hidden="true">筆</span>
+      <span>
+        <strong>笔顺</strong>
+        <small>bǐshùn · ordem dos traços</small>
+      </span>
+    </a>
+
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>2.0.0</span></span>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#fundamentos">Fundamentos</a>
+      <a href="#pronuncia">Pronúncia</a>
+      <a href="#treinador">Treinador</a>
+      <a href="#pratica">Avaliação</a>
+      <a href="#novidades">Novidades</a>
+    </nav>
+
+    <div class="top-actions">
+      <button id="soundToggle" class="icon-button" type="button" aria-label="Ativar ou desativar sons" title="Ativar ou desativar sons">🔊</button>
+      <button id="fontButton" class="icon-button" type="button" aria-label="Aumentar texto" title="Aumentar texto">A+</button>
+      <button id="themeButton" class="icon-button" type="button" aria-label="Alternar tema" title="Alternar tema">◐</button>
+      <button id="menuButton" class="icon-button menu-button" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Navegação móvel" hidden>
+    <a href="#fundamentos">Fundamentos</a>
+    <a href="#pronuncia">Pronúncia</a>
+    <a href="#treinador">Treinador</a>
+    <a href="#pratica">Avaliação</a>
+    <a href="#novidades">Novidades</a>
+  </nav>
+
+  <main id="conteudo">
+    <section id="inicio" class="hero section-shell">
+      <div class="hero-copy">
+        <div class="hero-kicker">
+          <p class="eyebrow">Curso interativo para iniciantes</p>
+          <span class="release-pill">Atualizado · v<span data-version>2.0.0</span></span>
+        </div>
+        <h1>Aprenda como cada caractere <span>nasce</span> — e soa.</h1>
+        <p class="hero-lead">A escrita chinesa não é desenho livre. Cada caractere combina <strong>ordem, direção, estrutura, proporção e pronúncia</strong>: 笔顺 — <em>bǐshùn</em>.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#fundamentos">Começar do zero</a>
+          <a class="button secondary" href="#treinador">Abrir treino individual</a>
+        </div>
+        <ul class="hero-facts" aria-label="Características do curso">
+          <li><strong>11</strong><span>módulos</span></li>
+          <li><strong>24</strong><span>caracteres</span></li>
+          <li><strong>Áudio</strong><span>mandarim nativo do sistema</span></li>
+          <li><strong>Local</strong><span>progresso privado</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-label="Demonstração do caractere 永">
+        <div class="rice-grid" aria-hidden="true"></div>
+        <div id="heroHanzi" class="hero-hanzi">永</div>
+        <button class="hero-sound sound-action" type="button" data-speak="永" data-rate="0.78" aria-label="Ouvir 永, yǒng">🔊 Ouvir</button>
+        <div class="hero-caption">
+          <strong>永 · yǒng</strong>
+          <span>“eternidade” — reúne os oito princípios clássicos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-strip" aria-label="Seu progresso">
+      <div class="section-shell progress-inner">
+        <div>
+          <span class="eyebrow">Seu progresso</span>
+          <strong id="progressLabel">0 de 11 módulos concluídos</strong>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="progressBar"></span>
+        </div>
+        <div class="progress-actions">
+          <a class="text-button" href="#painel">Ver painel</a>
+          <button id="resetProgress" class="text-button" type="button">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="painel" class="section-shell dashboard-section" aria-labelledby="dashboardTitle">
+      <div class="dashboard-head">
+        <div>
+          <p class="eyebrow">Painel pessoal</p>
+          <h2 id="dashboardTitle">Evolução salva neste navegador</h2>
+        </div>
+        <p>Sem conta, sem envio de dados. Escutas, tentativas e domínio ficam no dispositivo.</p>
+      </div>
+      <div class="dashboard-grid">
+        <article><span>Módulos</span><strong id="statModules">0/11</strong><small>trilha concluída</small></article>
+        <article><span>Escutas</span><strong id="statListens">0</strong><small>pronúncias reproduzidas</small></article>
+        <article><span>Tentativas</span><strong id="statAttempts">0</strong><small>treinos de escrita</small></article>
+        <article><span>Dominados</span><strong id="statMastered">0/24</strong><small>caracteres consolidados</small></article>
+      </div>
+      <div id="dailyChallenge" class="daily-challenge"></div>
+    </section>
+
+    <section id="fundamentos" class="section-shell content-section module" data-module="fundamentos">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <div>
+          <p class="eyebrow">Fundamentos</p>
+          <h2>O que é ordem dos traços?</h2>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <article class="prose-card">
+          <p><strong>笔顺 — bǐshùn</strong> é a sequência padronizada usada para escrever os traços de um caractere chinês.</p>
+          <dl class="term-list">
+            <div><dt>笔 · bǐ</dt><dd>pincel, caneta ou instrumento de escrita</dd></div>
+            <div><dt>顺 · shùn</dt><dd>ordem, sequência correta, continuidade</dd></div>
+          </dl>
+          <p>Um caractere pode ficar reconhecível mesmo quando escrito na ordem errada, mas tende a perder fluidez, equilíbrio e naturalidade. A ordem correta também melhora a memória motora e o reconhecimento digital.</p>
+        </article>
+
+        <aside class="principle-card">
+          <span class="quote-mark">“</span>
+          <blockquote>Não memorize apenas como o caractere parece. Memorize como ele nasce.</blockquote>
+          <p>Forma visual + significado + pronúncia + movimento.</p>
+        </aside>
+      </div>
+
+      <div class="concept-grid">
+        <article><span>1</span><h3>Ordem</h3><p>Qual movimento vem primeiro.</p></article>
+        <article><span>2</span><h3>Direção</h3><p>Para onde a caneta se desloca.</p></article>
+        <article><span>3</span><h3>Estrutura</h3><p>Como componentes se organizam.</p></article>
+        <article><span>4</span><h3>Proporção</h3><p>Como o caractere ocupa o quadrado.</p></article>
+      </div>
+
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section class="band module" data-module="tracos">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <div>
+            <p class="eyebrow">Vocabulário visual</p>
+            <h2>Os oito traços fundamentais</h2>
+            <p>Um traço é um movimento contínuo: começa quando a caneta toca o papel e termina quando ela é levantada.</p>
+          </div>
+        </div>
+
+        <div class="stroke-grid" id="strokeGrid"></div>
+
+        <div class="note-box">
+          <strong>Atenção:</strong> uma forma com mudança de direção pode continuar sendo um único traço. Por isso, <strong>口</strong> possui três traços, não quatro.
+        </div>
+        <button class="complete-button" type="button">Marcar módulo como concluído</button>
+      </div>
+    </section>
+
+    <section id="regras" class="section-shell content-section module" data-module="regras">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <div>
+          <p class="eyebrow">A lógica central</p>
+          <h2>Dez regras que explicam quase tudo</h2>
+          <p>Leia a regra, observe o exemplo e use o botão para revelar a justificativa.</p>
+        </div>
+      </div>
+      <div id="rulesList" class="rules-list"></div>
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section class="band module" data-module="estruturas">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">04</span>
+          <div>
+            <p class="eyebrow">Leitura estrutural</p>
+            <h2>Aprenda a enxergar blocos, não rabiscos</h2>
+          </div>
+        </div>
+
+        <div class="structure-grid">
+          <article class="structure-card"><div class="structure-demo split-lr"><span>亻</span><span>尔</span></div><h3>Esquerda → direita</h3><p><strong>你</strong>: conclua 亻 antes de escrever 尔.</p></article>
+          <article class="structure-card"><div class="structure-demo split-tb"><span>宀</span><span>子</span></div><h3>Cima → baixo</h3><p><strong>字</strong>: conclua 宀 antes de escrever 子.</p></article>
+          <article class="structure-card"><div class="structure-demo enclosure"><span>囗</span><b>玉</b></div><h3>Moldura</h3><p><strong>国</strong>: exterior, interior e fechamento.</p></article>
+          <article class="structure-card"><div class="structure-demo symmetry"><span>小</span></div><h3>Simetria</h3><p><strong>小</strong>: eixo central antes dos lados.</p></article>
+        </div>
+
+        <div class="prose-card wide">
+          <h3>Componentes e radicais</h3>
+          <p>Os caracteres são modulares. Um componente aprendido costuma conservar sua ordem interna quando aparece em caracteres maiores. Isso reduz a memorização bruta.</p>
+          <div class="radical-row">
+            <span><b>亻</b> pessoa</span><span><b>氵</b> água</span><span><b>扌</b> mão</span><span><b>忄</b> mente</span><span><b>艹</b> plantas</span><span><b>口</b> boca</span>
+          </div>
+        </div>
+        <button class="complete-button" type="button">Marcar módulo como concluído</button>
+      </div>
+    </section>
+
+    <section id="pronuncia" class="section-shell content-section module" data-module="pronuncia">
+      <div class="section-heading">
+        <span class="section-number">05</span>
+        <div>
+          <p class="eyebrow">Som e tom</p>
+          <h2>Pronúncia faz parte da memória do caractere</h2>
+          <p>O pinyin representa a leitura; o acento marca o tom. Ouça antes de escrever para unir gesto, som e significado.</p>
+        </div>
+      </div>
+
+      <div class="tone-grid" id="toneGrid"></div>
+
+      <div class="two-column pronunciation-explainer">
+        <article class="prose-card">
+          <h3>Como usar o áudio</h3>
+          <ol class="compact-steps">
+            <li>Ouça em velocidade normal.</li>
+            <li>Ouça lentamente e observe o contorno tonal.</li>
+            <li>Repita sem ler o pinyin.</li>
+            <li>Escreva enquanto pronuncia uma vez.</li>
+          </ol>
+        </article>
+        <aside class="note-box voice-note">
+          <strong>Fonte do som:</strong> o site usa a voz chinesa instalada no navegador ou sistema operacional. A qualidade varia por dispositivo. O pinyin e a indicação de tom permanecem disponíveis mesmo sem síntese de voz.
+          <p id="voiceStatus">Verificando vozes chinesas disponíveis…</p>
+        </aside>
+      </div>
+
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section id="treinador" class="band module" data-module="treinador">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">06</span>
+          <div>
+            <p class="eyebrow">Laboratório individual</p>
+            <h2>Ouça, observe, escreva e consolide</h2>
+            <p>Cada caractere possui pronúncia, dica articulatória, sequência explicada e métricas próprias.</p>
+          </div>
+        </div>
+
+        <ol class="trainer-journey" aria-label="Etapas do treino">
+          <li><b>1</b><span>Ouvir</span></li>
+          <li><b>2</b><span>Observar</span></li>
+          <li><b>3</b><span>Escrever</span></li>
+          <li><b>4</b><span>Consolidar</span></li>
+        </ol>
+
+        <div class="trainer-layout">
+          <div class="trainer-controls">
+            <div class="trainer-nav-row">
+              <button id="previousCharacter" class="mini-button" type="button" aria-label="Caractere anterior">←</button>
+              <label for="characterSelect">Caractere</label>
+              <button id="nextCharacter" class="mini-button" type="button" aria-label="Próximo caractere">→</button>
+            </div>
+            <select id="characterSelect"></select>
+            <div id="characterMeta" class="character-meta"></div>
+
+            <div class="pronunciation-controls" aria-label="Controles de pronúncia">
+              <button id="speakNormalButton" class="button primary" type="button">🔊 Ouvir</button>
+              <button id="speakSlowButton" class="button secondary" type="button">🐢 Lento</button>
+            </div>
+            <div id="pronunciationTip" class="pronunciation-tip"></div>
+
+            <fieldset class="mode-control">
+              <legend>Modo de escrita</legend>
+              <label><input type="radio" name="practiceMode" value="guided" checked> Guiado</label>
+              <label><input type="radio" name="practiceMode" value="challenge"> Desafio</label>
+            </fieldset>
+
+            <div class="switches">
+              <label><input id="outlineToggle" type="checkbox" checked> Mostrar contorno</label>
+              <label><input id="autoSpeakToggle" type="checkbox"> Ouvir ao trocar</label>
+            </div>
+
+            <div class="trainer-buttons">
+              <button id="animateButton" class="button primary" type="button">▶ Animar traços</button>
+              <button id="quizButton" class="button secondary" type="button">✍ Iniciar escrita</button>
+              <button id="resetWriterButton" class="button ghost" type="button">↺ Limpar área</button>
+              <button id="masteryButton" class="button mastery-button" type="button">☆ Marcar como dominado</button>
+            </div>
+
+            <div class="speed-control">
+              <label for="speedRange">Velocidade da animação</label>
+              <input id="speedRange" type="range" min="0.5" max="2" value="1" step="0.25">
+            </div>
+            <p id="trainerStatus" class="status-message" aria-live="polite">Comece ouvindo a pronúncia.</p>
+          </div>
+
+          <div class="writer-panel">
+            <div class="writer-grid" aria-hidden="true"></div>
+            <div id="writerTarget" aria-label="Área de demonstração e prática"></div>
+            <noscript>Ative o JavaScript para usar a animação interativa.</noscript>
+          </div>
+
+          <div class="stroke-sequence-panel">
+            <div class="panel-title-row">
+              <h3>Sequência explicada</h3>
+              <span id="levelBadge" class="level-badge">Nível 1</span>
+            </div>
+            <ol id="strokeSequence"></ol>
+            <div id="characterStats" class="character-stats"></div>
+          </div>
+        </div>
+
+        <div class="character-browser">
+          <div class="browser-head">
+            <div><h3>Biblioteca individual</h3><p>24 caracteres organizados do simples ao composto.</p></div>
+            <div class="browser-filters">
+              <label class="search-box"><span>Buscar</span><input id="characterSearch" type="search" placeholder="Ex.: árvore, mù ou 木"></label>
+              <label><span>Nível</span><select id="levelFilter"><option value="all">Todos</option><option value="1">1 · Base</option><option value="2">2 · Estrutura</option><option value="3">3 · Composição</option></select></label>
+              <label><span>Domínio</span><select id="masteryFilter"><option value="all">Todos</option><option value="mastered">Dominados</option><option value="learning">Em estudo</option></select></label>
+            </div>
+          </div>
+          <div id="characterCards" class="character-cards"></div>
+        </div>
+        <button class="complete-button" type="button">Marcar módulo como concluído</button>
+      </div>
+    </section>
+
+    <section class="section-shell content-section module" data-module="proporcao">
+      <div class="section-heading">
+        <span class="section-number">07</span>
+        <div>
+          <p class="eyebrow">Geometria da escrita</p>
+          <h2>Proporção dentro do 田字格</h2>
+        </div>
+      </div>
+
+      <div class="two-column align-center">
+        <div class="tiange-demo">
+          <div class="rice-grid"></div>
+          <span>永</span>
+        </div>
+        <div class="prose-card">
+          <ul class="check-list">
+            <li>Imagine cada caractere dentro de um quadrado.</li>
+            <li>Preserve margens; não encoste em todas as bordas.</li>
+            <li>Distribua espaço conforme a complexidade dos componentes.</li>
+            <li>Busque equilíbrio visual, não simetria matemática rígida.</li>
+            <li>Observe onde os traços cruzam e terminam.</li>
+          </ul>
+        </div>
+      </div>
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section class="band module" data-module="variantes">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">08</span>
+          <div>
+            <p class="eyebrow">Sistemas gráficos</p>
+            <h2>Simplificado, tradicional e variações</h2>
+          </div>
+        </div>
+
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Conceito</th><th>Simplificado</th><th>Tradicional</th><th>Uso predominante</th></tr></thead>
+            <tbody>
+              <tr><td>porta</td><td class="hanzi-cell">门</td><td class="hanzi-cell">門</td><td>China continental / Taiwan e Hong Kong</td></tr>
+              <tr><td>país</td><td class="hanzi-cell">国</td><td class="hanzi-cell">國</td><td>Formas e contagens diferentes</td></tr>
+              <tr><td>estudar</td><td class="hanzi-cell">学</td><td class="hanzi-cell">學</td><td>Mesma ideia, estruturas distintas</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note-box">Escolha um padrão principal e seja consistente. Este curso prioriza o mandarim com caracteres simplificados da China continental.</div>
+        <button class="complete-button" type="button">Marcar módulo como concluído</button>
+      </div>
+    </section>
+
+    <section class="section-shell content-section module" data-module="erros">
+      <div class="section-heading">
+        <span class="section-number">09</span>
+        <div>
+          <p class="eyebrow">Diagnóstico</p>
+          <h2>Erros comuns e correções</h2>
+        </div>
+      </div>
+      <div id="mistakesGrid" class="mistakes-grid"></div>
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section class="band module" data-module="metodo">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">10</span>
+          <div>
+            <p class="eyebrow">Método de estudo</p>
+            <h2>O ciclo de aprendizagem de um caractere</h2>
+          </div>
+        </div>
+        <ol id="studySteps" class="timeline"></ol>
+        <div class="practice-plan">
+          <h3>Sessão diária de 15 minutos</h3>
+          <div><span>2 min</span><p>revisar traços básicos</p></div>
+          <div><span>5 min</span><p>aprender 2–3 caracteres</p></div>
+          <div><span>5 min</span><p>ouvir e escrever sem olhar</p></div>
+          <div><span>3 min</span><p>revisar caracteres antigos</p></div>
+        </div>
+        <button class="complete-button" type="button">Marcar módulo como concluído</button>
+      </div>
+    </section>
+
+    <section id="pratica" class="section-shell content-section module" data-module="avaliacao">
+      <div class="section-heading">
+        <span class="section-number">11</span>
+        <div>
+          <p class="eyebrow">Avaliação final</p>
+          <h2>Teste o que aprendeu</h2>
+          <p>Dez questões curtas. O resultado fica apenas no seu navegador.</p>
+        </div>
+      </div>
+
+      <div id="quizContainer" class="quiz-container"></div>
+      <div class="quiz-actions">
+        <button id="submitQuiz" class="button primary" type="button">Corrigir respostas</button>
+        <button id="restartQuiz" class="button secondary" type="button">Refazer</button>
+      </div>
+      <div id="quizResult" class="quiz-result" aria-live="polite"></div>
+      <button class="complete-button" type="button">Marcar módulo como concluído</button>
+    </section>
+
+    <section id="novidades" class="band news-section">
+      <div class="section-shell content-section">
+        <div class="section-heading">
+          <span class="section-number">NEW</span>
+          <div>
+            <p class="eyebrow">Notas de versão</p>
+            <h2>Novidades do site</h2>
+            <p>Registro transparente das melhorias relevantes, sem apagar recursos anteriores.</p>
+          </div>
+        </div>
+
+        <div class="release-card current-release">
+          <div class="release-card-head">
+            <div><span class="release-version">v<span data-version>2.0.0</span></span><h3>Som & domínio</h3></div>
+            <time datetime="2026-08-04">4 de agosto de 2026</time>
+          </div>
+          <ul class="release-list">
+            <li>Pronúncia em mandarim por caractere, em velocidade normal e lenta.</li>
+            <li>Dicas individualizadas de tom e articulação para os 24 caracteres.</li>
+            <li>Modos de escrita guiado e desafio, com métricas de tentativas e erros.</li>
+            <li>Painel local de escutas, treinos, módulos e caracteres dominados.</li>
+            <li>Filtros por nível e domínio, desafio diário e navegação anterior/próximo.</li>
+            <li>Novo módulo sobre os quatro tons e integração entre som, gesto e memória.</li>
+            <li>PWA instalável, metadados aprimorados, acessibilidade e layout móvel refinado.</li>
+          </ul>
+        </div>
+
+        <details class="release-card previous-release">
+          <summary><span><b>v1.0.0</b> · Fundação interativa</span><time datetime="2026-08-04">4 de agosto de 2026</time></summary>
+          <ul class="release-list">
+            <li>Curso progressivo com dez módulos.</li>
+            <li>Animação e prática de 24 caracteres.</li>
+            <li>Regras, estruturas, proporção, erros comuns e avaliação.</li>
+            <li>Tema escuro, aumento de fonte e progresso local.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="section-shell closing-section">
+      <p class="eyebrow">Síntese</p>
+      <h2>A escrita chinesa é movimento organizado e som estruturado.</h2>
+      <p>Comece no alto e à esquerda. Construa a estrutura. Preencha o interior. Feche o que precisa ser fechado. Ouça, repita e só então acelere.</p>
+      <a class="button primary" href="#treinador">Voltar ao treinador</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-inner">
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>2.0.0</span></span></strong><p>Material didático introdutório em português.</p></div>
+      <p>Dados de animação: Hanzi Writer / Make Me a Hanzi. Pronúncia: síntese de voz do dispositivo. Progresso salvo localmente.</p>
+    </div>
+  </footer>
+</body>
+</html>
