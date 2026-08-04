@@ -1,5 +1,5 @@
-const CACHE_NAME = 'bishun-v2.0.1';
-const CORE = ['./', './index.html', './styles.css', './app.js', './favicon.svg', './manifest.webmanifest'];
+const CACHE_NAME = 'bishun-v3.0.0';
+const CORE = ['./', './index.html', './styles.css', './app.js', './course.js', './curriculum-data.js', './favicon.svg', './manifest.webmanifest'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));

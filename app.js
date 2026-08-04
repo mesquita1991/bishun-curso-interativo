@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '2.0.1';
+  const APP_VERSION = '3.0.0';
   const STORAGE = {
     completed: 'bishunCompleted',
     quizScore: 'bishunQuizScore',
@@ -36,7 +36,7 @@
     { title: 'Componentes especiais têm padrão próprio', zh: '特殊部件按规范', example: '这 · 近 · 道', body: 'Com 辶, por exemplo, o componente interno costuma vir antes do traço envolvente final.' }
   ];
 
-  const characters = [
+  const coreCharacters = [
     { char: '一', pinyin: 'yī', meaning: 'um', strokes: 1, level: 1, tone: 1, structure: 'simples', articulation: '1º tom: voz alta e estável. Pronuncie a sílaba isolada sem acrescentar outra vogal.', order: ['Horizontal da esquerda para a direita.'] },
     { char: '二', pinyin: 'èr', meaning: 'dois', strokes: 2, level: 1, tone: 4, structure: 'cima–baixo', articulation: '4º tom: queda curta e firme. O final r é produzido com leve retroflexão da língua.', order: ['Horizontal superior.', 'Horizontal inferior, geralmente mais longo.'] },
     { char: '三', pinyin: 'sān', meaning: 'três', strokes: 3, level: 1, tone: 1, structure: 'cima–baixo', articulation: '1º tom: mantenha a altura constante. O s é surdo e contínuo.', order: ['Horizontal superior.', 'Horizontal central.', 'Horizontal inferior, mais longo.'] },
@@ -62,6 +62,28 @@
     { char: '字', pinyin: 'zì', meaning: 'caractere; palavra escrita', strokes: 6, level: 3, tone: 4, structure: 'cima–baixo', articulation: '4º tom: queda firme. Z se aproxima de uma africada ts sem aspiração; o i final é especial após z.', order: ['宀: ponto central.', '宀: ponto à esquerda.', '宀: horizontal com gancho.', '子: dobra horizontal.', '子: vertical com gancho.', '子: horizontal.'] },
     { char: '国', pinyin: 'guó', meaning: 'país', strokes: 8, level: 3, tone: 2, structure: 'moldura', articulation: '2º tom: subida clara. O g é não aspirado; mantenha uo unido e finalize sem vogal extra.', order: ['Inicie 囗: vertical esquerda.', 'Faça o topo e a lateral direita.', 'Escreva 玉 no interior.', 'Feche a moldura com o horizontal inferior.'] }
   ];
+
+  const toneFromPinyin = value => {
+    if (/[āēīōūǖ]/.test(value)) return 1;
+    if (/[áéíóúǘ]/.test(value)) return 2;
+    if (/[ǎěǐǒǔǚ]/.test(value)) return 3;
+    if (/[àèìòùǜ]/.test(value)) return 4;
+    return 0;
+  };
+  const extraCharacters = (window.BISHUN_CURRICULUM?.characters || [])
+    .filter(item => !coreCharacters.some(core => core.char === item.char))
+    .map(item => ({
+      char: item.char,
+      pinyin: item.pinyin,
+      meaning: item.meaning,
+      strokes: '—',
+      level: Math.ceil(item.unit / 10),
+      tone: toneFromPinyin(item.pinyin),
+      structure: `HSK 1 · unidade ${String(item.unit).padStart(2, '0')}`,
+      articulation: item.note || `${toneFromPinyin(item.pinyin) ? `${toneFromPinyin(item.pinyin)}º tom` : 'Tom neutro ou leitura contextual'}. Ouça o modelo e repita sem inserir vogais extras.`,
+      order: ['Observe a animação normativa.', 'Repita no modo guiado.', 'Consolide no modo desafio.']
+    }));
+  const characters = [...coreCharacters, ...extraCharacters];
 
   const toneExamples = [
     { tone: '1º tom', contour: 'alto e nivelado', mark: '¯', char: '妈', pinyin: 'mā', meaning: 'mãe', rate: 0.72 },

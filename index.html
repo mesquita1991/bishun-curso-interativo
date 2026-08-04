@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Curso interativo e progressivo sobre a ordem dos traços chineses — 笔顺 (bǐshùn) — com animação, pronúncia, prática individual e acompanhamento de domínio.">
+  <meta name="description" content="Curso completo de base em mandarim: 300 caracteres, 500 palavras, 48 pontos gramaticais, pronúncia, escrita, escuta e revisão espaçada.">
   <meta name="theme-color" content="#9d2929">
   <meta name="application-name" content="Bǐshùn">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,8 +15,10 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="curriculum-data.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script defer src="app.js"></script>
+  <script defer src="course.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -30,13 +32,14 @@
       </span>
     </a>
 
-    <span class="version-badge" title="Versão atual do curso">v<span data-version>2.0.1</span></span>
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>3.0.0</span></span>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#fundamentos">Fundamentos</a>
-      <a href="#pronuncia">Pronúncia</a>
-      <a href="#treinador">Treinador</a>
-      <a href="#pratica">Avaliação</a>
+      <a href="#fundamentos">Base</a>
+      <a href="#jornada">Trilha 300</a>
+      <a href="#vocabulario">Vocabulário</a>
+      <a href="#gramatica-300">Gramática</a>
+      <a href="#escuta">Escuta</a>
       <a href="#novidades">Novidades</a>
     </nav>
 
@@ -61,7 +64,7 @@
       <div class="hero-copy">
         <div class="hero-kicker">
           <p class="eyebrow">Curso interativo para iniciantes</p>
-          <span class="release-pill">Atualizado · v<span data-version>2.0.1</span></span>
+          <span class="release-pill">Atualizado · v<span data-version>3.0.0</span></span>
         </div>
         <h1>Aprenda como cada caractere <span>nasce</span> — e soa.</h1>
         <p class="hero-lead">A escrita chinesa não é desenho livre. Cada caractere combina <strong>ordem, direção, estrutura, proporção e pronúncia</strong>: 笔顺 — <em>bǐshùn</em>.</p>
@@ -70,10 +73,10 @@
           <a class="button secondary" href="#treinador">Abrir treino individual</a>
         </div>
         <ul class="hero-facts" aria-label="Características do curso">
-          <li><strong>11</strong><span>módulos</span></li>
-          <li><strong>24</strong><span>caracteres</span></li>
-          <li><strong>Áudio</strong><span>mandarim nativo do sistema</span></li>
-          <li><strong>Local</strong><span>progresso privado</span></li>
+          <li><strong>300</strong><span>caracteres</span></li>
+          <li><strong>500</strong><span>palavras</span></li>
+          <li><strong>48</strong><span>pontos gramaticais</span></li>
+          <li><strong>96</strong><span>frases com áudio</span></li>
         </ul>
       </div>
 
@@ -116,9 +119,14 @@
         <article><span>Módulos</span><strong id="statModules">0/11</strong><small>trilha concluída</small></article>
         <article><span>Escutas</span><strong id="statListens">0</strong><small>pronúncias reproduzidas</small></article>
         <article><span>Tentativas</span><strong id="statAttempts">0</strong><small>treinos de escrita</small></article>
-        <article><span>Dominados</span><strong id="statMastered">0/24</strong><small>caracteres consolidados</small></article>
+        <article><span>Dominados</span><strong id="statMastered">0/300</strong><small>caracteres consolidados</small></article>
       </div>
       <div id="dailyChallenge" class="daily-challenge"></div>
+    </section>
+
+    <section id="cobertura" class="coverage-section section-shell">
+      <div class="coverage-card"><div><p class="eyebrow">Escopo honesto</p><h2>Uma base completa não é fluência.</h2><p>Esta trilha cobre integralmente o inventário inicial de 300 caracteres e 500 palavras usado como referência curricular. O progresso é separado por competência para não confundir caligrafia com domínio da língua.</p></div><div class="coverage-number"><strong id="overallCourseProgress">0%</strong><span>progresso composto</span></div></div>
+      <div id="courseCompetencies" class="competency-grid"></div>
     </section>
 
     <section id="fundamentos" class="section-shell content-section module" data-module="fundamentos">
@@ -326,7 +334,7 @@
 
         <div class="character-browser">
           <div class="browser-head">
-            <div><h3>Biblioteca individual</h3><p>24 caracteres organizados do simples ao composto.</p></div>
+            <div><h3>Biblioteca individual</h3><p>300 caracteres do nível inicial, com os 24 fundamentos detalhados preservados.</p></div>
             <div class="browser-filters">
               <label class="search-box"><span>Buscar</span><input id="characterSearch" type="search" placeholder="Ex.: árvore, mù ou 木"></label>
               <label><span>Nível</span><select id="levelFilter"><option value="all">Todos</option><option value="1">1 · Base</option><option value="2">2 · Estrutura</option><option value="3">3 · Composição</option></select></label>
@@ -338,6 +346,41 @@
         <button class="complete-button" type="button">Marcar módulo como concluído</button>
       </div>
     </section>
+
+    <section id="jornada" class="section-shell content-section course-section">
+      <div class="section-heading"><span class="section-number">A1</span><div><p class="eyebrow">Trilha curricular</p><h2>30 unidades · 300 caracteres</h2><p>Cada unidade libera dez caracteres e o vocabulário que já pode ser formado com o repertório acumulado.</p></div></div>
+      <div id="unitMap" class="unit-map"></div><div id="unitDetail" class="unit-detail"></div>
+    </section>
+
+    <section id="vocabulario" class="band course-section"><div class="section-shell content-section">
+      <div class="section-heading"><span class="section-number">A2</span><div><p class="eyebrow">Léxico ativo</p><h2>500 palavras com áudio e revisão espaçada</h2><p>Busque por caractere, pinyin, significado ou classe gramatical. Classifique cada resposta para agendar a próxima revisão.</p></div></div>
+      <div class="course-toolbar"><label>Buscar<input id="vocabSearch" type="search" placeholder="Ex.: escola, xué ou 学"></label><label>Unidade<select id="vocabUnit"></select></label><label>Estado<select id="vocabStatus"><option value="all">Todos</option><option value="due">Para revisar</option><option value="mastered">Consolidados</option></select></label><strong id="vocabCount"></strong></div>
+      <div id="vocabGrid" class="vocab-grid"></div><div id="vocabPager" class="pager"></div>
+    </div></section>
+
+    <section id="gramatica-300" class="section-shell content-section course-section">
+      <div class="section-heading"><span class="section-number">A3</span><div><p class="eyebrow">Gramática aplicada</p><h2>48 pontos do nível inicial</h2><p>Cada microaula apresenta função, padrão, dois exemplos, pinyin, tradução e controle de revisão.</p></div></div>
+      <div class="course-toolbar"><label>Buscar<input id="grammarSearch" type="search" placeholder="Ex.: pergunta, comparação, 还是"></label><label>Unidade<select id="grammarUnit"></select></label><strong id="grammarCount"></strong></div>
+      <div id="grammarGrid" class="grammar-grid"></div>
+    </section>
+
+    <section id="escuta" class="band course-section"><div class="section-shell content-section">
+      <div class="section-heading"><span class="section-number">A4</span><div><p class="eyebrow">Compreensão auditiva</p><h2>Ouça antes de ler</h2><p>O texto permanece oculto até a resposta. A voz é fornecida pelo sistema; o conteúdo escrito e o pinyin funcionam mesmo sem síntese de voz.</p></div></div>
+      <div id="listeningExercise" class="listening-exercise"></div>
+    </div></section>
+
+    <section id="revisao" class="section-shell content-section course-section">
+      <div class="section-heading"><span class="section-number">A5</span><div><p class="eyebrow">Memória de longo prazo</p><h2>Revisão espaçada</h2><p><strong id="dueCount">0</strong> itens estão disponíveis para revisão. “Errei”, “Difícil” e “Acertei” alteram o intervalo seguinte.</p></div></div>
+      <div id="reviewCard"></div>
+    </section>
+
+    <section id="prova-300" class="band course-section"><div class="section-shell content-section">
+      <div class="section-heading"><span class="section-number">A6</span><div><p class="eyebrow">Avaliação integrada</p><h2>Prova por competência</h2><p>24 questões novas a cada tentativa: caracteres, vocabulário, pinyin, gramática e escuta.</p></div></div>
+      <div class="exam-actions"><button id="startExam" class="button secondary" type="button">Gerar nova prova</button><button id="submitExamV3" class="button primary" type="button">Corrigir prova</button></div>
+      <div id="examContainer" class="exam-container-v3"></div><div id="examResult" class="exam-result-v3" aria-live="polite"></div>
+    </div></section>
+
+    <section id="fontes" class="section-shell sources-section"><p class="eyebrow">Metodologia e fontes</p><h2>Base curricular auditável</h2><p>Inventário: nível 1 da lista HSK 3.0 derivada do padrão GF0025-2021. Leituras e definições foram confrontadas com CC-CEDICT e localizadas para português. A animação usa Hanzi Writer / Make Me a Hanzi.</p><div class="source-links"><a href="https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html" rel="noopener" target="_blank">Padrão oficial</a><a href="https://github.com/ivankra/hsk30" rel="noopener" target="_blank">Base HSK estruturada</a><a href="https://cc-cedict.org/" rel="noopener" target="_blank">CC-CEDICT</a></div></section>
 
     <section class="section-shell content-section module" data-module="proporcao">
       <div class="section-heading">
@@ -455,20 +498,8 @@
         </div>
 
         <div class="release-card current-release">
-          <div class="release-card-head">
-            <div><span class="release-version">v<span data-version>2.0.1</span></span><h3>Som, domínio & portabilidade</h3></div>
-            <time datetime="2026-08-04">4 de agosto de 2026</time>
-          </div>
-          <ul class="release-list">
-            <li>Pronúncia em mandarim por caractere, em velocidade normal e lenta.</li>
-            <li>Dicas individualizadas de tom e articulação para os 24 caracteres.</li>
-            <li>Modos de escrita guiado e desafio, com métricas de tentativas e erros.</li>
-            <li>Painel local de escutas, treinos, módulos e caracteres dominados.</li>
-            <li>Filtros por nível e domínio, desafio diário e navegação anterior/próximo.</li>
-            <li>Novo módulo sobre os quatro tons e integração entre som, gesto e memória.</li>
-            <li>PWA instalável, metadados aprimorados, acessibilidade e layout móvel refinado.</li>
-            <li>Compatibilidade integral com domínio raiz e hospedagem em subdiretório.</li>
-          </ul>
+          <div class="release-card-head"><div><span class="release-version">v<span data-version>3.0.0</span></span><h3>Base 300 · currículo completo</h3></div><time datetime="2026-08-04">4 de agosto de 2026</time></div>
+          <ul class="release-list"><li>Trinta unidades com 300 caracteres do nível inicial.</li><li>Quinhentas palavras com pinyin, significado, classe gramatical, áudio e SRS.</li><li>Quarenta e oito pontos gramaticais com 96 exemplos e exercícios auditivos.</li><li>Revisão espaçada, painel por competência e prova integrada de 24 questões.</li><li>Treinador ampliado para 300 caracteres, preservando os 24 fundamentos detalhados.</li><li>Escopo e cobertura apresentados sem equivaler escrita a fluência.</li><li>Fontes, versão e metodologia visíveis e auditáveis.</li></ul>
         </div>
 
         <details class="release-card previous-release">
@@ -493,8 +524,8 @@
 
   <footer>
     <div class="section-shell footer-inner">
-      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>2.0.1</span></span></strong><p>Material didático introdutório em português.</p></div>
-      <p>Dados de animação: Hanzi Writer / Make Me a Hanzi. Pronúncia: síntese de voz do dispositivo. Progresso salvo localmente.</p>
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>3.0.0</span></span></strong><p>Curso completo de base em português.</p></div>
+      <p>Currículo: GF0025-2021 / HSK 3.0 nível 1. Léxico: CC-CEDICT. Animação: Hanzi Writer. Progresso salvo localmente.</p>
     </div>
   </footer>
 </body>

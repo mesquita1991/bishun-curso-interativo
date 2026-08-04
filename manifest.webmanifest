@@ -1,7 +1,7 @@
 {
-  "name": "笔顺 · Ordem dos Traços Chineses",
+  "name": "笔顺 · Mandarim Base 300",
   "short_name": "Bǐshùn",
-  "description": "Curso interativo de ordem dos traços, pronúncia e escrita chinesa.",
+  "description": "Curso completo de base em mandarim com 300 caracteres, 500 palavras, gramática, escuta e revisão espaçada.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -9,6 +9,11 @@
   "theme_color": "#9d2929",
   "lang": "pt-BR",
   "icons": [
-    { "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }
