@@ -4,7 +4,7 @@ Site estático em HTML, CSS e JavaScript sobre ordem dos traços chineses.
 
 ## Versão
 
-**2.0.0 — Som & domínio**
+**2.0.1 — Som & domínio**
 
 Principais recursos:
 
