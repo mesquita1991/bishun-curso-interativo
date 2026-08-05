@@ -1,16 +1,16 @@
 {
-  "name": "笔顺 · Mandarim Base 300",
-  "short_name": "Bǐshùn",
-  "description": "Curso completo de base em mandarim com 300 caracteres, 500 palavras, gramática, escuta e revisão espaçada.",
+  "name": "Mandarim Integral · 笔顺",
+  "short_name": "Mandarim Integral",
+  "description": "Programa integral de mandarim em português: 3.000 caracteres, 11.092 palavras, 1.110 sílabas, gramática e escrita chinesa.",
+  "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f7f1e5",
-  "theme_color": "#9d2929",
-  "lang": "pt-BR",
+  "background_color": "#f5f1e8",
+  "theme_color": "#9b3327",
   "icons": [
     {
-      "src": "./favicon.svg",
+      "src": "favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

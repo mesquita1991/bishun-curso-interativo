@@ -1,7 +1,140 @@
 {
-  "version": "3.0.1",
-  "files": 13,
-  "generatedAt": "2026-08-04T23:59:00Z",
-  "zipBytes": 80378,
-  "sha256": "2d5b7e5009f6202531c136ede3b6718429d8929f1b9b3d5def0c12067971a1d0"
+  "version": "4.0.0",
+  "generatedAt": "2026-08-05T12:13:28.715438+00:00",
+  "standard": "GF0025-2021",
+  "counts": {
+    "syllables": 1110,
+    "characters": 3000,
+    "words": 11092,
+    "grammarQueryRecords": 573,
+    "officialGrammarHeadline": 572,
+    "units": 300,
+    "stages": 9,
+    "competencies": 5
+  },
+  "preservedBase": {
+    "characters": 300,
+    "words": 500,
+    "grammar": 48,
+    "sentences": 96,
+    "units": 30
+  },
+  "advancedSplit": "internal-pedagogical",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 54,
+      "sha256": "650eb95599a4002e04e44d1ddfd0fe8581a60f95a529fa8550873f7623b34b77"
+    },
+    {
+      "path": "README.md",
+      "bytes": 857,
+      "sha256": "dd7d7fa863944a7d29cf7ba4e4a9349510fc94a851d59ca89ceb8557a4e31f25"
+    },
+    {
+      "path": "app.js",
+      "bytes": 43500,
+      "sha256": "8631b859c68a5ff9d79c5e9d5bd1f2be8ffb2a1cbef9ace8823b0899919a2012"
+    },
+    {
+      "path": "course.js",
+      "bytes": 17415,
+      "sha256": "6d10030c3e7acdeebfe0ed7361f70cef87defee0210a743053fff9dc00ea2b04"
+    },
+    {
+      "path": "curriculum-data.js",
+      "bytes": 167857,
+      "sha256": "9d0557e131d581008823c3ca0c8f9ef0054e44ff869de556ac984e39ae857fcd"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 226,
+      "sha256": "e1b762c293a22b21ccb723e32749cca50f00a04ac5cd17de3f898c672a58f718"
+    },
+    {
+      "path": "full-course.js",
+      "bytes": 27780,
+      "sha256": "e8ad4b6f33d93a6eaec97783bce884da377d7b3f19b8293a6c3fa15bda657a2d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 42600,
+      "sha256": "11bfe4e9b19e1603c9055d102a3a058d8dabe141ec7989245cf31795afd2ec93"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 514,
+      "sha256": "9a768e88d1e2c06ed44d9a3a029131cfb118bbeee4715da160cfa2b218f4987f"
+    },
+    {
+      "path": "package.json",
+      "bytes": 272,
+      "sha256": "3658751c3a6777e8755a663f79b4e01eff4f067c66da16b07ebea47d7ef4c5d3"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 56727,
+      "sha256": "aabd92246d73d8c2d56d917511acf781d95c9e72f9300a443e034a231806d859"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 1043,
+      "sha256": "8887eb86e6e7f474ec22916c610667cecd1567433a5ad5d7ad11e4dd4097ed18"
+    },
+    {
+      "path": "data/meta.json",
+      "bytes": 3824,
+      "sha256": "46bb1ebdac31a279218cf44dd893e91dea1d6a9c4343b39a29d4124ed1b1e5cc"
+    },
+    {
+      "path": "data/stage-1.json",
+      "bytes": 279067,
+      "sha256": "42d68d51a3ac24876b93f1e9049723fe3ea5d1d8d5a6d4c407a04e9bdfe9bcac"
+    },
+    {
+      "path": "data/stage-2.json",
+      "bytes": 363930,
+      "sha256": "db8d9363d57e3a1301a7fb77b7a2863742b0d2afcfd7789cebd4ddbe121ce4ef"
+    },
+    {
+      "path": "data/stage-3.json",
+      "bytes": 410998,
+      "sha256": "72490f66777ab94e7c08a2f2c070ba64a3b81528c1908e860099c9b00cb34b49"
+    },
+    {
+      "path": "data/stage-4.json",
+      "bytes": 412944,
+      "sha256": "d93c16d0bc7998918751513be6f7e6fd3e4f191f3137706da8b9f8bf6dea4432"
+    },
+    {
+      "path": "data/stage-5.json",
+      "bytes": 429156,
+      "sha256": "04c8c17e4d2ad356a337d688c6006e8e6cbcc0a554624b770cb658ab96a44411"
+    },
+    {
+      "path": "data/stage-6.json",
+      "bytes": 443066,
+      "sha256": "a633ac433d9bf64c9d5e0f00477bc9fd34f2916b70ef0812532401a989a145e6"
+    },
+    {
+      "path": "data/stage-7.json",
+      "bytes": 662487,
+      "sha256": "a6467bc34a2d1db62b630f792e5861e6233ceefe999464461924bfcc3fa6a64d"
+    },
+    {
+      "path": "data/stage-8.json",
+      "bytes": 673439,
+      "sha256": "4f6611b8679f67f6fcc87c61eced47187adf44d5a6c6e257aec6c4910e4a9147"
+    },
+    {
+      "path": "data/stage-9.json",
+      "bytes": 696005,
+      "sha256": "434dca85f45eec74304143066355842e9769c0d7d7c98c728e9b1a6634b77f54"
+    },
+    {
+      "path": "data/syllables.json",
+      "bytes": 89051,
+      "sha256": "9a9c2a6288e753b69540900305447ab7c0b3dca31b8373c2246a96ffcfe09a56"
+    }
+  ]
 }

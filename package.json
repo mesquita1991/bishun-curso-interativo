@@ -1,9 +1,9 @@
 {
-  "name": "bishun-curso-interativo",
-  "version": "3.0.1",
+  "name": "bishun-mandarin-integral",
+  "version": "4.0.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check app.js && node --check course.js && node --check curriculum-data.js"
+    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js"
   }
 }
