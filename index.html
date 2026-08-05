@@ -21,6 +21,7 @@
   <script defer src="course.js"></script>
   <script defer src="full-course.js"></script>
   <script defer src="post-standard.js"></script>
+  <script defer src="mastery-v6.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -34,11 +35,12 @@
       </span>
     </a>
 
-    <span class="version-badge" title="Versão atual do curso">v<span data-version>5.0.1</span></span>
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>6.0.0</span></span>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#programa-integral">Programa integral</a>
       <a href="#pos-padrao">Pós-padrão</a>
+      <a href="#validacao-v6">Validação</a>
       <a href="#imersao-aberta">Imersão</a>
       <a href="#mapa-etapas">9 etapas</a>
       <a href="#atlas-integral">3.000 字</a>
@@ -76,7 +78,7 @@
       <div class="hero-copy">
         <div class="hero-kicker">
           <p class="eyebrow">Programa integral + imersão aberta</p>
-          <span class="release-pill">Atualizado · v<span data-version>5.0.1</span></span>
+          <span class="release-pill">Atualizado · v<span data-version>6.0.0</span></span>
         </div>
         <h1>Do primeiro traço à <span>imersão em conteúdo real</span>.</h1>
         <p class="hero-lead">Domine o padrão formal e continue por <strong>léxico aberto, pragmática, leitura, produção e análise de qualquer texto chinês</strong>, com dados sob demanda e progresso local.</p>
@@ -397,7 +399,7 @@
       <div class="section-shell">
         <div class="full-program-head">
           <div>
-            <p class="eyebrow">Versão <span data-full-version>5.0.1</span> · inventário integral</p>
+            <p class="eyebrow">Versão <span data-full-version>6.0.0</span> · inventário integral</p>
             <h2 id="fullProgramTitle">Programa integral em nove etapas</h2>
             <p>Os níveis 1–6 seguem as divisões oficiais. O inventário avançado, publicado conjuntamente como 7–9, recebe uma subdivisão pedagógica interna claramente identificada.</p>
           </div>
@@ -508,7 +510,7 @@
       <div class="section-shell">
         <div class="post-hero-grid">
           <div>
-            <p class="eyebrow">Versão <span data-post-version>5.0.1</span> · extensão pós-padrão</p>
+            <p class="eyebrow">Versão <span data-post-version>6.0.0</span> · extensão pós-padrão</p>
             <h2 id="postTitle">Do inventário formal à competência em conteúdo real.</h2>
             <p>O programa de nove etapas permanece integralmente preservado. Esta camada acrescenta léxico aberto, expressões, pragmática, leitura, produção e um laboratório capaz de transformar qualquer texto chinês em material de estudo.</p>
             <div class="post-hero-actions"><a class="button primary" href="#imersao-aberta">Analisar um texto real</a><a class="button secondary" href="#lexico-pos">Explorar o léxico ampliado</a></div>
@@ -620,13 +622,54 @@
       </div>
     </section>
 
+
+    <section id="validacao-v6" class="band v6-validation" aria-labelledby="v6Title">
+      <div class="section-shell">
+        <div class="v6-head">
+          <div><p class="eyebrow">Versão <span data-mastery-version>6.0.0</span> · evidência longitudinal</p><h2 id="v6Title">Domínio medido por desempenho em material inédito.</h2><p>Trinta e seis textos autorais cobrem 12 gêneros e três níveis. O índice geral permanece bloqueado até existir evidência repetida em leitura, ditado, cloze, shadowing, produção e transferência.</p></div>
+          <div class="v6-overall"><strong id="v6Overall">—</strong><span>índice longitudinal</span></div>
+        </div>
+        <div class="v6-stat-grid">
+          <article><strong id="v6EvidenceCount">0</strong><span>evidências</span></article>
+          <article><strong id="v6SessionDays">0</strong><span>dias distintos</span></article>
+          <article><strong id="v6GenreCount">0 / 12</strong><span>gêneros testados</span></article>
+          <article><strong>36</strong><span>textos inéditos</span></article>
+          <article><strong>6</strong><span>competências</span></article>
+          <article><strong>99%</strong><span>teto declarado</span></article>
+        </div>
+        <p id="v6Eligibility" class="v6-eligibility"></p>
+        <div id="v6EvidenceGrid" class="v6-evidence-grid"></div>
+        <p id="masteryV6Status" class="full-notice" aria-live="polite">Carregando validação…</p>
+      </div>
+    </section>
+
+    <section id="benchmark-v6" class="section-shell v6-section" aria-labelledby="v6BenchmarkTitle">
+      <div class="section-heading"><span class="section-number">V6</span><div><p class="eyebrow">Banco de testes autorais</p><h2 id="v6BenchmarkTitle">Diagnóstico por gênero e nível</h2><p>Escolha um recorte ou receba uma amostra aleatória. O mesmo texto alimenta seis tarefas diferentes, mas cada evidência é registrada separadamente.</p></div></div>
+      <div class="v6-toolbar"><label>Gênero<select id="v6Genre"></select></label><label>Nível<select id="v6Level"></select></label><button id="v6NewBenchmark" type="button" class="button primary">Nova amostra</button></div>
+      <div class="v6-workspace">
+        <article id="v6BenchmarkCard" class="v6-benchmark-card"></article>
+        <div class="v6-task-panel"><div id="v6ModeTabs" class="v6-mode-tabs" role="tablist"></div><div id="v6Exercise"></div><div id="v6Feedback" aria-live="polite"></div></div>
+      </div>
+    </section>
+
+    <section id="matriz-v6" class="band v6-section">
+      <div class="section-shell"><div class="section-heading"><span class="section-number">12×3</span><div><p class="eyebrow">Cobertura de avaliação</p><h2>Matriz de gêneros e níveis</h2><p>Um ponto só é marcado como concluído após pelo menos três evidências com média igual ou superior a 75% naquela amostra.</p></div></div><div id="v6Matrix" class="v6-matrix"></div></div>
+    </section>
+
+    <section id="plano-v6" class="section-shell v6-section">
+      <div class="section-heading"><span class="section-number">12W</span><div><p class="eyebrow">Fechamento adaptativo</p><h2>Plano de 12 semanas pelas competências mais fracas</h2><p>O plano reorganiza prática e gêneros conforme o histórico local. Não substitui correção humana de fala e escrita.</p></div></div>
+      <div class="v6-plan-toolbar"><label>Minutos por semana<input id="v6PlannerMinutes" type="number" min="60" max="1200" step="30" value="180"></label><button id="v6GeneratePlan" type="button" class="button primary">Gerar plano adaptativo</button><button id="v6Export" type="button" class="button secondary">Exportar evidências</button><label class="button secondary file-button">Importar evidências<input id="v6Import" type="file" accept="application/json"></label></div>
+      <div id="v6Plan" class="v6-plan-grid"><p class="empty-state">Gere o plano depois de registrar algumas evidências; sem histórico, a ordem inicial é equilibrada.</p></div>
+      <div class="honesty-panel"><h3>Limite explícito</h3><p>A versão 6 mede desempenho dentro de uma matriz ampla, mas ainda não certifica “100% do mandarim”. Autoavaliações de produção e shadowing são limitadas; o índice global exige repetição em dias diferentes e nunca ultrapassa 99%.</p></div>
+    </section>
+
     <section id="dominio-real" class="section-shell post-section mastery-section" aria-labelledby="masteryTitle">
       <div class="section-heading"><span class="section-number">✓</span><div><p class="eyebrow">Critério de domínio</p><h2 id="masteryTitle">“Dominei” exige retenção, compreensão, produção e transferência.</h2><p>A rubrica impede que número de itens vistos seja confundido com capacidade linguística.</p></div></div>
       <div id="masteryRubric" class="mastery-rubric"></div>
       <div class="honesty-panel"><h3>O que a versão 5 resolve</h3><p>O curso deixa de depender apenas de um inventário fechado: passa a analisar textos escolhidos pelo aluno, localizar lacunas, gerar revisão e exigir produtos orais e escritos. Ainda assim, não existe teste que certifique “100% de uma língua”.</p></div>
     </section>
 
-    <section id="fontes" class="section-shell sources-section"><p class="eyebrow">Metodologia e fontes</p><h2>Base curricular auditável</h2><p>Inventário integral: 1.110 sílabas, 3.000 caracteres, 11.092 palavras e 573 registros do sistema oficial de consulta. As 500 traduções iniciais foram preservadas; as demais foram localizadas a partir do CC-CEDICT, mantendo a glosa inglesa para auditoria. A animação usa Hanzi Writer / Make Me a Hanzi. A extensão pós-padrão incorpora a edição de 24 de julho de 2026 do CC-CEDICT sob CC BY-SA 4.0 e mantém glosas-fonte quando não existe tradução portuguesa revisada.</p><div class="source-links"><a href="https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html" rel="noopener" target="_blank">Padrão oficial</a><a href="https://admin.chinesetest.cn/standardsAction.do?means=standardInfo" rel="noopener" target="_blank">Consulta oficial</a><a href="https://github.com/ivankra/hsk30" rel="noopener" target="_blank">Base HSK estruturada</a><a href="https://cc-cedict.org/editor/editor.php?handler=Download" rel="noopener" target="_blank">CC-CEDICT e licença</a><a href="https://lingua.mtsu.edu/chinese-computing/" rel="noopener" target="_blank">Chinese Text Computing</a></div></section>
+    <section id="fontes" class="section-shell sources-section"><p class="eyebrow">Metodologia e fontes</p><h2>Base curricular auditável</h2><p>Inventário integral: 1.110 sílabas, 3.000 caracteres, 11.092 palavras e 573 registros do sistema oficial de consulta. As 500 traduções iniciais foram preservadas; as demais foram localizadas a partir do CC-CEDICT, mantendo a glosa inglesa para auditoria. A animação usa Hanzi Writer / Make Me a Hanzi. A extensão pós-padrão incorpora a edição de 24 de julho de 2026 do CC-CEDICT sob CC BY-SA 4.0 e mantém glosas-fonte quando não existe tradução portuguesa revisada. A matriz v6 utiliza textos autorais internos, identificados como amostras de avaliação e não como corpus oficial ou certificação externa.</p><div class="source-links"><a href="https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html" rel="noopener" target="_blank">Padrão oficial</a><a href="https://admin.chinesetest.cn/standardsAction.do?means=standardInfo" rel="noopener" target="_blank">Consulta oficial</a><a href="https://github.com/ivankra/hsk30" rel="noopener" target="_blank">Base HSK estruturada</a><a href="https://cc-cedict.org/editor/editor.php?handler=Download" rel="noopener" target="_blank">CC-CEDICT e licença</a><a href="https://lingua.mtsu.edu/chinese-computing/" rel="noopener" target="_blank">Chinese Text Computing</a></div></section>
 
     <section class="section-shell content-section module" data-module="proporcao">
       <div class="section-heading">
@@ -744,9 +787,11 @@
         </div>
 
         <div class="release-card current-release">
-          <div class="release-card-head"><div><span class="release-version">v<span data-version>5.0.1</span></span><h3>Extensão Pós-Padrão · imersão aberta</h3></div><time datetime="2026-08-05">5 de agosto de 2026</time></div>
-          <ul class="release-list"><li>Laboratório que segmenta e mede a cobertura de qualquer texto chinês trazido pelo aluno.</li><li>124 mil entradas abertas do CC-CEDICT em 128 fragmentos carregados sob demanda.</li><li>20 mil itens de prioridade heurística, 24 domínios e 12 registros/variedades.</li><li>Mais de cinco mil expressões idiomáticas e figuradas com SRS independente.</li><li>100 aulas autorais de pragmática, 52 leituras e 120 missões de transferência.</li><li>Critério explícito de domínio baseado em retenção, escuta, leitura, fala, escrita e material inédito.</li><li>Programa formal v4.0.1, Base 300 e todos os recursos anteriores integralmente preservados.</li></ul>
+          <div class="release-card-head"><div><span class="release-version">v<span data-version>6.0.0</span></span><h3>Validação longitudinal · domínio por evidência</h3></div><time datetime="2026-08-05">5 de agosto de 2026</time></div>
+          <ul class="release-list"><li>36 textos autorais inéditos em 12 gêneros e três níveis.</li><li>Seis provas independentes: leitura, ditado, cloze, shadowing, produção e transferência.</li><li>Similaridade de ditado e cloze calculada localmente por distância de edição.</li><li>Reconhecimento de fala quando suportado, com autoavaliação limitada a 70%.</li><li>Produção e transferência limitadas a 85% sem avaliação externa.</li><li>Índice geral bloqueado até haver repetição em dias diferentes e diversidade de gêneros.</li><li>Matriz 12×3, plano adaptativo de 12 semanas e exportação das evidências.</li><li>Extensão v5, programa integral e Base 300 integralmente preservados.</li></ul>
         </div>
+
+        <details class="release-card previous-release"><summary><span><b>v5.0.1</b> · Extensão Pós-Padrão</span><time datetime="2026-08-05">5 de agosto de 2026</time></summary><ul class="release-list"><li>124 mil entradas, imersão aberta, pragmática, expressões, leituras e missões.</li><li>Análise lexical de textos externos e SRS pós-padrão.</li></ul></details>
 
         <details class="release-card previous-release"><summary><span><b>v4.0.1</b> · Programa Integral</span><time datetime="2026-08-05">5 de agosto de 2026</time></summary><ul class="release-list"><li>3.000 caracteres, 11.092 palavras, 1.110 sílabas, 573 registros e 300 unidades.</li><li>Cinco competências, SRS, provas e carregamento por etapa.</li></ul></details>
 
@@ -774,7 +819,7 @@
 
   <footer>
     <div class="section-shell footer-inner">
-      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>5.0.1</span></span></strong><p>Programa integral, extensão pós-padrão e laboratório de imersão em português.</p></div>
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>6.0.0</span></span></strong><p>Programa integral, extensão pós-padrão e validação longitudinal em português.</p></div>
       <p>Currículo: GF0025-2021. Extensão aberta: CC-CEDICT sob CC BY-SA 4.0. Análise, SRS e progresso permanecem locais.</p>
     </div>
   </footer>

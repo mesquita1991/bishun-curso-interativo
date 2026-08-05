@@ -1,4 +1,4 @@
-# Mandarim Integral · 笔顺 — v5.0.1
+# Mandarim Integral · 笔顺 — v6.0.0
 
 Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 
@@ -29,3 +29,11 @@ A extensão não representa uma lista oficial de frequência nem define “100% 
 ## Fontes e licença
 
 GF0025-2021 / ChineseTest, transcrição estruturada `ivankra/hsk30`, CC-CEDICT sob CC BY-SA 4.0 e Hanzi Writer.
+
+## Validação longitudinal v6
+
+- 36 textos autorais em 12 gêneros e três níveis;
+- leitura inédita, ditado, cloze, shadowing, produção e transferência;
+- índice bloqueado até haver repetição em dias diferentes;
+- autoavaliação de fala limitada a 70% e de produção a 85%;
+- matriz 12×3, planejamento adaptativo e exportação local das evidências.

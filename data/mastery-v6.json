@@ -1,0 +1,1726 @@
+{
+  "version": "6.0.0",
+  "benchmarks": [
+    {
+      "id": "V6-01-1",
+      "genre": "cotidiano",
+      "level": "intermediário",
+      "titlePt": "Encontro inesperado no dia a dia",
+      "zh": "今天早上我在地铁站等公交时，遇到一个老朋友。我们聊了工作和旅行的计划，随后一起去附近的咖啡馆喝咖啡。下午我在公园散步，看到孩子们在玩风筝。",
+      "summaryPt": "O narrador encontra um velho amigo na estação de ônibus, conversa sobre trabalho e viagens, toma um café e depois passeia no parque observando crianças soltando pipas.",
+      "dictation": [
+        "今天早上我在地铁站等公交时，遇到一个老朋友。",
+        "我们聊了工作和旅行的计划，随后一起去附近的咖啡馆喝咖啡。"
+      ],
+      "cloze": {
+        "sentence": "我___公园散步，看到孩子们在玩风筝。",
+        "answer": "在"
+      },
+      "questions": [
+        {
+          "qPt": "Onde o narrador encontrou o amigo?",
+          "optionsPt": [
+            "No metrô",
+            "Na estação de ônibus",
+            "No parque",
+            "No café"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual atividade eles fizeram após o café?",
+          "optionsPt": [
+            "Ir ao cinema",
+            "Visitar um museu",
+            "Passear no parque",
+            "Voltar para casa"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva um encontro inesperado que você teve recentemente e como passou o dia.",
+      "keywords": [
+        "地铁",
+        "老朋友",
+        "咖啡馆",
+        "公园",
+        "风筝",
+        "工作",
+        "旅行"
+      ]
+    },
+    {
+      "id": "V6-01-2",
+      "genre": "cotidiano",
+      "level": "avançado",
+      "titlePt": "Encontro inesperado e passeio histórico",
+      "zh": "今天上午，我在咖啡馆里偶遇了多年未见的老同学，我们聊起了各自的职业发展和对未来城市交通的看法。随后我们一起步行穿过老城区的石板路，感受历史的沉淀。",
+      "summaryPt": "O narrador encontrou um antigo colega de classe em uma cafeteria e conversaram sobre suas carreiras e o futuro do transporte urbano. Depois, caminharam pelas ruas de pedra do centro histórico, apreciando a atmosfera da cidade.",
+      "dictation": [
+        "今天上午，我在咖啡馆里偶遇了多年未见的老同学，我们聊起了各自的职业发展和对未来城市交通的看法。",
+        "随后我们一起步行穿过老城区的石板路，感受历史的沉淀。"
+      ],
+      "cloze": {
+        "sentence": "我们聊起了各自的 ___ 和对未来城市交通的看法。",
+        "answer": "职业发展"
+      },
+      "questions": [
+        {
+          "qPt": "Onde aconteceu o encontro inesperado?",
+          "optionsPt": [
+            "No parque",
+            "Na biblioteca",
+            "Na cafeteria",
+            "No escritório"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual atividade eles fizeram depois da conversa?",
+          "optionsPt": [
+            "Assistiram a um filme",
+            "Foram ao restaurante",
+            "Caminharam pela rua de pedra",
+            "Visitaram um museu"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva uma situação semelhante que você vivenciou, usando pelo menos cinco palavras do vocabulário acima.",
+      "keywords": [
+        "咖啡馆",
+        "老同学",
+        "职业发展",
+        "城市交通",
+        "老城区",
+        "石板路",
+        "历史"
+      ]
+    },
+    {
+      "id": "V6-01-3",
+      "genre": "cotidiano",
+      "level": "superior",
+      "titlePt": "Um dia típico na cidade",
+      "zh": "今天早上，我在街角的咖啡店买了一杯热奶茶，随后步行去公司。路上遇到邻居的孩子在公园玩耍，我停下来和他们聊了几句。下午下班后，我去超市买菜，准备晚上做一顿丰盛的晚餐。",
+      "summaryPt": "O narrador descreve sua manhã comprando chá, o encontro com crianças no parque e a compra de ingredientes para o jantar.",
+      "dictation": [
+        "今天早上，我在街角的咖啡店买了一杯热奶茶，随后步行去公司。",
+        "路上遇到邻居的孩子在公园玩耍，我停下来和他们聊了几句。"
+      ],
+      "cloze": {
+        "sentence": "下午下班后，我去超市___菜，准备晚上做一顿丰盛的晚餐。",
+        "answer": "买"
+      },
+      "questions": [
+        {
+          "qPt": "O que o narrador comprou na manhã?",
+          "optionsPt": [
+            "Um sanduíche",
+            "Um café",
+            "Uma xícara de chá quente",
+            "Um suco"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual atividade o narrador fez após o trabalho?",
+          "optionsPt": [
+            "Assistir TV",
+            "Ir ao cinema",
+            "Ir ao supermercado comprar verduras",
+            "Ler um livro"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva sua rotina diária em português, usando ao menos cinco palavras em mandarim do texto.",
+      "keywords": [
+        "咖啡店",
+        "奶茶",
+        "超市",
+        "晚餐",
+        "公园"
+      ]
+    },
+    {
+      "id": "V6-02-1",
+      "genre": "notícia",
+      "level": "intermediário",
+      "titlePt": "Cidade lança programa de bicicletas compartilhadas",
+      "zh": "本市今日启动了全新的共享单车计划，旨在缓解市中心的交通拥堵，并鼓励市民绿色出行。该计划将在未来三个月内覆盖主要商业区和住宅区。预计将减少约十五个百分点的车辆使用率。",
+      "summaryPt": "A cidade iniciou um programa de bicicletas compartilhadas para reduzir o trânsito e promover mobilidade sustentável.",
+      "dictation": [
+        "本市今日启动了全新的共享单车计划，旨在缓解市中心的交通拥堵，并鼓励市民绿色出行。",
+        "该计划将在未来三个月内覆盖主要商业区和住宅区。"
+      ],
+      "cloze": {
+        "sentence": "该计划的目标是___交通压力。",
+        "answer": "降低"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo do novo programa?",
+          "optionsPt": [
+            "Reduzir a poluição",
+            "Aliviar o trânsito",
+            "Aumentar o turismo",
+            "Melhorar a segurança"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Em quanto tempo o programa será implementado nas áreas principais?",
+          "optionsPt": [
+            "Um mês",
+            "Três meses",
+            "Seis meses",
+            "Um ano"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Escreva uma notícia em português descrevendo o lançamento do programa de bicicletas compartilhadas e seus benefícios esperados.",
+      "keywords": [
+        "共享单车",
+        "交通拥堵",
+        "绿色出行",
+        "市中心",
+        "商业区",
+        "住宅区"
+      ]
+    },
+    {
+      "id": "V6-02-2",
+      "genre": "notícia",
+      "level": "avançado",
+      "titlePt": "Política econômica de estímulo",
+      "zh": "北京——在本周二的新闻发布会上，国务院宣布将启动一项新的宏观调控计划，旨在通过降低企业税负、扩大基建投资。此外，计划还将提升创新基金的力度，以进一步推动国内经济的高质量增长。",
+      "summaryPt": "O governo anunciou um novo plano macroeconômico para reduzir impostos e ampliar investimentos em infraestrutura.",
+      "dictation": [
+        "北京——在本周二的新闻发布会上，国务院宣布将启动一项新的宏观调控计划，旨在通过降低企业税负、扩大基建投资。",
+        "此外，计划还将提升创新基金的力度，以进一步推动国内经济的高质量增长。"
+      ],
+      "cloze": {
+        "sentence": "国务院宣布将启动一项新的宏观调控___，旨在通过降低企业税负。",
+        "answer": "计划"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo da nova política?",
+          "optionsPt": [
+            "Aumentar impostos",
+            "Reduzir a dívida pública",
+            "Estimular o crescimento econômico",
+            "Controlar a inflação"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual setor receberá maior investimento segundo o anúncio?",
+          "optionsPt": [
+            "Saúde",
+            "Educação",
+            "Infraestrutura",
+            "Tecnologia"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como a nova política macroeconômica pode impactar as empresas chinesas.",
+      "keywords": [
+        "宏观调控",
+        "税负",
+        "基建投资",
+        "创新基金",
+        "经济增长"
+      ]
+    },
+    {
+      "id": "V6-02-3",
+      "genre": "notícia",
+      "level": "superior",
+      "titlePt": "China lança novo programa de exploração lunar",
+      "zh": "中国国家航天局今日宣布启动新一代月球探测计划，计划在2027年至2030年间完成首次载人登月任务。该计划旨在提升国际合作与技术创新。",
+      "summaryPt": "A China anunciou um programa avançado para exploração lunar, com objetivo de enviar astronautas entre 2027 e 2030 e fortalecer a cooperação internacional.",
+      "dictation": [
+        "中国国家航天局今日宣布启动新一代月球探测计划，计划在2027年至2030年间完成首次载人登月任务。",
+        "该计划旨在提升国际合作与技术创新。"
+      ],
+      "cloze": {
+        "sentence": "该计划旨在提升___与技术创新。",
+        "answer": "国际合作"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo do novo programa lunar da China?",
+          "optionsPt": [
+            "Enviar astronautas à Lua",
+            "Desenvolver satélites de comunicação",
+            "Construir estações espaciais",
+            "Explorar Marte"
+          ],
+          "answer": 0
+        },
+        {
+          "qPt": "Em que período a China pretende concluir a primeira missão tripulada à Lua?",
+          "optionsPt": [
+            "2025-2028",
+            "2027-2030",
+            "2031-2034",
+            "2035-2038"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Escreva um pequeno comentário em português sobre a importância desse programa para a ciência global.",
+      "keywords": [
+        "中国",
+        "航天局",
+        "月球",
+        "探测",
+        "载人",
+        "登月",
+        "合作",
+        "创新"
+      ]
+    },
+    {
+      "id": "V6-03-1",
+      "genre": "trabalho",
+      "level": "intermediário",
+      "titlePt": "Relatório de reunião de trabalho",
+      "zh": "今天上午，张伟在公司会议室向同事们汇报了项目进展。随后，他与市场部的李娜讨论了产品推广策略，决定下周进行一次线上发布会。会议结束后，张伟整理了会议纪要并发送给全体成员。",
+      "summaryPt": "Zhang Wei apresenta o andamento do projeto, discute estratégias de marketing e prepara a documentação da reunião.",
+      "dictation": [
+        "今天上午，张伟在公司会议室向同事们汇报了项目进展。",
+        "随后，他与市场部的李娜讨论了产品推广策略，决定下周进行一次线上发布会。"
+      ],
+      "cloze": {
+        "sentence": "会议结束后，张伟整理了 ___ 并发送给全体成员。",
+        "answer": "会议纪要"
+      },
+      "questions": [
+        {
+          "qPt": "Qual foi a principal atividade de Zhang Wei pela manhã?",
+          "optionsPt": [
+            "Participar de treinamento",
+            "Apresentar o progresso do projeto",
+            "Revisar documentos",
+            "Organizar o almoço"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Com quem Zhang Wei discutiu a estratégia de promoção?",
+          "optionsPt": [
+            "王磊",
+            "李娜",
+            "陈强",
+            "赵敏"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva como você organizaria uma reunião de trabalho eficiente.",
+      "keywords": [
+        "会议",
+        "项目进展",
+        "市场部",
+        "产品推广",
+        "线上发布会",
+        "会议纪要"
+      ]
+    },
+    {
+      "id": "V6-03-2",
+      "genre": "trabalho",
+      "level": "avançado",
+      "titlePt": "A Jornada do Dragão Vermelho",
+      "zh": "在古老的山谷里，红龙苏醒，翱翔于云端，寻找失落的宝藏，途中遇到智慧的老鹤和勇敢的少年。他们携手穿越幽暗的森林，解开古碑的谜题，最终在星光下揭开宝藏的秘密。",
+      "summaryPt": "Um dragão vermelho desperta em um vale antigo e, junto a um jovem corajoso e uma garça sábia, busca um tesouro perdido, enfrentando desafios misteriosos.",
+      "dictation": [
+        "在古老的山谷里，红龙苏醒，翱翔于云端，寻找失落的宝藏。",
+        "他们携手穿越幽暗的森林，解开古碑的谜题，最终在星光下揭开宝藏的秘密。"
+      ],
+      "cloze": {
+        "sentence": "红龙在___中苏醒。",
+        "answer": "山谷"
+      },
+      "questions": [
+        {
+          "qPt": "Qual elemento ajuda o dragão a encontrar o tesouro?",
+          "optionsPt": [
+            "A garça",
+            "O velho mapa",
+            "A estrela cadente",
+            "O vento"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "O que simboliza a luz das estrelas no final da história?",
+          "optionsPt": [
+            "Esperança",
+            "Desespero",
+            "Silêncio",
+            "Fome"
+          ],
+          "answer": 0
+        }
+      ],
+      "productionPt": "Descreva como o dragão e o jovem resolveram o enigma do antigo monumento.",
+      "keywords": [
+        "红龙",
+        "山谷",
+        "宝藏",
+        "古碑",
+        "星光",
+        "幽暗森林",
+        "智慧",
+        "勇气"
+      ]
+    },
+    {
+      "id": "V6-03-3",
+      "genre": "trabalho",
+      "level": "superior",
+      "titlePt": "A influência da caligrafia na identidade cultural chinesa",
+      "zh": "在现代社会，书法不仅是艺术形式，更是连接个人与传统文化的桥梁，激发人们对身份认同的深层思考。这种情感在日常书写中得到体现，成为文化自信的象征。",
+      "summaryPt": "Este texto discute como a prática da caligrafia contemporânea reforça a identidade cultural e a confiança nacional na China.",
+      "dictation": [
+        "在现代社会，书法不仅是艺术形式，更是连接个人与传统文化的桥梁，激发人们对身份认同的深层思考。",
+        "这种情感在日常书写中得到体现，成为文化自信的象征。"
+      ],
+      "cloze": {
+        "sentence": "书法是___的桥梁。",
+        "answer": "文化"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o papel principal da caligrafia segundo o texto?",
+          "optionsPt": [
+            "Entretenimento",
+            "Comunicação",
+            "Expressão artística",
+            "Ponte cultural"
+          ],
+          "answer": 3
+        },
+        {
+          "qPt": "O que a caligrafia ajuda a fortalecer na sociedade?",
+          "optionsPt": [
+            "Tecnologia",
+            "Identidade cultural",
+            "Economia",
+            "Política"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Escreva um pequeno ensaio sobre a importância da caligrafia na preservação da identidade cultural.",
+      "keywords": [
+        "书法",
+        "文化",
+        "身份",
+        "传统",
+        "自信",
+        "桥梁",
+        "艺术",
+        "认同"
+      ]
+    },
+    {
+      "id": "V6-04-1",
+      "genre": "saúde",
+      "level": "intermediário",
+      "titlePt": "Prevenção de Doenças",
+      "zh": "保持健康的关键是每天进行适度的运动，并均衡摄入营养丰富的食物，避免过度熬夜。此外，定期进行体检可以早期发现潜在问题，及时采取措施。",
+      "summaryPt": "Aprenda sobre a importância da prevenção de doenças para uma vida saudável.",
+      "dictation": [
+        "每天步行三千步，有助于心血管健康。",
+        "每晚保证七到八小时睡眠，可提升免疫力。"
+      ],
+      "cloze": {
+        "sentence": "Para melhorar a saúde, recomenda-se beber ___ copos de água por dia.",
+        "answer": "8"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal benefício de fazer exercícios regulares?",
+          "optionsPt": [
+            "Reduzir o estresse",
+            "Melhorar a digestão",
+            "Fortalecer o sistema cardiovascular",
+            "Aumentar o apetite"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual prática ajuda a fortalecer o sistema imunológico?",
+          "optionsPt": [
+            "Dormir menos",
+            "Consumir alimentos processados",
+            "Manter sono adequado",
+            "Evitar água"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva duas estratégias fictícias para prevenir doenças em uma comunidade.",
+      "keywords": [
+        "运动",
+        "营养",
+        "睡眠",
+        "体检",
+        "免疫力"
+      ]
+    },
+    {
+      "id": "V6-04-2",
+      "genre": "saúde",
+      "level": "avançado",
+      "titlePt": "Decisão compartilhada no acompanhamento",
+      "zh": "复诊时，医生没有只看化验结果，而是先问患者最近的睡眠、工作压力和用药感受。两人一起比较了几种方案的收益与风险，最后决定先调整生活节奏，并在两周后重新评估。",
+      "summaryPt": "Durante o retorno, médico e paciente consideram sintomas, contexto e riscos antes de decidir juntos por uma intervenção gradual.",
+      "dictation": [
+        "医生没有只看化验结果，而是先问患者最近的睡眠、工作压力和用药感受。",
+        "两人一起比较了几种方案的收益与风险。"
+      ],
+      "cloze": {
+        "sentence": "最后决定先调整生活节奏，并在两周后___。",
+        "answer": "重新评估"
+      },
+      "questions": [
+        {
+          "qPt": "Qual princípio orienta a consulta?",
+          "optionsPt": [
+            "Decisão compartilhada",
+            "Prescrição automática",
+            "Exame isolado",
+            "Alta imediata"
+          ],
+          "answer": 0
+        },
+        {
+          "qPt": "Qual foi a conduta inicial?",
+          "optionsPt": [
+            "Internação",
+            "Troca de todos os medicamentos",
+            "Ajuste do ritmo de vida e reavaliação",
+            "Nenhum acompanhamento"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Explique em chinês como apresentar opções terapêuticas, riscos e preferências do paciente sem tomar a decisão por ele.",
+      "keywords": [
+        "复诊",
+        "化验结果",
+        "睡眠",
+        "工作压力",
+        "收益",
+        "风险",
+        "调整",
+        "评估"
+      ]
+    },
+    {
+      "id": "V6-04-3",
+      "genre": "saúde",
+      "level": "superior",
+      "titlePt": "Prevenção de doenças respiratórias",
+      "zh": "在高等教育环境中，学生应了解呼吸系统的结构与功能，掌握预防常见呼吸道疾病的措施，如保持空气流通、勤洗手以及合理锻炼。此外，合理的作息时间也能增强免疫力。",
+      "summaryPt": "O texto aborda a importância de compreender a anatomia e fisiologia do sistema respiratório e apresenta medidas preventivas, como ventilação adequada, higiene das mãos, exercício regular e boa rotina de sono, para estudantes universitários.",
+      "dictation": [
+        "在高等教育环境中，学生应了解呼吸系统的结构与功能。",
+        "掌握预防常见呼吸道疾病的措施，如保持空气流通、勤洗手以及合理锻炼。"
+      ],
+      "cloze": {
+        "sentence": "学生应___呼吸系统的结构与功能。",
+        "answer": "了解"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a principal medida para prevenir doenças respiratórias em ambientes fechados?",
+          "optionsPt": [
+            "Usar máscara",
+            "Manter o ar condicionado ligado",
+            "Manter a ventilação aberta",
+            "Evitar exercícios físicos"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual prática ajuda a fortalecer o sistema imunológico segundo o texto?",
+          "optionsPt": [
+            "Dormir menos",
+            "Alimentação rica em açúcar",
+            "Manter horários regulares de sono",
+            "Fumar regularmente"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva em português como um estudante universitário pode aplicar as medidas de prevenção apresentadas.",
+      "keywords": [
+        "呼吸系统",
+        "预防",
+        "空气流通",
+        "勤洗手",
+        "免疫力",
+        "锻炼",
+        "作息时间"
+      ]
+    },
+    {
+      "id": "V6-05-1",
+      "genre": "ciência",
+      "level": "intermediário",
+      "titlePt": "Energia solar e avanços tecnológicos",
+      "zh": "太阳能光伏技术利用半导体材料将光能直接转换为电能，近年来效率提升至22%，并在偏远地区提供可靠电力。此外，光伏系统的成本已下降至每瓦0.2美元，使其在全球市场竞争力大幅提升。",
+      "summaryPt": "O texto apresenta os recentes avanços da tecnologia fotovoltaica, destacando o aumento da eficiência para 22% e a queda de custos para 0,2 dólares por watt, tornando a energia solar mais acessível, especialmente em áreas remotas.",
+      "dictation": [
+        "太阳能光伏技术利用半导体材料将光能直接转换为电能，近年来效率提升至22%，并在偏远地区提供可靠电力。",
+        "此外，光伏系统的成本已下降至每瓦0.2美元，使其在全球市场竞争力大幅提升。"
+      ],
+      "cloze": {
+        "sentence": "光伏技术的核心是___材料。",
+        "answer": "半导体"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a eficiência recente das células fotovoltaicas mencionada?",
+          "optionsPt": [
+            "18%",
+            "20%",
+            "22%",
+            "24%"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual foi a redução de custo citada para os sistemas fotovoltaicos?",
+          "optionsPt": [
+            "0.5美元/瓦",
+            "0.3美元/瓦",
+            "0.2美元/瓦",
+            "0.1美元/瓦"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como a energia solar pode beneficiar comunidades rurais, usando exemplos do texto.",
+      "keywords": [
+        "太阳能",
+        "光伏",
+        "半导体",
+        "效率",
+        "成本",
+        "电力",
+        "偏远地区"
+      ]
+    },
+    {
+      "id": "V6-05-2",
+      "genre": "ciência",
+      "level": "avançado",
+      "titlePt": "A Dinâmica Quântica das Partículas em Campos Magnéticos",
+      "zh": "在强磁场中，量子粒子表现出自旋翻转和能级分裂的复杂行为，这对新型材料的磁性调控至关重要。进一步的实验表明，温度变化会显著影响自旋相干时间，从而改变量子信息的保持效率。",
+      "summaryPt": "Este texto explora como partículas quânticas respondem a campos magnéticos intensos, destacando a rotação de spin e a divisão de níveis de energia. Também discute a influência da temperatura na coerência de spin e nas aplicações de materiais avançados.",
+      "dictation": [
+        "在强磁场中，量子粒子表现出自旋翻转和能级分裂的复杂行为，这对新型材料的磁性调控至关重要。",
+        "进一步的实验表明，温度变化会显著影响自旋相干时间，从而改变量子信息的保持效率。"
+      ],
+      "cloze": {
+        "sentence": "量子粒子的___导致能级分裂。",
+        "answer": "自旋翻转"
+      },
+      "questions": [
+        {
+          "qPt": "Qual fenômeno descrito afeta diretamente a energia das partículas?",
+          "optionsPt": [
+            "Rotação de spin",
+            "Divisão de níveis",
+            "Coerência de spin",
+            "Variação de temperatura"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "O que a variação de temperatura altera nas partículas quânticas?",
+          "optionsPt": [
+            "Intensidade do campo magnético",
+            "Tempo de coerência de spin",
+            "Massa das partículas",
+            "Velocidade de rotação"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva como a variação de temperatura afeta a coerência de spin em partículas quânticas.",
+      "keywords": [
+        "量子",
+        "自旋",
+        "磁场",
+        "能级分裂",
+        "相干时间",
+        "温度",
+        "材料",
+        "实验"
+      ]
+    },
+    {
+      "id": "V6-05-3",
+      "genre": "ciência",
+      "level": "superior",
+      "titlePt": "Desenvolvimento de Baterias de Íon de Lítio",
+      "zh": "锂离子电池因其高能量密度和长循环寿命，被广泛用于电动汽车和便携式电子设备。近年来，研究者通过优化电极材料和电解液配方，提高了安全性和充电速度。",
+      "summaryPt": "Este texto apresenta os avanços recentes nas baterias de íon de lítio, destacando melhorias em energia, segurança e velocidade de carga.",
+      "dictation": [
+        "锂离子电池因其高能量密度和长循环寿命，被广泛用于电动汽车和便携式电子设备。",
+        "近年来，研究者通过优化电极材料和电解液配方，提高了安全性和充电速度。"
+      ],
+      "cloze": {
+        "sentence": "锂离子电池的主要优势是其___。",
+        "answer": "高能量密度"
+      },
+      "questions": [
+        {
+          "qPt": "Quais são os principais componentes de uma bateria de íon de lítio?",
+          "optionsPt": [
+            "Lítio, carbono e níquel",
+            "Cobalto, níquel e manganês",
+            "Lítio, cobalto e carbono",
+            "Níquel, manganês e ferro"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual é o principal benefício das baterias de íon de lítio em comparação com outras tecnologias?",
+          "optionsPt": [
+            "Maior peso",
+            "Menor custo",
+            "Maior densidade de energia",
+            "Menor vida útil"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "O texto foi elaborado com base em literatura científica atual sobre baterias de íon de lítio.",
+      "keywords": [
+        "锂离子电池",
+        "能量密度",
+        "循环寿命",
+        "电极材料",
+        "电解液",
+        "安全性",
+        "充电速度",
+        "电动汽车"
+      ]
+    },
+    {
+      "id": "V6-06-1",
+      "genre": "tecnologia",
+      "level": "intermediário",
+      "titlePt": "O impacto da IA nos smartphones",
+      "zh": "随着人工智能技术的快速发展，智能手机的功能越来越强大。用户可以通过语音助手进行翻译、拍照甚至编程，这极大提升了日常生活的效率。",
+      "summaryPt": "Texto que discute como a IA está ampliando as capacidades dos smartphones, permitindo funções avançadas como tradução e programação via assistente de voz.",
+      "dictation": [
+        "随着人工智能技术的快速发展，智能手机的功能越来越强大。",
+        "用户可以通过语音助手进行翻译、拍照甚至编程，这极大提升了日常生活的效率。"
+      ],
+      "cloze": {
+        "sentence": "智能手机的功能越来越___。",
+        "answer": "强大"
+      },
+      "questions": [
+        {
+          "qPt": "Qual tecnologia está impulsionando o desenvolvimento dos smartphones?",
+          "optionsPt": [
+            "Inteligência Artificial",
+            "Realidade Virtual",
+            "Blockchain",
+            "Internet das Coisas"
+          ],
+          "answer": 0
+        },
+        {
+          "qPt": "O que os usuários podem fazer com assistentes de voz?",
+          "optionsPt": [
+            "Só fazer chamadas",
+            "Traduzir, fotografar e programar",
+            "Jogar jogos offline",
+            "Navegar sem internet"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva como a inteligência artificial pode mudar ainda mais o uso dos smartphones nos próximos anos.",
+      "keywords": [
+        "人工智能",
+        "智能手机",
+        "语音助手",
+        "翻译",
+        "编程",
+        "效率",
+        "技术"
+      ]
+    },
+    {
+      "id": "V6-06-2",
+      "genre": "tecnologia",
+      "level": "avançado",
+      "titlePt": "Inovações de Computação Quântica em Cidades Inteligentes",
+      "zh": "在未来的智能城市中，量子计算机与全息投影技术无缝融合，提升了数据处理速度和用户交互体验。同时，人工智能助手通过自然语言处理，实现了跨平台的实时协作。",
+      "summaryPt": "Este texto descreve como a computação quântica e a projeção holográfica transformam as cidades inteligentes, acelerando o processamento de dados e facilitando a colaboração em tempo real via IA.",
+      "dictation": [
+        "在未来的智能城市中，量子计算机与全息投影技术无缝融合，提升了数据处理速度和用户交互体验。",
+        "同时，人工智能助手通过自然语言处理，实现了跨平台的实时协作。"
+      ],
+      "cloze": {
+        "sentence": "量子计算机的核心优势是___，能够显著提升运算效率。",
+        "answer": "超高速并行处理"
+      },
+      "questions": [
+        {
+          "qPt": "Qual tecnologia permite a visualização de objetos 3D sem necessidade de óculos?",
+          "optionsPt": [
+            "Realidade aumentada",
+            "Realidade virtual",
+            "Projeção holográfica",
+            "Impressão 3D"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual benefício da IA descrito no texto?",
+          "optionsPt": [
+            "Redução de custos operacionais",
+            "Aumento da latência de rede",
+            "Melhoria na segurança física",
+            "Facilitação da colaboração em tempo real"
+          ],
+          "answer": 3
+        }
+      ],
+      "productionPt": "Explique, em português, como a integração entre computação quântica e IA pode mudar a vida urbana nos próximos anos.",
+      "keywords": [
+        "量子计算",
+        "全息投影",
+        "人工智能",
+        "自然语言处理",
+        "实时协作"
+      ]
+    },
+    {
+      "id": "V6-06-3",
+      "genre": "tecnologia",
+      "level": "superior",
+      "titlePt": "Impacto dos chips domésticos de alta performance na computação em nuvem",
+      "zh": "随着人工智能的快速发展，国产高性能芯片在数据中心的部署显著提升了计算效率，降低了能耗，并推动了本土云服务的创新。此外，边缘计算设备也受益于新架构，实现了实时数据处理。",
+      "summaryPt": "O texto descreve como os chips chineses de alta performance aumentam a eficiência dos data centers, reduzem o consumo energético e impulsionam inovações em serviços de nuvem e computação de borda.",
+      "dictation": [
+        "随着人工智能的快速发展，国产高性能芯片在数据中心的部署显著提升了计算效率，降低了能耗，并推动了本土云服务的创新。",
+        "此外，边缘计算设备也受益于新架构，实现了实时数据处理。"
+      ],
+      "cloze": {
+        "sentence": "国产高性能芯片在数据中心的部署显著提升了___。",
+        "answer": "计算效率"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal benefício mencionado para os data centers ao usar chips domésticos?",
+          "optionsPt": [
+            "Maior capacidade de armazenamento",
+            "Redução de energia",
+            "Aumento de latência",
+            "Melhor design estético"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Segundo o texto, onde a computação de borda também se beneficia?",
+          "optionsPt": [
+            "Em smartphones",
+            "Em servidores de arquivos",
+            "Em novos arquiteturas",
+            "Em redes sociais"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como a adoção de chips de alta performance pode influenciar a competitividade das empresas de tecnologia no Brasil.",
+      "keywords": [
+        "人工智能",
+        "芯片",
+        "数据中心",
+        "边缘计算",
+        "能耗",
+        "云服务",
+        "架构"
+      ]
+    },
+    {
+      "id": "V6-07-1",
+      "genre": "educação",
+      "level": "intermediário",
+      "titlePt": "Avaliação de Ensino Interativo",
+      "zh": "在现代课堂中，教师常用互动式教学来激发学生的学习兴趣。通过小组讨论和项目实践，学生能够将理论知识应用于实际情境，提高批判性思维能力。",
+      "summaryPt": "Texto sobre o uso de metodologias interativas na sala de aula para melhorar o interesse e o pensamento crítico dos alunos.",
+      "dictation": [
+        "在现代课堂中，教师常用互动式教学来激发学生的学习兴趣。",
+        "通过小组讨论和项目实践，学生能够将理论知识应用于实际情境，提高批判性思维能力。"
+      ],
+      "cloze": {
+        "sentence": "教师常用 ___ 来激发学生的学习兴趣。",
+        "answer": "互动式教学"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo da interação em sala de aula segundo o texto?",
+          "optionsPt": [
+            "Aumentar a disciplina",
+            "Estimular o interesse dos alunos",
+            "Reduzir o tempo de aula",
+            "Avaliar o conteúdo"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "O que os alunos desenvolvem ao aplicar conhecimentos teóricos em situações reais?",
+          "optionsPt": [
+            "Memorização",
+            "Pensamento crítico",
+            "Habilidades motoras",
+            "Linguagem escrita"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva como você aplicaria métodos interativos em sua aula, citando exemplos de atividades.",
+      "keywords": [
+        "课堂",
+        "互动式教学",
+        "小组讨论",
+        "项目实践",
+        "批判性思维",
+        "理论知识"
+      ]
+    },
+    {
+      "id": "V6-07-2",
+      "genre": "educação",
+      "level": "avançado",
+      "titlePt": "Dia de estudo em um antigo colégio chinês",
+      "zh": "在古代的书院里，学生们每天清晨朗读经典，午后讨论哲学，晚上则练习书法和棋艺，以培养全面的才智。此外，教师们还会组织诗歌朗诵和古文写作比赛，激发学生的创造力。",
+      "summaryPt": "Apresenta a rotina intensiva de aprendizagem em um colégio tradicional chinês, combinando leitura, debate, artes e competições para desenvolver habilidades completas.",
+      "dictation": [
+        "学生们每天清晨朗读经典。",
+        "教师们组织诗歌朗诵和古文写作比赛。"
+      ],
+      "cloze": {
+        "sentence": "古代书院的教学目标是培养___的才智。",
+        "answer": "全面"
+      },
+      "questions": [
+        {
+          "qPt": "Qual atividade ocorre à tarde?",
+          "optionsPt": [
+            "朗读经典",
+            "讨论哲学",
+            "练习书法",
+            "组织比赛"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual palavra descreve o objetivo final da educação?",
+          "optionsPt": [
+            "专注",
+            "全面",
+            "单一",
+            "临时"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva como seria um dia típico de estudo em um antigo colégio chinês, destacando as diferentes atividades.",
+      "keywords": [
+        "书院",
+        "朗读",
+        "哲学",
+        "书法",
+        "棋艺",
+        "诗歌",
+        "古文",
+        "比赛"
+      ]
+    },
+    {
+      "id": "V6-07-3",
+      "genre": "educação",
+      "level": "superior",
+      "titlePt": "Avaliação de Mandarim – Educação Superior",
+      "zh": "在当代社会，大学教育不仅传授专业知识，还培养批判性思维和创新能力。学生应积极参与科研项目，提升实践经验，为未来职业发展奠定坚实基础。同时，跨学科合作能够激发新思路，推动社会进步。",
+      "summaryPt": "Texto sobre o papel da universidade na formação de competências críticas e inovadoras, enfatizando a pesquisa e a colaboração interdisciplinar.",
+      "dictation": [
+        "在当代社会，大学教育不仅传授专业知识，还培养批判性思维和创新能力。",
+        "学生应积极参与科研项目，提升实践经验，为未来职业发展奠定坚实基础。"
+      ],
+      "cloze": {
+        "sentence": "大学教育不仅传授 ___，还培养批判性思维。",
+        "answer": "专业知识"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo da educação universitária segundo o texto?",
+          "optionsPt": [
+            "Transmitir apenas conhecimentos técnicos",
+            "Desenvolver pensamento crítico e habilidades inovadoras",
+            "Preparar os estudantes para exames",
+            "Garantir a empregabilidade imediata"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "O que os estudantes devem fazer para melhorar sua experiência prática?",
+          "optionsPt": [
+            "Assistir a aulas teóricas",
+            "Participar de projetos de pesquisa",
+            "Evitar trabalhos em grupo",
+            "Focar apenas em estudos individuais"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Redija um pequeno ensaio em mandarim sobre a importância da colaboração interdisciplinar na educação superior.",
+      "keywords": [
+        "大学教育",
+        "批判性思维",
+        "创新能力",
+        "科研项目",
+        "跨学科合作"
+      ]
+    },
+    {
+      "id": "V6-08-1",
+      "genre": "direito",
+      "level": "intermediário",
+      "titlePt": "Direitos e Obrigações no Contrato de Compra",
+      "zh": "根据《合同法》第三条，买方应在收到货物后七日内完成付款，否则卖方有权解除合同。若买方提前付款，卖方必须在三日内发货，并提供合格的发票。违约方需承担相应的违约金和损失赔偿。",
+      "summaryPt": "Este texto aborda as principais cláusulas do contrato de compra e venda, destacando prazos de pagamento, obrigação de entrega e as sanções em caso de descumprimento.",
+      "dictation": [
+        "根据《合同法》第三条，买方应在收到货物后七日内完成付款，否则卖方有权解除合同。",
+        "若买方提前付款，卖方必须在三日内发货，并提供合格的发票。"
+      ],
+      "cloze": {
+        "sentence": "卖方必须在 ___ 日内发货。",
+        "answer": "三"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o prazo que o comprador tem para pagar após receber a mercadoria?",
+          "optionsPt": [
+            "5 dias",
+            "7 dias",
+            "10 dias",
+            "14 dias"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual é a consequência se o comprador não pagar dentro do prazo?",
+          "optionsPt": [
+            "O vendedor pode aumentar o preço",
+            "O comprador recebe desconto",
+            "O vendedor pode rescindir o contrato",
+            "Nenhuma ação"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Escreva uma breve redação explicando os direitos e deveres do comprador e do vendedor em um contrato de compra e venda.",
+      "keywords": [
+        "合同法",
+        "买方",
+        "卖方",
+        "付款",
+        "发货",
+        "违约金",
+        "发票"
+      ]
+    },
+    {
+      "id": "V6-08-2",
+      "genre": "direito",
+      "level": "avançado",
+      "titlePt": "Análise de Contrato Internacional",
+      "zh": "在国际贸易中，合同的履行涉及跨境法律适用、争议解决机制以及货物交付的具体条款，确保各方权利义务明确。此外，还需考虑汇率波动对付款金额的影响以及不可抗力事件的免责条款。",
+      "summaryPt": "Este texto discute os principais aspectos de um contrato internacional, incluindo a aplicação de leis transfronteiriças, mecanismos de resolução de disputas, cláusulas de entrega e fatores como variação cambial e força maior.",
+      "dictation": [
+        "在国际贸易中，合同的履行涉及跨境法律适用、争议解决机制以及货物交付的具体条款，确保各方权利义务明确。",
+        "此外，还需考虑汇率波动对付款金额的影响以及不可抗力事件的免责条款。"
+      ],
+      "cloze": {
+        "sentence": "合同的履行涉及跨境法律适用、争议解决机制以及货物交付的具体 ___，确保各方权利义务明确。",
+        "answer": "条款"
+      },
+      "questions": [
+        {
+          "qPt": "Qual elemento do contrato garante a definição clara das obrigações das partes?",
+          "optionsPt": [
+            "Cláusula de pagamento",
+            "Cláusula de entrega",
+            "Cláusula de termos",
+            "Cláusula de força maior"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual fator externo pode alterar o valor a ser pago em um contrato internacional?",
+          "optionsPt": [
+            "Taxa de juros",
+            "Variação cambial",
+            "Prazo de entrega",
+            "Garantia bancária"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Redija uma cláusula que trate da resolução de disputas em contratos internacionais.",
+      "keywords": [
+        "合同",
+        "跨境",
+        "法律适用",
+        "争议解决",
+        "不可抗力",
+        "汇率"
+      ]
+    },
+    {
+      "id": "V6-08-3",
+      "genre": "direito",
+      "level": "superior",
+      "titlePt": "Importância da prova no processo civil",
+      "zh": "在民事诉讼中，原告必须提供充分的证据证明其主张的事实，否则法院可能驳回其诉讼请求。同时，被告有权对证据进行质证，以维护自身合法权益。",
+      "summaryPt": "O texto destaca que, no processo civil, o autor precisa apresentar provas suficientes ou terá sua ação rejeitada, enquanto o réu pode contestar as provas para proteger seus direitos.",
+      "dictation": [
+        "在民事诉讼中，原告必须提供充分的证据证明其主张的事实，否则法院可能驳回其诉讼请求。",
+        "同时，被告有权对证据进行质证，以维护自身合法权益。"
+      ],
+      "cloze": {
+        "sentence": "原告必须提供 ___ 的证据。",
+        "answer": "充分"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a consequência se o autor não apresentar provas suficientes?",
+          "optionsPt": [
+            "O juiz concede a ação",
+            "O juiz rejeita a ação",
+            "O réu ganha automaticamente",
+            "O processo é arquivado"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual direito o réu possui segundo o texto?",
+          "optionsPt": [
+            "Apresentar recursos",
+            "Realizar a defesa oral",
+            "Realizar a contestação",
+            "Exercer o direito de impugnar as provas"
+          ],
+          "answer": 3
+        }
+      ],
+      "productionPt": "Elabore um parecer jurídico sobre a importância da prova no processo civil.",
+      "keywords": [
+        "民事诉讼",
+        "原告",
+        "证据",
+        "驳回",
+        "质证",
+        "合法权益"
+      ]
+    },
+    {
+      "id": "V6-09-1",
+      "genre": "literatura contemporânea",
+      "level": "intermediário",
+      "titlePt": "A Busca de Lin Hao",
+      "zh": "在繁华的城市里，年轻的画家林浩每天在咖啡馆里寻找灵感。他的作品捕捉了灯火阑珊中的孤独与希望。一天，他在街角的旧书店发现一本未署名的诗集，里面的文字像是为他而写。他决定把这些诗写进自己的画作，开启了新的创作旅程。",
+      "summaryPt": "Um jovem pintor de uma metrópole procura inspiração nos cafés, encontra um livro de poemas anônimos e incorpora-os às suas obras, iniciando uma nova fase criativa.",
+      "dictation": [
+        "在繁华的城市里，年轻的画家林浩每天在咖啡馆里寻找灵感。",
+        "他的作品捕捉了灯火阑珊中的孤独与希望。"
+      ],
+      "cloze": {
+        "sentence": "他在咖啡馆里寻找 ___。",
+        "answer": "灵感"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a profissão de Lin Hao?",
+          "optionsPt": [
+            "Músico",
+            "Pintor",
+            "Escritor",
+            "Fotógrafo"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Onde Lin Hao encontrou o livro de poemas?",
+          "optionsPt": [
+            "Biblioteca pública",
+            "Livraria moderna",
+            "Antiga livraria na esquina",
+            "Museu de arte"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como a descoberta do livro pode influenciar a arte de Lin Hao, usando pelo menos três palavras em chinês.",
+      "keywords": [
+        "城市",
+        "画家",
+        "咖啡馆",
+        "诗集",
+        "创作"
+      ]
+    },
+    {
+      "id": "V6-09-2",
+      "genre": "literatura contemporânea",
+      "level": "avançado",
+      "titlePt": "A voz solitária de um escritor urbano",
+      "zh": "在喧嚣的城市里，年轻的作家林浩用细腻的笔触描绘孤独的灵魂，探索记忆与现实的交错。他在咖啡馆的角落写下《夜色的回声》，让读者在文字的缝隙中寻找自我。",
+      "summaryPt": "O texto descreve como o jovem escritor chinês Lin Hao retrata a solidão e o confronto entre memória e realidade nas ruas agitadas de uma metrópole, usando a escrita como meio de autodescoberta.",
+      "dictation": [
+        "在喧嚣的城市里，年轻的作家林浩用细腻的笔触描绘孤独的灵魂，探索记忆与现实的交错。",
+        "他在咖啡馆的角落写下《夜色的回声》，让读者在文字的缝隙中寻找自我。"
+      ],
+      "cloze": {
+        "sentence": "林浩的作品常常聚焦于___的冲突。",
+        "answer": "记忆与现实"
+      },
+      "questions": [
+        {
+          "qPt": "Qual elemento central do texto destaca a luta interna do autor?",
+          "optionsPt": [
+            "Cidade",
+            "Solidão",
+            "Memória e realidade",
+            "Café"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "O que simboliza o título \"夜色的回声\"?",
+          "optionsPt": [
+            "O som da noite",
+            "A memória reverberante",
+            "O silêncio da cidade",
+            "A luz do amanhecer"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Escreva um texto de 150‑200 palavras analisando o papel da memória na literatura contemporânea chinesa.",
+      "keywords": [
+        "喧嚣",
+        "孤独",
+        "记忆",
+        "现实",
+        "回声",
+        "咖啡馆",
+        "灵魂",
+        "交错"
+      ]
+    },
+    {
+      "id": "V6-09-3",
+      "genre": "literatura contemporânea",
+      "level": "superior",
+      "titlePt": "Avaliação de Literatura Contemporânea em Mandarim",
+      "zh": "在灯红酒绿的城市里，年轻的作家林浩在咖啡馆里记录下街头的喧哗与孤独，思考现代人的情感迷失。他用细腻的笔触描绘出高楼背后隐藏的温柔与冷漠，呼唤读者重新审视自我。",
+      "summaryPt": "Texto fictício que explora a vida urbana e a busca de sentido na literatura contemporânea chinesa.",
+      "dictation": [
+        "在灯红酒绿的城市里，年轻的作家林浩在咖啡馆里记录下街头的喧哗与孤独，思考现代人的情感迷失。",
+        "他用细腻的笔触描绘出高楼背后隐藏的温柔与冷漠，呼唤读者重新审视自我。"
+      ],
+      "cloze": {
+        "sentence": "林浩在咖啡馆里记录下___。",
+        "answer": "街头的喧哗与孤独"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o tema central do texto?",
+          "optionsPt": [
+            "Amor romântico",
+            "Conflito político",
+            "Vida urbana e alienação",
+            "História tradicional"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "O que o autor sugere ao leitor?",
+          "optionsPt": [
+            "Ignorar a modernidade",
+            "Reavaliar a própria identidade",
+            "Buscar riqueza material",
+            "Desistir da escrita"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Escreva um comentário crítico em mandarim sobre como o texto retrata a solidão nas grandes cidades.",
+      "keywords": [
+        "灯红酒绿",
+        "作家",
+        "咖啡馆",
+        "喧哗",
+        "孤独",
+        "高楼",
+        "温柔",
+        "冷漠"
+      ]
+    },
+    {
+      "id": "V6-10-1",
+      "genre": "redes sociais",
+      "level": "intermediário",
+      "titlePt": "Compartilhando momentos nas redes",
+      "zh": "我每天都会在微博上发布生活照片，和朋友们分享旅行的点滴，还会在抖音观看短视频，学习新技能。晚上我也会在微信朋友圈发布心情，偶尔回复粉丝的评论，感受互动的乐趣。",
+      "summaryPt": "O texto descreve como o autor utiliza diferentes plataformas de redes sociais para compartilhar fotos, aprender novas habilidades e interagir com amigos e seguidores.",
+      "dictation": [
+        "我每天都会在微博上发布生活照片，和朋友们分享旅行的点滴，还会在抖音观看短视频，学习新技能。",
+        "晚上我也会在微信朋友圈发布心情，偶尔回复粉丝的评论，感受互动的乐趣。"
+      ],
+      "cloze": {
+        "sentence": "我每天都会在 ___ 上发布生活照片。",
+        "answer": "微博"
+      },
+      "questions": [
+        {
+          "qPt": "Qual plataforma o autor usa para assistir vídeos curtos?",
+          "optionsPt": [
+            "微信",
+            "微博",
+            "抖音",
+            "QQ"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "O que o autor sente ao interagir nas redes?",
+          "optionsPt": [
+            "tédio",
+            "frustração",
+            "alegria",
+            "indiferença"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como você usa as redes sociais no seu dia a dia, destacando vantagens e desafios.",
+      "keywords": [
+        "微博",
+        "抖音",
+        "微信",
+        "朋友圈",
+        "短视频",
+        "评论",
+        "互动",
+        "旅行"
+      ]
+    },
+    {
+      "id": "V6-10-2",
+      "genre": "redes sociais",
+      "level": "avançado",
+      "titlePt": "Impacto avançado das redes sociais",
+      "zh": "在社交媒体的世界里，用户通过分享生活点滴，建立虚拟社区，互相点赞和评论，形成信息快速传播的网络效应。同时，平台算法推荐内容，影响用户的兴趣和消费行为。",
+      "summaryPt": "Análise profunda do papel das redes sociais avançadas na comunicação e consumo.",
+      "dictation": [
+        "用户在平台上发布短视频，吸引大量粉丝关注。",
+        "平台通过算法推荐相似内容，提高互动率。"
+      ],
+      "cloze": {
+        "sentence": "用户可以通过___功能快速找到感兴趣的内容。",
+        "answer": "搜索"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a principal vantagem das redes sociais avançadas?",
+          "optionsPt": [
+            "Conectar pessoas globalmente",
+            "Aumentar vendas rapidamente",
+            "Facilitar a criação de conteúdo",
+            "Melhorar a segurança online"
+          ],
+          "answer": 0
+        },
+        {
+          "qPt": "Qual recurso costuma usar algoritmos para personalizar o feed?",
+          "optionsPt": [
+            "Hashtags",
+            "Stories",
+            "Recomendações",
+            "Mensagens diretas"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva como as redes sociais influenciam o comportamento de consumo dos jovens, usando exemplos específicos.",
+      "keywords": [
+        "用户",
+        "平台",
+        "算法",
+        "内容",
+        "互动",
+        "社区",
+        "推荐",
+        "消费"
+      ]
+    },
+    {
+      "id": "V6-10-3",
+      "genre": "redes sociais",
+      "level": "superior",
+      "titlePt": "Impactos das redes sociais na comunicação",
+      "zh": "在虚拟社交平台上，信息快速传播但缺乏情感线索，用户常因文字语气不明而产生误解，甚至导致冲突升级。此外，平台算法倾向推送相似观点，进一步加剧信息茧房效应。",
+      "summaryPt": "A comunicação nas redes sociais é rápida, porém a ausência de pistas emocionais e os algoritmos de filtro podem gerar mal‑entendidos e conflitos.",
+      "dictation": [
+        "在虚拟社交平台上，信息快速传播但缺乏情感线索。",
+        "平台算法倾向推送相似观点，进一步加剧信息茧房效应。"
+      ],
+      "cloze": {
+        "sentence": "A falta de ___ na comunicação online pode gerar conflitos.",
+        "answer": "情感线索"
+      },
+      "questions": [
+        {
+          "qPt": "Qual fator mencionado dificulta a compreensão nas redes sociais?",
+          "optionsPt": [
+            "Velocidade da internet",
+            "Falta de pistas emocionais",
+            "Número de usuários",
+            "Qualidade do áudio"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "O que os algoritmos das plataformas tendem a fazer?",
+          "optionsPt": [
+            "Promover diversidade de opiniões",
+            "Reduzir o tempo de carregamento",
+            "Empurrar conteúdos semelhantes",
+            "Eliminar mensagens antigas"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva, em português, como a falta de pistas emocionais e os algoritmos de recomendação podem influenciar a qualidade da comunicação nas redes sociais.",
+      "keywords": [
+        "虚拟",
+        "社交平台",
+        "信息传播",
+        "情感线索",
+        "算法",
+        "茧房",
+        "冲突"
+      ]
+    },
+    {
+      "id": "V6-11-1",
+      "genre": "cultura",
+      "level": "intermediário",
+      "titlePt": "Tradições do Festival do Barco-Dragão",
+      "zh": "在中国的传统节日中，端午节是为了纪念古代诗人屈原，人们会赛龙舟、吃粽子，以此表达对历史的尊敬和对家人的祝福。此外，还会挂艾草、喝雄黄酒，祈求平安。",
+      "summaryPt": "Apresenta as origens e costumes do Festival do Barco‑Dragão, destacando a memória de Qu Yuan, as corridas de barcos e os alimentos típicos.",
+      "dictation": [
+        "端午节是为了纪念古代诗人屈原。",
+        "人们会赛龙舟、吃粽子，以此表达对家人的祝福。"
+      ],
+      "cloze": {
+        "sentence": "端午节的传统食物是___。",
+        "answer": "粽子"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal motivo da celebração do festival?",
+          "optionsPt": [
+            "Comemorar a primavera",
+            "Honrar o poeta Qu Yuan",
+            "Celebrar a colheita",
+            "Agradecer aos deuses"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual atividade típica ocorre durante o festival?",
+          "optionsPt": [
+            "Fogueira",
+            "Corrida de dragões",
+            "Corrida de barcos",
+            "Dança da lua"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva em português como se celebra o Festival do Barco‑Dragão na sua família, incluindo alimentos e atividades.",
+      "keywords": [
+        "端午节",
+        "屈原",
+        "龙舟",
+        "粽子",
+        "艾草",
+        "雄黄酒"
+      ]
+    },
+    {
+      "id": "V6-11-2",
+      "genre": "cultura",
+      "level": "avançado",
+      "titlePt": "A cerimônia do chá na primavera de Jiangnan",
+      "zh": "在春季的江南小镇，茶馆里弥漫着新茶的清香，老人们围坐在竹椅上细细品味龙井的甘醇。古筝的悠扬旋律偶尔响起，仿佛时光倒流回古代的文人雅集。",
+      "summaryPt": "Descrição de um tradicional encontro cultural em um chá da região de Jiangnan, onde o aroma do chá e a música de guzheng criam uma atmosfera de elegância histórica.",
+      "dictation": [
+        "在春季的江南小镇，茶馆里弥漫着新茶的清香，老人们围坐在竹椅上细细品味龙井的甘醇。",
+        "古筝的悠扬旋律偶尔响起，仿佛时光倒流回古代的文人雅集。"
+      ],
+      "cloze": {
+        "sentence": "老人们围坐在竹椅上细细品味___的甘醇",
+        "answer": "龙井"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é a variedade de chá mencionada no texto?",
+          "optionsPt": [
+            "普洱",
+            "乌龙",
+            "龙井",
+            "碧螺春"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Que instrumento musical é citado?",
+          "optionsPt": [
+            "二胡",
+            "古筝",
+            "琵琶",
+            "笛子"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva, em português, como a combinação de chá e música pode influenciar a atmosfera de um encontro cultural.",
+      "keywords": [
+        "江南",
+        "茶馆",
+        "龙井",
+        "古筝",
+        "文人"
+      ]
+    },
+    {
+      "id": "V6-11-3",
+      "genre": "cultura",
+      "level": "superior",
+      "titlePt": "Patrimônio vivo e adaptação",
+      "zh": "一项传统若只被陈列在展柜里，可能保存了形式，却失去了与现实生活的联系。真正的传承并非拒绝变化，而是在理解历史语境的基础上，让技艺、仪式和价值继续回应当代人的需要，同时避免把复杂文化简化成消费符号。",
+      "summaryPt": "A preservação cultural é apresentada como continuidade crítica: manter contexto e complexidade, permitindo adaptação sem reduzir a tradição a mercadoria.",
+      "dictation": [
+        "真正的传承并非拒绝变化，而是在理解历史语境的基础上继续发展。",
+        "应避免把复杂文化简化成消费符号。"
+      ],
+      "cloze": {
+        "sentence": "一项传统若只被陈列在展柜里，可能保存了形式，却失去了与___的联系。",
+        "answer": "现实生活"
+      },
+      "questions": [
+        {
+          "qPt": "O que o texto critica?",
+          "optionsPt": [
+            "Toda mudança cultural",
+            "A preservação que isola a tradição da vida",
+            "O estudo da história",
+            "A transmissão de técnicas"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "Qual equilíbrio é defendido?",
+          "optionsPt": [
+            "Eliminar rituais",
+            "Transformar tudo em produto",
+            "Adaptar com contexto sem simplificação",
+            "Impedir qualquer uso contemporâneo"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Argumente em chinês sobre como preservar uma prática cultural sem congelá-la nem convertê-la em mero produto turístico.",
+      "keywords": [
+        "传统",
+        "展柜",
+        "传承",
+        "历史语境",
+        "技艺",
+        "仪式",
+        "当代",
+        "消费符号"
+      ]
+    },
+    {
+      "id": "V6-12-1",
+      "genre": "serviços públicos",
+      "level": "intermediário",
+      "titlePt": "Serviços Públicos no Centro Comunitário",
+      "zh": "市民中心提供多项公共服务，包括图书借阅、健康检查和法律咨询，旨在提升社区福祉。此外，还设有老年人活动室和青年创业指导，方便不同人群获取帮助。",
+      "summaryPt": "O centro comunitário oferece serviços como empréstimo de livros, exames de saúde e consultoria jurídica, além de salas para idosos e apoio ao empreendedorismo juvenil, visando melhorar a qualidade de vida local.",
+      "dictation": [
+        "市民中心提供多项公共服务，包括图书借阅、健康检查和法律咨询，旨在提升社区福祉。",
+        "此外，还设有老年人活动室和青年创业指导，方便不同人群获取帮助。"
+      ],
+      "cloze": {
+        "sentence": "市民中心提供多项___服务，包括图书借阅、健康检查和法律咨询。",
+        "answer": "公共"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal objetivo do centro comunitário?",
+          "optionsPt": [
+            "Vender livros",
+            "Promover a saúde pública",
+            "Elevar o bem-estar da comunidade",
+            "Ensinar idiomas"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Que tipo de espaço é oferecido para os idosos?",
+          "optionsPt": [
+            "Sala de cinema",
+            "Ateliê de arte",
+            "Sala de atividades",
+            "Café"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva outros serviços que poderiam ser oferecidos no centro comunitário.",
+      "keywords": [
+        "公共服务",
+        "图书借阅",
+        "健康检查",
+        "法律咨询",
+        "老年人活动室",
+        "青年创业指导"
+      ]
+    },
+    {
+      "id": "V6-12-2",
+      "genre": "serviços públicos",
+      "level": "avançado",
+      "titlePt": "O impacto da otimização do transporte público nas cidades",
+      "zh": "在城市规划中，公共交通系统的优化能够显著提升居民的出行效率，减少拥堵和环境污染。同时，智能公交站牌的实时信息显示也为乘客提供了便利，市民可以通过手机应用轻松查询线路和车次。",
+      "summaryPt": "Texto avançado que discute como a melhoria do transporte público pode melhorar a mobilidade urbana e reduzir problemas ambientais.",
+      "dictation": [
+        "在城市规划中，公共交通系统的优化能够显著提升居民的出行效率，减少拥堵和环境污染。",
+        "智能公交站牌的实时信息显示也为乘客提供了便利，市民可以通过手机应用轻松查询线路和车次。"
+      ],
+      "cloze": {
+        "sentence": "公共交通系统的___可以显著提升城市的出行效率。",
+        "answer": "优化"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal benefício da otimização do transporte público mencionado?",
+          "optionsPt": [
+            "Redução de custos",
+            "Aumento da poluição",
+            "Melhoria da eficiência de deslocamento",
+            "Desenvolvimento de novas rodovias"
+          ],
+          "answer": 2
+        },
+        {
+          "qPt": "Qual tecnologia facilita a consulta de rotas pelos cidadãos?",
+          "optionsPt": [
+            "Aplicativo de mensagens",
+            "Aplicativo móvel",
+            "Televisão a cabo",
+            "Rádio tradicional"
+          ],
+          "answer": 1
+        }
+      ],
+      "productionPt": "Descreva, em português, como a integração de tecnologias inteligentes pode transformar os serviços de transporte público em sua cidade.",
+      "keywords": [
+        "公共交通",
+        "城市规划",
+        "智能公交",
+        "实时信息",
+        "环境污染"
+      ]
+    },
+    {
+      "id": "V6-12-3",
+      "genre": "serviços públicos",
+      "level": "superior",
+      "titlePt": "Avaliação de compreensão de texto sobre serviços públicos",
+      "zh": "在城市规划中，公共交通系统的优化不仅可以减少拥堵，还能降低空气污染，提高居民的生活质量。此外，政府应加强对公共设施的维护，确保安全和便利。",
+      "summaryPt": "Texto que discute a importância da otimização do transporte público e da manutenção de infraestruturas para melhorar a qualidade de vida urbana.",
+      "dictation": [
+        "在城市规划中，公共交通系统的优化不仅可以减少拥堵，还能降低空气污染，提高居民的生活质量。",
+        "此外，政府应加强对公共设施的维护，确保安全和便利。"
+      ],
+      "cloze": {
+        "sentence": "公共交通系统的 ___ 可以显著改善城市的空气质量。",
+        "answer": "优化"
+      },
+      "questions": [
+        {
+          "qPt": "Qual é o principal benefício mencionado para a otimização do transporte público?",
+          "optionsPt": [
+            "Redução de custos",
+            "Melhoria da qualidade do ar",
+            "Aumento da taxa de natalidade",
+            "Diminuição da população"
+          ],
+          "answer": 1
+        },
+        {
+          "qPt": "De acordo com o texto, o que o governo deve fazer em relação às instalações públicas?",
+          "optionsPt": [
+            "Privatizá‑las",
+            "Reduzir seu uso",
+            "Manter a manutenção",
+            "Desativá‑las"
+          ],
+          "answer": 2
+        }
+      ],
+      "productionPt": "Descreva, em português, como a melhoria dos serviços públicos pode influenciar a qualidade de vida em sua cidade.",
+      "keywords": [
+        "公共交通",
+        "城市规划",
+        "空气污染",
+        "设施维护",
+        "居民生活"
+      ]
+    }
+  ],
+  "matrix": {
+    "genres": 12,
+    "levels": 3,
+    "total": 36
+  },
+  "notice": "Textos autorais para avaliação interna; não constituem corpus externo nem certificação oficial."
+}

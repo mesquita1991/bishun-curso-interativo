@@ -925,5 +925,7 @@
       "count": 7760,
       "bytes": 290490
     }
-  ]
+  ],
+  "hostApplicationVersion": "6.0.0",
+  "preservedDataLayer": "5.0.1"
 }

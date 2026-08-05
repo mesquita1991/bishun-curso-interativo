@@ -1,10 +1,10 @@
 {
   "name": "bishun-mandarin-integral",
-  "version": "5.0.1",
+  "version": "6.0.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
     "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js"
   },
-  "description": "Programa integral de mandarim com extensão pós-padrão, imersão aberta e análise de textos reais."
+  "description": "Programa integral de mandarim com extensão pós-padrão e validação longitudinal por evidências."
 }

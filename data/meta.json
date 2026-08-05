@@ -1,7 +1,7 @@
 {
   "version": "4.0.1",
   "standard": "GF0025-2021",
-  "title": "Programa Integral + Extensão Pós-Padrão",
+  "title": "Programa Integral + Pós-Padrão + Validação Longitudinal",
   "headlineOfficial": {
     "syllables": 1110,
     "characters": 3000,
@@ -183,6 +183,14 @@
       "url": "https://cc-cedict.org/"
     }
   ],
-  "applicationVersion": "5.0.1",
-  "curriculumDataVersion": "4.0.0"
+  "applicationVersion": "6.0.0",
+  "curriculumDataVersion": "4.0.0",
+  "masteryValidation": {
+    "version": "6.0.0",
+    "benchmarks": 36,
+    "genres": 12,
+    "levels": 3,
+    "skills": 6,
+    "overallCap": 99
+  }
 }
