@@ -630,3 +630,7 @@ footer { border-top: 1px solid var(--line); background: var(--paper-deep); }
   .token-output { font-size: 1.1rem; padding: 11px; }
   .post-lex-head b { font-size: 1.7rem; }
 }
+
+/* v5.0.1 — contém controles nativos de faixa no próprio painel em tablets */
+.speed-control { min-width: 0; width: 100%; max-width: 100%; overflow: hidden; }
+.speed-control input[type="range"] { display: block; min-width: 0; width: 100%; max-width: 100%; box-sizing: border-box; }
