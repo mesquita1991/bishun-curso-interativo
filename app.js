@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '6.2.1';
+  const APP_VERSION = '6.2.2';
   const STORAGE = {
     completed: 'bishunCompleted',
     quizScore: 'bishunQuizScore',
@@ -681,9 +681,17 @@
     }
   }
 
-  function registerServiceWorker() {
-    if ('serviceWorker' in navigator && location.protocol === 'https:') {
-      navigator.serviceWorker.register('./sw.js').catch(error => console.warn('Service worker:', error));
+  async function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    try {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(registrations.map(registration => registration.unregister()));
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.filter(key => key.startsWith('bishun-')).map(key => caches.delete(key)));
+      }
+    } catch (error) {
+      console.warn('Limpeza de cache:', error);
     }
   }
 

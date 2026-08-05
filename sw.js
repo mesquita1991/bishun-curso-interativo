@@ -1,6 +1,9 @@
-const CACHE_NAME='bishun-core-v6.2.1';
-const SHELL=['./','./index.html','./styles.css','./app.js','./favicon.svg','./manifest.webmanifest'];
-const OPTIONAL=['./course.js','./full-course.js','./post-standard.js','./mastery-v6.js','./generalization-v61.js','./visual-mnemonics.js','./data/visual-mnemonics.json','./data/generalization-v61.json','./curriculum-data.js','./data/meta.json','./data/post/meta.json','./data/post/curriculum.json','./data/post/core-map.json','./data/mastery-v6.json'];
-self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE_NAME);await cache.addAll(SHELL);await Promise.allSettled(OPTIONAL.map(path=>cache.add(path)));await self.skipWaiting();})()));
-self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('bishun-core-')&&k!==CACHE_NAME).map(k=>caches.delete(k)));await self.clients.claim();})()));
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;const u=new URL(event.request.url);if(u.origin!==self.location.origin)return;if(event.request.mode==='navigate'){event.respondWith(fetch(event.request).then(async r=>{if(r.ok){const c=await caches.open(CACHE_NAME);c.put('./index.html',r.clone());}return r;}).catch(()=>caches.match('./index.html')));return;}event.respondWith(caches.match(event.request).then(cached=>{const network=fetch(event.request).then(async r=>{if(r.ok){const c=await caches.open(CACHE_NAME);c.put(event.request,r.clone());}return r;}).catch(()=>cached);return cached||network;}));});
+const RECOVERY_VERSION='6.2.2';
+self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{
+  const keys=await caches.keys();
+  await Promise.all(keys.filter(key=>key.startsWith('bishun-')).map(key=>caches.delete(key)));
+  await self.registration.unregister();
+  const clientsList=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+  for(const client of clientsList) client.postMessage({type:'BISHUN_CACHE_RESET',version:RECOVERY_VERSION});
+})()));
