@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const APP_VERSION = '6.2.2';
+  const APP_VERSION = '6.2.3';
   const STORAGE = {
     completed: 'bishunCompleted',
     quizScore: 'bishunQuizScore',

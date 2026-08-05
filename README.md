@@ -1,4 +1,4 @@
-# Mandarim Integral · 笔顺 — v6.2.2
+# Mandarim Integral · 笔顺 — v6.2.3
 
 Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 

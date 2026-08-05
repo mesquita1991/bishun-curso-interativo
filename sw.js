@@ -1,4 +1,4 @@
-const RECOVERY_VERSION='6.2.2';
+const RECOVERY_VERSION='6.2.3';
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
   const keys=await caches.keys();
