@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const VERSION = '6.2.0';
+  const VERSION = '6.2.1';
   const KEY = 'bishunMasteryV6';
   const SKILLS = ['reading','dictation','cloze','shadowing','production','transfer'];
   const LABELS = {reading:'Leitura inédita',dictation:'Ditado',cloze:'Cloze contextual',shadowing:'Shadowing',production:'Produção livre',transfer:'Transferência'};

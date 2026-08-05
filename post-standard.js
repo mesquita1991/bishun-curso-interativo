@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const VERSION = '6.2.0';
+  const VERSION = '6.2.1';
   const KEY = 'bishunPostV5';
   const FULL_KEY = 'bishunFullV4';
   const DAY = 86400000;

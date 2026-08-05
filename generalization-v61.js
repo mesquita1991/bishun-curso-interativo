@@ -1,6 +1,6 @@
 (() => {
 'use strict';
-const VERSION='6.2.0',KEY='bishunGeneralizationV61', $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const VERSION='6.2.1',KEY='bishunGeneralizationV61', $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 let data=null,state; try{state=JSON.parse(localStorage.getItem(KEY)||'{}')}catch{state={}} state={missions:{},contrasts:{},external:[],...state};
 const save=()=>localStorage.setItem(KEY,JSON.stringify(state)); const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function score(){const m=Object.values(state.missions).filter(Boolean).length,c=Object.values(state.contrasts).filter(Boolean).length,e=state.external.length;return Math.min(99,Math.round((m/data.missions.length*45)+(c/data.registerContrasts.length*20)+(Math.min(e,12)/12*35)));}
