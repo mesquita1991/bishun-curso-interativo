@@ -1,5 +1,5 @@
 {
-  "version": "6.0.0",
+  "version": "6.2.0",
   "generatedAt": "2026-08-05T14:47:00Z",
   "rollbackCommit": "b67689dace1e7eb860b6c695db266e14f3087847",
   "files": [
@@ -68,5 +68,13 @@
       "bytes": 68089,
       "sha256": "307e17b2cb935090346bb3c6f91d7ba18a9662942265f1597bca8b541767fc7d"
     }
+  ],
+  "features": [
+    "72 missões de transferência profissional",
+    "24 contrastes de registro e variedade",
+    "registro de amostras externas",
+    "48 mnemônicos visuais vetoriais",
+    "distinção entre pictograma e associação mnemônica",
+    "atalho visual para o treinador"
   ]
 }

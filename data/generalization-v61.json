@@ -1,0 +1,1222 @@
+{
+  "version": "6.1.0",
+  "missions": [
+    {
+      "id": "G01-1",
+      "domain": "medicina",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G01-2",
+      "domain": "medicina",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G01-3",
+      "domain": "medicina",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G01-4",
+      "domain": "medicina",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G01-5",
+      "domain": "medicina",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G01-6",
+      "domain": "medicina",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de medicina e explicar sintomas, riscos e condutas sem perder precisão.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G02-1",
+      "domain": "direito",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G02-2",
+      "domain": "direito",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G02-3",
+      "domain": "direito",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G02-4",
+      "domain": "direito",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G02-5",
+      "domain": "direito",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G02-6",
+      "domain": "direito",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de direito e resumir uma regra e distinguir obrigação, permissão e exceção.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G03-1",
+      "domain": "tecnologia",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G03-2",
+      "domain": "tecnologia",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G03-3",
+      "domain": "tecnologia",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G03-4",
+      "domain": "tecnologia",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G03-5",
+      "domain": "tecnologia",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G03-6",
+      "domain": "tecnologia",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de tecnologia e explicar funcionamento, falha e solução de um sistema.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G04-1",
+      "domain": "ciência",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G04-2",
+      "domain": "ciência",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G04-3",
+      "domain": "ciência",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G04-4",
+      "domain": "ciência",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G04-5",
+      "domain": "ciência",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G04-6",
+      "domain": "ciência",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de ciência e descrever hipótese, método, resultado e limitação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G05-1",
+      "domain": "economia",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G05-2",
+      "domain": "economia",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G05-3",
+      "domain": "economia",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G05-4",
+      "domain": "economia",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G05-5",
+      "domain": "economia",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G05-6",
+      "domain": "economia",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de economia e interpretar indicador, tendência e consequência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G06-1",
+      "domain": "política",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G06-2",
+      "domain": "política",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G06-3",
+      "domain": "política",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G06-4",
+      "domain": "política",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G06-5",
+      "domain": "política",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G06-6",
+      "domain": "política",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de política e separar fato, posição, proposta e crítica.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G07-1",
+      "domain": "educação",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G07-2",
+      "domain": "educação",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G07-3",
+      "domain": "educação",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G07-4",
+      "domain": "educação",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G07-5",
+      "domain": "educação",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G07-6",
+      "domain": "educação",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de educação e orientar aprendizagem, avaliação e feedback.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G08-1",
+      "domain": "negócios",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G08-2",
+      "domain": "negócios",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G08-3",
+      "domain": "negócios",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G08-4",
+      "domain": "negócios",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G08-5",
+      "domain": "negócios",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G08-6",
+      "domain": "negócios",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de negócios e negociar prazo, escopo, preço e responsabilidade.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G09-1",
+      "domain": "engenharia",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G09-2",
+      "domain": "engenharia",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G09-3",
+      "domain": "engenharia",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G09-4",
+      "domain": "engenharia",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G09-5",
+      "domain": "engenharia",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G09-6",
+      "domain": "engenharia",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de engenharia e descrever requisito, tolerância, risco e validação.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G10-1",
+      "domain": "ambiente",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G10-2",
+      "domain": "ambiente",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G10-3",
+      "domain": "ambiente",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G10-4",
+      "domain": "ambiente",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G10-5",
+      "domain": "ambiente",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G10-6",
+      "domain": "ambiente",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de ambiente e explicar impacto, incerteza e medida preventiva.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G11-1",
+      "domain": "mídia",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G11-2",
+      "domain": "mídia",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G11-3",
+      "domain": "mídia",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G11-4",
+      "domain": "mídia",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G11-5",
+      "domain": "mídia",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G11-6",
+      "domain": "mídia",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de mídia e resumir notícia, fonte, enquadramento e evidência.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G12-1",
+      "domain": "sociedade",
+      "level": "avançado",
+      "taskPt": "Resuma em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G12-2",
+      "domain": "sociedade",
+      "level": "profissional",
+      "taskPt": "Explique em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G12-3",
+      "domain": "sociedade",
+      "level": "especialista",
+      "taskPt": "Compare em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G12-4",
+      "domain": "sociedade",
+      "level": "avançado",
+      "taskPt": "Defenda em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 80
+    },
+    {
+      "id": "G12-5",
+      "domain": "sociedade",
+      "level": "profissional",
+      "taskPt": "Conteste em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    },
+    {
+      "id": "G12-6",
+      "domain": "sociedade",
+      "level": "especialista",
+      "taskPt": "Reformule em mandarim um material inédito de sociedade e discutir comportamento, norma, conflito e mudança.",
+      "evidence": [
+        "fonte externa identificada",
+        "produção própria de 120–300 caracteres",
+        "gravação oral de 2–4 minutos",
+        "autocrítica de vocabulário, registro e precisão"
+      ],
+      "minScore": 85
+    }
+  ],
+  "registerContrasts": [
+    {
+      "id": "R01",
+      "a": "请",
+      "b": "劳驾",
+      "aPt": "pedido neutro",
+      "bPt": "pedido mais cortês/formal",
+      "promptPt": "Escolha entre 请 e 劳驾 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R02",
+      "a": "谢谢",
+      "b": "多谢",
+      "aPt": "agradecimento padrão",
+      "bPt": "agradecimento enfático ou regional",
+      "promptPt": "Escolha entre 谢谢 e 多谢 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R03",
+      "a": "不好意思",
+      "b": "抱歉",
+      "aPt": "atenuação social",
+      "bPt": "desculpa explícita",
+      "promptPt": "Escolha entre 不好意思 e 抱歉 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R04",
+      "a": "我觉得",
+      "b": "依我看",
+      "aPt": "opinião cotidiana",
+      "bPt": "opinião mais formal",
+      "promptPt": "Escolha entre 我觉得 e 依我看 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R05",
+      "a": "可能",
+      "b": "恐怕",
+      "aPt": "possibilidade",
+      "bPt": "possibilidade com preocupação",
+      "promptPt": "Escolha entre 可能 e 恐怕 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R06",
+      "a": "但是",
+      "b": "然而",
+      "aPt": "contraste comum",
+      "bPt": "contraste escrito/formal",
+      "promptPt": "Escolha entre 但是 e 然而 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R07",
+      "a": "所以",
+      "b": "因此",
+      "aPt": "consequência comum",
+      "bPt": "consequência formal",
+      "promptPt": "Escolha entre 所以 e 因此 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R08",
+      "a": "因为",
+      "b": "由于",
+      "aPt": "causa comum",
+      "bPt": "causa formal",
+      "promptPt": "Escolha entre 因为 e 由于 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R09",
+      "a": "马上",
+      "b": "立即",
+      "aPt": "imediatamente coloquial",
+      "bPt": "imediatamente formal",
+      "promptPt": "Escolha entre 马上 e 立即 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R10",
+      "a": "买单",
+      "b": "结账",
+      "aPt": "pagar a conta coloquial",
+      "bPt": "fechar/pagar a conta neutro",
+      "promptPt": "Escolha entre 买单 e 结账 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R11",
+      "a": "出租车",
+      "b": "计程车",
+      "aPt": "China continental",
+      "bPt": "Taiwan",
+      "promptPt": "Escolha entre 出租车 e 计程车 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R12",
+      "a": "软件",
+      "b": "软体",
+      "aPt": "China continental",
+      "bPt": "Taiwan",
+      "promptPt": "Escolha entre 软件 e 软体 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R13",
+      "a": "视频",
+      "b": "影片",
+      "aPt": "vídeo geral",
+      "bPt": "filme/vídeo, uso frequente em Taiwan",
+      "promptPt": "Escolha entre 视频 e 影片 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R14",
+      "a": "网络",
+      "b": "网路",
+      "aPt": "forma continental",
+      "bPt": "forma taiwanesa",
+      "promptPt": "Escolha entre 网络 e 网路 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R15",
+      "a": "普通话",
+      "b": "国语",
+      "aPt": "mandarim padrão continental",
+      "bPt": "termo tradicional em Taiwan",
+      "promptPt": "Escolha entre 普通话 e 国语 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R16",
+      "a": "没关系",
+      "b": "不要紧",
+      "aPt": "sem problema",
+      "bPt": "não é grave",
+      "promptPt": "Escolha entre 没关系 e 不要紧 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R17",
+      "a": "你",
+      "b": "您",
+      "aPt": "tratamento neutro",
+      "bPt": "tratamento respeitoso",
+      "promptPt": "Escolha entre 你 e 您 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R18",
+      "a": "再见",
+      "b": "回头见",
+      "aPt": "despedida neutra",
+      "bPt": "até mais coloquial",
+      "promptPt": "Escolha entre 再见 e 回头见 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R19",
+      "a": "怎么了",
+      "b": "怎么回事",
+      "aPt": "o que houve",
+      "bPt": "o que está acontecendo",
+      "promptPt": "Escolha entre 怎么了 e 怎么回事 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R20",
+      "a": "真的",
+      "b": "确实",
+      "aPt": "realmente coloquial",
+      "bPt": "de fato formal",
+      "promptPt": "Escolha entre 真的 e 确实 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R21",
+      "a": "很多",
+      "b": "诸多",
+      "aPt": "muitos neutro",
+      "bPt": "numerosos formal",
+      "promptPt": "Escolha entre 很多 e 诸多 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R22",
+      "a": "开始",
+      "b": "着手",
+      "aPt": "começar neutro",
+      "bPt": "iniciar deliberadamente",
+      "promptPt": "Escolha entre 开始 e 着手 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R23",
+      "a": "结束",
+      "b": "告一段落",
+      "aPt": "terminar",
+      "bPt": "chegar a uma etapa de conclusão",
+      "promptPt": "Escolha entre 结束 e 告一段落 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    },
+    {
+      "id": "R24",
+      "a": "知道",
+      "b": "获悉",
+      "aPt": "saber",
+      "bPt": "tomar conhecimento formal",
+      "promptPt": "Escolha entre 知道 e 获悉 conforme relação social, meio e grau de formalidade.",
+      "evidencePt": "Produza duas frases naturais, uma para cada contexto, e explique a diferença."
+    }
+  ],
+  "domains": [
+    {
+      "name": "medicina",
+      "goalPt": "explicar sintomas, riscos e condutas sem perder precisão",
+      "gate": 85
+    },
+    {
+      "name": "direito",
+      "goalPt": "resumir uma regra e distinguir obrigação, permissão e exceção",
+      "gate": 85
+    },
+    {
+      "name": "tecnologia",
+      "goalPt": "explicar funcionamento, falha e solução de um sistema",
+      "gate": 85
+    },
+    {
+      "name": "ciência",
+      "goalPt": "descrever hipótese, método, resultado e limitação",
+      "gate": 85
+    },
+    {
+      "name": "economia",
+      "goalPt": "interpretar indicador, tendência e consequência",
+      "gate": 85
+    },
+    {
+      "name": "política",
+      "goalPt": "separar fato, posição, proposta e crítica",
+      "gate": 85
+    },
+    {
+      "name": "educação",
+      "goalPt": "orientar aprendizagem, avaliação e feedback",
+      "gate": 85
+    },
+    {
+      "name": "negócios",
+      "goalPt": "negociar prazo, escopo, preço e responsabilidade",
+      "gate": 85
+    },
+    {
+      "name": "engenharia",
+      "goalPt": "descrever requisito, tolerância, risco e validação",
+      "gate": 85
+    },
+    {
+      "name": "ambiente",
+      "goalPt": "explicar impacto, incerteza e medida preventiva",
+      "gate": 85
+    },
+    {
+      "name": "mídia",
+      "goalPt": "resumir notícia, fonte, enquadramento e evidência",
+      "gate": 85
+    },
+    {
+      "name": "sociedade",
+      "goalPt": "discutir comportamento, norma, conflito e mudança",
+      "gate": 85
+    }
+  ],
+  "notice": "Camada autoral de generalização. As tarefas exigem material externo e não certificam domínio sem avaliação independente."
+}
