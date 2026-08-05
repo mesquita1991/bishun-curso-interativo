@@ -1,4 +1,4 @@
-const CACHE_NAME='bishun-core-v4.0.0';
+const CACHE_NAME='bishun-core-v4.0.1';
 const CORE=['./','./index.html','./styles.css','./app.js','./course.js','./full-course.js','./curriculum-data.js','./favicon.svg','./manifest.webmanifest','./data/meta.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('bishun-core-')&&k!==CACHE_NAME).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

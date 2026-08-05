@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const VERSION = '4.0.0';
+  const VERSION = '4.0.1';
   const KEY = 'bishunFullV4';
   const DAY = 86400000;
   const INTERVALS = [0,1,3,7,14,30,60,120];
@@ -16,6 +16,8 @@
   const cache = new Map();
   let meta=null, current=null, atlasPage=0, vocabPage=0, syllablePage=0, grammarPage=0;
   let trainerWriter=null, trainerChar=null, lab=null, reviewQueue=[], reviewIndex=0, exam=[];
+  const globalResults={atlas:null,vocab:null,syllable:null,grammar:null};
+  const searchTimers={};
 
   function save(){ localStorage.setItem(KEY,JSON.stringify(state)); }
   function rec(type,id){ return {level:0,due:0,attempts:0,correct:0,last:0,...(state.records[type]?.[id]||{})}; }
@@ -39,6 +41,23 @@
       if(!quiet)notice(`Etapa ${n} carregada: ${current.characters.length} caracteres e ${current.vocabulary.length} palavras.`,'ok');
     } catch(e){ console.error(e);notice('Não foi possível carregar esta etapa. Verifique a conexão ou tente novamente.','error'); }
   }
+  async function ensureAllStages(){
+    await Promise.all([...Array(9)].map(async(_,i)=>{const n=i+1;if(!cache.has(n))cache.set(n,await fetchJSON(`./data/stage-${n}.json`));}));
+    return [...cache.values()];
+  }
+  async function enableGlobalCatalog(kind){
+    const inputId={atlas:'atlasSearch',vocab:'fullVocabSearch',syllable:'syllableSearch',grammar:'fullGrammarSearch'}[kind];
+    const q=($('#'+inputId)?.value||'').trim();
+    if(!q){globalResults[kind]=null;({atlas:renderAtlas,vocab:renderVocabulary,syllable:renderSyllables,grammar:renderGrammar}[kind])();return;}
+    notice(`Busca global em nove etapas: “${q}”…`);
+    try{
+      const all=await ensureAllStages();
+      globalResults[kind]=all.flatMap(d=>({atlas:d.characters,vocab:d.vocabulary,syllable:d.syllables,grammar:d.grammar}[kind]));
+      ({atlas:()=>{atlasPage=0;renderAtlas();},vocab:()=>{vocabPage=0;renderVocabulary();},syllable:()=>{syllablePage=0;renderSyllables();},grammar:()=>{grammarPage=0;renderGrammar();}}[kind])();
+      notice(`Busca global concluída. Os nove arquivos permanecem em cache nesta sessão.`,'ok');
+    }catch(e){console.error(e);notice('A busca global não pôde carregar todas as etapas.','error');}
+  }
+  function scheduleGlobalSearch(kind){clearTimeout(searchTimers[kind]);searchTimers[kind]=setTimeout(()=>enableGlobalCatalog(kind),260);}
   function renderMeta(){
     $$('[data-full-version]').forEach(x=>x.textContent=VERSION);
     const h=meta.headlineOfficial;
@@ -90,22 +109,22 @@
   function filterText(x,q,fields){return !q||fields.map(f=>String(x[f]??'')).join(' ').toLocaleLowerCase('pt-BR').includes(q);}
   function pager(total,page,size,prefix){const pages=Math.max(1,Math.ceil(total/size));return `<div class="catalog-pager"><button type="button" data-${prefix}-page="prev" ${page<=0?'disabled':''}>Anterior</button><span>${page+1} / ${pages} · ${total.toLocaleString('pt-BR')} itens</span><button type="button" data-${prefix}-page="next" ${page>=pages-1?'disabled':''}>Próxima</button></div>`;}
   function renderAtlas(){
-    const q=($('#atlasSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#atlasStatus')?.value||'all';let a=current.characters.filter(x=>filterText(x,q,['char','traditional','pinyin','meaning'])&&(status==='all'||(status==='mastered')===mastered('char',x.char)));const size=36,pages=Math.max(1,Math.ceil(a.length/size));atlasPage=Math.min(atlasPage,pages-1);const slice=a.slice(atlasPage*size,(atlasPage+1)*size);
+    const q=($('#atlasSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#atlasStatus')?.value||'all';let source=q&&globalResults.atlas?globalResults.atlas:current.characters;let a=source.filter(x=>filterText(x,q,['char','traditional','pinyin','meaning'])&&(status==='all'||(status==='mastered')===mastered('char',x.char)));const size=36,pages=Math.max(1,Math.ceil(a.length/size));atlasPage=Math.min(atlasPage,pages-1);const slice=a.slice(atlasPage*size,(atlasPage+1)*size);
     $('#atlasGrid').innerHTML=slice.map(x=>`<article class="atlas-card ${mastered('char',x.char)?'mastered':''}"><button type="button" data-full-train-char="${x.char}"><b>${x.char}</b><span>${esc(x.pinyin)}</span><small>${esc(x.meaning)}</small><em>${x.traditional&&x.traditional!==x.char?'繁 '+x.traditional:''}</em></button></article>`).join('')||'<p>Nenhum caractere encontrado.</p>';
     $('#atlasPager').innerHTML=pager(a.length,atlasPage,size,'atlas');
   }
   function renderVocabulary(){
-    const q=($('#fullVocabSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#fullVocabStatus')?.value||'all';let a=current.vocabulary.filter(x=>filterText(x,q,['hanzi','traditional','pinyin','meaning','pos','sourceGloss'])&&(status==='all'||(status==='mastered')===mastered('word',x.id)));const size=32,pages=Math.max(1,Math.ceil(a.length/size));vocabPage=Math.min(vocabPage,pages-1);const slice=a.slice(vocabPage*size,(vocabPage+1)*size);
+    const q=($('#fullVocabSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#fullVocabStatus')?.value||'all';let source=q&&globalResults.vocab?globalResults.vocab:current.vocabulary;let a=source.filter(x=>filterText(x,q,['hanzi','traditional','pinyin','meaning','pos','sourceGloss'])&&(status==='all'||(status==='mastered')===mastered('word',x.id)));const size=32,pages=Math.max(1,Math.ceil(a.length/size));vocabPage=Math.min(vocabPage,pages-1);const slice=a.slice(vocabPage*size,(vocabPage+1)*size);
     $('#fullVocabList').innerHTML=slice.map(x=>`<article class="full-vocab-row ${mastered('word',x.id)?'mastered':''}"><button type="button" data-full-speak="${esc(x.hanzi)}">🔊</button><div class="vocab-main"><b>${x.hanzi}</b><span>${esc(x.pinyin)}</span><small>${esc(x.meaning)}</small></div><div class="vocab-meta"><span>${esc(x.pos)}</span>${x.traditional!==x.hanzi?`<span>繁 ${esc(x.traditional)}</span>`:''}</div>${gradeButtons('word',x.id)}<details><summary>Fonte lexical</summary><p lang="en">${esc(x.sourceGloss||'Sem glosa independente no CC-CEDICT.')}</p></details></article>`).join('')||'<p>Nenhuma palavra encontrada.</p>';
     $('#fullVocabPager').innerHTML=pager(a.length,vocabPage,size,'vocab');
   }
   function renderSyllables(){
-    const q=($('#syllableSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#syllableStatus')?.value||'all';let a=current.syllables.filter(x=>(!q||`${x.pinyin} ${x.representative}`.toLocaleLowerCase('pt-BR').includes(q))&&(status==='all'||(status==='mastered')===mastered('syllable',x.no)));const size=48,pages=Math.max(1,Math.ceil(a.length/size));syllablePage=Math.min(syllablePage,pages-1);const slice=a.slice(syllablePage*size,(syllablePage+1)*size);
+    const q=($('#syllableSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),status=$('#syllableStatus')?.value||'all';let source=q&&globalResults.syllable?globalResults.syllable:current.syllables;let a=source.filter(x=>(!q||`${x.pinyin} ${x.representative}`.toLocaleLowerCase('pt-BR').includes(q))&&(status==='all'||(status==='mastered')===mastered('syllable',x.no)));const size=48,pages=Math.max(1,Math.ceil(a.length/size));syllablePage=Math.min(syllablePage,pages-1);const slice=a.slice(syllablePage*size,(syllablePage+1)*size);
     $('#syllableGrid').innerHTML=slice.map(x=>`<article class="syllable-card ${mastered('syllable',x.no)?'mastered':''}"><button type="button" data-full-speak="${x.representative}"><b>${x.pinyin}</b><span>${x.representative}</span><small>${tone(x.pinyin)==='0'?'tom neutro':tone(x.pinyin)+'º tom'}</small></button>${gradeButtons('syllable',x.no)}</article>`).join('');
     $('#syllablePager').innerHTML=pager(a.length,syllablePage,size,'syllable');
   }
   function renderGrammar(){
-    const q=($('#fullGrammarSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),group=$('#grammarGroup')?.value||'all';let a=current.grammar.filter(x=>(!q||`${x.title} ${x.explanation} ${x.pattern} ${x.groupPt} ${x.categoryPt} ${x.source.content}`.toLocaleLowerCase('pt-BR').includes(q))&&(group==='all'||x.groupPt===group));const size=18,pages=Math.max(1,Math.ceil(a.length/size));grammarPage=Math.min(grammarPage,pages-1);const slice=a.slice(grammarPage*size,(grammarPage+1)*size);
+    const q=($('#fullGrammarSearch')?.value||'').trim().toLocaleLowerCase('pt-BR'),group=$('#grammarGroup')?.value||'all';let source=q&&globalResults.grammar?globalResults.grammar:current.grammar;let a=source.filter(x=>(!q||`${x.title} ${x.explanation} ${x.pattern} ${x.groupPt} ${x.categoryPt} ${x.source.content}`.toLocaleLowerCase('pt-BR').includes(q))&&(group==='all'||x.groupPt===group));const size=18,pages=Math.max(1,Math.ceil(a.length/size));grammarPage=Math.min(grammarPage,pages-1);const slice=a.slice(grammarPage*size,(grammarPage+1)*size);
     $('#fullGrammarList').innerHTML=slice.map(x=>`<details class="grammar-full ${mastered('grammar',x.no)?'mastered':''}"><summary><span><b>${x.no}. ${esc(x.title)}</b><small>${esc(x.groupPt)} · ${esc(x.categoryPt)}</small></span><em>${x.worked?'aula trabalhada':'registro oficial'}</em></summary><p>${esc(x.explanation)}</p><div class="pattern-source"><span>Padrão</span><strong lang="zh-Hans">${esc(x.pattern)}</strong></div>${x.examples?.length?`<div class="worked-examples">${x.examples.map(e=>`<p><button type="button" data-full-speak="${esc(e.zh)}">🔊</button><b>${e.zh}</b> · ${esc(e.pinyin)}<br><small>${esc(e.pt)}</small></p>`).join('')}</div>`:''}<details><summary>Transcrição-fonte</summary><dl><dt>项目</dt><dd>${esc(x.source.group)}</dd><dt>类别</dt><dd>${esc(x.source.category)}</dd><dt>细目</dt><dd>${esc(x.source.details)}</dd><dt>内容</dt><dd>${esc(x.source.content)}</dd></dl></details>${gradeButtons('grammar',x.no)}</details>`).join('');
     $('#fullGrammarPager').innerHTML=pager(a.length,grammarPage,size,'grammar');
   }
@@ -146,10 +165,10 @@
     if(b.id==='fullSpeakNormal'&&trainerChar)speak(trainerChar.char,.78);if(b.id==='fullSpeakSlow'&&trainerChar)speak(trainerChar.char,.55);if(b.id==='fullAnimate'&&trainerWriter)trainerWriter.animateCharacter();if(b.id==='fullQuiz'&&trainerWriter&&trainerChar){grade('char',trainerChar.char,1);trainerWriter.quiz({showHintAfterMisses:2,onComplete:s=>{grade('char',trainerChar.char,(s.totalMistakes||0)<=1?2:1);$('#fullTrainerStatus').textContent=`Concluído com ${s.totalMistakes||0} erros.`;}});}
     if(b.id==='downloadStage')downloadStage();if(b.id==='exportFullProgress')exportProgress();
   });
-  ['atlasSearch'].forEach(id=>$('#'+id)?.addEventListener('input',()=>{atlasPage=0;renderAtlas();}));$('#atlasStatus')?.addEventListener('change',()=>{atlasPage=0;renderAtlas();});
-  $('#fullVocabSearch')?.addEventListener('input',()=>{vocabPage=0;renderVocabulary();});$('#fullVocabStatus')?.addEventListener('change',()=>{vocabPage=0;renderVocabulary();});
-  $('#syllableSearch')?.addEventListener('input',()=>{syllablePage=0;renderSyllables();});$('#syllableStatus')?.addEventListener('change',()=>{syllablePage=0;renderSyllables();});
-  $('#fullGrammarSearch')?.addEventListener('input',()=>{grammarPage=0;renderGrammar();});$('#grammarGroup')?.addEventListener('change',()=>{grammarPage=0;renderGrammar();});
+  $('#atlasSearch')?.addEventListener('input',()=>scheduleGlobalSearch('atlas'));$('#atlasStatus')?.addEventListener('change',()=>{atlasPage=0;renderAtlas();});
+  $('#fullVocabSearch')?.addEventListener('input',()=>scheduleGlobalSearch('vocab'));$('#fullVocabStatus')?.addEventListener('change',()=>{vocabPage=0;renderVocabulary();});
+  $('#syllableSearch')?.addEventListener('input',()=>scheduleGlobalSearch('syllable'));$('#syllableStatus')?.addEventListener('change',()=>{syllablePage=0;renderSyllables();});
+  $('#fullGrammarSearch')?.addEventListener('input',()=>scheduleGlobalSearch('grammar'));$('#grammarGroup')?.addEventListener('change',()=>{grammarPage=0;renderGrammar();});
   $('#stageSelect')?.addEventListener('change',e=>loadStage(e.target.value));$('#importFullProgress')?.addEventListener('change',e=>e.target.files[0]&&importProgress(e.target.files[0]));
   async function init(){ try{await loadMeta();await loadStage(state.stage,true);trainerChar=current.characters[0];openFullTrainer(trainerChar.char);notice('Programa integral carregado. Selecione uma etapa para começar.','ok');}catch(e){console.error(e);notice('Falha ao iniciar o programa integral.','error');} }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();

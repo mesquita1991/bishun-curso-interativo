@@ -1,6 +1,6 @@
 {
-  "version": "4.0.0",
-  "generatedAt": "2026-08-05T12:13:28.715438+00:00",
+  "version": "4.0.1",
+  "generatedAt": "2026-08-05T12:22:38.160878+00:00",
   "standard": "GF0025-2021",
   "counts": {
     "syllables": 1110,
@@ -22,19 +22,14 @@
   "advancedSplit": "internal-pedagogical",
   "files": [
     {
-      "path": ".nojekyll",
-      "bytes": 54,
-      "sha256": "650eb95599a4002e04e44d1ddfd0fe8581a60f95a529fa8550873f7623b34b77"
-    },
-    {
       "path": "README.md",
       "bytes": 857,
-      "sha256": "dd7d7fa863944a7d29cf7ba4e4a9349510fc94a851d59ca89ceb8557a4e31f25"
+      "sha256": "1a254d06075ebcd596c5c3de59c5a61da607defbf38aa76eed81559d09b61588"
     },
     {
       "path": "app.js",
       "bytes": 43500,
-      "sha256": "8631b859c68a5ff9d79c5e9d5bd1f2be8ffb2a1cbef9ace8823b0899919a2012"
+      "sha256": "c314f524d71ba42aaf6470f1dee610e69f97da02c5ba156a22b41a4df88acd99"
     },
     {
       "path": "course.js",
@@ -47,44 +42,9 @@
       "sha256": "9d0557e131d581008823c3ca0c8f9ef0054e44ff869de556ac984e39ae857fcd"
     },
     {
-      "path": "favicon.svg",
-      "bytes": 226,
-      "sha256": "e1b762c293a22b21ccb723e32749cca50f00a04ac5cd17de3f898c672a58f718"
-    },
-    {
-      "path": "full-course.js",
-      "bytes": 27780,
-      "sha256": "e8ad4b6f33d93a6eaec97783bce884da377d7b3f19b8293a6c3fa15bda657a2d"
-    },
-    {
-      "path": "index.html",
-      "bytes": 42600,
-      "sha256": "11bfe4e9b19e1603c9055d102a3a058d8dabe141ec7989245cf31795afd2ec93"
-    },
-    {
-      "path": "manifest.webmanifest",
-      "bytes": 514,
-      "sha256": "9a768e88d1e2c06ed44d9a3a029131cfb118bbeee4715da160cfa2b218f4987f"
-    },
-    {
-      "path": "package.json",
-      "bytes": 272,
-      "sha256": "3658751c3a6777e8755a663f79b4e01eff4f067c66da16b07ebea47d7ef4c5d3"
-    },
-    {
-      "path": "styles.css",
-      "bytes": 56727,
-      "sha256": "aabd92246d73d8c2d56d917511acf781d95c9e72f9300a443e034a231806d859"
-    },
-    {
-      "path": "sw.js",
-      "bytes": 1043,
-      "sha256": "8887eb86e6e7f474ec22916c610667cecd1567433a5ad5d7ad11e4dd4097ed18"
-    },
-    {
       "path": "data/meta.json",
-      "bytes": 3824,
-      "sha256": "46bb1ebdac31a279218cf44dd893e91dea1d6a9c4343b39a29d4124ed1b1e5cc"
+      "bytes": 3885,
+      "sha256": "e842372434acb28e95b559b6d0455716dc77046627fda6e2c553ad6f503b6fa6"
     },
     {
       "path": "data/stage-1.json",
@@ -135,6 +95,51 @@
       "path": "data/syllables.json",
       "bytes": 89051,
       "sha256": "9a9c2a6288e753b69540900305447ab7c0b3dca31b8373c2246a96ffcfe09a56"
+    },
+    {
+      "path": "favicon.svg",
+      "bytes": 226,
+      "sha256": "e1b762c293a22b21ccb723e32749cca50f00a04ac5cd17de3f898c672a58f718"
+    },
+    {
+      "path": "full-course.js",
+      "bytes": 29459,
+      "sha256": "548933bc22b8ab3a31174a5d2c0bec64a8d5937865168919f9e13d0c4772221c"
+    },
+    {
+      "path": "index.html",
+      "bytes": 42600,
+      "sha256": "6a1f64cfa6dfd5202a8676eb95aef795dd5801b61f88e977408e965648f2546f"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 514,
+      "sha256": "9a768e88d1e2c06ed44d9a3a029131cfb118bbeee4715da160cfa2b218f4987f"
+    },
+    {
+      "path": "package.json",
+      "bytes": 272,
+      "sha256": "7d4763785cb21d354b1a968193b6ee83e2325e15ee8a0dc01b651ef1303feb08"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 56727,
+      "sha256": "aabd92246d73d8c2d56d917511acf781d95c9e72f9300a443e034a231806d859"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 1043,
+      "sha256": "71503c4cb0cfbe11f65f8e0db0006cde996b68afe7739422464837813b1be0ab"
+    },
+    {
+      "path": "vercel.json",
+      "bytes": 667,
+      "sha256": "77e5efcb03b388e64c7b56d4dcf9bf4a6bf0ebd3412dd06890419e0384f0372d"
     }
+  ],
+  "changes": [
+    "Busca global sob demanda nos quatro catálogos",
+    "Renovação do cache PWA",
+    "Preservação do carregamento local por etapa"
   ]
 }
