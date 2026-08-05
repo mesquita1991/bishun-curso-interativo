@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const VERSION = '4.0.1';
+  const VERSION = '5.0.0';
   const KEY = 'bishunFullV4';
   const DAY = 86400000;
   const INTERVALS = [0,1,3,7,14,30,60,120];

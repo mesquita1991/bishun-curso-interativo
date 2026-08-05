@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Curso completo de base em mandarim: 300 caracteres, 500 palavras, 48 pontos gramaticais, pronúncia, escrita, escuta e revisão espaçada.">
+  <meta name="description" content="Programa integral de mandarim com 3.000 caracteres, 11.092 palavras, extensão lexical aberta, análise de textos reais, escrita, escuta, fala e revisão espaçada.">
   <meta name="theme-color" content="#9d2929">
   <meta name="application-name" content="Bǐshùn">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta property="og:title" content="笔顺 · Ordem dos Traços Chineses">
-  <meta property="og:description" content="Aprenda ordem, direção, pronúncia e escrita chinesa em um percurso interativo.">
+  <meta property="og:description" content="Programa integral de mandarim com escrita, imersão aberta, análise de textos reais e léxico pós-padrão.">
   <meta property="og:type" content="website">
-  <title>Mandarim Integral · 3.000 caracteres, 11.092 palavras e escrita chinesa</title>
+  <title>Mandarim Integral · imersão aberta, 124 mil entradas e escrita chinesa</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
@@ -20,6 +20,7 @@
   <script defer src="app.js"></script>
   <script defer src="course.js"></script>
   <script defer src="full-course.js"></script>
+  <script defer src="post-standard.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -33,10 +34,12 @@
       </span>
     </a>
 
-    <span class="version-badge" title="Versão atual do curso">v<span data-version>4.0.1</span></span>
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>5.0.0</span></span>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#programa-integral">Programa integral</a>
+      <a href="#pos-padrao">Pós-padrão</a>
+      <a href="#imersao-aberta">Imersão</a>
       <a href="#mapa-etapas">9 etapas</a>
       <a href="#atlas-integral">3.000 字</a>
       <a href="#competencias-integral">Competências</a>
@@ -54,6 +57,10 @@
 
   <nav id="mobileNav" class="mobile-nav" aria-label="Navegação móvel" hidden>
     <a href="#programa-integral">Programa integral</a>
+    <a href="#pos-padrao">Extensão pós-padrão</a>
+    <a href="#imersao-aberta">Laboratório de imersão</a>
+    <a href="#lexico-pos">Léxico ampliado</a>
+    <a href="#pragmatica-pos">Pragmática</a>
     <a href="#mapa-etapas">Mapa das etapas</a>
     <a href="#atlas-integral">Atlas de caracteres</a>
     <a href="#vocabulario-integral">Vocabulário integral</a>
@@ -68,20 +75,20 @@
     <section id="inicio" class="hero section-shell">
       <div class="hero-copy">
         <div class="hero-kicker">
-          <p class="eyebrow">Programa integral em nove etapas</p>
-          <span class="release-pill">Atualizado · v<span data-version>4.0.1</span></span>
+          <p class="eyebrow">Programa integral + imersão aberta</p>
+          <span class="release-pill">Atualizado · v<span data-version>5.0.0</span></span>
         </div>
-        <h1>Do primeiro traço ao <span>inventário integral</span> do mandarim.</h1>
-        <p class="hero-lead">Preserve a base de 笔顺 e avance por <strong>3.000 caracteres, 11.092 palavras, 1.110 sílabas e cinco competências</strong>, com dados carregados por etapa e progresso local.</p>
+        <h1>Do primeiro traço à <span>imersão em conteúdo real</span>.</h1>
+        <p class="hero-lead">Domine o padrão formal e continue por <strong>léxico aberto, pragmática, leitura, produção e análise de qualquer texto chinês</strong>, com dados sob demanda e progresso local.</p>
         <div class="hero-actions">
           <a class="button primary" href="#fundamentos">Começar do zero</a>
-          <a class="button secondary" href="#treinador">Abrir treino individual</a>
+          <a class="button secondary" href="#imersao-aberta">Analisar texto real</a>
         </div>
         <ul class="hero-facts" aria-label="Características do curso">
-          <li><strong>300</strong><span>caracteres</span></li>
-          <li><strong>500</strong><span>palavras</span></li>
-          <li><strong>48</strong><span>pontos gramaticais</span></li>
-          <li><strong>96</strong><span>frases com áudio</span></li>
+          <li><strong>3.000</strong><span>caracteres formais</span></li>
+          <li><strong>11.092</strong><span>palavras curriculares</span></li>
+          <li><strong>124 mil</strong><span>entradas abertas</span></li>
+          <li><strong>5</strong><span>competências</span></li>
         </ul>
       </div>
 
@@ -390,7 +397,7 @@
       <div class="section-shell">
         <div class="full-program-head">
           <div>
-            <p class="eyebrow">Versão <span data-full-version>4.0.1</span> · inventário integral</p>
+            <p class="eyebrow">Versão <span data-full-version>5.0.0</span> · inventário integral</p>
             <h2 id="fullProgramTitle">Programa integral em nove etapas</h2>
             <p>Os níveis 1–6 seguem as divisões oficiais. O inventário avançado, publicado conjuntamente como 7–9, recebe uma subdivisão pedagógica interna claramente identificada.</p>
           </div>
@@ -496,7 +503,130 @@
       <div class="exam-actions"><button id="newFullExam" class="button secondary" type="button">Gerar prova</button><button id="submitFullExam" class="button primary" type="button">Corrigir</button></div><div id="fullExam" class="full-exam"></div><div id="fullExamResult" class="full-exam-result" aria-live="polite"></div></div>
     </section>
 
-    <section id="fontes" class="section-shell sources-section"><p class="eyebrow">Metodologia e fontes</p><h2>Base curricular auditável</h2><p>Inventário integral: 1.110 sílabas, 3.000 caracteres, 11.092 palavras e 573 registros do sistema oficial de consulta. As 500 traduções iniciais foram preservadas; as demais foram localizadas a partir do CC-CEDICT, mantendo a glosa inglesa para auditoria. A animação usa Hanzi Writer / Make Me a Hanzi.</p><div class="source-links"><a href="https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html" rel="noopener" target="_blank">Padrão oficial</a><a href="https://admin.chinesetest.cn/standardsAction.do?means=standardInfo" rel="noopener" target="_blank">Consulta oficial</a><a href="https://github.com/ivankra/hsk30" rel="noopener" target="_blank">Base HSK estruturada</a><a href="https://cc-cedict.org/" rel="noopener" target="_blank">CC-CEDICT</a></div></section>
+
+    <section id="pos-padrao" class="post-overview band" aria-labelledby="postTitle">
+      <div class="section-shell">
+        <div class="post-hero-grid">
+          <div>
+            <p class="eyebrow">Versão <span data-post-version>5.0.0</span> · extensão pós-padrão</p>
+            <h2 id="postTitle">Do inventário formal à competência em conteúdo real.</h2>
+            <p>O programa de nove etapas permanece integralmente preservado. Esta camada acrescenta léxico aberto, expressões, pragmática, leitura, produção e um laboratório capaz de transformar qualquer texto chinês em material de estudo.</p>
+            <div class="post-hero-actions"><a class="button primary" href="#imersao-aberta">Analisar um texto real</a><a class="button secondary" href="#lexico-pos">Explorar o léxico ampliado</a></div>
+          </div>
+          <aside class="post-honesty-card">
+            <strong id="postEvidenceScore">0%</strong><span>evidência interna concluída</span>
+            <p>Este indicador mede somente registros e missões da extensão. Não significa “percentual da língua”.</p>
+          </aside>
+        </div>
+        <div class="post-stat-grid">
+          <article><strong id="postEntries">0</strong><span>entradas lexicais abertas</span></article>
+          <article><strong id="postPriority">0</strong><span>itens de prioridade heurística</span></article>
+          <article><strong id="postIdioms">0</strong><span>expressões idiomáticas</span></article>
+          <article><strong id="postDomains">0</strong><span>domínios profissionais</span></article>
+          <article><strong id="postPragmatics">0</strong><span>aulas de pragmática</span></article>
+          <article><strong id="postReadings">0</strong><span>leituras autorais</span></article>
+          <article><strong id="postMissions">0</strong><span>missões pós-padrão</span></article>
+          <article><strong id="postShards">0</strong><span>fragmentos sob demanda</span></article>
+        </div>
+        <div class="post-progress-summary">
+          <article><span>Léxico dominado</span><b id="postLexMastered">0</b></article>
+          <article><span>Expressões dominadas</span><b id="postIdiomMastered">0</b></article>
+          <article><span>Pragmática</span><b id="postPragMastered">0/0</b></article>
+          <article><span>Missões</span><b id="postMissionsDone">0/0</b></article>
+          <article><span>Revisões vencidas</span><b id="postDueCount">0</b></article>
+        </div>
+        <div class="post-method-notice"><p id="postMethodNotice"></p><p><strong>Limite explícito:</strong> nenhuma lista fecha uma língua viva. A extensão foi construída para medir desempenho em amostras reais, ampliar repertório e exigir transferência, não para declarar “100% de chinês”.</p></div>
+        <div class="post-toolbar"><button id="exportPostProgress" class="button secondary" type="button">Exportar progresso pós-padrão</button><label class="button secondary file-button">Importar progresso<input id="importPostProgress" type="file" accept="application/json"></label></div>
+        <p id="postStatus" class="full-notice" aria-live="polite">Iniciando extensão pós-padrão…</p>
+      </div>
+    </section>
+
+    <section id="imersao-aberta" class="section-shell post-section" aria-labelledby="immersionTitle">
+      <div class="section-heading"><span class="section-number">∞</span><div><p class="eyebrow">Laboratório de imersão</p><h2 id="immersionTitle">Meça a cobertura do texto, não da língua inteira.</h2><p>Cole notícia, legenda, mensagem, artigo, transcrição ou material profissional. O site carrega somente os fragmentos necessários, segmenta por correspondência lexical e separa inventário formal, extensão e itens dominados.</p></div></div>
+      <div class="immersion-layout">
+        <div class="immersion-input-card">
+          <label for="immersionText">Texto chinês</label>
+          <textarea id="immersionText" lang="zh-Hans" rows="10" placeholder="在这里粘贴中文文本……"></textarea>
+          <div class="immersion-actions"><button id="analyzeImmersion" class="button primary" type="button">Analisar cobertura</button><button id="speakImmersion" class="button secondary" type="button">▶ Ouvir texto</button><button id="saveImmersion" class="button secondary" type="button">Salvar na biblioteca</button><button id="clearImmersion" class="button ghost" type="button">Limpar</button></div>
+          <p id="immersionStatus" class="status-line" aria-live="polite">Escolha um exemplo ou cole seu próprio texto.</p>
+          <div><b>Exemplos</b><div id="immersionSamples" class="sample-text-buttons"></div></div>
+        </div>
+        <aside class="immersion-metrics-card">
+          <h3>Cobertura desta amostra</h3>
+          <div class="immersion-metrics">
+            <article><strong id="immersionTokenCount">0</strong><span>ocorrências</span></article>
+            <article><strong id="immersionTypeCount">0</strong><span>tipos únicos</span></article>
+            <article><strong id="immersionDictionaryCoverage">0%</strong><span>reconhecido pelo dicionário</span></article>
+            <article><strong id="immersionFormalCoverage">0%</strong><span>inventário formal</span></article>
+            <article><strong id="immersionMasteryCoverage">0%</strong><span>já dominado</span></article>
+            <article><strong id="immersionUnknownCount">0</strong><span>tipos não encontrados</span></article>
+          </div>
+          <p id="immersionCoverageNote">Os resultados aparecerão após a análise.</p>
+        </aside>
+      </div>
+      <div class="immersion-results">
+        <div><h3>Texto segmentado</h3><div id="immersionTokenOutput" class="token-output" lang="zh-Hans"></div><h4>Não encontrados</h4><div id="immersionUnknownList" class="unknown-list"></div></div>
+        <div><h3>Item selecionado</h3><div id="immersionTokenDetail" class="token-detail"><p>Selecione uma palavra reconhecida.</p></div></div>
+      </div>
+      <div class="recent-text-card"><h3>Biblioteca recente</h3><div id="recentImmersionTexts" class="recent-texts"></div></div>
+    </section>
+
+    <section id="lexico-pos" class="band post-section" aria-labelledby="postLexTitle">
+      <div class="section-shell">
+        <div class="section-heading"><span class="section-number">词+</span><div><p class="eyebrow">Léxico pós-padrão</p><h2 id="postLexTitle">Dicionário aberto, prioridade, domínios e registros.</h2><p>A prioridade é uma heurística transparente, não uma lista oficial de frequência. A busca integral por caracteres ou pinyin alcança toda a base aberta.</p></div></div>
+        <div class="catalog-toolbar post-catalog-toolbar">
+          <label>Modo<select id="postLexMode"><option value="priority">20 mil prioritários</option><option value="domain">Domínio profissional</option><option value="register">Registro e variedade</option><option value="dictionary">Dicionário integral</option></select></label>
+          <label>Pesquisar<input id="postLexSearch" type="search" placeholder="caracteres ou pinyin"></label>
+          <label>Domínio<select id="postDomainSelect"></select></label>
+          <label>Registro<select id="postRegisterSelect"></select></label>
+          <label>Progresso<select id="postLexStatus"><option value="all">Todos</option><option value="due">Para revisar</option><option value="mastered">Dominados</option></select></label>
+        </div>
+        <div class="catalog-summary"><strong id="postLexResultCount">0 resultados</strong><span>Entradas sem tradução portuguesa revisada exibem a glosa inglesa original.</span></div>
+        <div id="postLexiconGrid" class="post-lex-grid"></div>
+        <div class="pagination"><button id="postLexPrev" type="button">Anterior</button><span id="postLexPage">1/1</span><button id="postLexNext" type="button">Próxima</button></div>
+      </div>
+    </section>
+
+    <section id="expressoes-pos" class="section-shell post-section" aria-labelledby="idiomTitle">
+      <div class="section-heading"><span class="section-number">成</span><div><p class="eyebrow">Expressões e 成语</p><h2 id="idiomTitle">Forma fixa, sentido figurado e referência cultural.</h2><p>O conjunto reúne expressões de quatro caracteres marcadas como idioma, provérbio, dito ou uso figurado no CC-CEDICT. Nem toda expressão de quatro caracteres é automaticamente um 成语 clássico.</p></div></div>
+      <div class="catalog-toolbar"><label>Pesquisar<input id="idiomSearch" type="search" placeholder="expressão ou pinyin"></label><label>Progresso<select id="idiomStatus"><option value="all">Todas</option><option value="due">Para revisar</option><option value="mastered">Dominadas</option></select></label></div>
+      <div class="catalog-summary"><strong id="idiomResultCount">0 expressões</strong><span>Glosas-fonte mantidas para auditoria.</span></div>
+      <div id="idiomGrid" class="idiom-grid"></div>
+      <div class="pagination"><button id="idiomPrev" type="button">Anterior</button><span id="idiomPage">1/1</span><button id="idiomNext" type="button">Próxima</button></div>
+    </section>
+
+    <section id="pragmatica-pos" class="band post-section" aria-labelledby="pragmaticTitle">
+      <div class="section-shell">
+        <div class="section-heading"><span class="section-number">礼</span><div><p class="eyebrow">Pragmática e adequação</p><h2 id="pragmaticTitle">Não basta estar correto: é preciso soar adequado.</h2><p>Pedidos, desculpas, atenuação, partículas, tratamento, inferência e sociabilidade são treinados com contexto e consequência comunicativa.</p></div></div>
+        <div class="catalog-toolbar"><label>Categoria<select id="pragmaticCategory"></select></label><label>Pesquisar<input id="pragmaticSearch" type="search" placeholder="forma, função ou contexto"></label><label>Progresso<select id="pragmaticStatus"><option value="all">Todas</option><option value="mastered">Dominadas</option></select></label></div>
+        <div id="pragmaticGrid" class="pragmatic-grid"></div>
+        <div class="pagination"><button id="pragmaticPrev" type="button">Anterior</button><span id="pragmaticPage">1/1</span><button id="pragmaticNext" type="button">Próxima</button></div>
+      </div>
+    </section>
+
+    <section id="leituras-pos" class="section-shell post-section" aria-labelledby="readingTitle">
+      <div class="section-heading"><span class="section-number">读+</span><div><p class="eyebrow">Leitura, escuta e análise</p><h2 id="readingTitle">Textos autorais como ponto de partida, conteúdo real como destino.</h2><p>As leituras controladas oferecem treino inicial. Cada uma pode ser enviada ao laboratório; depois, o mesmo procedimento deve ser aplicado a textos externos.</p></div></div>
+      <div class="catalog-toolbar"><label>Gênero<select id="readingGenre"></select></label></div>
+      <div id="postReadingGrid" class="post-reading-grid"></div>
+      <div class="pagination"><button id="readingPrev" type="button">Anterior</button><span id="readingPage">1/1</span><button id="readingNext" type="button">Próxima</button></div>
+    </section>
+
+    <section id="missoes-pos" class="band post-section" aria-labelledby="missionTitle">
+      <div class="section-shell">
+        <div class="section-heading"><span class="section-number">证</span><div><p class="eyebrow">Transferência e evidência</p><h2 id="missionTitle">Doze trilhas, 120 missões e resultado verificável.</h2><p>Cada trilha termina em tarefa inédita. Marcar uma missão significa possuir uma entrega concreta, não apenas ter aberto a página.</p></div></div>
+        <div class="catalog-toolbar"><label>Trilha<select id="missionTrack"></select></label><label>Estado<select id="missionStatus"><option value="all">Todas</option><option value="done">Concluídas</option></select></label></div>
+        <div id="missionGrid" class="mission-grid"></div>
+        <div class="pagination"><button id="missionPrev" type="button">Anterior</button><span id="missionPage">1/1</span><button id="missionNext" type="button">Próxima</button></div>
+      </div>
+    </section>
+
+    <section id="dominio-real" class="section-shell post-section mastery-section" aria-labelledby="masteryTitle">
+      <div class="section-heading"><span class="section-number">✓</span><div><p class="eyebrow">Critério de domínio</p><h2 id="masteryTitle">“Dominei” exige retenção, compreensão, produção e transferência.</h2><p>A rubrica impede que número de itens vistos seja confundido com capacidade linguística.</p></div></div>
+      <div id="masteryRubric" class="mastery-rubric"></div>
+      <div class="honesty-panel"><h3>O que a versão 5 resolve</h3><p>O curso deixa de depender apenas de um inventário fechado: passa a analisar textos escolhidos pelo aluno, localizar lacunas, gerar revisão e exigir produtos orais e escritos. Ainda assim, não existe teste que certifique “100% de uma língua”.</p></div>
+    </section>
+
+    <section id="fontes" class="section-shell sources-section"><p class="eyebrow">Metodologia e fontes</p><h2>Base curricular auditável</h2><p>Inventário integral: 1.110 sílabas, 3.000 caracteres, 11.092 palavras e 573 registros do sistema oficial de consulta. As 500 traduções iniciais foram preservadas; as demais foram localizadas a partir do CC-CEDICT, mantendo a glosa inglesa para auditoria. A animação usa Hanzi Writer / Make Me a Hanzi. A extensão pós-padrão incorpora a edição de 24 de julho de 2026 do CC-CEDICT sob CC BY-SA 4.0 e mantém glosas-fonte quando não existe tradução portuguesa revisada.</p><div class="source-links"><a href="https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html" rel="noopener" target="_blank">Padrão oficial</a><a href="https://admin.chinesetest.cn/standardsAction.do?means=standardInfo" rel="noopener" target="_blank">Consulta oficial</a><a href="https://github.com/ivankra/hsk30" rel="noopener" target="_blank">Base HSK estruturada</a><a href="https://cc-cedict.org/editor/editor.php?handler=Download" rel="noopener" target="_blank">CC-CEDICT e licença</a><a href="https://lingua.mtsu.edu/chinese-computing/" rel="noopener" target="_blank">Chinese Text Computing</a></div></section>
 
     <section class="section-shell content-section module" data-module="proporcao">
       <div class="section-heading">
@@ -614,9 +744,11 @@
         </div>
 
         <div class="release-card current-release">
-          <div class="release-card-head"><div><span class="release-version">v<span data-version>4.0.1</span></span><h3>Programa Integral · nove etapas</h3></div><time datetime="2026-08-05">5 de agosto de 2026</time></div>
-          <ul class="release-list"><li>Inventário integral de 3.000 caracteres, 11.092 palavras e 1.110 sílabas.</li><li>300 unidades distribuídas em nove etapas com carregamento sob demanda.</li><li>573 registros gramaticais preservados; discrepância oficial de 572/573 explicitada.</li><li>Atlas integral, laboratório manuscrito, áudio e formas tradicionais.</li><li>Laboratórios separados de leitura, escuta, fala, escrita e tradução.</li><li>Revisão espaçada, prova por etapa, exportação, importação e download offline.</li><li>Faixas 7–9 marcadas como subdivisão pedagógica interna do inventário avançado conjunto.</li><li>Base 300, fundamentos, 96 frases e todos os recursos anteriores preservados.</li></ul>
+          <div class="release-card-head"><div><span class="release-version">v<span data-version>5.0.0</span></span><h3>Extensão Pós-Padrão · imersão aberta</h3></div><time datetime="2026-08-05">5 de agosto de 2026</time></div>
+          <ul class="release-list"><li>Laboratório que segmenta e mede a cobertura de qualquer texto chinês trazido pelo aluno.</li><li>124 mil entradas abertas do CC-CEDICT em 128 fragmentos carregados sob demanda.</li><li>20 mil itens de prioridade heurística, 24 domínios e 12 registros/variedades.</li><li>Mais de cinco mil expressões idiomáticas e figuradas com SRS independente.</li><li>100 aulas autorais de pragmática, 52 leituras e 120 missões de transferência.</li><li>Critério explícito de domínio baseado em retenção, escuta, leitura, fala, escrita e material inédito.</li><li>Programa formal v4.0.1, Base 300 e todos os recursos anteriores integralmente preservados.</li></ul>
         </div>
+
+        <details class="release-card previous-release"><summary><span><b>v4.0.1</b> · Programa Integral</span><time datetime="2026-08-05">5 de agosto de 2026</time></summary><ul class="release-list"><li>3.000 caracteres, 11.092 palavras, 1.110 sílabas, 573 registros e 300 unidades.</li><li>Cinco competências, SRS, provas e carregamento por etapa.</li></ul></details>
 
         <details class="release-card previous-release"><summary><span><b>v3.0.1</b> · Base 300</span><time datetime="2026-08-04">4 de agosto de 2026</time></summary><ul class="release-list"><li>30 unidades, 300 caracteres, 500 palavras, 48 pontos gramaticais e 96 frases.</li><li>Treinador, escuta, SRS, prova, PWA e responsividade auditada.</li></ul></details>
 
@@ -642,8 +774,8 @@
 
   <footer>
     <div class="section-shell footer-inner">
-      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>4.0.1</span></span></strong><p>Programa integral de mandarim e escrita chinesa em português.</p></div>
-      <p>Currículo: GF0025-2021, nove etapas e inventário integral. Léxico: CC-CEDICT. Animação: Hanzi Writer. Progresso salvo localmente.</p>
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>5.0.0</span></span></strong><p>Programa integral, extensão pós-padrão e laboratório de imersão em português.</p></div>
+      <p>Currículo: GF0025-2021. Extensão aberta: CC-CEDICT sob CC BY-SA 4.0. Análise, SRS e progresso permanecem locais.</p>
     </div>
   </footer>
 </body>

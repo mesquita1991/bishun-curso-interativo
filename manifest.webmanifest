@@ -1,7 +1,7 @@
 {
-  "name": "Mandarim Integral · 笔顺",
+  "name": "Mandarim Integral · Imersão Aberta",
   "short_name": "Mandarim Integral",
-  "description": "Programa integral de mandarim em português: 3.000 caracteres, 11.092 palavras, 1.110 sílabas, gramática e escrita chinesa.",
+  "description": "Programa formal e extensão pós-padrão com análise de textos chineses, SRS, escrita, escuta e produção.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",

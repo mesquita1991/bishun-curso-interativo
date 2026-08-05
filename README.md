@@ -1,19 +1,31 @@
-# Mandarim Integral · 笔顺 — v4.0.1
+# Mandarim Integral · 笔顺 — v5.0.0
 
-Aplicação estática local-first em português, preservando a Base 300 e acrescentando o inventário integral do padrão GF0025-2021.
+Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 
-## Escopo
+## Programa formal
 
-- 1.110 sílabas oficiais;
+- 1.110 sílabas;
 - 3.000 caracteres;
 - 11.092 palavras;
-- 573 registros retornados pelo sistema oficial de consulta (a apresentação do padrão resume 572);
+- 573 registros retornados pelo sistema oficial de consulta, com a discrepância 572/573 documentada;
 - 300 unidades em nove etapas;
-- leitura, escuta, fala, escrita e tradução;
-- SRS, provas, importação/exportação e download offline por etapa.
+- leitura, escuta, fala, escrita e tradução.
 
-Os níveis 7–9 são publicados oficialmente como inventário avançado conjunto. Sua divisão em três etapas no site é pedagógica e explicitamente sinalizada.
+## Extensão pós-padrão
 
-## Dados e fontes
+- 124.370 entradas alinhadas à edição de 24 de julho de 2026 do CC-CEDICT;
+- 128 fragmentos lexicais carregados sob demanda;
+- 20.000 entradas de prioridade heurística;
+- 5.295 expressões idiomáticas ou figuradas;
+- 24 domínios profissionais e 12 registros/variedades inferidos das glosas;
+- 100 aulas autorais de pragmática;
+- 52 leituras autorais e 120 missões de transferência;
+- laboratório que segmenta qualquer texto chinês e mede cobertura de ocorrências, tipos, inventário formal e itens dominados.
 
-GF0025-2021 / sistema ChineseTest, transcrição estruturada `ivankra/hsk30`, CC-CEDICT e Hanzi Writer. Traduções portuguesas mantêm a glosa-fonte para auditoria.
+## Limites
+
+A extensão não representa uma lista oficial de frequência nem define “100% da língua”. Classificações pós-padrão são heurísticas e a segmentação é assistiva. As 11.092 palavras curriculares mantêm tradução portuguesa; entradas adicionais sem tradução revisada exibem a glosa inglesa original.
+
+## Fontes e licença
+
+GF0025-2021 / ChineseTest, transcrição estruturada `ivankra/hsk30`, CC-CEDICT sob CC BY-SA 4.0 e Hanzi Writer.

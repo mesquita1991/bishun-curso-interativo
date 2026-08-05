@@ -1,0 +1,929 @@
+{
+  "version": "5.0.0",
+  "title": "Extensão Pós-Padrão · imersão aberta",
+  "generated": "2026-08-05T13:40:58.711732+00:00",
+  "source": {
+    "name": "CC-CEDICT",
+    "release": "2026-07-24 03:26:26 GMT",
+    "entriesInRelease": 124727,
+    "license": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "url": "https://www.mdbg.net/chinese/dictionary?lang=en&page=cc-cedict"
+  },
+  "inventory": {
+    "entryCount": 124370,
+    "coreOverlapEntries": 12068,
+    "domainTaggedEntries": 23552,
+    "registerTaggedEntries": 21516,
+    "domainPackCount": 24,
+    "registerPackCount": 12,
+    "priorityEntries": 20000,
+    "idiomExpressions": 5295,
+    "pragmaticsLessons": 100,
+    "authoredReadings": 52,
+    "missions": 120,
+    "tracks": 12,
+    "lexicalShards": 128
+  },
+  "files": {
+    "priority": "data/post/priority-20000.json",
+    "idioms": "data/post/idioms.json",
+    "packs": "data/post/packs.json",
+    "curriculum": "data/post/curriculum.json",
+    "searchIndexParts": [
+      "data/post/search-index-00.json",
+      "data/post/search-index-01.json",
+      "data/post/search-index-02.json",
+      "data/post/search-index-03.json",
+      "data/post/search-index-04.json",
+      "data/post/search-index-05.json",
+      "data/post/search-index-06.json",
+      "data/post/search-index-07.json",
+      "data/post/search-index-08.json",
+      "data/post/search-index-09.json",
+      "data/post/search-index-10.json",
+      "data/post/search-index-11.json",
+      "data/post/search-index-12.json",
+      "data/post/search-index-13.json",
+      "data/post/search-index-14.json",
+      "data/post/search-index-15.json"
+    ]
+  },
+  "shards": [
+    {
+      "shard": 0,
+      "file": "data/post/lex-000.json",
+      "count": 1695,
+      "bytes": 221120
+    },
+    {
+      "shard": 1,
+      "file": "data/post/lex-001.json",
+      "count": 1317,
+      "bytes": 156215
+    },
+    {
+      "shard": 2,
+      "file": "data/post/lex-002.json",
+      "count": 876,
+      "bytes": 100645
+    },
+    {
+      "shard": 3,
+      "file": "data/post/lex-003.json",
+      "count": 969,
+      "bytes": 116066
+    },
+    {
+      "shard": 4,
+      "file": "data/post/lex-004.json",
+      "count": 723,
+      "bytes": 80807
+    },
+    {
+      "shard": 5,
+      "file": "data/post/lex-005.json",
+      "count": 1016,
+      "bytes": 120742
+    },
+    {
+      "shard": 6,
+      "file": "data/post/lex-006.json",
+      "count": 1044,
+      "bytes": 120701
+    },
+    {
+      "shard": 7,
+      "file": "data/post/lex-007.json",
+      "count": 1058,
+      "bytes": 127103
+    },
+    {
+      "shard": 8,
+      "file": "data/post/lex-008.json",
+      "count": 867,
+      "bytes": 97644
+    },
+    {
+      "shard": 9,
+      "file": "data/post/lex-009.json",
+      "count": 1992,
+      "bytes": 244174
+    },
+    {
+      "shard": 10,
+      "file": "data/post/lex-010.json",
+      "count": 958,
+      "bytes": 112149
+    },
+    {
+      "shard": 11,
+      "file": "data/post/lex-011.json",
+      "count": 1068,
+      "bytes": 125857
+    },
+    {
+      "shard": 12,
+      "file": "data/post/lex-012.json",
+      "count": 933,
+      "bytes": 108783
+    },
+    {
+      "shard": 13,
+      "file": "data/post/lex-013.json",
+      "count": 1661,
+      "bytes": 205419
+    },
+    {
+      "shard": 14,
+      "file": "data/post/lex-014.json",
+      "count": 902,
+      "bytes": 105057
+    },
+    {
+      "shard": 15,
+      "file": "data/post/lex-015.json",
+      "count": 1239,
+      "bytes": 146391
+    },
+    {
+      "shard": 16,
+      "file": "data/post/lex-016.json",
+      "count": 760,
+      "bytes": 91571
+    },
+    {
+      "shard": 17,
+      "file": "data/post/lex-017.json",
+      "count": 1012,
+      "bytes": 116853
+    },
+    {
+      "shard": 18,
+      "file": "data/post/lex-018.json",
+      "count": 803,
+      "bytes": 89247
+    },
+    {
+      "shard": 19,
+      "file": "data/post/lex-019.json",
+      "count": 609,
+      "bytes": 68620
+    },
+    {
+      "shard": 20,
+      "file": "data/post/lex-020.json",
+      "count": 868,
+      "bytes": 106731
+    },
+    {
+      "shard": 21,
+      "file": "data/post/lex-021.json",
+      "count": 576,
+      "bytes": 65796
+    },
+    {
+      "shard": 22,
+      "file": "data/post/lex-022.json",
+      "count": 929,
+      "bytes": 105228
+    },
+    {
+      "shard": 23,
+      "file": "data/post/lex-023.json",
+      "count": 1235,
+      "bytes": 144929
+    },
+    {
+      "shard": 24,
+      "file": "data/post/lex-024.json",
+      "count": 687,
+      "bytes": 79370
+    },
+    {
+      "shard": 25,
+      "file": "data/post/lex-025.json",
+      "count": 890,
+      "bytes": 103728
+    },
+    {
+      "shard": 26,
+      "file": "data/post/lex-026.json",
+      "count": 1288,
+      "bytes": 148085
+    },
+    {
+      "shard": 27,
+      "file": "data/post/lex-027.json",
+      "count": 715,
+      "bytes": 80438
+    },
+    {
+      "shard": 28,
+      "file": "data/post/lex-028.json",
+      "count": 1006,
+      "bytes": 119435
+    },
+    {
+      "shard": 29,
+      "file": "data/post/lex-029.json",
+      "count": 751,
+      "bytes": 90760
+    },
+    {
+      "shard": 30,
+      "file": "data/post/lex-030.json",
+      "count": 508,
+      "bytes": 57154
+    },
+    {
+      "shard": 31,
+      "file": "data/post/lex-031.json",
+      "count": 1507,
+      "bytes": 171455
+    },
+    {
+      "shard": 32,
+      "file": "data/post/lex-032.json",
+      "count": 889,
+      "bytes": 107813
+    },
+    {
+      "shard": 33,
+      "file": "data/post/lex-033.json",
+      "count": 841,
+      "bytes": 98431
+    },
+    {
+      "shard": 34,
+      "file": "data/post/lex-034.json",
+      "count": 910,
+      "bytes": 105051
+    },
+    {
+      "shard": 35,
+      "file": "data/post/lex-035.json",
+      "count": 496,
+      "bytes": 55568
+    },
+    {
+      "shard": 36,
+      "file": "data/post/lex-036.json",
+      "count": 852,
+      "bytes": 101259
+    },
+    {
+      "shard": 37,
+      "file": "data/post/lex-037.json",
+      "count": 807,
+      "bytes": 93364
+    },
+    {
+      "shard": 38,
+      "file": "data/post/lex-038.json",
+      "count": 623,
+      "bytes": 72667
+    },
+    {
+      "shard": 39,
+      "file": "data/post/lex-039.json",
+      "count": 1737,
+      "bytes": 210814
+    },
+    {
+      "shard": 40,
+      "file": "data/post/lex-040.json",
+      "count": 1137,
+      "bytes": 126720
+    },
+    {
+      "shard": 41,
+      "file": "data/post/lex-041.json",
+      "count": 1013,
+      "bytes": 119908
+    },
+    {
+      "shard": 42,
+      "file": "data/post/lex-042.json",
+      "count": 1044,
+      "bytes": 121076
+    },
+    {
+      "shard": 43,
+      "file": "data/post/lex-043.json",
+      "count": 826,
+      "bytes": 95279
+    },
+    {
+      "shard": 44,
+      "file": "data/post/lex-044.json",
+      "count": 711,
+      "bytes": 83304
+    },
+    {
+      "shard": 45,
+      "file": "data/post/lex-045.json",
+      "count": 1072,
+      "bytes": 140164
+    },
+    {
+      "shard": 46,
+      "file": "data/post/lex-046.json",
+      "count": 627,
+      "bytes": 65016
+    },
+    {
+      "shard": 47,
+      "file": "data/post/lex-047.json",
+      "count": 855,
+      "bytes": 99879
+    },
+    {
+      "shard": 48,
+      "file": "data/post/lex-048.json",
+      "count": 1180,
+      "bytes": 135496
+    },
+    {
+      "shard": 49,
+      "file": "data/post/lex-049.json",
+      "count": 1126,
+      "bytes": 132571
+    },
+    {
+      "shard": 50,
+      "file": "data/post/lex-050.json",
+      "count": 782,
+      "bytes": 88350
+    },
+    {
+      "shard": 51,
+      "file": "data/post/lex-051.json",
+      "count": 829,
+      "bytes": 94935
+    },
+    {
+      "shard": 52,
+      "file": "data/post/lex-052.json",
+      "count": 1229,
+      "bytes": 144140
+    },
+    {
+      "shard": 53,
+      "file": "data/post/lex-053.json",
+      "count": 701,
+      "bytes": 79899
+    },
+    {
+      "shard": 54,
+      "file": "data/post/lex-054.json",
+      "count": 646,
+      "bytes": 75695
+    },
+    {
+      "shard": 55,
+      "file": "data/post/lex-055.json",
+      "count": 707,
+      "bytes": 81087
+    },
+    {
+      "shard": 56,
+      "file": "data/post/lex-056.json",
+      "count": 990,
+      "bytes": 108585
+    },
+    {
+      "shard": 57,
+      "file": "data/post/lex-057.json",
+      "count": 1092,
+      "bytes": 124492
+    },
+    {
+      "shard": 58,
+      "file": "data/post/lex-058.json",
+      "count": 1111,
+      "bytes": 136513
+    },
+    {
+      "shard": 59,
+      "file": "data/post/lex-059.json",
+      "count": 1139,
+      "bytes": 130122
+    },
+    {
+      "shard": 60,
+      "file": "data/post/lex-060.json",
+      "count": 664,
+      "bytes": 74500
+    },
+    {
+      "shard": 61,
+      "file": "data/post/lex-061.json",
+      "count": 730,
+      "bytes": 81010
+    },
+    {
+      "shard": 62,
+      "file": "data/post/lex-062.json",
+      "count": 1049,
+      "bytes": 127579
+    },
+    {
+      "shard": 63,
+      "file": "data/post/lex-063.json",
+      "count": 952,
+      "bytes": 112556
+    },
+    {
+      "shard": 64,
+      "file": "data/post/lex-064.json",
+      "count": 725,
+      "bytes": 82787
+    },
+    {
+      "shard": 65,
+      "file": "data/post/lex-065.json",
+      "count": 1137,
+      "bytes": 134081
+    },
+    {
+      "shard": 66,
+      "file": "data/post/lex-066.json",
+      "count": 613,
+      "bytes": 69788
+    },
+    {
+      "shard": 67,
+      "file": "data/post/lex-067.json",
+      "count": 849,
+      "bytes": 103185
+    },
+    {
+      "shard": 68,
+      "file": "data/post/lex-068.json",
+      "count": 934,
+      "bytes": 112791
+    },
+    {
+      "shard": 69,
+      "file": "data/post/lex-069.json",
+      "count": 898,
+      "bytes": 99952
+    },
+    {
+      "shard": 70,
+      "file": "data/post/lex-070.json",
+      "count": 964,
+      "bytes": 107347
+    },
+    {
+      "shard": 71,
+      "file": "data/post/lex-071.json",
+      "count": 946,
+      "bytes": 107875
+    },
+    {
+      "shard": 72,
+      "file": "data/post/lex-072.json",
+      "count": 664,
+      "bytes": 77216
+    },
+    {
+      "shard": 73,
+      "file": "data/post/lex-073.json",
+      "count": 969,
+      "bytes": 113791
+    },
+    {
+      "shard": 74,
+      "file": "data/post/lex-074.json",
+      "count": 672,
+      "bytes": 75488
+    },
+    {
+      "shard": 75,
+      "file": "data/post/lex-075.json",
+      "count": 926,
+      "bytes": 108237
+    },
+    {
+      "shard": 76,
+      "file": "data/post/lex-076.json",
+      "count": 1258,
+      "bytes": 147552
+    },
+    {
+      "shard": 77,
+      "file": "data/post/lex-077.json",
+      "count": 1409,
+      "bytes": 162150
+    },
+    {
+      "shard": 78,
+      "file": "data/post/lex-078.json",
+      "count": 1128,
+      "bytes": 143179
+    },
+    {
+      "shard": 79,
+      "file": "data/post/lex-079.json",
+      "count": 940,
+      "bytes": 111070
+    },
+    {
+      "shard": 80,
+      "file": "data/post/lex-080.json",
+      "count": 931,
+      "bytes": 107039
+    },
+    {
+      "shard": 81,
+      "file": "data/post/lex-081.json",
+      "count": 1896,
+      "bytes": 232186
+    },
+    {
+      "shard": 82,
+      "file": "data/post/lex-082.json",
+      "count": 865,
+      "bytes": 99571
+    },
+    {
+      "shard": 83,
+      "file": "data/post/lex-083.json",
+      "count": 982,
+      "bytes": 117382
+    },
+    {
+      "shard": 84,
+      "file": "data/post/lex-084.json",
+      "count": 849,
+      "bytes": 98817
+    },
+    {
+      "shard": 85,
+      "file": "data/post/lex-085.json",
+      "count": 963,
+      "bytes": 114439
+    },
+    {
+      "shard": 86,
+      "file": "data/post/lex-086.json",
+      "count": 589,
+      "bytes": 64028
+    },
+    {
+      "shard": 87,
+      "file": "data/post/lex-087.json",
+      "count": 1112,
+      "bytes": 129849
+    },
+    {
+      "shard": 88,
+      "file": "data/post/lex-088.json",
+      "count": 1265,
+      "bytes": 147760
+    },
+    {
+      "shard": 89,
+      "file": "data/post/lex-089.json",
+      "count": 779,
+      "bytes": 90120
+    },
+    {
+      "shard": 90,
+      "file": "data/post/lex-090.json",
+      "count": 732,
+      "bytes": 83326
+    },
+    {
+      "shard": 91,
+      "file": "data/post/lex-091.json",
+      "count": 1006,
+      "bytes": 120416
+    },
+    {
+      "shard": 92,
+      "file": "data/post/lex-092.json",
+      "count": 770,
+      "bytes": 89272
+    },
+    {
+      "shard": 93,
+      "file": "data/post/lex-093.json",
+      "count": 728,
+      "bytes": 87747
+    },
+    {
+      "shard": 94,
+      "file": "data/post/lex-094.json",
+      "count": 1189,
+      "bytes": 138958
+    },
+    {
+      "shard": 95,
+      "file": "data/post/lex-095.json",
+      "count": 736,
+      "bytes": 89519
+    },
+    {
+      "shard": 96,
+      "file": "data/post/lex-096.json",
+      "count": 988,
+      "bytes": 116968
+    },
+    {
+      "shard": 97,
+      "file": "data/post/lex-097.json",
+      "count": 1075,
+      "bytes": 119420
+    },
+    {
+      "shard": 98,
+      "file": "data/post/lex-098.json",
+      "count": 741,
+      "bytes": 84167
+    },
+    {
+      "shard": 99,
+      "file": "data/post/lex-099.json",
+      "count": 1025,
+      "bytes": 117766
+    },
+    {
+      "shard": 100,
+      "file": "data/post/lex-100.json",
+      "count": 815,
+      "bytes": 92245
+    },
+    {
+      "shard": 101,
+      "file": "data/post/lex-101.json",
+      "count": 1447,
+      "bytes": 175625
+    },
+    {
+      "shard": 102,
+      "file": "data/post/lex-102.json",
+      "count": 1090,
+      "bytes": 130795
+    },
+    {
+      "shard": 103,
+      "file": "data/post/lex-103.json",
+      "count": 581,
+      "bytes": 65845
+    },
+    {
+      "shard": 104,
+      "file": "data/post/lex-104.json",
+      "count": 1142,
+      "bytes": 134699
+    },
+    {
+      "shard": 105,
+      "file": "data/post/lex-105.json",
+      "count": 684,
+      "bytes": 78102
+    },
+    {
+      "shard": 106,
+      "file": "data/post/lex-106.json",
+      "count": 1046,
+      "bytes": 119845
+    },
+    {
+      "shard": 107,
+      "file": "data/post/lex-107.json",
+      "count": 921,
+      "bytes": 103598
+    },
+    {
+      "shard": 108,
+      "file": "data/post/lex-108.json",
+      "count": 1337,
+      "bytes": 160347
+    },
+    {
+      "shard": 109,
+      "file": "data/post/lex-109.json",
+      "count": 986,
+      "bytes": 115143
+    },
+    {
+      "shard": 110,
+      "file": "data/post/lex-110.json",
+      "count": 1008,
+      "bytes": 118940
+    },
+    {
+      "shard": 111,
+      "file": "data/post/lex-111.json",
+      "count": 1084,
+      "bytes": 123504
+    },
+    {
+      "shard": 112,
+      "file": "data/post/lex-112.json",
+      "count": 1247,
+      "bytes": 149225
+    },
+    {
+      "shard": 113,
+      "file": "data/post/lex-113.json",
+      "count": 904,
+      "bytes": 98697
+    },
+    {
+      "shard": 114,
+      "file": "data/post/lex-114.json",
+      "count": 642,
+      "bytes": 69693
+    },
+    {
+      "shard": 115,
+      "file": "data/post/lex-115.json",
+      "count": 1370,
+      "bytes": 154233
+    },
+    {
+      "shard": 116,
+      "file": "data/post/lex-116.json",
+      "count": 1268,
+      "bytes": 151562
+    },
+    {
+      "shard": 117,
+      "file": "data/post/lex-117.json",
+      "count": 479,
+      "bytes": 55776
+    },
+    {
+      "shard": 118,
+      "file": "data/post/lex-118.json",
+      "count": 1104,
+      "bytes": 125222
+    },
+    {
+      "shard": 119,
+      "file": "data/post/lex-119.json",
+      "count": 1170,
+      "bytes": 134558
+    },
+    {
+      "shard": 120,
+      "file": "data/post/lex-120.json",
+      "count": 717,
+      "bytes": 80803
+    },
+    {
+      "shard": 121,
+      "file": "data/post/lex-121.json",
+      "count": 839,
+      "bytes": 96900
+    },
+    {
+      "shard": 122,
+      "file": "data/post/lex-122.json",
+      "count": 1079,
+      "bytes": 129877
+    },
+    {
+      "shard": 123,
+      "file": "data/post/lex-123.json",
+      "count": 872,
+      "bytes": 101778
+    },
+    {
+      "shard": 124,
+      "file": "data/post/lex-124.json",
+      "count": 639,
+      "bytes": 71255
+    },
+    {
+      "shard": 125,
+      "file": "data/post/lex-125.json",
+      "count": 1508,
+      "bytes": 193704
+    },
+    {
+      "shard": 126,
+      "file": "data/post/lex-126.json",
+      "count": 874,
+      "bytes": 103957
+    },
+    {
+      "shard": 127,
+      "file": "data/post/lex-127.json",
+      "count": 1435,
+      "bytes": 175558
+    }
+  ],
+  "methodology": {
+    "scope": "A extensão não define um fim absoluto da língua. Ela amplia o inventário formal e cria prática aberta com textos reais trazidos pelo aluno.",
+    "priority": "Heurística baseada na posição dos caracteres no inventário formal, extensão da palavra e penalidades para nomes próprios, variantes e registros marcados. Não é lista oficial de frequência.",
+    "classification": "Domínios e registros são inferidos das glosas inglesas do CC-CEDICT por regras transparentes; podem conter falsos positivos e devem ser tratados como navegação pedagógica.",
+    "segmentation": "Correspondência gulosa da palavra mais longa, carregando apenas os fragmentos lexicais necessários ao texto. A segmentação chinesa é ambígua e o resultado é assistivo, não definitivo.",
+    "translations": "As 11.092 palavras curriculares mantêm tradução portuguesa. Entradas pós-padrão sem tradução revisada exibem a glosa inglesa original, identificada como fonte.",
+    "coverage": "Os percentuais calculados referem-se somente ao texto analisado: cobertura de ocorrências e tipos lexicais. Não representam percentual absoluto da língua."
+  },
+  "sources": [
+    {
+      "name": "GF0025-2021 — Ministério da Educação da China",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html"
+    },
+    {
+      "name": "CC-CEDICT — download e licença",
+      "url": "https://cc-cedict.org/editor/editor.php?handler=Download"
+    },
+    {
+      "name": "Jun Da — Chinese Text Computing",
+      "url": "https://lingua.mtsu.edu/chinese-computing/"
+    },
+    {
+      "name": "普通话水平测试等级标准",
+      "url": "https://www.moe.gov.cn/moe_879/moe_329/moe_66/tnull_572.html"
+    }
+  ],
+  "searchIndexParts": [
+    {
+      "file": "data/post/search-index-00.json",
+      "count": 7774,
+      "bytes": 323451
+    },
+    {
+      "file": "data/post/search-index-01.json",
+      "count": 7774,
+      "bytes": 337806
+    },
+    {
+      "file": "data/post/search-index-02.json",
+      "count": 7774,
+      "bytes": 354725
+    },
+    {
+      "file": "data/post/search-index-03.json",
+      "count": 7774,
+      "bytes": 364048
+    },
+    {
+      "file": "data/post/search-index-04.json",
+      "count": 7774,
+      "bytes": 371450
+    },
+    {
+      "file": "data/post/search-index-05.json",
+      "count": 7774,
+      "bytes": 374076
+    },
+    {
+      "file": "data/post/search-index-06.json",
+      "count": 7774,
+      "bytes": 378915
+    },
+    {
+      "file": "data/post/search-index-07.json",
+      "count": 7774,
+      "bytes": 378096
+    },
+    {
+      "file": "data/post/search-index-08.json",
+      "count": 7774,
+      "bytes": 378033
+    },
+    {
+      "file": "data/post/search-index-09.json",
+      "count": 7774,
+      "bytes": 375940
+    },
+    {
+      "file": "data/post/search-index-10.json",
+      "count": 7774,
+      "bytes": 375467
+    },
+    {
+      "file": "data/post/search-index-11.json",
+      "count": 7774,
+      "bytes": 382145
+    },
+    {
+      "file": "data/post/search-index-12.json",
+      "count": 7774,
+      "bytes": 412600
+    },
+    {
+      "file": "data/post/search-index-13.json",
+      "count": 7774,
+      "bytes": 400939
+    },
+    {
+      "file": "data/post/search-index-14.json",
+      "count": 7774,
+      "bytes": 412633
+    },
+    {
+      "file": "data/post/search-index-15.json",
+      "count": 7760,
+      "bytes": 290490
+    }
+  ]
+}
