@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bishun-v3.0.0';
+const CACHE_NAME = 'bishun-v3.0.1';
 const CORE = ['./', './index.html', './styles.css', './app.js', './course.js', './curriculum-data.js', './favicon.svg', './manifest.webmanifest'];
 
 self.addEventListener('install', event => {

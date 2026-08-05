@@ -1,6 +1,6 @@
 # 笔顺 · Mandarim Base 300
 
-Versão **3.0.0**. Site estático em HTML, CSS e JavaScript.
+Versão **3.0.1**. Site estático em HTML, CSS e JavaScript.
 
 ## Conteúdo
 - 300 caracteres do nível 1;
