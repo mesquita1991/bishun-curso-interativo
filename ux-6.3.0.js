@@ -13,12 +13,12 @@
     {
       id: 'orientacao', label: 'Orientação', short: 'Início', icon: '◎',
       description: 'Entenda o método, veja seu progresso e escolha a próxima ação.',
-      sections: ['inicio', 'painel', 'cobertura']
+      sections: ['inicio', 'progresso', 'painel', 'cobertura']
     },
     {
       id: 'base', label: 'Base 300', short: 'Base', icon: '基',
       description: 'Fundamentos, pronúncia, escrita, vocabulário e prova inicial.',
-      sections: ['fundamentos', 'regras', 'pronuncia', 'treinador', 'jornada', 'vocabulario', 'gramatica-300', 'escuta', 'revisao', 'prova-300']
+      sections: ['fundamentos', 'tracos-fundamentais', 'regras', 'estruturas', 'pronuncia', 'treinador', 'jornada', 'vocabulario', 'gramatica-300', 'escuta', 'revisao', 'prova-300', 'proporcao', 'variantes', 'erros-comuns', 'metodo-estudo', 'pratica']
     },
     {
       id: 'integral', label: 'Programa integral', short: 'Integral', icon: '全',
@@ -37,16 +37,21 @@
     },
     {
       id: 'referencia', label: 'Referência', short: 'Mais', icon: '＋',
-      description: 'Fontes, prática final, histórico de versões e documentação.',
-      sections: ['fontes', 'pratica', 'novidades']
+      description: 'Fontes, histórico de versões, síntese e documentação.',
+      sections: ['fontes', 'novidades', 'encerramento']
     }
   ];
 
+  const reducedMotionQuery = typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : { matches: false };
+  const scrollKeys = new Set(['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ']);
   const state = loadState();
   let activeSection = state.lastSection || 'inicio';
   let commandResults = [];
   let commandIndex = 0;
   let scrollTicking = false;
+  let manualScrollIntent = false;
 
   function loadState() {
     const fallback = { lastSection: 'inicio', favorites: [], visited: ['inicio'], drawerOpen: false };
@@ -72,14 +77,15 @@
       const element = document.getElementById(id);
       if (!element) return null;
       const heading = element.querySelector('h1, h2, h3');
+      const title = heading?.textContent.trim() || element.getAttribute('aria-label') || id;
       return {
         id,
         element,
         groupId: group.id,
         groupLabel: group.label,
         groupIcon: group.icon,
-        title: heading?.textContent.trim() || id,
-        search: `${group.label} ${heading?.textContent || ''} ${element.textContent.slice(0, 500)}`.toLocaleLowerCase('pt-BR')
+        title,
+        search: `${group.label} ${title} ${element.textContent.slice(0, 500)}`.toLocaleLowerCase('pt-BR')
       };
     }).filter(Boolean));
   }
@@ -106,14 +112,16 @@
   function navigateTo(id, options = {}) {
     const target = document.getElementById(id);
     if (!target) return;
+    manualScrollIntent = false;
     activeSection = id;
     state.lastSection = id;
     if (!state.visited.includes(id)) state.visited.push(id);
     saveState();
     updateResumeTargets();
     updateActiveUI();
-    target.scrollIntoView({ behavior: options.instant ? 'auto' : 'smooth', block: 'start' });
-    window.setTimeout(() => target.focus({ preventScroll: true }), options.instant ? 0 : 500);
+    const smooth = !options.instant && !reducedMotionQuery.matches;
+    target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    window.setTimeout(() => target.focus({ preventScroll: true }), smooth ? 500 : 0);
     closeDrawer();
     closeCommand();
   }
@@ -208,7 +216,7 @@
     drawer.setAttribute('aria-hidden', 'true');
     drawer.innerHTML = `
       <div class="ux-drawer-head">
-        <div><span class="ux-overline">Navegação completa</span><h2 id="uxDrawerTitle">Mapa do curso</h2><p>47 seções organizadas por objetivo.</p></div>
+        <div><span class="ux-overline">Navegação completa</span><h2 id="uxDrawerTitle">Mapa do curso</h2><p>${existingSections().length} seções organizadas por objetivo.</p></div>
         <button type="button" class="ux-close-button" id="uxDrawerClose" aria-label="Fechar mapa">×</button>
       </div>
       <div class="ux-drawer-resume">
@@ -416,14 +424,28 @@
       const id = visible[0].target.id;
       if (!id || id === activeSection) return;
       activeSection = id;
-      state.lastSection = id;
-      if (!state.visited.includes(id)) state.visited.push(id);
-      saveState();
-      updateResumeTargets();
+      if (manualScrollIntent) {
+        state.lastSection = id;
+        if (!state.visited.includes(id)) state.visited.push(id);
+        saveState();
+        updateResumeTargets();
+      }
       updateActiveUI();
     }, { rootMargin: '-18% 0px -67% 0px', threshold: [0, 0.01] });
     sections.forEach(item => observer.observe(item.element));
 
+    const armManualScroll = event => {
+      if (event.type === 'keydown' && !scrollKeys.has(event.key)) return;
+      manualScrollIntent = true;
+    };
+    window.addEventListener('wheel', armManualScroll, { passive: true });
+    window.addEventListener('touchmove', armManualScroll, { passive: true });
+    window.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' && event.clientX >= document.documentElement.clientWidth - 32) {
+        manualScrollIntent = true;
+      }
+    }, { passive: true });
+    document.addEventListener('keydown', armManualScroll);
     window.addEventListener('scroll', () => {
       if (scrollTicking) return;
       scrollTicking = true;

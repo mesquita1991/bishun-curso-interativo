@@ -58,19 +58,6 @@ body.ux-body {
   border: 0 !important;
 }
 
-.ux-skip-link {
-  position: fixed;
-  z-index: 10000;
-  top: 8px;
-  left: 12px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  background: var(--ux-primary);
-  color: #fff;
-  transform: translateY(-150%);
-  transition: transform .18s ease;
-}
-.ux-skip-link:focus { transform: translateY(0); }
 
 .ux-enhanced .topbar {
   height: var(--ux-topbar-height);

@@ -51,3 +51,15 @@ A nova camada usa somente a chave `bishunUxV63` no `localStorage` e o atributo i
 ## Evidências
 
 A auditoria independente completa está em `docs/QA_UI_UX_6_3.md`.
+
+## Correções do Codex Review
+
+O commit de revisão corrige quatro pontos identificados na análise automatizada:
+
+- a sincronização inicial do `IntersectionObserver` atualiza somente o contexto visual e não sobrescreve `lastSection`; a persistência passa a exigir intenção manual de rolagem ou navegação explícita;
+- todas as 47 seções agora possuem IDs estáveis e são enumeradas exatamente uma vez no mapa e na busca global;
+- `navigateTo()` consulta `prefers-reduced-motion` e troca a rolagem programática por comportamento imediato quando solicitado pelo sistema;
+- permanece apenas um link “Pular para o conteúdo”, reutilizando o componente original do site.
+
+Os testes de regressão agora comparam diretamente os 47 IDs do HTML com os 47 destinos declarados em `GROUPS`, verificam o guard de retomada, o comportamento de movimento reduzido e a unicidade do link de salto.
+
