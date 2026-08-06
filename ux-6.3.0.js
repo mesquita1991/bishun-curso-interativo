@@ -53,7 +53,7 @@
   let commandIndex = 0;
   let scrollTicking = false;
   let manualScrollIntent = false;
-  let scrollSpySynchronized = false;
+  let userNavigationIntentUntil = 0;
   let nativeHistoryRestoreActive = false;
   let nativeHistoryRestoreTimer = 0;
   let nativeHistoryScrollEndHandler = null;
@@ -91,7 +91,7 @@
         groupLabel: group.label,
         groupIcon: group.icon,
         title,
-        search: `${group.label} ${title} ${element.textContent.slice(0, 500)}`.toLocaleLowerCase('pt-BR')
+        search: `${group.label} ${title} ${element.textContent.replace(/\s+/g, ' ')}`.toLocaleLowerCase('pt-BR')
       };
     }).filter(Boolean));
   }
@@ -134,6 +134,19 @@
     else history.pushState(nextState, '', nextUrl);
   }
 
+  function markUserNavigationIntent(event) {
+    if (event && event.isTrusted === false) return;
+    userNavigationIntentUntil = performance.now() + 1400;
+  }
+
+  function hasRecentUserNavigationIntent() {
+    return performance.now() <= userNavigationIntentUntil;
+  }
+
+  function clearUserNavigationIntent() {
+    userNavigationIntentUntil = 0;
+  }
+
   function finishNativeHistoryRestore() {
     nativeHistoryRestoreActive = false;
     if (nativeHistoryRestoreTimer) {
@@ -158,6 +171,7 @@
     const target = document.getElementById(id);
     if (!target) return;
     finishNativeHistoryRestore();
+    clearUserNavigationIntent();
     manualScrollIntent = false;
     activeSection = id;
     state.lastSection = id;
@@ -528,8 +542,7 @@
       if (!visible.length) return;
       const id = visible[0].target.id;
       if (!id) return;
-      const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent);
-      scrollSpySynchronized = true;
+      const shouldPersist = !nativeHistoryRestoreActive && (manualScrollIntent || hasRecentUserNavigationIntent());
       if (id === activeSection) return;
       activeSection = id;
       if (shouldPersist) {
@@ -543,6 +556,7 @@
     sections.forEach(item => observer.observe(item.element));
 
     const armManualScroll = event => {
+      markUserNavigationIntent(event);
       finishNativeHistoryRestore();
       if (event.type === 'keydown' && !scrollKeys.has(event.key)) return;
       manualScrollIntent = true;
@@ -550,6 +564,7 @@
     window.addEventListener('wheel', armManualScroll, { passive: true });
     window.addEventListener('touchmove', armManualScroll, { passive: true });
     window.addEventListener('pointerdown', event => {
+      markUserNavigationIntent(event);
       finishNativeHistoryRestore();
       if (event.pointerType === 'mouse' && event.clientX >= document.documentElement.clientWidth - 32) {
         manualScrollIntent = true;
@@ -569,6 +584,7 @@
 
   function setupEvents() {
     document.addEventListener('click', event => {
+      markUserNavigationIntent(event);
       const route = event.target.closest('[data-ux-route]');
       if (route?.dataset.uxRoute) {
         event.preventDefault();
@@ -583,7 +599,12 @@
       }
       const hashLink = event.target.closest('a[href^="#"]');
       const hashTarget = hashLink?.getAttribute('href')?.slice(1);
-      if (hashTarget && document.getElementById(hashTarget)?.dataset.uxSection) {
+      const plainPrimaryHashClick = hashLink
+        && event.button === 0
+        && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey
+        && (!hashLink.target || hashLink.target === '_self')
+        && !hashLink.hasAttribute('download');
+      if (plainPrimaryHashClick && hashTarget && document.getElementById(hashTarget)?.dataset.uxSection) {
         event.preventDefault();
         navigateTo(hashTarget);
         return;

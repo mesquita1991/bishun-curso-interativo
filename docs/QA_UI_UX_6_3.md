@@ -175,3 +175,32 @@ Resultado resumido:
 ```
 
 A proteção usa uma janela transitória iniciada por `popstate`/`hashchange` não curricular, encerrada por `scrollend`, nova ação explícita do usuário ou fallback de 1.200 ms. O estado visual continua acompanhando a posição; somente a persistência de `lastSection` é suspensa durante a restauração nativa.
+
+
+## Sexta rodada de regressão — startup, busca completa e cliques modificados
+
+- o scroll-spy agora persiste apenas rolagem manual ou transições ocorridas logo após uma ativação real do usuário; saltos automáticos de inicialização/layout não alteram `lastSection`;
+- `navigateTo()` limpa essa janela porque já persiste diretamente o destino, evitando registrar seções intermediárias durante smooth scroll;
+- a busca global indexa o `textContent` completo das 47 seções, sem o corte anterior de 500 caracteres;
+- links curriculares só são interceptados em clique primário simples; Ctrl/⌘/Shift/Alt, `target` próprio e `download` permanecem nativos;
+- `full-course.js` permanece sem alterações.
+
+Validação comportamental da sexta rodada em Chromium Headless 134 / Playwright 1.51:
+
+```json
+{
+  "initialResume": "atlas-integral",
+  "afterAutomaticStartupLikeJump": "atlas-integral",
+  "afterUserTriggeredScriptedJumpChanged": true,
+  "search": {
+    "corpus oficial": "Base curricular auditável",
+    "biblioteca individual": "Ouça, observe, escreva e consolide",
+    "diversidade de gêneros": "Novidades do site"
+  },
+  "modifiedClick": {
+    "currentHashUnchanged": true,
+    "defaultPrevented": false
+  },
+  "pageErrors": []
+}
+```

@@ -8,6 +8,7 @@ const html = read('index.html');
 const ux = read('ux-6.3.0.js');
 const uxCss = read('ux-6.3.0.css');
 const mastery = read('mastery-v6.js');
+const fullCourse = read('full-course.js');
 
 const requiredIds = ['inicio','progresso','painel','fundamentos','tracos-fundamentais','estruturas','treinador','programa-integral','mapa-etapas','atlas-integral','pos-padrao','imersao-aberta','validacao-v6','proporcao','variantes','erros-comuns','metodo-estudo','pratica','novidades','encerramento'];
 const requiredScripts = ['app.js','course.js','full-course.js','post-standard.js','mastery-v6.js','ux-6.3.0.js'];
@@ -39,8 +40,7 @@ sectionIds.forEach(id => assert(groupedUnique.includes(id), `Seção fora do map
 groupedUnique.forEach(id => assert(sectionIds.includes(id), `Destino do mapa não existe no HTML: ${id}`));
 assert(ux.includes('${existingSections().length} seções organizadas por objetivo.'), 'Contador do mapa deve refletir a cobertura real.');
 
-assert(observerBlock.includes('const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent)'), 'Scroll-spy deve preservar saltos posteriores sem persistir restaurações nativas.');
-assert(observerBlock.indexOf('scrollSpySynchronized = true') < observerBlock.indexOf('if (id === activeSection) return'), 'A sincronização inicial deve concluir mesmo quando a primeira seção já está ativa.');
+assert(observerBlock.includes('const shouldPersist = !nativeHistoryRestoreActive && (manualScrollIntent || hasRecentUserNavigationIntent())'), 'Scroll-spy deve persistir apenas rolagem manual ou salto decorrente de ativação recente do usuário.');
 assert(observerBlock.indexOf('const shouldPersist') < observerBlock.indexOf('state.lastSection = id'), 'Persistência do scroll-spy deve usar o estado de sincronização calculado antes da atualização.');
 assert(ux.includes('manualScrollIntent = false;'), 'Navegação programática deve desarmar persistência intermediária do scroll-spy.');
 assert(ux.includes("window.matchMedia('(prefers-reduced-motion: reduce)')"), 'Preferência de movimento reduzido não consultada no JavaScript.');
@@ -68,13 +68,16 @@ assert(ux.includes("document.addEventListener('focusin'"), 'Proteção contra fo
 assert(ux.includes('closeDrawer({ restoreFocus: false })'), 'Navegação pelo drawer não pode devolver foco ao acionador antigo.');
 assert(uxCss.includes('.ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }'), 'Altura mínima móvel da topbar não acompanha a variável UX.');
 
-assert(ux.includes('let scrollSpySynchronized = false'), 'Estado de sincronização inicial do scroll-spy ausente.');
-assert(ux.includes('const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent)'), 'Scroll-spy precisa excluir restaurações nativas do estado de retomada.');
+assert(!ux.includes('scrollSpySynchronized || manualScrollIntent'), 'Regressão: saltos automáticos pós-carga não podem ser tratados como progresso apenas porque o observer já sincronizou.');
+assert(ux.includes('let userNavigationIntentUntil = 0'), 'Janela de intenção recente do usuário ausente.');
+assert(ux.includes('function markUserNavigationIntent(event)'), 'Registro de ativação do usuário ausente.');
+assert(ux.includes('function hasRecentUserNavigationIntent()'), 'Consulta da janela de ativação do usuário ausente.');
+assert(ux.includes('clearUserNavigationIntent();'), 'Navegação explícita deve limpar a janela do observer porque persiste o destino diretamente.');
+assert(ux.includes('const shouldPersist = !nativeHistoryRestoreActive && (manualScrollIntent || hasRecentUserNavigationIntent())'), 'Scroll-spy precisa excluir restaurações nativas e saltos automáticos sem intenção do usuário.');
 assert(ux.includes('function beginNativeHistoryRestore()'), 'Janela de restauração nativa do histórico ausente.');
 assert(ux.includes('function finishNativeHistoryRestore()'), 'Finalização da restauração nativa do histórico ausente.');
 assert(ux.includes("window.addEventListener('scrollend', nativeHistoryScrollEndHandler, { once: true })"), 'Restauração nativa deve permanecer bloqueada até o fim da rolagem do navegador.');
 assert(ux.includes('nativeHistoryRestoreTimer = window.setTimeout(finishNativeHistoryRestore, 1200)'), 'Fallback de liberação da restauração nativa ausente.');
-assert(ux.indexOf('scrollSpySynchronized = true') < ux.indexOf('if (id === activeSection) return'), 'O scroll-spy deve concluir a sincronização mesmo quando a primeira seção já está ativa.');
 assert(ux.includes("window.addEventListener('hashchange', syncCurricularHash)"), 'Atribuições legadas a location.hash não são sincronizadas pela UX.');
 assert(ux.includes('if (!id) {\n        beginNativeHistoryRestore();\n        return;\n      }'), 'Hashes não curriculares devem iniciar proteção contra persistência do scroll-spy.');
 assert(!ux.includes("sectionIdFromHash() || 'inicio'"), 'Regressão: hashes não curriculares não podem redirecionar para início.');
@@ -85,6 +88,14 @@ assert(ux.includes('id="uxCommandOption-${escapeHTML(item.id)}"'), 'Resultados d
 assert(ux.includes("input.setAttribute('aria-expanded', 'true')"), 'Combobox não anuncia abertura da lista.');
 assert(ux.includes("input?.setAttribute('aria-expanded', 'false')"), 'Combobox não anuncia fechamento da lista.');
 
+assert(!ux.includes('textContent.slice(0, 500)'), 'Busca global não pode truncar silenciosamente o texto das seções.');
+assert(ux.includes('element.textContent.replace(/\\s+/g'), 'Busca global deve indexar o texto completo de cada seção.');
+assert(ux.includes('const plainPrimaryHashClick = hashLink'), 'Roteamento de links curriculares precisa distinguir clique primário simples.');
+assert(ux.includes('!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey'), 'Links curriculares devem preservar cliques modificados nativos.');
+assert(ux.includes("(!hashLink.target || hashLink.target === '_self')"), 'Links com target próprio devem manter semântica nativa.');
+assert(ux.includes("!hashLink.hasAttribute('download')"), 'Links com download não podem ser interceptados.');
+assert(!fullCourse.includes('openFullTrainer(trainerChar.char,{scroll:false})'), 'O núcleo full-course deve permanecer intacto; a correção de startup pertence à camada UX.');
+
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, startupAutoScrollGuard: true, fullTextSearch: true, modifiedClickNative: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
