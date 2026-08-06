@@ -44,3 +44,10 @@ A nova camada usa somente a chave `bishunUxV63` no `localStorage` e o atributo i
 - a contagem de seções permanece exatamente 47 em runtime.
 
 - os assets finais usam nomes imutáveis por versão, evitando reutilização acidental de cache durante revisão e implantação.
+
+- a geometria SVG procedural do Hanzi Writer é contida no próprio viewport, impedindo que trajetórias internas ampliem a largura documental.
+
+
+## Evidências
+
+A auditoria independente completa está em `docs/QA_UI_UX_6_3.md`.

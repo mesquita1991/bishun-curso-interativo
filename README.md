@@ -42,3 +42,6 @@ GF0025-2021 / ChineseTest, transcrição estruturada `ivankra/hsk30`, CC-CEDICT 
 ## Candidato UX 6.3.0
 
 Branch de revisão com camada aditiva de navegação por intenção, busca global, mapa do curso, retomada, favoritos, breadcrumb e dock móvel. Consulte `docs/UI_UX_UPGRADE_6_3.md`. O núcleo funcional 6.2.3 permanece preservado.
+
+
+Auditoria: `docs/QA_UI_UX_6_3.md`.

@@ -25,6 +25,14 @@ assert(!mastery.includes('document.documentElement.dataset.masteryVersion'), 'Re
 assert(mastery.includes('dataset.masteryRuntime'), 'Proteção de runtime do mastery ausente.');
 assert(!ux.includes("$$('[data-ux-runtime]')"), 'Regressão crítica: o elemento HTML não pode ser alvo de textContent da UX.');
 assert(ux.includes('dataset.uxRuntime'), 'Marcador isolado de runtime UX ausente.');
+
+assert(html.includes('ux-6.3.0.js'), 'Asset JS imutável UX 6.3 ausente.');
+assert(html.includes('ux-6.3.0.css'), 'Asset CSS imutável UX 6.3 ausente.');
+assert(!ux.includes('<section class="ux-drawer-group"'), 'Grupos do mapa não podem inflar a contagem de seções curriculares.');
+assert(ux.includes('<div class="ux-drawer-group"'), 'Estrutura neutra dos grupos do mapa ausente.');
+const uxCss = read('ux-6.3.0.css');
+assert(uxCss.includes('overflow-x: clip'), 'Proteção contra rolagem horizontal ausente.');
+
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'ux-upgrade.css ausente.');
 
 console.log(JSON.stringify({ ok: true, sectionCount, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
