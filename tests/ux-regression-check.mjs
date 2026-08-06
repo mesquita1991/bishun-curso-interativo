@@ -55,6 +55,11 @@ assert(ux.includes('<div class="ux-drawer-group"'), 'Estrutura neutra dos grupos
 assert(uxCss.includes('overflow-x: clip'), 'Proteção contra rolagem horizontal ausente.');
 assert(ux.includes('a[href^="#"]'), 'Âncoras internas existentes não são encaminhadas pela camada UX.');
 assert(ux.includes('document.getElementById(hashTarget)?.dataset.uxSection'), 'Âncoras devem persistir somente destinos curriculares válidos.');
+assert(ux.includes("function updateSectionHistory(id, mode = 'push')"), 'Sincronização de hash e History API ausente.');
+assert(ux.includes('history.pushState(nextState'), 'Navegação explícita deve criar entrada no histórico.');
+assert(ux.includes('history.replaceState(nextState'), 'Navegação inicial deve poder normalizar o histórico sem duplicação.');
+assert(ux.includes("window.addEventListener('popstate'"), 'Back/Forward não restaura a seção selecionada.');
+assert(ux.includes("{ history: 'none', instant: true, focus: false }"), 'Travessia do histórico não pode criar novas entradas nem roubar foco.');
 assert(ux.includes('openDrawer(drawerTrigger)'), 'O drawer deve registrar o controle acionador para restaurar foco.');
 assert(ux.includes('function trapDrawerFocus(event)'), 'Contenção de foco do drawer ausente.');
 assert(ux.includes('drawerReturnFocus'), 'Restauração de foco do drawer ausente.');
@@ -63,4 +68,4 @@ assert(ux.includes('closeDrawer({ restoreFocus: false })'), 'Navegação pelo dr
 assert(uxCss.includes('.ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }'), 'Altura mínima móvel da topbar não acompanha a variável UX.');
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, mobileTopbar: true, drawerFocusTrap: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));

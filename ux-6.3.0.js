@@ -111,6 +111,25 @@
     return button;
   }
 
+  function sectionIdFromHash() {
+    const raw = window.location.hash.slice(1);
+    if (!raw) return null;
+    let id = raw;
+    try { id = decodeURIComponent(raw); } catch { /* Preserve malformed hashes as non-matches. */ }
+    return document.getElementById(id)?.dataset.uxSection ? id : null;
+  }
+
+  function updateSectionHistory(id, mode = 'push') {
+    if (mode === 'none' || sectionIdFromHash() === id) return;
+    const url = new URL(window.location.href);
+    url.hash = id;
+    const currentState = history.state && typeof history.state === 'object' ? history.state : {};
+    const nextState = { ...currentState, uxSection: id };
+    const nextUrl = `${url.pathname}${url.search}${url.hash}`;
+    if (mode === 'replace') history.replaceState(nextState, '', nextUrl);
+    else history.pushState(nextState, '', nextUrl);
+  }
+
   function navigateTo(id, options = {}) {
     const target = document.getElementById(id);
     if (!target) return;
@@ -121,9 +140,10 @@
     saveState();
     updateResumeTargets();
     updateActiveUI();
+    updateSectionHistory(id, options.history || 'push');
     const smooth = !options.instant && !reducedMotionQuery.matches;
     target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
-    window.setTimeout(() => target.focus({ preventScroll: true }), smooth ? 500 : 0);
+    if (options.focus !== false) window.setTimeout(() => target.focus({ preventScroll: true }), smooth ? 500 : 0);
     closeDrawer({ restoreFocus: false });
     closeCommand();
   }
@@ -602,6 +622,10 @@
         closeCommand();
       }
     });
+
+    window.addEventListener('popstate', () => {
+      navigateTo(sectionIdFromHash() || 'inicio', { history: 'none', instant: true, focus: false });
+    });
   }
 
   function showToast(message) {
@@ -636,6 +660,8 @@
     updateActiveUI();
     setupScrollSpy();
     setupEvents();
+    const initialHashSection = sectionIdFromHash();
+    if (initialHashSection) navigateTo(initialHashSection, { history: 'replace', instant: true, focus: false });
     addReleaseNote();
     document.documentElement.classList.add('ux-ready');
     window.dispatchEvent(new CustomEvent('bishun:ux-ready', { detail: { version: VERSION } }));

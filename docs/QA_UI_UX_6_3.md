@@ -85,3 +85,14 @@ Chromium Headless 134 / Playwright 1.51, viewport móvel de 390 × 900:
   "pageErrors": []
 }
 ```
+
+## Correção após a terceira rodada do Codex Review
+
+- âncoras curriculares interceptadas agora atualizam `location.hash` por `history.pushState`;
+- navegações programáticas do launchpad, mapa, busca e retomada também produzem URLs compartilháveis, sem duplicar a entrada quando o hash já corresponde ao destino;
+- a carga inicial de uma URL com hash curricular sincroniza a seção com `replaceState` e sem animação ou roubo de foco;
+- `popstate` restaura a seção ao usar Voltar/Avançar com `history: none`, evitando ciclos ou novas entradas;
+- hashes não curriculares, incluindo `#conteudo`, continuam sob comportamento nativo.
+
+Validação em Chromium: clique `#fundamentos` → `#programa-integral` criou duas entradas distintas; `goBack()` restaurou `#fundamentos`; `goForward()` restaurou `#programa-integral`; o destino salvo acompanhou cada travessia e nenhuma exceção foi registrada.
+

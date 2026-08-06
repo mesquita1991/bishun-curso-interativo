@@ -50,3 +50,5 @@ Correções pós-review: retomada preservada na carga inicial, mapa/busca cobrin
 
 
 Segunda rodada pós-review: âncoras existentes atualizam a retomada, topbar móvel sem sobreposição e drawer modal com foco contido/restaurado.
+
+Histórico de navegação: âncoras curriculares preservam hashes compartilháveis e Voltar/Avançar restaura as seções sem criar entradas duplicadas.
