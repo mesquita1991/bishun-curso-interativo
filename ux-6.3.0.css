@@ -350,7 +350,7 @@ body.ux-body {
 @media (max-width: 820px) {
   :root { --ux-topbar-height: 64px; --ux-context-height: 40px; }
   body.ux-body { padding-bottom: 76px; }
-  .ux-enhanced .topbar { height: var(--ux-topbar-height); }
+  .ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }
   .ux-contextbar-inner { width: min(100% - 18px,1440px); grid-template-columns: auto minmax(0,1fr) 82px auto; gap: 7px; }
   .ux-map-trigger span:last-child,
   .ux-breadcrumb span:first-child,

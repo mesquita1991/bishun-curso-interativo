@@ -47,3 +47,6 @@ Branch de revisão com camada aditiva de navegação por intenção, busca globa
 Auditoria: `docs/QA_UI_UX_6_3.md`.
 
 Correções pós-review: retomada preservada na carga inicial, mapa/busca cobrindo 47/47 seções, rolagem programática compatível com movimento reduzido e um único link de salto.
+
+
+Segunda rodada pós-review: âncoras existentes atualizam a retomada, topbar móvel sem sobreposição e drawer modal com foco contido/restaurado.

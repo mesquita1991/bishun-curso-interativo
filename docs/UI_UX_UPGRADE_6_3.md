@@ -63,3 +63,19 @@ O commit de revisão corrige quatro pontos identificados na análise automatizad
 
 Os testes de regressão agora comparam diretamente os 47 IDs do HTML com os 47 destinos declarados em `GROUPS`, verificam o guard de retomada, o comportamento de movimento reduzido e a unicidade do link de salto.
 
+
+
+## Correções após a segunda rodada do Codex Review
+
+- cliques em âncoras curriculares já existentes (`href="#…"`) agora passam por `navigateTo()`, persistindo corretamente a retomada sem interceptar o link de salto `#conteudo`;
+- a topbar móvel define `height` e `min-height` com `--ux-topbar-height`, impedindo sobreposição de 8 px sobre a barra contextual;
+- o mapa modal contém o foco com `Tab`/`Shift+Tab`, redireciona tentativas de foco no plano de fundo e restaura o foco ao acionador ao fechar;
+- navegação iniciada dentro do mapa fecha o modal sem devolver foco ao botão antigo, permitindo que o destino receba foco.
+
+
+Critérios adicionais de aceite verificados:
+
+1. links internos existentes para qualquer seção atualizam `lastSection` pelo mesmo fluxo de navegação da camada UX;
+2. o link de salto para `#conteudo` permanece nativo e não altera a retomada;
+3. em até 820 px, topbar e barra contextual não se sobrepõem;
+4. o drawer modal impede saída de foco por teclado ou foco programático e restaura o acionador ao fechar.

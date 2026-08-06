@@ -46,12 +46,14 @@
     ? window.matchMedia('(prefers-reduced-motion: reduce)')
     : { matches: false };
   const scrollKeys = new Set(['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ']);
+  const drawerFocusableSelector = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
   const state = loadState();
   let activeSection = state.lastSection || 'inicio';
   let commandResults = [];
   let commandIndex = 0;
   let scrollTicking = false;
   let manualScrollIntent = false;
+  let drawerReturnFocus = null;
 
   function loadState() {
     const fallback = { lastSection: 'inicio', favorites: [], visited: ['inicio'], drawerOpen: false };
@@ -122,7 +124,7 @@
     const smooth = !options.instant && !reducedMotionQuery.matches;
     target.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
     window.setTimeout(() => target.focus({ preventScroll: true }), smooth ? 500 : 0);
-    closeDrawer();
+    closeDrawer({ restoreFocus: false });
     closeCommand();
   }
 
@@ -214,6 +216,7 @@
     drawer.setAttribute('aria-modal', 'true');
     drawer.setAttribute('aria-labelledby', 'uxDrawerTitle');
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.tabIndex = -1;
     drawer.innerHTML = `
       <div class="ux-drawer-head">
         <div><span class="ux-overline">Navegação completa</span><h2 id="uxDrawerTitle">Mapa do curso</h2><p>${existingSections().length} seções organizadas por objetivo.</p></div>
@@ -283,26 +286,73 @@
     document.body.append(toast);
   }
 
-  function openDrawer() {
+  function drawerIsOpen() {
+    return $('#uxJourneyDrawer')?.getAttribute('aria-hidden') === 'false';
+  }
+
+  function drawerFocusable() {
+    const drawer = $('#uxJourneyDrawer');
+    if (!drawer) return [];
+    return $$(drawerFocusableSelector, drawer).filter(element => {
+      if (element.closest('[hidden]') || element.getAttribute('aria-hidden') === 'true') return false;
+      const style = window.getComputedStyle(element);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+  }
+
+  function trapDrawerFocus(event) {
+    if (event.key !== 'Tab' || !drawerIsOpen()) return false;
+    const drawer = $('#uxJourneyDrawer');
+    const focusable = drawerFocusable();
+    if (!drawer || !focusable.length) {
+      event.preventDefault();
+      drawer?.focus();
+      return true;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || !drawer.contains(active))) {
+      event.preventDefault();
+      last.focus();
+      return true;
+    }
+    if (!event.shiftKey && (active === last || !drawer.contains(active))) {
+      event.preventDefault();
+      first.focus();
+      return true;
+    }
+    return false;
+  }
+
+  function openDrawer(opener = document.activeElement) {
     const drawer = $('#uxJourneyDrawer');
     const backdrop = $('#uxDrawerBackdrop');
-    if (!drawer || !backdrop) return;
+    if (!drawer || !backdrop || drawerIsOpen()) return;
+    closeCommand();
+    drawerReturnFocus = opener && typeof opener.focus === 'function' && opener.isConnected ? opener : null;
     backdrop.hidden = false;
     requestAnimationFrame(() => document.body.classList.add('ux-drawer-open'));
     drawer.setAttribute('aria-hidden', 'false');
     state.drawerOpen = true;
     renderFavorites();
-    window.setTimeout(() => $('#uxDrawerClose')?.focus(), 80);
+    window.setTimeout(() => ($('#uxDrawerClose') || drawerFocusable()[0] || drawer).focus(), 80);
   }
 
-  function closeDrawer() {
+  function closeDrawer({ restoreFocus = true } = {}) {
     const drawer = $('#uxJourneyDrawer');
     const backdrop = $('#uxDrawerBackdrop');
     if (!drawer || !backdrop) return;
+    const wasOpen = drawerIsOpen();
+    const returnFocus = drawerReturnFocus;
+    drawerReturnFocus = null;
     document.body.classList.remove('ux-drawer-open');
     drawer.setAttribute('aria-hidden', 'true');
     state.drawerOpen = false;
-    window.setTimeout(() => { backdrop.hidden = true; }, 240);
+    window.setTimeout(() => {
+      backdrop.hidden = true;
+      if (wasOpen && restoreFocus && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+    }, reducedMotionQuery.matches ? 0 : 240);
   }
 
   function renderCommand(query = '') {
@@ -327,6 +377,7 @@
   function openCommand() {
     const dialog = $('#uxCommandDialog');
     if (!dialog) return;
+    if (drawerIsOpen()) closeDrawer({ restoreFocus: false });
     if (typeof dialog.showModal === 'function' && !dialog.open) dialog.showModal();
     else dialog.setAttribute('open', '');
     document.body.classList.add('ux-command-open');
@@ -471,8 +522,17 @@
         navigateTo(jump.dataset.uxJump);
         return;
       }
+      const hashLink = event.target.closest('a[href^="#"]');
+      const hashTarget = hashLink?.getAttribute('href')?.slice(1);
+      if (hashTarget && document.getElementById(hashTarget)?.dataset.uxSection) {
+        event.preventDefault();
+        navigateTo(hashTarget);
+        return;
+      }
+
       if (event.target.closest('[data-ux-open-command]') || event.target.closest('#uxCommandButton')) openCommand();
-      if (event.target.closest('[data-ux-open-drawer]') || event.target.closest('#uxMapButton')) openDrawer();
+      const drawerTrigger = event.target.closest('[data-ux-open-drawer]') || event.target.closest('#uxMapButton');
+      if (drawerTrigger) openDrawer(drawerTrigger);
       if (event.target.closest('#uxDrawerClose') || event.target.closest('#uxDrawerBackdrop')) closeDrawer();
       if (event.target.closest('#uxCommandClose')) closeCommand();
       if (event.target.closest('#uxFavoriteCurrent')) toggleFavorite();
@@ -522,7 +582,14 @@
       if (event.target === event.currentTarget) closeCommand();
     });
 
+    document.addEventListener('focusin', event => {
+      const drawer = $('#uxJourneyDrawer');
+      if (!drawerIsOpen() || drawer?.contains(event.target)) return;
+      (drawerFocusable()[0] || drawer)?.focus();
+    });
+
     document.addEventListener('keydown', event => {
+      if (trapDrawerFocus(event)) return;
       const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '');
       if ((event.ctrlKey || event.metaKey) && event.key.toLocaleLowerCase() === 'k') {
         event.preventDefault();

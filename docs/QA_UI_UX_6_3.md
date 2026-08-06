@@ -52,3 +52,36 @@ O commit de revisão corrige quatro pontos identificados na análise automatizad
 
 Os testes de regressão agora comparam diretamente os 47 IDs do HTML com os 47 destinos declarados em `GROUPS`, verificam o guard de retomada, o comportamento de movimento reduzido e a unicidade do link de salto.
 
+
+
+## Correções após a segunda rodada do Codex Review
+
+- cliques em âncoras curriculares já existentes (`href="#…"`) agora passam por `navigateTo()`, persistindo corretamente a retomada sem interceptar o link de salto `#conteudo`;
+- a topbar móvel define `height` e `min-height` com `--ux-topbar-height`, impedindo sobreposição de 8 px sobre a barra contextual;
+- o mapa modal contém o foco com `Tab`/`Shift+Tab`, redireciona tentativas de foco no plano de fundo e restaura o foco ao acionador ao fechar;
+- navegação iniciada dentro do mapa fecha o modal sem devolver foco ao botão antigo, permitindo que o destino receba foco.
+
+
+### Evidência da segunda rodada do Codex Review
+
+Chromium Headless 134 / Playwright 1.51, viewport móvel de 390 × 900:
+
+```json
+{
+  "initialResume": "atlas-integral",
+  "afterSkipLink": "atlas-integral",
+  "anchorTargetsPersisted": ["inicio", "fundamentos", "programa-integral", "imersao-aberta"],
+  "mobileTopbar": {
+    "height": 65,
+    "minHeight": "64px",
+    "contextTop": 64,
+    "overlap": 0
+  },
+  "drawerInitialFocus": "uxDrawerClose",
+  "shiftTabStayedInside": true,
+  "backgroundFocusRedirectedInside": true,
+  "focusRestoredTo": "uxMapButton",
+  "drawerNavigationFocus": "fundamentos",
+  "pageErrors": []
+}
+```

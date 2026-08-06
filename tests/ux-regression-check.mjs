@@ -53,6 +53,14 @@ assert(ux.includes('dataset.uxRuntime'), 'Marcador isolado de runtime UX ausente
 assert(!ux.includes('<section class="ux-drawer-group"'), 'Grupos do mapa não podem inflar a contagem de seções curriculares.');
 assert(ux.includes('<div class="ux-drawer-group"'), 'Estrutura neutra dos grupos do mapa ausente.');
 assert(uxCss.includes('overflow-x: clip'), 'Proteção contra rolagem horizontal ausente.');
+assert(ux.includes('a[href^="#"]'), 'Âncoras internas existentes não são encaminhadas pela camada UX.');
+assert(ux.includes('document.getElementById(hashTarget)?.dataset.uxSection'), 'Âncoras devem persistir somente destinos curriculares válidos.');
+assert(ux.includes('openDrawer(drawerTrigger)'), 'O drawer deve registrar o controle acionador para restaurar foco.');
+assert(ux.includes('function trapDrawerFocus(event)'), 'Contenção de foco do drawer ausente.');
+assert(ux.includes('drawerReturnFocus'), 'Restauração de foco do drawer ausente.');
+assert(ux.includes("document.addEventListener('focusin'"), 'Proteção contra foco no plano de fundo ausente.');
+assert(ux.includes('closeDrawer({ restoreFocus: false })'), 'Navegação pelo drawer não pode devolver foco ao acionador antigo.');
+assert(uxCss.includes('.ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }'), 'Altura mínima móvel da topbar não acompanha a variável UX.');
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, mobileTopbar: true, drawerFocusTrap: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
