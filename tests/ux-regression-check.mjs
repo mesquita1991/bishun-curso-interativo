@@ -90,6 +90,8 @@ assert(ux.includes("input?.setAttribute('aria-expanded', 'false')"), 'Combobox n
 
 assert(!ux.includes('textContent.slice(0, 500)'), 'Busca global não pode truncar silenciosamente o texto das seções.');
 assert(ux.includes('element.textContent.replace(/\\s+/g'), 'Busca global deve indexar o texto completo de cada seção.');
+assert(!ux.includes('.slice(0, 14)'), 'Busca global não pode ocultar correspondências após o 14º resultado.');
+assert(ux.includes('commandResults = existingSections().filter(item => !normalized || item.search.includes(normalized));'), 'Busca global deve expor todas as seções correspondentes.');
 assert(ux.includes('const plainPrimaryHashClick = hashLink'), 'Roteamento de links curriculares precisa distinguir clique primário simples.');
 assert(ux.includes('!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey'), 'Links curriculares devem preservar cliques modificados nativos.');
 assert(ux.includes("(!hashLink.target || hashLink.target === '_self')"), 'Links com target próprio devem manter semântica nativa.');
@@ -98,4 +100,4 @@ assert(!fullCourse.includes('openFullTrainer(trainerChar.char,{scroll:false})'),
 
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, startupAutoScrollGuard: true, fullTextSearch: true, modifiedClickNative: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, startupAutoScrollGuard: true, fullTextSearch: true, allSearchMatches: true, modifiedClickNative: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));

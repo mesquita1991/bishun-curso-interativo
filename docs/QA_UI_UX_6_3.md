@@ -204,3 +204,11 @@ Validação comportamental da sexta rodada em Chromium Headless 134 / Playwright
   "pageErrors": []
 }
 ```
+
+
+## Sétima rodada pós-review — todos os resultados da busca
+
+- removido o limite silencioso de 14 resultados da command palette;
+- a busca agora expõe todas as correspondências entre as 47 seções;
+- consulta de regressão `caracteres`: 18 resultados, incluindo `lexico-pos`, `expressoes-pos`, `fontes` e `novidades`;
+- nenhum mecanismo de paginação é necessário porque o universo máximo é de 47 seções e a lista já possui rolagem interna.

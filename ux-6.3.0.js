@@ -416,7 +416,7 @@
 
   function renderCommand(query = '') {
     const normalized = query.trim().toLocaleLowerCase('pt-BR');
-    commandResults = existingSections().filter(item => !normalized || item.search.includes(normalized)).slice(0, 14);
+    commandResults = existingSections().filter(item => !normalized || item.search.includes(normalized));
     commandIndex = Math.min(commandIndex, Math.max(0, commandResults.length - 1));
     const container = $('#uxCommandResults');
     if (!container) return;
