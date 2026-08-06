@@ -55,3 +55,5 @@ Histórico de navegação: âncoras curriculares preservam hashes compartilháve
 
 
 Quarta revisão Codex: saltos programáticos posteriores à carga atualizam a retomada; hashes não curriculares preservam o histórico nativo; a busca expõe combobox e opção ativa a tecnologias assistivas.
+
+Quinta rodada pós-review: restaurações nativas de `#conteudo` ou entradas sem hash atualizam apenas o contexto visual e não sobrescrevem a retomada; a proteção termina em `scrollend`, nova ação do usuário ou fallback seguro.

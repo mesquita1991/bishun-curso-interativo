@@ -139,3 +139,39 @@ Validação em Chromium: clique `#fundamentos` → `#programa-integral` criou du
 ```
 
 O retorno para `#conteudo` preservou a restauração nativa de posição dentro da tolerância do harness e não alterou `lastSection`. O salto por `scrollIntoView()` persistiu `treinador` mesmo sem produzir hash, enquanto a atribuição direta a `location.hash` atualizou hash e retomada.
+
+
+## Quinta rodada pós-review — restauração nativa sem perda da retomada
+
+Validação específica em Chromium Headless 134 / Playwright 1.51 com `scroll-behavior: smooth`:
+
+- estado inicial salvo: `treinador`;
+- ativação nativa de `#conteudo`: breadcrumb mudou para `Início`, mas `lastSection` permaneceu `treinador`;
+- seleção explícita de `#fundamentos`: `lastSection` passou para `fundamentos`;
+- Back para `#conteudo`: após a restauração completa e `scrollend`, o breadcrumb voltou a `Início`, mas `lastSection` permaneceu `fundamentos`;
+- encerrada a janela de proteção, um novo salto programático ao fim do documento voltou a persistir `treinador`;
+- Back para uma entrada sem hash preservou exatamente o destino salvo antes da travessia;
+- exceções de página: 0.
+
+Resultado resumido:
+
+```json
+{
+  "afterNativeRestore": {
+    "hash": "#conteudo",
+    "active": "Início",
+    "stored": "fundamentos"
+  },
+  "afterGuardRelease": {
+    "active": "Treinador de escrita",
+    "stored": "treinador"
+  },
+  "afterHashlessBack": {
+    "hash": "",
+    "storedPreserved": true
+  },
+  "pageErrors": []
+}
+```
+
+A proteção usa uma janela transitória iniciada por `popstate`/`hashchange` não curricular, encerrada por `scrollend`, nova ação explícita do usuário ou fallback de 1.200 ms. O estado visual continua acompanhando a posição; somente a persistência de `lastSection` é suspensa durante a restauração nativa.

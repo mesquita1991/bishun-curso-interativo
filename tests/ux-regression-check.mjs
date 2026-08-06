@@ -39,7 +39,7 @@ sectionIds.forEach(id => assert(groupedUnique.includes(id), `Seção fora do map
 groupedUnique.forEach(id => assert(sectionIds.includes(id), `Destino do mapa não existe no HTML: ${id}`));
 assert(ux.includes('${existingSections().length} seções organizadas por objetivo.'), 'Contador do mapa deve refletir a cobertura real.');
 
-assert(observerBlock.includes('const shouldPersist = scrollSpySynchronized || manualScrollIntent'), 'Scroll-spy deve ignorar somente a sincronização inicial e reconhecer saltos posteriores.');
+assert(observerBlock.includes('const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent)'), 'Scroll-spy deve preservar saltos posteriores sem persistir restaurações nativas.');
 assert(observerBlock.indexOf('scrollSpySynchronized = true') < observerBlock.indexOf('if (id === activeSection) return'), 'A sincronização inicial deve concluir mesmo quando a primeira seção já está ativa.');
 assert(observerBlock.indexOf('const shouldPersist') < observerBlock.indexOf('state.lastSection = id'), 'Persistência do scroll-spy deve usar o estado de sincronização calculado antes da atualização.');
 assert(ux.includes('manualScrollIntent = false;'), 'Navegação programática deve desarmar persistência intermediária do scroll-spy.');
@@ -69,10 +69,14 @@ assert(ux.includes('closeDrawer({ restoreFocus: false })'), 'Navegação pelo dr
 assert(uxCss.includes('.ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }'), 'Altura mínima móvel da topbar não acompanha a variável UX.');
 
 assert(ux.includes('let scrollSpySynchronized = false'), 'Estado de sincronização inicial do scroll-spy ausente.');
-assert(ux.includes('const shouldPersist = scrollSpySynchronized || manualScrollIntent'), 'Saltos programáticos posteriores à carga não atualizam a retomada.');
+assert(ux.includes('const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent)'), 'Scroll-spy precisa excluir restaurações nativas do estado de retomada.');
+assert(ux.includes('function beginNativeHistoryRestore()'), 'Janela de restauração nativa do histórico ausente.');
+assert(ux.includes('function finishNativeHistoryRestore()'), 'Finalização da restauração nativa do histórico ausente.');
+assert(ux.includes("window.addEventListener('scrollend', nativeHistoryScrollEndHandler, { once: true })"), 'Restauração nativa deve permanecer bloqueada até o fim da rolagem do navegador.');
+assert(ux.includes('nativeHistoryRestoreTimer = window.setTimeout(finishNativeHistoryRestore, 1200)'), 'Fallback de liberação da restauração nativa ausente.');
 assert(ux.indexOf('scrollSpySynchronized = true') < ux.indexOf('if (id === activeSection) return'), 'O scroll-spy deve concluir a sincronização mesmo quando a primeira seção já está ativa.');
 assert(ux.includes("window.addEventListener('hashchange', syncCurricularHash)"), 'Atribuições legadas a location.hash não são sincronizadas pela UX.');
-assert(ux.includes("if (!id) return;"), 'Hashes não curriculares devem permanecer sob navegação nativa.');
+assert(ux.includes('if (!id) {\n        beginNativeHistoryRestore();\n        return;\n      }'), 'Hashes não curriculares devem iniciar proteção contra persistência do scroll-spy.');
 assert(!ux.includes("sectionIdFromHash() || 'inicio'"), 'Regressão: hashes não curriculares não podem redirecionar para início.');
 assert(ux.includes('role="combobox"'), 'Campo de busca não é exposto como combobox.');
 assert(ux.includes('aria-autocomplete="list"'), 'Combobox não declara autocomplete por lista.');
@@ -83,4 +87,4 @@ assert(ux.includes("input?.setAttribute('aria-expanded', 'false')"), 'Combobox n
 
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));

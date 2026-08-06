@@ -54,6 +54,9 @@
   let scrollTicking = false;
   let manualScrollIntent = false;
   let scrollSpySynchronized = false;
+  let nativeHistoryRestoreActive = false;
+  let nativeHistoryRestoreTimer = 0;
+  let nativeHistoryScrollEndHandler = null;
   let drawerReturnFocus = null;
 
   function loadState() {
@@ -131,9 +134,30 @@
     else history.pushState(nextState, '', nextUrl);
   }
 
+  function finishNativeHistoryRestore() {
+    nativeHistoryRestoreActive = false;
+    if (nativeHistoryRestoreTimer) {
+      window.clearTimeout(nativeHistoryRestoreTimer);
+      nativeHistoryRestoreTimer = 0;
+    }
+    if (nativeHistoryScrollEndHandler) {
+      window.removeEventListener('scrollend', nativeHistoryScrollEndHandler);
+      nativeHistoryScrollEndHandler = null;
+    }
+  }
+
+  function beginNativeHistoryRestore() {
+    finishNativeHistoryRestore();
+    nativeHistoryRestoreActive = true;
+    nativeHistoryScrollEndHandler = () => requestAnimationFrame(finishNativeHistoryRestore);
+    window.addEventListener('scrollend', nativeHistoryScrollEndHandler, { once: true });
+    nativeHistoryRestoreTimer = window.setTimeout(finishNativeHistoryRestore, 1200);
+  }
+
   function navigateTo(id, options = {}) {
     const target = document.getElementById(id);
     if (!target) return;
+    finishNativeHistoryRestore();
     manualScrollIntent = false;
     activeSection = id;
     state.lastSection = id;
@@ -504,7 +528,7 @@
       if (!visible.length) return;
       const id = visible[0].target.id;
       if (!id) return;
-      const shouldPersist = scrollSpySynchronized || manualScrollIntent;
+      const shouldPersist = !nativeHistoryRestoreActive && (scrollSpySynchronized || manualScrollIntent);
       scrollSpySynchronized = true;
       if (id === activeSection) return;
       activeSection = id;
@@ -519,12 +543,14 @@
     sections.forEach(item => observer.observe(item.element));
 
     const armManualScroll = event => {
+      finishNativeHistoryRestore();
       if (event.type === 'keydown' && !scrollKeys.has(event.key)) return;
       manualScrollIntent = true;
     };
     window.addEventListener('wheel', armManualScroll, { passive: true });
     window.addEventListener('touchmove', armManualScroll, { passive: true });
     window.addEventListener('pointerdown', event => {
+      finishNativeHistoryRestore();
       if (event.pointerType === 'mouse' && event.clientX >= document.documentElement.clientWidth - 32) {
         manualScrollIntent = true;
       }
@@ -638,7 +664,11 @@
 
     const syncCurricularHash = () => {
       const id = sectionIdFromHash();
-      if (!id) return;
+      if (!id) {
+        beginNativeHistoryRestore();
+        return;
+      }
+      finishNativeHistoryRestore();
       if (id === activeSection && state.lastSection === id) return;
       navigateTo(id, { history: 'none', instant: true, focus: false });
     };
