@@ -53,6 +53,7 @@
   let commandIndex = 0;
   let scrollTicking = false;
   let manualScrollIntent = false;
+  let scrollSpySynchronized = false;
   let drawerReturnFocus = null;
 
   function loadState() {
@@ -275,7 +276,7 @@
     dialog.innerHTML = `
       <div class="ux-command-shell">
         <header><span aria-hidden="true">⌕</span><label id="uxCommandTitle" for="uxCommandInput">Buscar no curso</label><button type="button" id="uxCommandClose" aria-label="Fechar busca">Esc</button></header>
-        <input id="uxCommandInput" type="search" autocomplete="off" placeholder="Ex.: pronúncia, atlas, texto real, prova…" aria-controls="uxCommandResults">
+        <input id="uxCommandInput" type="search" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" autocomplete="off" placeholder="Ex.: pronúncia, atlas, texto real, prova…" aria-controls="uxCommandResults">
         <div class="ux-command-hints"><span>Digite para filtrar</span><span><kbd>↑</kbd><kbd>↓</kbd> navegar</span><span><kbd>Enter</kbd> abrir</span></div>
         <div id="uxCommandResults" class="ux-command-results" role="listbox" aria-label="Resultados da busca"></div>
       </div>`;
@@ -381,16 +382,21 @@
     commandIndex = Math.min(commandIndex, Math.max(0, commandResults.length - 1));
     const container = $('#uxCommandResults');
     if (!container) return;
+    const input = $('#uxCommandInput');
     if (!commandResults.length) {
       container.innerHTML = '<div class="ux-command-empty"><strong>Nenhum resultado</strong><span>Tente uma palavra mais ampla.</span></div>';
+      input?.removeAttribute('aria-activedescendant');
       return;
     }
     container.innerHTML = commandResults.map((item, index) => `
-      <button type="button" role="option" aria-selected="${index === commandIndex}" class="${index === commandIndex ? 'is-selected' : ''}" data-ux-command-index="${index}">
+      <button id="uxCommandOption-${escapeHTML(item.id)}" type="button" role="option" aria-selected="${index === commandIndex}" class="${index === commandIndex ? 'is-selected' : ''}" data-ux-command-index="${index}">
         <span class="ux-command-result-icon" aria-hidden="true">${escapeHTML(item.groupIcon)}</span>
         <span><strong>${escapeHTML(item.title)}</strong><small>${escapeHTML(item.groupLabel)}</small></span>
         ${state.favorites.includes(item.id) ? '<b aria-label="Favorito">★</b>' : '<i aria-hidden="true">↵</i>'}
       </button>`).join('');
+    const selected = commandResults[commandIndex];
+    if (selected) input?.setAttribute('aria-activedescendant', `uxCommandOption-${selected.id}`);
+    else input?.removeAttribute('aria-activedescendant');
     container.querySelector('.is-selected')?.scrollIntoView({ block: 'nearest' });
   }
 
@@ -401,10 +407,11 @@
     if (typeof dialog.showModal === 'function' && !dialog.open) dialog.showModal();
     else dialog.setAttribute('open', '');
     document.body.classList.add('ux-command-open');
-    commandIndex = 0;
-    renderCommand('');
     const input = $('#uxCommandInput');
     input.value = '';
+    input.setAttribute('aria-expanded', 'true');
+    commandIndex = 0;
+    renderCommand('');
     window.setTimeout(() => input.focus(), 50);
   }
 
@@ -414,6 +421,9 @@
     if (typeof dialog.close === 'function' && dialog.open) dialog.close();
     else dialog.removeAttribute('open');
     document.body.classList.remove('ux-command-open');
+    const input = $('#uxCommandInput');
+    input?.setAttribute('aria-expanded', 'false');
+    input?.removeAttribute('aria-activedescendant');
   }
 
   function toggleFavorite(id = activeSection) {
@@ -493,9 +503,12 @@
         .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
       if (!visible.length) return;
       const id = visible[0].target.id;
-      if (!id || id === activeSection) return;
+      if (!id) return;
+      const shouldPersist = scrollSpySynchronized || manualScrollIntent;
+      scrollSpySynchronized = true;
+      if (id === activeSection) return;
       activeSection = id;
-      if (manualScrollIntent) {
+      if (shouldPersist) {
         state.lastSection = id;
         if (!state.visited.includes(id)) state.visited.push(id);
         saveState();
@@ -623,9 +636,14 @@
       }
     });
 
-    window.addEventListener('popstate', () => {
-      navigateTo(sectionIdFromHash() || 'inicio', { history: 'none', instant: true, focus: false });
-    });
+    const syncCurricularHash = () => {
+      const id = sectionIdFromHash();
+      if (!id) return;
+      if (id === activeSection && state.lastSection === id) return;
+      navigateTo(id, { history: 'none', instant: true, focus: false });
+    };
+    window.addEventListener('popstate', syncCurricularHash);
+    window.addEventListener('hashchange', syncCurricularHash);
   }
 
   function showToast(message) {

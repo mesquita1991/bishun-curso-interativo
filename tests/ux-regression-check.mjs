@@ -39,8 +39,9 @@ sectionIds.forEach(id => assert(groupedUnique.includes(id), `Seção fora do map
 groupedUnique.forEach(id => assert(sectionIds.includes(id), `Destino do mapa não existe no HTML: ${id}`));
 assert(ux.includes('${existingSections().length} seções organizadas por objetivo.'), 'Contador do mapa deve refletir a cobertura real.');
 
-assert(observerBlock.includes('if (manualScrollIntent)'), 'Scroll-spy deve preservar o destino salvo durante a sincronização inicial.');
-assert(observerBlock.indexOf('if (manualScrollIntent)') < observerBlock.indexOf('state.lastSection = id'), 'Persistência do scroll-spy precisa ocorrer somente após intenção manual.');
+assert(observerBlock.includes('const shouldPersist = scrollSpySynchronized || manualScrollIntent'), 'Scroll-spy deve ignorar somente a sincronização inicial e reconhecer saltos posteriores.');
+assert(observerBlock.indexOf('scrollSpySynchronized = true') < observerBlock.indexOf('if (id === activeSection) return'), 'A sincronização inicial deve concluir mesmo quando a primeira seção já está ativa.');
+assert(observerBlock.indexOf('const shouldPersist') < observerBlock.indexOf('state.lastSection = id'), 'Persistência do scroll-spy deve usar o estado de sincronização calculado antes da atualização.');
 assert(ux.includes('manualScrollIntent = false;'), 'Navegação programática deve desarmar persistência intermediária do scroll-spy.');
 assert(ux.includes("window.matchMedia('(prefers-reduced-motion: reduce)')"), 'Preferência de movimento reduzido não consultada no JavaScript.');
 assert(ux.includes("behavior: smooth ? 'smooth' : 'auto'"), 'Rolagem programática não respeita movimento reduzido.');
@@ -66,6 +67,20 @@ assert(ux.includes('drawerReturnFocus'), 'Restauração de foco do drawer ausent
 assert(ux.includes("document.addEventListener('focusin'"), 'Proteção contra foco no plano de fundo ausente.');
 assert(ux.includes('closeDrawer({ restoreFocus: false })'), 'Navegação pelo drawer não pode devolver foco ao acionador antigo.');
 assert(uxCss.includes('.ux-enhanced .topbar { height: var(--ux-topbar-height); min-height: var(--ux-topbar-height); }'), 'Altura mínima móvel da topbar não acompanha a variável UX.');
+
+assert(ux.includes('let scrollSpySynchronized = false'), 'Estado de sincronização inicial do scroll-spy ausente.');
+assert(ux.includes('const shouldPersist = scrollSpySynchronized || manualScrollIntent'), 'Saltos programáticos posteriores à carga não atualizam a retomada.');
+assert(ux.indexOf('scrollSpySynchronized = true') < ux.indexOf('if (id === activeSection) return'), 'O scroll-spy deve concluir a sincronização mesmo quando a primeira seção já está ativa.');
+assert(ux.includes("window.addEventListener('hashchange', syncCurricularHash)"), 'Atribuições legadas a location.hash não são sincronizadas pela UX.');
+assert(ux.includes("if (!id) return;"), 'Hashes não curriculares devem permanecer sob navegação nativa.');
+assert(!ux.includes("sectionIdFromHash() || 'inicio'"), 'Regressão: hashes não curriculares não podem redirecionar para início.');
+assert(ux.includes('role="combobox"'), 'Campo de busca não é exposto como combobox.');
+assert(ux.includes('aria-autocomplete="list"'), 'Combobox não declara autocomplete por lista.');
+assert(ux.includes('aria-activedescendant'), 'Combobox não anuncia a opção ativa.');
+assert(ux.includes('id="uxCommandOption-${escapeHTML(item.id)}"'), 'Resultados da busca não possuem IDs estáveis.');
+assert(ux.includes("input.setAttribute('aria-expanded', 'true')"), 'Combobox não anuncia abertura da lista.');
+assert(ux.includes("input?.setAttribute('aria-expanded', 'false')"), 'Combobox não anuncia fechamento da lista.');
+
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));

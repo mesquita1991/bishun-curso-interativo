@@ -96,3 +96,46 @@ Chromium Headless 134 / Playwright 1.51, viewport móvel de 390 × 900:
 
 Validação em Chromium: clique `#fundamentos` → `#programa-integral` criou duas entradas distintas; `goBack()` restaurou `#fundamentos`; `goForward()` restaurou `#programa-integral`; o destino salvo acompanhou cada travessia e nenhuma exceção foi registrada.
 
+
+
+## Quarta rodada do Codex Review — saltos legados, histórico nativo e combobox
+
+- O scroll-spy ignora somente sua primeira sincronização e persiste mudanças posteriores, inclusive `scrollIntoView()` disparado pelos fluxos legados do desafio diário.
+- Alterações legadas de `location.hash`, como `#treinador` em `course.js`, são absorvidas por `hashchange` e sincronizam a retomada sem reescrever os motores existentes.
+- `popstate` e `hashchange` não fazem nada diante de hashes não curriculares; `#conteudo` e entradas sem hash permanecem sob restauração nativa do navegador.
+- A busca é um combobox ARIA com lista controlada, opções de ID estável, `aria-expanded` e `aria-activedescendant` sincronizado com setas e resultados filtrados.
+
+
+### Validação Chromium — quarta rodada
+
+```json
+{
+  "initialResume": "atlas-integral",
+  "directScroll": {
+    "hash": "",
+    "lastSection": "treinador"
+  },
+  "directHash": {
+    "hash": "#treinador",
+    "lastSection": "treinador"
+  },
+  "nativeBack": {
+    "hash": "#conteudo",
+    "lastSection": "fundamentos",
+    "selectedLast": "fundamentos"
+  },
+  "combobox": {
+    "role": "combobox",
+    "ariaAutocomplete": "list",
+    "expandedWhileOpen": "true",
+    "initialActiveDescendant": "uxCommandOption-inicio",
+    "activeDescendantAfterArrow": "uxCommandOption-progresso",
+    "selectedOptionAnnounced": true,
+    "activeDescendantRemovedWithoutResults": true,
+    "expandedAfterClose": "false"
+  },
+  "pageErrors": []
+}
+```
+
+O retorno para `#conteudo` preservou a restauração nativa de posição dentro da tolerância do harness e não alterou `lastSection`. O salto por `scrollIntoView()` persistiu `treinador` mesmo sem produzir hash, enquanto a atribuição direta a `location.hash` atualizou hash e retomada.
