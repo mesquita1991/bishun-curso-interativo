@@ -53,6 +53,7 @@
   let commandIndex = 0;
   let scrollTicking = false;
   let manualScrollIntent = false;
+  let manualScrollIntentTimer = 0;
   let userNavigationIntentUntil = 0;
   let nativeHistoryRestoreActive = false;
   let nativeHistoryRestoreTimer = 0;
@@ -147,6 +148,19 @@
     userNavigationIntentUntil = 0;
   }
 
+  function clearManualScrollIntent() {
+    manualScrollIntent = false;
+    if (manualScrollIntentTimer) {
+      window.clearTimeout(manualScrollIntentTimer);
+      manualScrollIntentTimer = 0;
+    }
+  }
+
+  function scheduleManualScrollIntentClear() {
+    if (manualScrollIntentTimer) window.clearTimeout(manualScrollIntentTimer);
+    manualScrollIntentTimer = window.setTimeout(clearManualScrollIntent, 240);
+  }
+
   function finishNativeHistoryRestore() {
     nativeHistoryRestoreActive = false;
     if (nativeHistoryRestoreTimer) {
@@ -172,7 +186,7 @@
     if (!target) return;
     finishNativeHistoryRestore();
     clearUserNavigationIntent();
-    manualScrollIntent = false;
+    clearManualScrollIntent();
     activeSection = id;
     state.lastSection = id;
     if (!state.visited.includes(id)) state.visited.push(id);
@@ -556,22 +570,24 @@
     sections.forEach(item => observer.observe(item.element));
 
     const armManualScroll = event => {
-      markUserNavigationIntent(event);
-      finishNativeHistoryRestore();
       if (event.type === 'keydown' && !scrollKeys.has(event.key)) return;
+      finishNativeHistoryRestore();
       manualScrollIntent = true;
+      scheduleManualScrollIntentClear();
     };
     window.addEventListener('wheel', armManualScroll, { passive: true });
     window.addEventListener('touchmove', armManualScroll, { passive: true });
     window.addEventListener('pointerdown', event => {
-      markUserNavigationIntent(event);
       finishNativeHistoryRestore();
       if (event.pointerType === 'mouse' && event.clientX >= document.documentElement.clientWidth - 32) {
         manualScrollIntent = true;
+        scheduleManualScrollIntentClear();
       }
     }, { passive: true });
     document.addEventListener('keydown', armManualScroll);
+    window.addEventListener('scrollend', clearManualScrollIntent);
     window.addEventListener('scroll', () => {
+      if (manualScrollIntent) scheduleManualScrollIntentClear();
       if (scrollTicking) return;
       scrollTicking = true;
       requestAnimationFrame(() => {

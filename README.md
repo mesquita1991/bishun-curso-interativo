@@ -61,3 +61,4 @@ Quinta rodada pós-review: restaurações nativas de `#conteudo` ou entradas sem
 Sexta rodada pós-review: saltos automáticos de startup não contaminam retomada, busca global indexa o texto completo e cliques modificados em links curriculares permanecem nativos.
 
 Sétima rodada pós-review: busca global sem truncamento; todas as correspondências entre as 47 seções permanecem acessíveis.
+- UX 6.3: intenção de rolagem manual expira ao final/ociosidade e a busca global adapta a área de resultados à altura do viewport.

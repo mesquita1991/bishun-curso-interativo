@@ -319,16 +319,17 @@ body.ux-body {
 .ux-drawer-favorites button small { display: block; }
 .ux-drawer-favorites button small { color: var(--ux-muted); }
 
-.ux-command-dialog { width: min(720px,calc(100% - 26px)); max-height: min(680px,calc(100svh - 40px)); padding: 0; border: 1px solid var(--ux-border); border-radius: 24px; background: var(--ux-surface-solid); color: var(--ux-text); box-shadow: var(--ux-shadow-lg); overflow: hidden; }
+.ux-command-dialog { width: min(720px,calc(100% - 26px)); height: min(680px,calc(100svh - 40px)); max-height: min(680px,calc(100svh - 40px)); box-sizing: border-box; padding: 0; border: 1px solid var(--ux-border); border-radius: 24px; background: var(--ux-surface-solid); color: var(--ux-text); box-shadow: var(--ux-shadow-lg); overflow: hidden; }
 .ux-command-dialog::backdrop { background: rgba(7,12,24,.55); backdrop-filter: blur(5px); }
-.ux-command-shell header { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 17px 20px 10px; color: var(--ux-muted); }
+.ux-command-shell { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.ux-command-shell header { flex: 0 0 auto; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 17px 20px 10px; color: var(--ux-muted); }
 .ux-command-shell header label { color: var(--ux-text); font-weight: 800; }
 .ux-command-shell header button { border: 1px solid var(--ux-border); padding: 4px 8px; background: var(--ux-surface-solid); color: var(--ux-muted); font-size: .72rem; cursor: pointer; }
 #uxCommandInput { width: calc(100% - 40px); min-height: 54px; margin: 0 20px 10px; padding: 0 16px; border: 1px solid var(--ux-border); font-size: 1rem; }
-.ux-command-hints { display: flex; gap: 18px; padding: 0 20px 12px; color: var(--ux-muted); font-size: .7rem; border-bottom: 1px solid var(--ux-border); }
+.ux-command-hints { flex: 0 0 auto; display: flex; gap: 18px; padding: 0 20px 12px; color: var(--ux-muted); font-size: .7rem; border-bottom: 1px solid var(--ux-border); }
 .ux-command-hints span { display: inline-flex; align-items: center; gap: 4px; }
 .ux-command-hints kbd { padding: 2px 5px; border: 1px solid var(--ux-border); border-radius: 5px; background: var(--ux-bg); }
-.ux-command-results { max-height: 470px; overflow-y: auto; padding: 8px; }
+.ux-command-results { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 8px; }
 .ux-command-results > button { width: 100%; display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 12px; border: 0; background: transparent; color: var(--ux-text); text-align: left; cursor: pointer; }
 .ux-command-results > button.is-selected { background: color-mix(in srgb,var(--ux-primary) 9%,transparent); }
 .ux-command-results > button > span:nth-child(2) { display: grid; gap: 2px; }

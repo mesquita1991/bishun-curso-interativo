@@ -212,3 +212,30 @@ Validação comportamental da sexta rodada em Chromium Headless 134 / Playwright
 - a busca agora expõe todas as correspondências entre as 47 seções;
 - consulta de regressão `caracteres`: 18 resultados, incluindo `lexico-pos`, `expressoes-pos`, `fontes` e `novidades`;
 - nenhum mecanismo de paginação é necessário porque o universo máximo é de 47 seções e a lista já possui rolagem interna.
+
+## Oitava rodada do Codex Review
+
+- `manualScrollIntent` agora termina em `scrollend` e possui fallback de 240 ms de ociosidade, renovado durante a rolagem; rolagens manuais não alimentam mais a janela reservada a saltos programáticos iniciados por clique.
+- A command palette usa altura limitada ao viewport, shell flexível e área de resultados `flex: 1`/`min-height: 0`, mantendo as últimas opções alcançáveis em telas baixas.
+- Testes específicos cobrem expiração da intenção manual e acesso ao fim da lista em viewport curto.
+
+### Evidência Chromium — oitava rodada
+
+```json
+{
+  "manualIntent": {
+    "afterManualIdle": "atlas-integral",
+    "afterAutomaticJump": "atlas-integral",
+    "preserved": true
+  },
+  "shortViewport": {
+    "viewport": 520,
+    "dialogHeight": 480,
+    "resultCount": 47,
+    "resultsClientHeight": 331,
+    "resultsScrollHeight": 3143,
+    "lastResultReachable": true
+  },
+  "pageErrors": []
+}
+```

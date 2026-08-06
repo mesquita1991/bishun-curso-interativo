@@ -42,7 +42,14 @@ assert(ux.includes('${existingSections().length} seções organizadas por objeti
 
 assert(observerBlock.includes('const shouldPersist = !nativeHistoryRestoreActive && (manualScrollIntent || hasRecentUserNavigationIntent())'), 'Scroll-spy deve persistir apenas rolagem manual ou salto decorrente de ativação recente do usuário.');
 assert(observerBlock.indexOf('const shouldPersist') < observerBlock.indexOf('state.lastSection = id'), 'Persistência do scroll-spy deve usar o estado de sincronização calculado antes da atualização.');
-assert(ux.includes('manualScrollIntent = false;'), 'Navegação programática deve desarmar persistência intermediária do scroll-spy.');
+assert(ux.includes('clearManualScrollIntent();'), 'Navegação programática deve desarmar persistência intermediária do scroll-spy.');
+assert(ux.includes('function clearManualScrollIntent()'), 'Intenção manual deve ter rotina explícita de encerramento.');
+assert(ux.includes("window.addEventListener('scrollend', clearManualScrollIntent)"), 'Intenção manual deve terminar em scrollend.');
+assert(ux.includes('manualScrollIntentTimer = window.setTimeout(clearManualScrollIntent, 240)'), 'Intenção manual precisa de fallback por ociosidade.');
+assert(!observerBlock.includes('markUserNavigationIntent(event)'), 'Rolagem manual não pode alimentar a janela usada para saltos por clique.');
+assert(uxCss.includes('.ux-command-shell { display: flex; flex-direction: column; height: 100%; min-height: 0; }'), 'Shell da busca deve ocupar a altura disponível e permitir flexão interna.');
+assert(uxCss.includes('.ux-command-results { flex: 1 1 auto; min-height: 0; overflow-y: auto;'), 'Resultados da busca devem flexionar dentro da altura disponível.');
+assert(!uxCss.includes('.ux-command-results { max-height: 470px;'), 'Resultados não podem manter altura fixa que clipa viewports baixos.');
 assert(ux.includes("window.matchMedia('(prefers-reduced-motion: reduce)')"), 'Preferência de movimento reduzido não consultada no JavaScript.');
 assert(ux.includes("behavior: smooth ? 'smooth' : 'auto'"), 'Rolagem programática não respeita movimento reduzido.');
 assert(uxCss.includes('@media (prefers-reduced-motion: reduce)'), 'Fallback CSS de movimento reduzido ausente.');
@@ -100,4 +107,4 @@ assert(!fullCourse.includes('openFullTrainer(trainerChar.char,{scroll:false})'),
 
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
-console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, startupAutoScrollGuard: true, fullTextSearch: true, allSearchMatches: true, modifiedClickNative: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
+console.log(JSON.stringify({ ok: true, sectionCount: sectionTags.length, mappedSections: groupedUnique.length, skipLinks: skipLinks.length, anchorRouting: true, hashHistory: true, mobileTopbar: true, drawerFocusTrap: true, scriptedJumpSync: true, nativeHashHistory: true, nativeHistoryResumeGuard: true, startupAutoScrollGuard: true, fullTextSearch: true, allSearchMatches: true, manualIntentExpiry: true, shortViewportCommand: true, modifiedClickNative: true, commandCombobox: true, uniqueIds: ids.length, requiredScripts: requiredScripts.length, uxVersion: '6.3.0' }, null, 2));
