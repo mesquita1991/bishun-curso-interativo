@@ -216,7 +216,7 @@
       </div>
       <nav class="ux-drawer-nav" aria-label="Mapa detalhado do curso">
         ${GROUPS.map(group => `
-          <section class="ux-drawer-group" data-ux-drawer-group="${group.id}">
+          <div class="ux-drawer-group" data-ux-drawer-group="${group.id}">
             <button type="button" class="ux-drawer-group-head" aria-expanded="${group.id === 'orientacao' ? 'true' : 'false'}">
               <span class="ux-group-icon" aria-hidden="true">${group.icon}</span>
               <span><strong>${escapeHTML(group.label)}</strong><small>${escapeHTML(group.description)}</small></span>
@@ -228,7 +228,7 @@
                 return section ? `<button type="button" data-ux-jump="${id}"><span>${escapeHTML(section.title)}</span><i aria-hidden="true"></i></button>` : '';
               }).join('')}
             </div>
-          </section>`).join('')}
+          </div>`).join('')}
       </nav>
       <div class="ux-drawer-favorites"><h3>Favoritos</h3><div id="uxFavoritesList"><p>Nenhuma seção favoritada.</p></div></div>`;
 

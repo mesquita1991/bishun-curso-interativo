@@ -35,3 +35,10 @@ A nova camada usa somente a chave `bishunUxV63` no `localStorage` e o atributo i
 6. Não há rolagem horizontal em 375, 768 e 1440 px.
 7. Tema, navegação, treino e programa integral continuam funcionais.
 8. O documento nunca pode ser substituído por um número de versão.
+
+
+## Correções após auditoria responsiva
+
+- os seis grupos do mapa são `div` de navegação, não novas seções curriculares;
+- overlays fechados usam isolamento de exibição e `overflow-x: clip`, impedindo aumento do `scrollWidth`;
+- a contagem de seções permanece exatamente 47 em runtime.

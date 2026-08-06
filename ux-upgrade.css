@@ -417,3 +417,19 @@ body.ux-body {
   .ux-contextbar, .ux-journey-drawer, .ux-drawer-backdrop, .ux-mobile-dock, .ux-command-dialog, .ux-toast, .ux-launchpad { display: none !important; }
   body.ux-body { background: #fff; padding: 0; }
 }
+
+
+/* QA hardening: closed overlays must never increase document scroll width. */
+html.ux-enhanced,
+body.ux-body { overflow-x: clip; }
+.ux-journey-drawer[aria-hidden="true"] { display: none; }
+.ux-journey-drawer[aria-hidden="false"] {
+  display: block;
+  transform: none;
+  animation: ux-drawer-enter .22s cubic-bezier(.2,.8,.2,1) both;
+}
+.ux-drawer-open .ux-journey-drawer { transform: none; }
+@keyframes ux-drawer-enter {
+  from { opacity: 0; translate: 24px 0; }
+  to { opacity: 1; translate: 0 0; }
+}
