@@ -2,7 +2,7 @@
 
 ## Princípio de segurança
 
-A implementação é aditiva. `index.html` recebe apenas um link de salto, um destino semântico e referências a `ux-upgrade.css` e `ux-upgrade.js`. Nenhum ID curricular, motor de treino, chave de armazenamento, arquivo de dados ou comportamento das versões 3–6 é removido ou renomeado.
+A implementação é aditiva. `index.html` recebe apenas um link de salto, um destino semântico e referências a `ux-6.3.0.css` e `ux-6.3.0.js`. Nenhum ID curricular, motor de treino, chave de armazenamento, arquivo de dados ou comportamento das versões 3–6 é removido ou renomeado.
 
 ## Problema tratado
 
@@ -42,3 +42,5 @@ A nova camada usa somente a chave `bishunUxV63` no `localStorage` e o atributo i
 - os seis grupos do mapa são `div` de navegação, não novas seções curriculares;
 - overlays fechados usam isolamento de exibição e `overflow-x: clip`, impedindo aumento do `scrollWidth`;
 - a contagem de seções permanece exatamente 47 em runtime.
+
+- os assets finais usam nomes imutáveis por versão, evitando reutilização acidental de cache durante revisão e implantação.
