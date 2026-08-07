@@ -30,6 +30,10 @@ assert(js.includes("id = 'ux65StageRail'"), 'Rail de macro-orientação ausente.
 assert(js.includes('data-ux65-group'), 'Estados semânticos do rail ausentes.');
 assert(js.includes('MutationObserver'), 'Sincronização com estado visual anterior ausente.');
 assert(js.includes('ux65-scroll-region'), 'Aprimoramento de tabelas roláveis ausente.');
+assert(js.includes('try { return decodeURIComponent(raw); }') && js.includes('catch { return raw; }'), 'Fragmentos malformados precisam ser preservados como não-match sem abortar a 6.5.');
+assert(js.includes('new ResizeObserver(scheduleTableEnhancement)'), 'Overflow tabular precisa reagir a mudanças de tamanho.');
+assert(js.includes("window.addEventListener('resize', scheduleTableEnhancement"), 'Fallback explícito de resize para tabelas ausente.');
+assert(js.includes("region.removeAttribute('tabindex')") && js.includes("region.removeAttribute('role')") && js.includes("region.removeAttribute('aria-label')"), 'Semântica adicionada pela 6.5 precisa ser removida quando o overflow termina.');
 assert(!js.includes('localStorage'), 'UX 6.5 não deve escrever estado persistente.');
 assert(!js.includes('history.pushState') && !js.includes('history.replaceState'), 'UX 6.5 não deve modificar histórico.');
 assert(!js.includes('preventDefault('), 'UX 6.5 não deve interceptar navegação nativa.');
@@ -58,6 +62,8 @@ console.log(JSON.stringify({
   productionMetadata: true,
   stageRail: true,
   scrollableTables: true,
+  malformedHashGuard: true,
+  responsiveTableSemantics: true,
   accessibilityModes: true,
   safeArea: true,
   noPersistenceWrites: true,

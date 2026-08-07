@@ -17,9 +17,12 @@
   let tableFrame = 0;
 
   function currentSection() {
-    return document.documentElement.dataset.ux64Section
-      || (location.hash ? decodeURIComponent(location.hash.slice(1)) : '')
-      || 'inicio';
+    const observed = document.documentElement.dataset.ux64Section;
+    if (observed) return observed;
+    const raw = location.hash ? location.hash.slice(1) : '';
+    if (!raw) return 'inicio';
+    try { return decodeURIComponent(raw); }
+    catch { return raw; }
   }
 
   function groupFor(sectionId) {
@@ -74,19 +77,44 @@
     window.addEventListener('hashchange', () => syncExperienceRail(currentSection()), { passive: true });
   }
 
+  let tableResizeObserver = null;
+
   function enhanceScrollableTables(root = document) {
     $$('table', root).forEach(table => {
       const region = table.parentElement;
       if (!region || region === document.body) return;
+      tableResizeObserver?.observe(table);
+      tableResizeObserver?.observe(region);
       const overflow = region.scrollWidth > region.clientWidth + 2;
       region.classList.toggle('ux65-scroll-region', overflow);
-      if (!overflow) return;
-      if (!region.hasAttribute('tabindex')) region.tabIndex = 0;
-      if (!region.hasAttribute('role')) region.setAttribute('role', 'region');
-      if (!region.hasAttribute('aria-label')) {
-        const caption = table.querySelector('caption')?.textContent.trim();
-        const heading = table.closest('section')?.querySelector('h2,h3')?.textContent.trim();
-        region.setAttribute('aria-label', `Tabela rolável: ${caption || heading || 'conteúdo tabular'}`);
+      if (overflow) {
+        if (!region.hasAttribute('tabindex')) {
+          region.tabIndex = 0;
+          region.dataset.ux65TabindexAdded = 'true';
+        }
+        if (!region.hasAttribute('role')) {
+          region.setAttribute('role', 'region');
+          region.dataset.ux65RoleAdded = 'true';
+        }
+        if (!region.hasAttribute('aria-label')) {
+          const caption = table.querySelector('caption')?.textContent.trim();
+          const heading = table.closest('section')?.querySelector('h2,h3')?.textContent.trim();
+          region.setAttribute('aria-label', `Tabela rolável: ${caption || heading || 'conteúdo tabular'}`);
+          region.dataset.ux65LabelAdded = 'true';
+        }
+        return;
+      }
+      if (region.dataset.ux65TabindexAdded === 'true') {
+        region.removeAttribute('tabindex');
+        delete region.dataset.ux65TabindexAdded;
+      }
+      if (region.dataset.ux65RoleAdded === 'true') {
+        region.removeAttribute('role');
+        delete region.dataset.ux65RoleAdded;
+      }
+      if (region.dataset.ux65LabelAdded === 'true') {
+        region.removeAttribute('aria-label');
+        delete region.dataset.ux65LabelAdded;
       }
     });
   }
@@ -100,9 +128,11 @@
   }
 
   function observeDynamicContent() {
+    if ('ResizeObserver' in window) tableResizeObserver = new ResizeObserver(scheduleTableEnhancement);
     new MutationObserver(mutations => {
       if (mutations.some(item => item.addedNodes.length)) scheduleTableEnhancement();
     }).observe($('#conteudo') || document.body, { childList: true, subtree: true });
+    window.addEventListener('resize', scheduleTableEnhancement, { passive: true });
   }
 
   function syncScrollState() {
@@ -154,8 +184,8 @@
     observeSectionState();
     observeTheme();
     setupScrollState();
-    scheduleTableEnhancement();
     observeDynamicContent();
+    scheduleTableEnhancement();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });

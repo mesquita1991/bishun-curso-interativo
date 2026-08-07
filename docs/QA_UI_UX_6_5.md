@@ -62,3 +62,10 @@ O teste computado em 390 px revelou que a especificidade da regra 6.4 ainda mant
 - `forced-colors: active` removeu sombras e fundos decorativos sem quebrar a interface;
 - `prefers-reduced-motion: reduce` reduziu transições a 0,01 ms;
 - erros JS: 0.
+
+## Correções após Codex Review — rodada 1
+
+Dois P2 foram reproduzidos e corrigidos antes do merge:
+
+1. **Fragmento percent-encoded malformado** — `currentSection()` agora envolve `decodeURIComponent` em `try/catch`; fragmentos inválidos permanecem como não-match e não interrompem a inicialização da 6.5.
+2. **Overflow tabular após resize/rotação** — a 6.5 agora usa `ResizeObserver` mais evento `resize`, reavalia overflow e remove somente `tabindex`, `role` e `aria-label` que ela própria adicionou quando a região deixa de transbordar.
