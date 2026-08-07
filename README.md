@@ -62,3 +62,14 @@ Sexta rodada pós-review: saltos automáticos de startup não contaminam retomad
 
 Sétima rodada pós-review: busca global sem truncamento; todas as correspondências entre as 47 seções permanecem acessíveis.
 - UX 6.3: intenção de rolagem manual expira ao final/ociosidade e a busca global adapta a área de resultados à altura do viewport.
+
+## Candidato visual UX 6.4.0
+
+Branch de revisão exclusivamente visual/navegacional. A camada `ux-6.4.0.*` é carregada depois da UX 6.3 e reorganiza somente apresentação, hierarquia do header, estados ativos, densidade, fluidez, busca/mapa e responsividade. Nenhum motor pedagógico, dado, armazenamento, SRS, áudio, prova ou regra de progresso é alterado.
+
+Documentação: `docs/UI_UX_UPGRADE_6_4.md`. Auditoria: `docs/QA_UI_UX_6_4.md`.
+
+
+### Revisão visual 2 do candidato 6.4
+
+A primeira iteração foi deliberadamente conservadora e podia ser confundida com a 6.3. A revisão 2 torna a diferença inequívoca sem alterar o runtime funcional: header de alto contraste, badge próprio `UX 6.4 · preview`, navegação segmentada com estado ativo forte, context bar integrada, hero e launchpad com nova hierarquia e cache-busting específico do preview. O badge `v6.3.0` continua representando o runtime da aplicação; o novo badge identifica apenas a camada visual candidata.
