@@ -1,4 +1,4 @@
-# Mandarim Integral · 笔顺 — v6.2.3
+# Mandarim Integral · 笔顺 — v6.3.0
 
 Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 
@@ -39,9 +39,9 @@ GF0025-2021 / ChineseTest, transcrição estruturada `ivankra/hsk30`, CC-CEDICT 
 - matriz 12×3, planejamento adaptativo e exportação local das evidências.
 
 
-## Candidato UX 6.3.0
+## Release UX 6.3.0
 
-Branch de revisão com camada aditiva de navegação por intenção, busca global, mapa do curso, retomada, favoritos, breadcrumb e dock móvel. Consulte `docs/UI_UX_UPGRADE_6_3.md`. O núcleo funcional 6.2.3 permanece preservado.
+Release publicada no `main` com camada aditiva de navegação por intenção, busca global, mapa do curso, retomada, favoritos, breadcrumb e dock móvel. Consulte `docs/UI_UX_UPGRADE_6_3.md`. O núcleo funcional 6.2.3 permanece preservado.
 
 
 Auditoria: `docs/QA_UI_UX_6_3.md`.

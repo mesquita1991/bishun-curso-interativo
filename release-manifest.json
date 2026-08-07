@@ -1,12 +1,12 @@
 {
-  "version": "6.2.3",
-  "generatedAt": "2026-08-05T14:47:00Z",
-  "rollbackCommit": "b67689dace1e7eb860b6c695db266e14f3087847",
+  "version": "6.3.0",
+  "generatedAt": "2026-08-07T20:05:19Z",
+  "rollbackCommit": "a5ef29434c4328269792135814abd6a2401e584a",
   "files": [
     {
       "path": "index.html",
-      "bytes": 61651,
-      "sha256": "9e91a716c7262784fd3d50d67a33050c35b2a1d7af43c0ec37030a455a2d5a17"
+      "bytes": 63101,
+      "sha256": "f5854532ea671b671daade9e238ebeed9d51c5b9ee0d48d30e7ebbf65837bd71"
     },
     {
       "path": "styles.css",
@@ -14,39 +14,49 @@
       "sha256": "32c022487a6f85e773916d397617ddaa8a3c5911ccd60e54b8f2dc924236b0bd"
     },
     {
+      "path": "ux-6.3.0.css",
+      "bytes": 21756,
+      "sha256": "6a4ca79441ae7eabbf1a0c218948e31e0b1be28059b1972540a282981c8aad26"
+    },
+    {
       "path": "app.js",
-      "bytes": 43500,
-      "sha256": "a5a3313feca8e11645bcbac0f0e708c35e51bab0837a859fb16b787087f2da9b"
+      "bytes": 43807,
+      "sha256": "c3b07f7163f5908ed347237082cd352bc97513db1bf1b1c2f9fb2de4dcb7e2e8"
+    },
+    {
+      "path": "ux-6.3.0.js",
+      "bytes": 33229,
+      "sha256": "1d75ebecc3a9bc27934092bf2fde9652fa100798d4562bbfb30cb532c60778b2"
     },
     {
       "path": "full-course.js",
       "bytes": 29459,
-      "sha256": "44802426769fba72883d3847fbdd7e8832f6c5ef57d989f572eeda6121bf564c"
+      "sha256": "d855349aeaf7eae6011995727ebf1cb983bfcf2430d5d1db8995acb67550f951"
     },
     {
       "path": "post-standard.js",
       "bytes": 35471,
-      "sha256": "a31a67ed1873a6677b9da0dd245d365278fe9754522ecfc5d4e7f58a0362be95"
+      "sha256": "9748c8ec16bf45d83e83a578a2df00693775fec307469df5f22a14dce2d7bfb3"
     },
     {
       "path": "mastery-v6.js",
       "bytes": 17756,
-      "sha256": "52834219dad663f24bb4e68db9db0dc141d5fd5e7b0b276027a70b4f4750d5e3"
+      "sha256": "6d46c76f3cd9112dcc3d9377d428385ddaaf8ce5b4ee259c654c0347752a84de"
     },
     {
       "path": "sw.js",
-      "bytes": 1189,
-      "sha256": "de01681cb180026bca0a4348edc0da30203e36cf3e01ca29c61caa379e095340"
+      "bytes": 554,
+      "sha256": "ac8654dd5a8e344a400039851f9d910864328edb215a78ba97845185824b9265"
     },
     {
       "path": "README.md",
-      "bytes": 1862,
-      "sha256": "12bd6ae12c602737656d3cd694594d2fea55602767e6138bfc19864e2600292e"
+      "bytes": 3547,
+      "sha256": "0a45e59ae3b2e14a6b047be0d33bb5ddad1ed450442eac7a2f26cf19f03156ea"
     },
     {
       "path": "package.json",
-      "bytes": 394,
-      "sha256": "1f6abd29baa35f9e46a623bee13096b088c322fb379952f2152914ef6964fe45"
+      "bytes": 538,
+      "sha256": "0e52a644d6a53ddf0c5d760400ea2ad979a921287bcacc37109f9e008d7a5885"
     },
     {
       "path": "manifest.webmanifest",
@@ -61,7 +71,7 @@
     {
       "path": "data/post/meta.json",
       "bytes": 19810,
-      "sha256": "e75f8c091b702da255740721ff17b0baf905d5dd24b43512623d9f993ca8ba58"
+      "sha256": "4e43c01b671bd32839b7a7fb25e070653ece20d42dcde27c992352dc70ac6278"
     },
     {
       "path": "data/mastery-v6.json",
