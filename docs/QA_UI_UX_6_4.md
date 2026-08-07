@@ -75,3 +75,20 @@ Comparação executada contra o site público 6.3 em Chromium Headless 134:
 - erros JavaScript observados: 0.
 
 Para inspeção humana, preferir `htmlpreview.github.io` com o SHA do head; RawGitHack pode inserir uma tela intermediária de aviso antes do conteúdo real.
+
+
+## Correções finais antes da publicação
+
+Dois apontamentos P2 do Codex foram tratados antes do merge:
+
+1. **Transição 821–1080 → ≤820 px:** a camada 6.4 passa a observar `(max-width: 820px)`; ao entrar no breakpoint do dock, `#mobileNav` é fechado (`hidden=true`) e `#menuButton` retorna a `aria-expanded=false`. Isso impede que um menu legado aberto permaneça sobre a página após rotação/redimensionamento quando seu toggle já está oculto.
+2. **Impressão após a revisão visual 2:** uma paleta `@media print` final, posicionada depois de todas as regras de tela da revisão 2, força fundo branco, foreground escuro, ausência de sombras/backdrop e controles legíveis mesmo quando o navegador não imprime gráficos de fundo.
+
+A suíte 6.4 verifica explicitamente a presença dos dois mecanismos e a ordem da regra de impressão.
+
+
+### Evidência Chromium das correções finais
+
+Cenário de breakpoint: com `#mobileNav` aberto em 900 px (`hidden=false`, `aria-expanded=true`), a mudança do viewport para 820 px resultou em `hidden=true`, `aria-expanded=false`, `#menuButton` com `display:none` e `#uxMobileDock` com `display:grid`. Erros de página: 0.
+
+Cenário de impressão: ao mudar para mídia `print`, o header apresentou `rgb(255,255,255)`, `background-image:none`, foreground `rgb(17,24,39)`, `box-shadow:none` e `transition-duration:0s`; marca e navegação permaneceram legíveis. Erros de página: 0.

@@ -34,6 +34,9 @@ assert(js.includes("className = 'ux64-brand-cluster'"), 'Agrupamento coerente de
 assert(js.includes("aria-current', 'location'"), 'Estado semântico da navegação ativa ausente.');
 assert(js.includes('IntersectionObserver'), 'Realce visual de seção ativa ausente.');
 assert(js.includes("classList.toggle('ux64-scrolled'"), 'Estado visual do header durante rolagem ausente.');
+assert(js.includes("window.matchMedia('(max-width: 820px)')"), 'Sincronização do breakpoint do dock ausente.');
+assert(js.includes('if (nav) nav.hidden = true;'), 'Menu legado deve ser fechado ao entrar no breakpoint do dock.');
+assert(js.includes("button.setAttribute('aria-expanded', 'false')"), 'Toggle legado deve voltar a aria-expanded=false no breakpoint do dock.');
 assert(!js.includes('localStorage'), 'UX 6.4 não pode escrever ou ler progresso persistido.');
 assert(!js.includes('history.pushState') && !js.includes('history.replaceState'), 'UX 6.4 não pode alterar o histórico.');
 assert(!js.includes('location.hash'), 'UX 6.4 não pode controlar hash.');
@@ -52,6 +55,10 @@ assert(css.includes('@media (max-width: 1080px)'), 'Breakpoint intermediário do
 assert(css.includes('@media (max-width: 820px)'), 'Breakpoint móvel do header ausente.');
 assert(css.includes('.menu-button { display: none !important; }'), 'Menu duplicado deve ser ocultado apenas quando o dock móvel já existe.');
 assert(css.includes('@media (prefers-reduced-motion: reduce)'), 'Fallback de movimento reduzido ausente.');
+const revision2Index = css.indexOf('visual revision 2');
+const finalPrintIndex = css.lastIndexOf('@media print');
+assert(finalPrintIndex > revision2Index, 'A paleta de impressão final precisa vir depois das regras da revisão 2.');
+assert(css.includes('background: #fff !important') && css.includes('color: #111827 !important'), 'Paleta de impressão com fundo claro e foreground escuro ausente.');
 assert(!css.includes('[data-ux-section] { display: none'), 'Seções curriculares não podem ser ocultadas pela 6.4.');
 assert(baseUx.includes('const GROUPS = ['), 'A arquitetura de informação 6.3 esperada não está presente.');
 
@@ -64,6 +71,8 @@ console.log(JSON.stringify({
   visualRevision2: true,
   previewIdentity: true,
   strongVisualDelta: true,
+  dockBreakpointClosesLegacyMenu: true,
+  finalPrintPalette: true,
   activeNavigation: true,
   contextIntegration: true,
   mobileContinuity: true,

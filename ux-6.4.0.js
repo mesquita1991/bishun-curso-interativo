@@ -124,6 +124,19 @@
     }, { passive: true });
   }
 
+  function setupDockBreakpoint() {
+    const query = window.matchMedia('(max-width: 820px)');
+    const closeLegacyMenu = () => {
+      if (!query.matches) return;
+      const nav = $('#mobileNav');
+      const button = $('#menuButton');
+      if (nav) nav.hidden = true;
+      if (button) button.setAttribute('aria-expanded', 'false');
+    };
+    closeLegacyMenu();
+    query.addEventListener?.('change', closeLegacyMenu);
+  }
+
   function alignContext() {
     const context = $('#uxContextBar');
     if (context) context.dataset.ux64Context = 'integrated';
@@ -143,6 +156,7 @@
     document.body.classList.add('ux64-body');
     enhanceHeader();
     alignContext();
+    setupDockBreakpoint();
     observeSections();
     setupScrollState();
   }

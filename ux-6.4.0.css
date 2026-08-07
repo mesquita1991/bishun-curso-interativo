@@ -614,3 +614,45 @@ html.ux64-scrolled .ux-contextbar {
   .ux64-preview-badge { min-height: 26px; padding-inline: 6px; }
   .ux64-preview-badge strong { font-size: .58rem; }
 }
+
+/* Final print palette must come after revision-2 screen rules. */
+@media print {
+  html.ux64-ready .topbar,
+  html.ux64-ready.ux64-scrolled .topbar,
+  html.ux64-ready .ux-contextbar,
+  html.ux64-ready.ux64-scrolled .ux-contextbar {
+    background: #fff !important;
+    color: #111827 !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transition: none !important;
+  }
+
+  html.ux64-ready .brand strong,
+  html.ux64-ready .brand small,
+  html.ux64-ready .version-badge,
+  html.ux64-ready .ux64-preview-badge,
+  html.ux64-ready .desktop-nav a,
+  html.ux64-ready .top-actions .icon-button,
+  html.ux64-ready .ux-breadcrumb,
+  html.ux64-ready .ux-breadcrumb strong {
+    color: #111827 !important;
+    text-shadow: none !important;
+  }
+
+  html.ux64-ready .desktop-nav,
+  html.ux64-ready .top-actions,
+  html.ux64-ready .desktop-nav a,
+  html.ux64-ready .top-actions .icon-button,
+  html.ux64-ready .version-badge,
+  html.ux64-ready .ux64-preview-badge {
+    background: transparent !important;
+    border-color: #cbd5e1 !important;
+    box-shadow: none !important;
+  }
+
+  html.ux64-ready .desktop-nav a::after { display: none !important; }
+}
+
