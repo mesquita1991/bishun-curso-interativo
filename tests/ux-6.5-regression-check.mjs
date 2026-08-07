@@ -40,6 +40,7 @@ assert(!js.includes('preventDefault('), 'UX 6.5 não deve interceptar navegaçã
 assert(!js.includes('textContent = VERSION'), 'UX 6.5 não deve reescrever marcadores de versão genéricos.');
 
 assert(css.includes('.ux65-stage-rail'), 'Rail visual 6.5 ausente.');
+assert(css.includes('@media (max-width: 1400px)') && !css.includes('@media (max-width: 1320px)'), 'Rail deve permanecer oculto até haver margem segura ao lado da shell de 1220 px.');
 assert(css.includes('@media (prefers-contrast: more)'), 'Modo de contraste reforçado ausente.');
 assert(css.includes('@media (forced-colors: active)'), 'Forced colors ausente.');
 assert(css.includes('@media (prefers-reduced-motion: reduce)'), 'Reduced motion ausente.');
@@ -61,6 +62,7 @@ console.log(JSON.stringify({
   additiveAfter64: true,
   productionMetadata: true,
   stageRail: true,
+  safeRailBreakpoint: true,
   scrollableTables: true,
   malformedHashGuard: true,
   responsiveTableSemantics: true,

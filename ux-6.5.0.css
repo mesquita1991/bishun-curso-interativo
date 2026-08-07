@@ -390,7 +390,7 @@ html.ux65-deep-scroll .ux65-to-top { opacity: 1; pointer-events: auto; transform
 .ux65-ready kbd { border: 1px solid var(--ux65-line); background: var(--ux65-surface-strong); box-shadow: 0 1px 0 var(--ux65-line); }
 .ux65-ready .eyebrow { letter-spacing: .11em; }
 
-@media (max-width: 1320px) {
+@media (max-width: 1400px) {
   .ux65-stage-rail { display: none; }
 }
 

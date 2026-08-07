@@ -69,3 +69,7 @@ Dois P2 foram reproduzidos e corrigidos antes do merge:
 
 1. **Fragmento percent-encoded malformado** — `currentSection()` agora envolve `decodeURIComponent` em `try/catch`; fragmentos inválidos permanecem como não-match e não interrompem a inicialização da 6.5.
 2. **Overflow tabular após resize/rotação** — a 6.5 agora usa `ResizeObserver` mais evento `resize`, reavalia overflow e remove somente `tabindex`, `role` e `aria-label` que ela própria adicionou quando a região deixa de transbordar.
+
+## Correções após Codex Review — rodada 2
+
+O terceiro P2 identificou sobreposição geométrica do rail em viewports estreitos de desktop. O breakpoint foi elevado de 1320 para **1400 px**, garantindo que a rail só apareça quando há espaço lateral seguro ao lado da `.section-shell` de 1220 px. A validação por bounding boxes cobre 1321, 1400, 1401 e 1440 px.
