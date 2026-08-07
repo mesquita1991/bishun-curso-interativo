@@ -73,3 +73,11 @@ Dois P2 foram reproduzidos e corrigidos antes do merge:
 ## Correções após Codex Review — rodada 2
 
 O terceiro P2 identificou sobreposição geométrica do rail em viewports estreitos de desktop. O breakpoint foi elevado de 1320 para **1400 px**, garantindo que a rail só apareça quando há espaço lateral seguro ao lado da `.section-shell` de 1220 px. A validação por bounding boxes cobre 1321, 1400, 1401 e 1440 px.
+
+## Correções após Codex Review — rodada 3
+
+O quarto P2 detectou conflito entre a normalização genérica 6.5 e dois cards especializados que mantêm foreground claro: `.coverage-card` e `.principle-card`. Ambos foram retirados do override de superfície genérica, preservando seus fundos escuros/acento definidos em `styles.css` e, portanto, seu contrato de contraste original. O QA computado verifica background/foreground em temas claro e escuro.
+
+### Reforço adicional de contraste
+
+A inspeção computada após preservar os fundos especializados revelou que o `.principle-card` legado tinha 7,55:1 no tema claro, mas apenas 3,27:1 no tema escuro (`#e06b5d` + branco), e 2,51:1 no parágrafo com opacidade 0,76. A 6.5 fixa o fundo desse card no escuro em `#9d2929`, mantendo a linguagem especializada e elevando o texto branco para **7,55:1** e o parágrafo efetivo para aproximadamente **5,0:1**.

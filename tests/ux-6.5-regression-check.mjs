@@ -41,6 +41,8 @@ assert(!js.includes('textContent = VERSION'), 'UX 6.5 não deve reescrever marca
 
 assert(css.includes('.ux65-stage-rail'), 'Rail visual 6.5 ausente.');
 assert(css.includes('@media (max-width: 1400px)') && !css.includes('@media (max-width: 1320px)'), 'Rail deve permanecer oculto até haver margem segura ao lado da shell de 1220 px.');
+assert(!css.includes('.ux65-ready .coverage-card,') && !css.includes('.ux65-ready .principle-card,'), 'Cards especializados com foreground claro não podem receber o fundo genérico quase branco da 6.5.');
+assert(css.includes('html[data-theme="dark"].ux65-ready .principle-card { background: #9d2929; }'), 'Principle card escuro precisa manter fundo com contraste AA para texto branco.');
 assert(css.includes('@media (prefers-contrast: more)'), 'Modo de contraste reforçado ausente.');
 assert(css.includes('@media (forced-colors: active)'), 'Forced colors ausente.');
 assert(css.includes('@media (prefers-reduced-motion: reduce)'), 'Reduced motion ausente.');
@@ -63,6 +65,8 @@ console.log(JSON.stringify({
   productionMetadata: true,
   stageRail: true,
   safeRailBreakpoint: true,
+  specializedCardContrastPreserved: true,
+  darkPrincipleContrastAA: true,
   scrollableTables: true,
   malformedHashGuard: true,
   responsiveTableSemantics: true,
