@@ -1,13 +1,13 @@
 {
-  "name": "Mandarim Integral · Validação Longitudinal",
-  "short_name": "Mandarim Integral",
+  "name": "Mandarim Integral · Bǐshùn UX 6.5",
+  "short_name": "Bǐshùn",
   "description": "Programa formal, imersão aberta e validação de domínio por leitura, ditado, cloze, shadowing, produção e transferência.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f5f1e8",
-  "theme_color": "#9b3327",
+  "background_color": "#f4f7fc",
+  "theme_color": "#071126",
   "icons": [
     {
       "src": "favicon.svg",
@@ -15,5 +15,7 @@
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "id": "./",
+  "orientation": "any"
 }
