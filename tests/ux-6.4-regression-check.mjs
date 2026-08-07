@@ -17,19 +17,21 @@ const coreScripts = ['app.js', 'course.js', 'full-course.js', 'post-standard.js'
 assert(sectionTags.length === 47, `Esperadas 47 seções; encontradas ${sectionTags.length}.`);
 assert(sectionIds.length === 47 && new Set(sectionIds).size === 47, 'As 47 seções precisam manter IDs únicos.');
 assert(html.includes('ux-6.3.0.css?v=6.3.0'), 'A folha UX 6.3 deve continuar como base.');
-assert(html.includes('ux-6.4.0.css?v=6.4.0-preview-r2'), 'A folha UX 6.4 não está carregada.');
-assert(html.indexOf('ux-6.3.0.css?v=6.3.0') < html.indexOf('ux-6.4.0.css?v=6.4.0-preview-r2'), 'UX 6.4 CSS deve carregar após a 6.3.');
+assert(html.includes('ux-6.4.0.css?v=6.4.0'), 'A folha UX 6.4 não está carregada.');
+assert(html.indexOf('ux-6.3.0.css?v=6.3.0') < html.indexOf('ux-6.4.0.css?v=6.4.0'), 'UX 6.4 CSS deve carregar após a 6.3.');
 assert(html.includes('ux-6.3.0.js?v=6.3.0'), 'O runtime UX 6.3 deve continuar carregado.');
-assert(html.includes('ux-6.4.0.js?v=6.4.0-preview-r2'), 'O runtime UX 6.4 não está carregado.');
-assert(html.indexOf('ux-6.3.0.js?v=6.3.0') < html.indexOf('ux-6.4.0.js?v=6.4.0-preview-r2'), 'UX 6.4 JS deve carregar após a 6.3.');
+assert(html.includes('ux-6.4.0.js?v=6.4.0'), 'O runtime UX 6.4 não está carregado.');
+assert(html.indexOf('ux-6.3.0.js?v=6.3.0') < html.indexOf('ux-6.4.0.js?v=6.4.0'), 'UX 6.4 JS deve carregar após a 6.3.');
 coreScripts.forEach(file => assert(html.includes(file), `Script central ausente: ${file}`));
 assert(html.includes('mastery-v6.js?v=6.2.3-c711049'), 'A referência crítica do mastery precisa permanecer intacta.');
 
 assert(js.includes("const VERSION = '6.4.0'"), 'Versão do runtime 6.4 ausente.');
 assert(js.includes("dataset.ux64Runtime = VERSION"), 'Marcador isolado do runtime 6.4 ausente.');
 assert(js.includes("dataset.ux64VisualRevision = '2'"), 'Marcador da revisão visual 2 ausente.');
-assert(js.includes("className = 'ux64-preview-badge'"), 'Badge visual UX 6.4 preview ausente.');
-assert(!js.includes("querySelector('[data-version]').textContent"), 'A 6.4 não pode falsificar a versão funcional 6.3.');
+assert(js.includes("className = 'ux64-preview-badge'"), 'Badge visual UX 6.4 ausente.');
+assert(!js.includes("querySelector('[data-version]').textContent"), 'A 6.4 não pode reescrever a versão funcional preservada.');
+assert(js.includes("<small>live</small>"), 'Identidade pública UX 6.4 LIVE ausente.');
+assert(css.includes('.ux64-ready .version-badge { display: none !important; }'), 'Badge legado 6.3 deve permanecer no DOM, mas não competir visualmente com a UX 6.4 publicada.');
 assert(js.includes("className = 'ux64-brand-cluster'"), 'Agrupamento coerente de marca+versão ausente.');
 assert(js.includes("aria-current', 'location'"), 'Estado semântico da navegação ativa ausente.');
 assert(js.includes('IntersectionObserver'), 'Realce visual de seção ativa ausente.');
@@ -45,7 +47,7 @@ assert(!js.includes('scrollIntoView('), 'UX 6.4 não pode gerar saltos verticais
 
 assert(css.includes('grid-template-columns: auto minmax(280px, 1fr) auto'), 'Header unificado em três grupos ausente.');
 assert(css.includes('.ux64-brand-cluster'), 'Estilo do cluster de identidade ausente.');
-assert(css.includes('.ux64-preview-badge'), 'Estilo do badge UX 6.4 preview ausente.');
+assert(css.includes('.ux64-preview-badge'), 'Estilo do badge UX 6.4 ausente.');
 assert(css.includes('--ux64-header-start: #111a38'), 'Paleta própria de alto contraste da revisão visual 2 ausente.');
 assert(css.includes('linear-gradient(112deg, var(--ux64-header-start), var(--ux64-header-end))'), 'Header visualmente distinto da 6.3 ausente.');
 assert(css.includes('.ux64-ready .hero::before'), 'Eixo visual próprio do hero 6.4 ausente.');
@@ -69,7 +71,7 @@ console.log(JSON.stringify({
   additiveAfter63: true,
   headerHierarchy: true,
   visualRevision2: true,
-  previewIdentity: true,
+  productionIdentity: true,
   strongVisualDelta: true,
   dockBreakpointClosesLegacyMenu: true,
   finalPrintPalette: true,

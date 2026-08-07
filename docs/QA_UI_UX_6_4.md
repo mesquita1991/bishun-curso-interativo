@@ -92,3 +92,13 @@ A suíte 6.4 verifica explicitamente a presença dos dois mecanismos e a ordem d
 Cenário de breakpoint: com `#mobileNav` aberto em 900 px (`hidden=false`, `aria-expanded=true`), a mudança do viewport para 820 px resultou em `hidden=true`, `aria-expanded=false`, `#menuButton` com `display:none` e `#uxMobileDock` com `display:grid`. Erros de página: 0.
 
 Cenário de impressão: ao mudar para mídia `print`, o header apresentou `rgb(255,255,255)`, `background-image:none`, foreground `rgb(17,24,39)`, `box-shadow:none` e `transition-duration:0s`; marca e navegação permaneceram legíveis. Erros de página: 0.
+
+
+## Promoção para publicação
+
+Com a autorização de publicação, o candidato foi promovido para identidade de produção sem tocar no núcleo funcional:
+
+- assets `ux-6.4.0.css` e `ux-6.4.0.js` passam a usar cache-busting `?v=6.4.0`;
+- o badge visual passa de `UX 6.4 · preview` para **`UX 6.4 · live`**;
+- o badge funcional legado `v6.3.0` permanece no DOM/dados, mas é ocultado visualmente quando a camada UX 6.4 está ativa, evitando dupla versão no header;
+- `app.js`, `course.js`, `full-course.js`, `mastery-v6.js`, SRS, conteúdo e dados permanecem inalterados.

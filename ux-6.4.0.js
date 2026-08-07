@@ -38,8 +38,8 @@
     if (cluster && !cluster.querySelector('.ux64-preview-badge')) {
       const preview = document.createElement('span');
       preview.className = 'ux64-preview-badge';
-      preview.setAttribute('aria-label', 'Prévia visual UX 6.4');
-      preview.innerHTML = '<strong>UX 6.4</strong><small>preview</small>';
+      preview.setAttribute('aria-label', 'Interface visual UX 6.4 ativa');
+      preview.innerHTML = '<strong>UX 6.4</strong><small>live</small>';
       cluster.append(preview);
     }
 

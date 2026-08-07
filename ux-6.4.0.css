@@ -358,6 +358,10 @@ html.ux64-scrolled .ux-contextbar {
 }
 
 
+
+/* Production identity: the legacy functional badge stays in DOM but is visually superseded by UX 6.4. */
+.ux64-ready .version-badge { display: none !important; }
+
 /* UX 6.4 visual revision 2 — deliberately unmistakable from 6.3 while remaining presentation-only. */
 :root {
   --ux64-header-start: #111a38;
