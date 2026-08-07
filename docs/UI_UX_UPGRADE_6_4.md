@@ -55,3 +55,8 @@ Este candidato é deliberadamente aditivo. A versão pública continua 6.3.0 at�
 ## Rollback
 
 Remover as duas referências `ux-6.4.0.*` de `index.html` devolve integralmente a interface UX 6.3.0, sem migração de estado e sem alteração de dados.
+
+
+## Revisão visual 2 — diferenciação inequívoca
+
+Após validação visual, a primeira composição ainda herdava aparência suficiente da 6.3 para ser confundida com ela. A revisão 2 mantém todos os invariantes funcionais e aumenta deliberadamente a diferença perceptiva: header em alto contraste, navegação segmentada clara, badge independente `UX 6.4 · preview`, context bar acoplada por contraste e linha de estado, hero com eixo visual próprio, launchpad e headings com nova hierarquia. O runtime `v6.3.0` não é renomeado: ele continua identificando a aplicação funcional, enquanto o novo badge identifica exclusivamente a proposta de interface.

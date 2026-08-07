@@ -34,7 +34,17 @@
       if (version) cluster.append(version);
     }
 
+    const cluster = header.querySelector('.ux64-brand-cluster');
+    if (cluster && !cluster.querySelector('.ux64-preview-badge')) {
+      const preview = document.createElement('span');
+      preview.className = 'ux64-preview-badge';
+      preview.setAttribute('aria-label', 'Prévia visual UX 6.4');
+      preview.innerHTML = '<strong>UX 6.4</strong><small>preview</small>';
+      cluster.append(preview);
+    }
+
     header.dataset.ux64Header = 'unified';
+    header.dataset.ux64Visual = 'distinct';
     nav.dataset.ux64Nav = 'course';
     actions.dataset.ux64Actions = 'utilities';
     $$('.desktop-nav a', header).forEach(link => {
@@ -128,6 +138,7 @@
   function init() {
     if (document.documentElement.dataset.ux64Runtime === VERSION) return;
     document.documentElement.dataset.ux64Runtime = VERSION;
+    document.documentElement.dataset.ux64VisualRevision = '2';
     document.documentElement.classList.add('ux64-ready');
     document.body.classList.add('ux64-body');
     enhanceHeader();

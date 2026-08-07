@@ -51,3 +51,27 @@ No scroll para `#programa-integral`, o header permaneceu em `top: 0`, a context 
 No viewport 390×520, a command palette ficou entre `top=20` e `bottom=500`, apresentou 47 opções, `clientHeight=313`, `scrollHeight=4673` e permitiu alcançar integralmente a última opção. Erros JavaScript observados: **0**.
 
 A largura de `body` permaneceu igual ao viewport em todos os cenários e a tentativa de rolagem horizontal da página permaneceu bloqueada; tabelas largas continuam usando seu próprio contexto rolável, sem deslocar a página.
+
+
+## Revisão visual 2
+
+- badge exclusivo `UX 6.4 · preview` deve existir sem alterar `[data-version]`;
+- `data-ux64-visual-revision="2"` deve estar ativo;
+- header deve usar a composição de alto contraste da camada 6.4;
+- URLs dos assets 6.4 usam `preview-r2` para evitar confusão por cache;
+- regressões 6.3 e invariantes de não escrita continuam obrigatórias.
+
+
+### Evidência comparativa em Chromium — revisão 2
+
+Comparação executada contra o site público 6.3 em Chromium Headless 134:
+
+- site público 6.3: `data-ux64-runtime` ausente, badge UX 6.4 ausente, header sem gradiente de alto contraste;
+- candidato 6.4: `data-ux64-runtime="6.4.0"`, `data-ux64-visual-revision="2"`, badge `UX 6.4 PREVIEW` visível;
+- runtime funcional continua exibindo `v6.3.0`, deliberadamente separado da identidade visual candidata;
+- desktop 1440×900: header navy/cobalto, três grupos sem sobreposição, `body.scrollWidth === viewport`;
+- mobile 390×844: badge `UX 6.4` visível, dock ativo, quatro utilidades preservadas, sem rolagem horizontal;
+- `#programa-integral` continua ativando `aria-current="location"`;
+- erros JavaScript observados: 0.
+
+Para inspeção humana, preferir `htmlpreview.github.io` com o SHA do head; RawGitHack pode inserir uma tela intermediária de aviso antes do conteúdo real.
