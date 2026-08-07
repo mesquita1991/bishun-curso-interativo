@@ -1,12 +1,25 @@
 {
-  "version": "6.3.0",
-  "generatedAt": "2026-08-07T20:05:19Z",
-  "rollbackCommit": "a5ef29434c4328269792135814abd6a2401e584a",
+  "version": "6.5.0",
+  "generatedAt": "2026-08-07T22:20:00Z",
+  "baseCommit": "449daf4cf32a69472d296d3a34b72f49bb4d195d",
+  "rollbackLayer": [
+    "ux-6.5.0.css?v=6.5.0",
+    "ux-6.5.0.js?v=6.5.0"
+  ],
+  "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
+  "protectedCoreGitBlobs": {
+    "app.js": "80addaeda970dad4f41ef1d4d04e3dea40b3c35f",
+    "course.js": "b9b0405458d4c405b55a5caf3a090779f08de664",
+    "curriculum-data.js": "f1b633c353e16b60b49d779ac0f8ea9ccce50ea3",
+    "full-course.js": "2daf912b32dc628c4f36b648abbaf13ee590155a",
+    "post-standard.js": "1439dc0dfa46a04bbf9597940ea0ba082a8102f7",
+    "mastery-v6.js": "86d373377a5dfce39e3cce835300f8ae28eb7a2d"
+  },
   "files": [
     {
       "path": "index.html",
-      "bytes": 63101,
-      "sha256": "f5854532ea671b671daade9e238ebeed9d51c5b9ee0d48d30e7ebbf65837bd71"
+      "bytes": 63949,
+      "sha256": "ad1185d43e99edd2e180da099d5dc31303ba059d0712f7cc807c5e96c22bcecf"
     },
     {
       "path": "styles.css",
@@ -19,6 +32,16 @@
       "sha256": "6a4ca79441ae7eabbf1a0c218948e31e0b1be28059b1972540a282981c8aad26"
     },
     {
+      "path": "ux-6.4.0.css",
+      "bytes": 21424,
+      "sha256": "c50f11d52465f625b8ba359374f8af9b1e4695879195f0f50ec712f2b7894846"
+    },
+    {
+      "path": "ux-6.5.0.css",
+      "bytes": 18451,
+      "sha256": "c7b0e5b76daa0d62962aa2a158a3e285253054b20ed938869ab0ac680f334652"
+    },
+    {
       "path": "app.js",
       "bytes": 43807,
       "sha256": "c3b07f7163f5908ed347237082cd352bc97513db1bf1b1c2f9fb2de4dcb7e2e8"
@@ -27,6 +50,26 @@
       "path": "ux-6.3.0.js",
       "bytes": 33229,
       "sha256": "1d75ebecc3a9bc27934092bf2fde9652fa100798d4562bbfb30cb532c60778b2"
+    },
+    {
+      "path": "ux-6.4.0.js",
+      "bytes": 7043,
+      "sha256": "4de879d81fb8b86b41a962dcb136b05417f1de9931555e5c05ca8fb06be440a3"
+    },
+    {
+      "path": "ux-6.5.0.js",
+      "bytes": 7373,
+      "sha256": "9952b4c8255e6da74acaaff67253a5ba6d4c2106d17e02d9548f16919d21a8c5"
+    },
+    {
+      "path": "course.js",
+      "bytes": 17415,
+      "sha256": "6d10030c3e7acdeebfe0ed7361f70cef87defee0210a743053fff9dc00ea2b04"
+    },
+    {
+      "path": "curriculum-data.js",
+      "bytes": 167857,
+      "sha256": "9d0557e131d581008823c3ca0c8f9ef0054e44ff869de556ac984e39ae857fcd"
     },
     {
       "path": "full-course.js",
@@ -44,39 +87,39 @@
       "sha256": "6d46c76f3cd9112dcc3d9377d428385ddaaf8ce5b4ee259c654c0347752a84de"
     },
     {
-      "path": "sw.js",
+      "path": "manifest.webmanifest",
       "bytes": 554,
-      "sha256": "ac8654dd5a8e344a400039851f9d910864328edb215a78ba97845185824b9265"
-    },
-    {
-      "path": "README.md",
-      "bytes": 3547,
-      "sha256": "0a45e59ae3b2e14a6b047be0d33bb5ddad1ed450442eac7a2f26cf19f03156ea"
+      "sha256": "5638855279cfe445e7ffd6861fd968ab7c1c2c381012eb7c0b40f5198de3fbcb"
     },
     {
       "path": "package.json",
-      "bytes": 538,
-      "sha256": "0e52a644d6a53ddf0c5d760400ea2ad979a921287bcacc37109f9e008d7a5885"
+      "bytes": 723,
+      "sha256": "2f9167444305c0e8d0c230b593062f40a1d266b1eb12ce040c9e9b418b847be3"
     },
     {
-      "path": "manifest.webmanifest",
-      "bytes": 534,
-      "sha256": "739ae4fac94c75616907bf4668a74086ad227bd85893d2e47b08716f27549172"
+      "path": "README.md",
+      "bytes": 4927,
+      "sha256": "5391a8bd9ac8545a65c32b106551092b52bff6f03d8982528a5d2fe9e15b6a4e"
     },
     {
-      "path": "data/meta.json",
-      "bytes": 5386,
-      "sha256": "209dbe2517d027a6841b0b8fb40b1636d9cc8a1d0f06bc95ffcc50ccacf26869"
+      "path": "tests/core-integrity-check.mjs",
+      "bytes": 1987,
+      "sha256": "ce06a8334fe0eb24a849dd6ed34d35e40c27a384a31a6f0e97f25d32de9bb6cb"
     },
     {
-      "path": "data/post/meta.json",
-      "bytes": 19810,
-      "sha256": "4e43c01b671bd32839b7a7fb25e070653ece20d42dcde27c992352dc70ac6278"
+      "path": "tests/ux-6.5-regression-check.mjs",
+      "bytes": 4610,
+      "sha256": "a26143437d8b6f999603781457d65ba801e2ba867486e3675bc5c12a12f31808"
     },
     {
-      "path": "data/mastery-v6.json",
-      "bytes": 68089,
-      "sha256": "307e17b2cb935090346bb3c6f91d7ba18a9662942265f1597bca8b541767fc7d"
+      "path": "docs/UI_UX_UPGRADE_6_5.md",
+      "bytes": 2065,
+      "sha256": "6b60a196fe09d46ba00bc560b69bfbf72d6ef65386a9f417fd09314d01592aa3"
+    },
+    {
+      "path": "docs/QA_UI_UX_6_5.md",
+      "bytes": 2637,
+      "sha256": "f0e488f64450321bae3e96c0f2341c32db97d835c3c6ad026558d6b05f966f38"
     }
   ]
 }
