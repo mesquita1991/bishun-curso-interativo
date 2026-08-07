@@ -89,8 +89,12 @@
 
     const current = links.find(link => link.classList.contains('is-current'));
     if (current && nav.scrollWidth > nav.clientWidth) {
-      const targetLeft = current.offsetLeft - (nav.clientWidth - current.offsetWidth) / 2;
-      nav.scrollTo({ left: Math.max(0, targetLeft), behavior: 'auto' });
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = current.getBoundingClientRect();
+      const desiredLeft = nav.scrollLeft + (linkRect.left - navRect.left) - (nav.clientWidth - linkRect.width) / 2;
+      const maxLeft = Math.max(0, nav.scrollWidth - nav.clientWidth);
+      const targetLeft = Math.min(maxLeft, Math.max(0, desiredLeft));
+      nav.scrollTo({ left: targetLeft, behavior: 'auto' });
     }
   }
 

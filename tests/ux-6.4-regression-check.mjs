@@ -34,6 +34,9 @@ assert(js.includes("<small>live</small>"), 'Identidade pública UX 6.4 LIVE ause
 assert(css.includes('.ux64-ready .version-badge { display: none !important; }'), 'Badge legado 6.3 deve permanecer no DOM, mas não competir visualmente com a UX 6.4 publicada.');
 assert(js.includes("className = 'ux64-brand-cluster'"), 'Agrupamento coerente de marca+versão ausente.');
 assert(js.includes("aria-current', 'location'"), 'Estado semântico da navegação ativa ausente.');
+assert(js.includes('const navRect = nav.getBoundingClientRect();'), 'Centralização do item ativo precisa usar coordenadas do próprio nav.');
+assert(js.includes('nav.scrollLeft + (linkRect.left - navRect.left)'), 'Offset ativo deve ser derivado do espaço rolável do nav.');
+assert(js.includes('Math.min(maxLeft, Math.max(0, desiredLeft))'), 'Centralização do nav precisa ser limitada ao intervalo rolável.');
 assert(js.includes('IntersectionObserver'), 'Realce visual de seção ativa ausente.');
 assert(js.includes("classList.toggle('ux64-scrolled'"), 'Estado visual do header durante rolagem ausente.');
 assert(js.includes("window.matchMedia('(max-width: 820px)')"), 'Sincronização do breakpoint do dock ausente.');
@@ -55,6 +58,7 @@ assert(css.includes('.desktop-nav a.is-current'), 'Estado ativo do trilho de nav
 assert(css.includes('position: absolute') && css.includes('height: 2px'), 'Progresso integrado na borda da context bar ausente.');
 assert(css.includes('@media (max-width: 1080px)'), 'Breakpoint intermediário do header ausente.');
 assert(css.includes('@media (max-width: 820px)'), 'Breakpoint móvel do header ausente.');
+assert(css.includes('body.ux-body.ux64-body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }'), 'Padding móvel precisa incluir safe-area-inset-bottom para não encobrir conteúdo sob o dock.');
 assert(css.includes('.menu-button { display: none !important; }'), 'Menu duplicado deve ser ocultado apenas quando o dock móvel já existe.');
 assert(css.includes('@media (prefers-reduced-motion: reduce)'), 'Fallback de movimento reduzido ausente.');
 const revision2Index = css.indexOf('visual revision 2');
@@ -74,6 +78,8 @@ console.log(JSON.stringify({
   productionIdentity: true,
   strongVisualDelta: true,
   dockBreakpointClosesLegacyMenu: true,
+  navCenterUsesScrollCoordinates: true,
+  safeAreaBottomPadding: true,
   finalPrintPalette: true,
   activeNavigation: true,
   contextIntegration: true,

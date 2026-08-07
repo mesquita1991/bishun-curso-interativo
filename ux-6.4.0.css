@@ -303,6 +303,7 @@ html.ux64-scrolled .ux-contextbar {
 
 @media (max-width: 820px) {
   :root { --ux-topbar-height: 64px; --ux-context-height: 42px; }
+  body.ux-body.ux64-body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
   .ux64-ready .topbar { padding-inline: 10px; gap: 7px; }
   .ux64-ready .ux64-brand-cluster { gap: 5px; }
   .ux64-ready .version-badge { display: none; }

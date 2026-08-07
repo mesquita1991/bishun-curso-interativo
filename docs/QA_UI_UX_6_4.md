@@ -102,3 +102,24 @@ Com a autorização de publicação, o candidato foi promovido para identidade d
 - o badge visual passa de `UX 6.4 · preview` para **`UX 6.4 · live`**;
 - o badge funcional legado `v6.3.0` permanece no DOM/dados, mas é ocultado visualmente quando a camada UX 6.4 está ativa, evitando dupla versão no header;
 - `app.js`, `course.js`, `full-course.js`, `mastery-v6.js`, SRS, conteúdo e dados permanecem inalterados.
+
+
+## Correções finais — centralização do trilho e safe area
+
+Dois P2 adicionais do Codex foram tratados antes do merge:
+
+1. **Item ativo no trilho horizontal:** a centralização deixou de usar `offsetLeft`, cujo `offsetParent` pode ser o header sticky. O alvo agora é calculado no sistema de coordenadas do próprio `.desktop-nav`: `nav.scrollLeft + (linkRect.left - navRect.left)`, com centralização pela largura visível e clamp entre `0` e `scrollWidth - clientWidth`. Isso evita overshoot quando o trilho transborda próximo ao breakpoint desktop/tablet.
+2. **Dock móvel e safe area:** em `<=820px`, o `body.ux-body.ux64-body` recebe `padding-bottom: calc(76px + env(safe-area-inset-bottom))`. Assim, o espaço de conteúdo cresce junto com o recuo físico do dock em dispositivos com home indicator, preservando o rodapé e controles finais.
+
+A suíte 6.4 passa a exigir explicitamente ambos os mecanismos.
+
+
+### Evidência Chromium — trilho horizontal
+
+Harness local em Chromium Headless 134, viewport 1081×760, com overflow forçado no `.desktop-nav`:
+
+- seção intermediária `#pos-padrao`: `aria-current=location`, `scrollLeft=239`, limite `432`, item integralmente visível e diferença entre centros de apenas `0,57 px`;
+- seção terminal `#novidades`: o algoritmo chegou ao clamp máximo `scrollLeft=432/432` e manteve o item integralmente visível, sem overshoot;
+- erros de página nos dois cenários: 0.
+
+Isso valida tanto a centralização quando geometricamente possível quanto o clamp correto nas extremidades do trilho.
