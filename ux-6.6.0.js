@@ -72,6 +72,19 @@
   function goBack(){ if(state.current>0) routeTo(state.current-1); }
   function toggleGuide(){ state.opened=!state.opened; save(); render(); }
 
+  function syncInitialLocation(){
+    if(!state.active) return;
+    const raw=location.hash.slice(1);
+    let id=raw;
+    try { id=decodeURIComponent(raw); } catch { /* malformed fragments are non-matches */ }
+    let i=indexFor(id);
+    if(i<0){
+      const legacy=document.querySelector('[data-ux-jump][aria-current="location"]')?.dataset.uxJump;
+      i=indexFor(legacy);
+    }
+    if(i>=0) state.current=i;
+  }
+
   function build(){
     if($('#ux66Guide')) return;
     document.documentElement.dataset.ux66Runtime=VERSION;
@@ -109,6 +122,8 @@
       const i=indexFor(id); if(i>=0 && state.active){ state.current=i; save(); render(); }
     });
     tick=window.setInterval(()=>{ const el=$('[data-guide-clock]'); if(el) el.textContent=clock(elapsed()); },1000);
+    syncInitialLocation();
+    save();
     render();
   }
 

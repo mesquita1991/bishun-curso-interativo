@@ -30,3 +30,7 @@ A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, bus
 
 - P1: o gate herdado 6.5 passou a aceitar releases 6.x posteriores, sem deixar a versão regredir abaixo de 6.5.
 - P2: `pageshow` rerenderiza a trilha após restauração por bfcache, mantendo controles coerentes com o estado pausado salvo no `pagehide`.
+
+## Terceira rodada Codex
+
+- P2: o primeiro `render()` agora é precedido por `syncInitialLocation()`, que resolve o fragmento URL atual e, se necessário, o `aria-current` da UX 6.3. Recarregar/bookmarkar uma seção guiada não deixa o dock apontando para outro passo.
