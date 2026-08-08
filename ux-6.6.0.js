@@ -90,9 +90,15 @@
     const hero=$('#inicio');
     (hero||document.querySelector('main'))?.insertAdjacentElement(hero?'afterend':'afterbegin',shell);
     const dock=document.createElement('div'); dock.id='ux66Dock'; dock.className='ux66-dock'; document.body.appendChild(dock);
+    const syncExplicitTarget=id=>{
+      if(!state.active) return;
+      const i=indexFor(id);
+      if(i>=0 && i!==state.current){ state.current=i; save(); render(); }
+    };
     document.addEventListener('click',e=>{
+      const plainPrimary=e.button===0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
       const guidedStep=e.target.closest('a[data-guide-index]');
-      if(guidedStep){
+      if(guidedStep && plainPrimary){
         const i=Number(guidedStep.dataset.guideIndex);
         if(Number.isInteger(i) && i>=0 && i<PATH.length){ state.current=i; state.active=true; save(); render(); }
         return;
@@ -100,17 +106,18 @@
       const phaseButton=e.target.closest('[data-guide-phase]');
       if(phaseButton){ const phase=PHASES.find(p=>p.id===phaseButton.dataset.guidePhase); if(phase) routeTo(phase.from); return; }
       const action=e.target.closest('[data-guide-action]')?.dataset.guideAction;
-      if(!action) return;
-      if(action==='start') startFresh(); if(action==='resume') resume(); if(action==='pause') pause(); if(action==='next') completeAndNext(); if(action==='prev') goBack(); if(action==='toggle') toggleGuide(); if(action==='explore') document.getElementById('uxMapButton')?.click(); if(action==='search') document.getElementById('uxCommandButton')?.click();
+      if(action){
+        if(action==='start') startFresh(); if(action==='resume') resume(); if(action==='pause') pause(); if(action==='next') completeAndNext(); if(action==='prev') goBack(); if(action==='toggle') toggleGuide(); if(action==='explore') document.getElementById('uxMapButton')?.click(); if(action==='search') document.getElementById('uxCommandButton')?.click();
+        return;
+      }
+      // Mirror only deliberate navigation signals already handled by UX 6.3.
+      const route=e.target.closest('[data-ux-route]')?.dataset.uxRoute;
+      const jump=e.target.closest('[data-ux-jump]')?.dataset.uxJump;
+      const hashLink=e.target.closest('a[href^="#"]');
+      const hashTarget=plainPrimary && hashLink && (!hashLink.target || hashLink.target==='_self') && !hashLink.hasAttribute('download') ? hashLink.getAttribute('href')?.slice(1) : null;
+      if(route || jump || hashTarget){ syncExplicitTarget(route || jump || hashTarget); return; }
+      if(e.target.closest('[data-ux-command-index]')) queueMicrotask(()=>syncExplicitTarget(ux63Last()));
     });
-    const syncFromLegacyNavigation=()=>{
-      if(!state.active) return;
-      const id=document.querySelector('[data-ux-jump][aria-current="location"]')?.dataset.uxJump;
-      const i=indexFor(id);
-      if(i>=0 && i!==state.current){ state.current=i; save(); render(); }
-    };
-    const legacyCurrent=document.getElementById('uxCurrentSection');
-    if(legacyCurrent && 'MutationObserver' in window) new MutationObserver(syncFromLegacyNavigation).observe(legacyCurrent,{childList:true,characterData:true,subtree:true});
     window.addEventListener('pagehide',()=>{ if(!state.paused&&state.startedAt){ state.elapsedMs+=Date.now()-state.startedAt; state.startedAt=null; state.paused=true; save(); } });
     window.addEventListener('pageshow',()=>render());
     window.addEventListener('hashchange',()=>{

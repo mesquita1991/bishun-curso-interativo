@@ -38,3 +38,7 @@ A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, bus
 ## Browser QA — restauração sem hash
 
 O navegador real reproduziu um caso em que um reload sem fragmento restaurava o scroll em uma seção distante e o fallback de `aria-current` sobrescrevia o passo salvo. A regra foi corrigida: `syncInitialLocation()` só altera `current` quando há um hash curricular explícito; em reload sem hash prevalece o estado persistido `bishunGuidedV66`.
+
+## Browser QA — somente intenção explícita
+
+O segundo reteste mostrou que a sincronização passiva via `MutationObserver` ainda confundia scroll restaurado com intenção de navegação. O observer foi removido. A trilha agora sincroniza apenas cliques explícitos já reconhecidos pela UX 6.3 (`data-ux-route`, `data-ux-jump`, hash primário e item de busca), preservando cliques modificados e impedindo que scroll/layout alterem `current`.

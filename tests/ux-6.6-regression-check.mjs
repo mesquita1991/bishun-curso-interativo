@@ -16,7 +16,9 @@ const initialSync=js.slice(js.indexOf('function syncInitialLocation()'),js.index
 assert(initialSync.includes('!location.hash')&&initialSync.includes('location.hash.slice(1)'),'initial URL guided-state sync missing');
 assert(!initialSync.includes('data-ux-jump')&&!initialSync.includes('aria-current'),'hashless reload must preserve the saved guided step instead of viewport/legacy active section');
 assert(js.indexOf('syncInitialLocation();')<js.lastIndexOf('render();'),'initial URL sync must run before first render');
-assert(js.includes('syncFromLegacyNavigation')&&js.includes('MutationObserver'),'legacy navigation sync missing');
+assert(js.includes('syncExplicitTarget')&&js.includes('[data-ux-route]')&&js.includes('[data-ux-jump]')&&js.includes('[data-ux-command-index]'),'explicit legacy navigation sync missing');
+assert(!js.includes('MutationObserver(syncFromLegacyNavigation)')&&!js.includes('syncFromLegacyNavigation'),'passive scroll/observer must never move guided state');
+assert(js.includes('const plainPrimary=e.button===0')&&js.includes('!e.metaKey')&&js.includes('!e.ctrlKey'),'guided link sync must preserve modified-click semantics');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide')&&js.includes("window.addEventListener('pageshow',()=>render())"),'bfcache session UI refresh missing');
 assert(!inherited65.includes("pkg.version === '6.5.0'"),'inherited 6.5 gate must allow later 6.x releases'); assert(js.includes('Explorar mapa')&&js.includes('Progresso')&&js.includes('Fontes'),'support access missing');
