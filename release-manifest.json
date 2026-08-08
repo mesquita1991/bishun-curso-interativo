@@ -1,10 +1,10 @@
 {
-  "version": "6.5.0",
-  "generatedAt": "2026-08-07T23:34:00Z",
-  "baseCommit": "449daf4cf32a69472d296d3a34b72f49bb4d195d",
+  "version": "6.6.0",
+  "generatedAt": "2026-08-08T18:38:00Z",
+  "baseCommit": "1e5c0f5edafeb2410168c1f9328a544c0067a0fe",
   "rollbackLayer": [
-    "ux-6.5.0.css?v=6.5.0",
-    "ux-6.5.0.js?v=6.5.0"
+    "ux-6.6.0.css?v=6.6.0",
+    "ux-6.6.0.js?v=6.6.0"
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
@@ -18,8 +18,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 63949,
-      "sha256": "ad1185d43e99edd2e180da099d5dc31303ba059d0712f7cc807c5e96c22bcecf"
+      "bytes": 64055,
+      "sha256": "e996859c748f3666644b12189501181d774f0a3f485ff71f27baabbbd00ab91c"
     },
     {
       "path": "styles.css",
@@ -93,8 +93,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 723,
-      "sha256": "2f9167444305c0e8d0c230b593062f40a1d266b1eb12ce040c9e9b418b847be3"
+      "bytes": 802,
+      "sha256": "1dfbfc01674830532a19b0710d7fc7703621107c56a5dd7dab9e77271d781144"
     },
     {
       "path": "README.md",
@@ -108,8 +108,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6049,
-      "sha256": "c6ac3026aef57fe1efefde9fc0057fc6dad2b70af53f171d4f4a8c53026b807d"
+      "bytes": 6082,
+      "sha256": "2bd8f4ef7b87b9f532bf7a83fef9f58abd01ff9522511483b0d2f44e02f73a22"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -120,6 +120,44 @@
       "path": "docs/QA_UI_UX_6_5.md",
       "bytes": 4478,
       "sha256": "c6c2455b48841f7c00f24c13eb96b7d02888f10c4a56c7fc732d72d2dc72e8dd"
+    },
+    {
+      "path": "ux-6.6.0.js",
+      "bytes": 14504,
+      "sha256": "5aea28b767242148e1fe77da3e87f07e42cdd61b85d500792c5da71052e8236a"
+    },
+    {
+      "path": "ux-6.6.0.css",
+      "bytes": 8183,
+      "sha256": "f29fe7a5c24d35d966dad1d473ca84887049a7c182325017939729d3722b223c"
+    },
+    {
+      "path": "tests/ux-6.6-regression-check.mjs",
+      "bytes": 5609,
+      "sha256": "bc8133b543b2e2416954b0354bcb462716ecc417fb9e4e7dca6278f46fc7f3c8"
+    },
+    {
+      "path": "docs/QA_UI_UX_6_6.md",
+      "bytes": 3598,
+      "sha256": "cc2b0cd881f2037b2159bea85c951185d9468e50e339561e83c449bcb9515efc"
+    },
+    {
+      "path": "docs/UI_UX_UPGRADE_6_6.md",
+      "bytes": 812,
+      "sha256": "f48afe869ad85369b93ea39be45f414b949f73601d1e824439504817c477a917"
     }
-  ]
+  ],
+  "guidedPath": {
+    "version": "6.6.0",
+    "storageKey": "bishunGuidedV66",
+    "essentialSteps": 40,
+    "phases": [
+      "base",
+      "integral",
+      "imersao",
+      "dominio"
+    ],
+    "startStop": true,
+    "preservesExistingState": true
+  }
 }
