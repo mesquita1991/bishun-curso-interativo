@@ -34,3 +34,7 @@ A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, bus
 ## Terceira rodada Codex
 
 - P2: o primeiro `render()` agora é precedido por `syncInitialLocation()`, que resolve o fragmento URL atual e, se necessário, o `aria-current` da UX 6.3. Recarregar/bookmarkar uma seção guiada não deixa o dock apontando para outro passo.
+
+## Browser QA — restauração sem hash
+
+O navegador real reproduziu um caso em que um reload sem fragmento restaurava o scroll em uma seção distante e o fallback de `aria-current` sobrescrevia o passo salvo. A regra foi corrigida: `syncInitialLocation()` só altera `current` quando há um hash curricular explícito; em reload sem hash prevalece o estado persistido `bishunGuidedV66`.

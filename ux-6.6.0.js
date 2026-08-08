@@ -73,15 +73,11 @@
   function toggleGuide(){ state.opened=!state.opened; save(); render(); }
 
   function syncInitialLocation(){
-    if(!state.active) return;
+    if(!state.active || !location.hash) return;
     const raw=location.hash.slice(1);
     let id=raw;
     try { id=decodeURIComponent(raw); } catch { /* malformed fragments are non-matches */ }
-    let i=indexFor(id);
-    if(i<0){
-      const legacy=document.querySelector('[data-ux-jump][aria-current="location"]')?.dataset.uxJump;
-      i=indexFor(legacy);
-    }
+    const i=indexFor(id);
     if(i>=0) state.current=i;
   }
 

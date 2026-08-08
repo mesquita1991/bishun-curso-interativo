@@ -12,7 +12,10 @@ ids.forEach(id=>assert(html.includes(`id="${id}"`),`missing guided section ${id}
 assert(!js.includes('localStorage.clear('),'guided layer must never clear existing progress');
 assert(!js.includes("localStorage.removeItem(UX63_KEY"),'guided layer must preserve UX 6.3 state');
 assert(js.includes('a[data-guide-index]')&&js.includes('guidedStep.dataset.guideIndex'),'guided-step click sync missing');
-assert(js.includes('function syncInitialLocation()')&&js.indexOf('syncInitialLocation();')<js.lastIndexOf('render();'),'initial URL guided-state sync missing');
+const initialSync=js.slice(js.indexOf('function syncInitialLocation()'),js.indexOf('function build()'));
+assert(initialSync.includes('!location.hash')&&initialSync.includes('location.hash.slice(1)'),'initial URL guided-state sync missing');
+assert(!initialSync.includes('data-ux-jump')&&!initialSync.includes('aria-current'),'hashless reload must preserve the saved guided step instead of viewport/legacy active section');
+assert(js.indexOf('syncInitialLocation();')<js.lastIndexOf('render();'),'initial URL sync must run before first render');
 assert(js.includes('syncFromLegacyNavigation')&&js.includes('MutationObserver'),'legacy navigation sync missing');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide')&&js.includes("window.addEventListener('pageshow',()=>render())"),'bfcache session UI refresh missing');
