@@ -1,10 +1,10 @@
 {
   "version": "6.6.0",
-  "generatedAt": "2026-08-08T17:44:00Z",
+  "generatedAt": "2026-08-08T18:02:00Z",
   "baseCommit": "1e5c0f5edafeb2410168c1f9328a544c0067a0fe",
   "rollbackLayer": [
-    "ux-6.5.0.css?v=6.5.0",
-    "ux-6.5.0.js?v=6.5.0"
+    "ux-6.6.0.css?v=6.6.0",
+    "ux-6.6.0.js?v=6.6.0"
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
@@ -18,8 +18,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 63949,
-      "sha256": "ad1185d43e99edd2e180da099d5dc31303ba059d0712f7cc807c5e96c22bcecf"
+      "bytes": 64055,
+      "sha256": "e996859c748f3666644b12189501181d774f0a3f485ff71f27baabbbd00ab91c"
     },
     {
       "path": "styles.css",
@@ -93,8 +93,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 723,
-      "sha256": "2f9167444305c0e8d0c230b593062f40a1d266b1eb12ce040c9e9b418b847be3"
+      "bytes": 802,
+      "sha256": "1dfbfc01674830532a19b0710d7fc7703621107c56a5dd7dab9e77271d781144"
     },
     {
       "path": "README.md",
@@ -120,6 +120,31 @@
       "path": "docs/QA_UI_UX_6_5.md",
       "bytes": 4478,
       "sha256": "c6c2455b48841f7c00f24c13eb96b7d02888f10c4a56c7fc732d72d2dc72e8dd"
+    },
+    {
+      "path": "ux-6.6.0.js",
+      "bytes": 12828,
+      "sha256": "f708faefe578fcb01e5a5ff6aa1c86c6eb3f03ad93139e58148e6d93c87c8459"
+    },
+    {
+      "path": "ux-6.6.0.css",
+      "bytes": 7890,
+      "sha256": "4d3b982434a17386c45d4da6e2475b5e9854235f9700527e6058c46f9ab22b0e"
+    },
+    {
+      "path": "tests/ux-6.6-regression-check.mjs",
+      "bytes": 3139,
+      "sha256": "a8a2d106e5f09b986bcb85a22f5ba4bc9fb0b758efbcd619e2ec3035015872f1"
+    },
+    {
+      "path": "docs/QA_UI_UX_6_6.md",
+      "bytes": 1462,
+      "sha256": "7b2b794c0c268dbea0447bb11398b9dacf12579400326cbbbbbec7e1aa3ef479"
+    },
+    {
+      "path": "docs/UI_UX_UPGRADE_6_6.md",
+      "bytes": 812,
+      "sha256": "f48afe869ad85369b93ea39be45f414b949f73601d1e824439504817c477a917"
     }
   ],
   "guidedPath": {

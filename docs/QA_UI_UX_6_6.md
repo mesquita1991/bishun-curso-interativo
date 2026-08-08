@@ -18,3 +18,10 @@ A rota canônica elimina escolhas concorrentes durante o estudo: Base → Integr
 ## Sincronização
 
 A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, busca ou links existentes atualiza o passo 6.6 sem duplicar o motor de navegação. Reabrir o passo atual durante uma sessão em andamento não zera o cronômetro.
+
+## Primeira rodada Codex
+
+- P1: removidos escapes `\n` literais do CSS; seletores 6.6 voltam a ser CSS válido.
+- P1: clique direto em passo `data-guide-index` sincroniza `state.current` explicitamente.
+- P2: `resume()` não reinicia `startedAt` quando a sessão já está em andamento.
+- P2: `release-manifest.json` regenerado para 6.6, com rollback 6.6 e inventário/hash exatos dos novos artefatos.

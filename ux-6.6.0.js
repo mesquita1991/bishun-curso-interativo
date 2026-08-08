@@ -82,6 +82,12 @@
     (hero||document.querySelector('main'))?.insertAdjacentElement(hero?'afterend':'afterbegin',shell);
     const dock=document.createElement('div'); dock.id='ux66Dock'; dock.className='ux66-dock'; document.body.appendChild(dock);
     document.addEventListener('click',e=>{
+      const guidedStep=e.target.closest('a[data-guide-index]');
+      if(guidedStep){
+        const i=Number(guidedStep.dataset.guideIndex);
+        if(Number.isInteger(i) && i>=0 && i<PATH.length){ state.current=i; state.active=true; save(); render(); }
+        return;
+      }
       const phaseButton=e.target.closest('[data-guide-phase]');
       if(phaseButton){ const phase=PHASES.find(p=>p.id===phaseButton.dataset.guidePhase); if(phase) routeTo(phase.from); return; }
       const action=e.target.closest('[data-guide-action]')?.dataset.guideAction;
