@@ -1,10 +1,10 @@
 {
   "name": "bishun-mandarin-integral",
-  "version": "6.5.0",
+  "version": "6.6.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs"
+    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs"
   },
-  "description": "Programa integral de mandarim com UX 6.5, navegação global, imersão aberta e validação longitudinal por evidências."
+  "description": "Programa integral de mandarim com UX 6.6, trilha guiada start/stop, navegação global e validação longitudinal por evidências."
 }
