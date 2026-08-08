@@ -14,3 +14,7 @@
 ## Critério didático
 
 A rota canônica elimina escolhas concorrentes durante o estudo: Base → Integral → Imersão → Domínio. O mapa e a busca continuam disponíveis para exploração deliberada.
+
+## Sincronização
+
+A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, busca ou links existentes atualiza o passo 6.6 sem duplicar o motor de navegação. Reabrir o passo atual durante uma sessão em andamento não zera o cronômetro.

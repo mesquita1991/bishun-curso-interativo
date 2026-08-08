@@ -11,6 +11,8 @@ ids.forEach(id=>assert(html.includes(`id="${id}"`),`missing guided section ${id}
 ['bishunGuidedV66','bishunUxV63','startFresh','resume','pause','completeAndNext','elapsedMs','startedAt','Concluir e continuar','Parar e salvar','Continuar','data-guide-phase'].forEach(x=>assert(js.includes(x),`missing ${x}`));
 assert(!js.includes('localStorage.clear('),'guided layer must never clear existing progress');
 assert(!js.includes("localStorage.removeItem(UX63_KEY"),'guided layer must preserve UX 6.3 state');
+assert(js.includes('syncFromLegacyNavigation')&&js.includes('MutationObserver'),'legacy navigation sync missing');
+assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide'),'session stop persistence missing'); assert(js.includes('Explorar mapa')&&js.includes('Progresso')&&js.includes('Fontes'),'support access missing');
 assert(css.includes('env(safe-area-inset-bottom)'),'safe area missing'); assert(css.includes('prefers-reduced-motion'),'reduced motion missing');
 console.log(JSON.stringify({ok:true,guidedSteps:ids.length,phases:4,startStop:true,preservesUx63:true,additiveAfter65:true,version:'6.6.0'},null,2));

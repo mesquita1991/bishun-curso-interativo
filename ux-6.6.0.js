@@ -58,7 +58,9 @@
   function resume(){
     const last=ux63Last(), idx=indexFor(last);
     if(!state.active && idx>=0 && state.completed.length===0) state.current=idx;
-    state.active=true; state.paused=false; state.startedAt=Date.now(); state.opened=true; save(); render(); routeTo(state.current);
+    state.active=true;
+    if(state.paused || !state.startedAt) state.startedAt=Date.now();
+    state.paused=false; state.opened=true; save(); render(); routeTo(state.current);
   }
   function pause(){ if(!state.paused&&state.startedAt) state.elapsedMs+=Date.now()-state.startedAt; state.startedAt=null; state.paused=true; save(); render(); }
   function completeAndNext(){
@@ -86,6 +88,14 @@
       if(!action) return;
       if(action==='start') startFresh(); if(action==='resume') resume(); if(action==='pause') pause(); if(action==='next') completeAndNext(); if(action==='prev') goBack(); if(action==='toggle') toggleGuide(); if(action==='explore') document.getElementById('uxMapButton')?.click(); if(action==='search') document.getElementById('uxCommandButton')?.click();
     });
+    const syncFromLegacyNavigation=()=>{
+      if(!state.active) return;
+      const id=document.querySelector('[data-ux-jump][aria-current="location"]')?.dataset.uxJump;
+      const i=indexFor(id);
+      if(i>=0 && i!==state.current){ state.current=i; save(); render(); }
+    };
+    const legacyCurrent=document.getElementById('uxCurrentSection');
+    if(legacyCurrent && 'MutationObserver' in window) new MutationObserver(syncFromLegacyNavigation).observe(legacyCurrent,{childList:true,characterData:true,subtree:true});
     window.addEventListener('pagehide',()=>{ if(!state.paused&&state.startedAt){ state.elapsedMs+=Date.now()-state.startedAt; state.startedAt=null; state.paused=true; save(); } });
     window.addEventListener('hashchange',()=>{
       const raw=location.hash.slice(1); let id=raw; try{id=decodeURIComponent(raw)}catch{}
