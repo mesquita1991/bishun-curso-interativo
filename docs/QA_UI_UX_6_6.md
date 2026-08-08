@@ -59,3 +59,9 @@ O segundo reteste mostrou que a sincronização passiva via `MutationObserver` a
 - Durante sessão guiada, `.ux-mobile-dock` herdado fica `display:none!important`, evitando foco invisível sob o dock 6.6.
 
 - Quando `save()` retorna `false`, o roteador legado é ignorado completamente e `ensureRoute()` assume URL/scroll/foco, evitando a exceção não capturada da UX 6.3.
+
+## Última rodada Codex — conclusão, contraste e badge
+
+- Concluir 40/40 agora fecha cronômetro/estado e executa um único `render()`, permitindo que o foco do botão **Concluir trilha** seja transferido para **Recomeçar do início**.
+- Textos azuis pequenos usam `--ux66-blue-text`; no tema escuro o token é `#8eabff`, com contraste aproximado 7,8:1 contra `#121a2b`/`#101a2e`, sem clarear os fundos azuis que usam `--ux66-blue`.
+- O badge de produção herdado é promovido na inicialização para **6.6 · trilha**, eliminando o sinal visual 6.5 remanescente.

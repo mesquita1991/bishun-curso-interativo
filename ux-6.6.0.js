@@ -99,7 +99,14 @@
     const id=PATH[state.current][0];
     if(!state.completed.includes(id)) state.completed.push(id);
     if(state.current<PATH.length-1) routeTo(state.current+1);
-    else { pause(); state.active=false; save(); render(); }
+    else {
+      if(!state.paused&&state.startedAt) state.elapsedMs+=Date.now()-state.startedAt;
+      state.startedAt=null;
+      state.paused=true;
+      state.active=false;
+      save();
+      render();
+    }
   }
   function goBack(){ if(state.current>0) routeTo(state.current-1); }
   function toggleGuide(){ state.opened=!state.opened; save(); render(); }
@@ -117,6 +124,11 @@
     if($('#ux66Guide')) return;
     document.documentElement.dataset.ux66Runtime=VERSION;
     document.documentElement.classList.add('ux66-ready');
+    const productionBadge=$('.ux65-badge');
+    if(productionBadge){
+      productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>';
+      productionBadge.setAttribute('aria-label','UX 6.6 · trilha guiada');
+    }
     const shell=document.createElement('section');
     shell.id='ux66Guide'; shell.className='ux66-guide'; shell.setAttribute('aria-label','Trilha guiada de estudo');
     const hero=$('#inicio');

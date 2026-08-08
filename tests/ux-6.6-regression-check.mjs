@@ -29,6 +29,9 @@ assert(css.includes('html.ux66-guided-active body.ux-body.ux64-body.ux65-body{pa
 assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('history.pushState')&&js.includes('const persisted=save(); render();')&&js.includes('if(persisted && a)')&&js.includes('else ensureRoute(id,{focus})'),'storage-independent guided routing fallback missing');
 assert(js.includes('focusedAction=')&&js.includes("if(focusedAction==='pause') nextAction='resume'")&&js.includes('requestAnimationFrame(()=>scope.querySelector'),'guided control focus restoration missing');
 assert(css.includes('.ux66-guided-active .ux-mobile-dock{display:none!important}'),'inherited mobile dock must be hidden during guided sessions');
+assert(!js.includes('else { pause(); state.active=false; save(); render(); }')&&js.includes("else if(focusedAction==='next'&&!state.active&&finished) nextAction='start'"),'final completion must render once and transfer focus to restart');
+assert(js.includes("productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>'")&&js.includes("UX 6.6 · trilha guiada"),'visible production badge must be promoted to 6.6');
+assert(css.includes('--ux66-blue-text:#8eabff')&&css.includes('color:var(--ux66-blue-text)'),'dark-theme blue text contrast token missing');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide')&&js.includes("window.addEventListener('pageshow',()=>render())"),'bfcache session UI refresh missing');
 assert(!inherited65.includes("pkg.version === '6.5.0'"),'inherited 6.5 gate must allow later 6.x releases'); assert(js.includes('Explorar mapa')&&js.includes('Progresso')&&js.includes('Fontes'),'support access missing');
