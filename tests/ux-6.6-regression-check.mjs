@@ -30,7 +30,8 @@ assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('hi
 assert(js.includes('focusedAction=')&&js.includes("if(focusedAction==='pause') nextAction='resume'")&&js.includes('requestAnimationFrame(()=>scope.querySelector'),'guided control focus restoration missing');
 assert(css.includes('.ux66-guided-active .ux-mobile-dock{display:none!important}'),'inherited mobile dock must be hidden during guided sessions');
 assert(!js.includes('else { pause(); state.active=false; save(); render(); }')&&js.includes("else if(focusedAction==='next'&&!state.active&&finished) nextAction='start'"),'final completion must render once and transfer focus to restart');
-assert(js.includes("productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>'")&&js.includes("UX 6.6 · trilha guiada"),'visible production badge must be promoted to 6.6');
+assert(js.includes("const promoteProductionBadge=()=>")&&js.includes("productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>'")&&js.includes("UX 6.6 · trilha guiada"),'visible production badge must be promoted to 6.6');
+assert(js.includes("identityObserver.observe(identityRoot,{childList:true})")&&js.includes('requestAnimationFrame(promoteProductionBadge)'),'6.6 badge promotion must survive deferred 6.5 insertion race');
 assert(css.includes('--ux66-blue-text:#8eabff')&&css.includes('color:var(--ux66-blue-text)'),'dark-theme blue text contrast token missing');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide')&&js.includes("window.addEventListener('pageshow',()=>render())"),'bfcache session UI refresh missing');

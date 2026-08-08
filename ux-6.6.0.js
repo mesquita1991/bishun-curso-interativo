@@ -124,10 +124,23 @@
     if($('#ux66Guide')) return;
     document.documentElement.dataset.ux66Runtime=VERSION;
     document.documentElement.classList.add('ux66-ready');
-    const productionBadge=$('.ux65-badge');
-    if(productionBadge){
+    const promoteProductionBadge=()=>{
+      const productionBadge=$('.ux65-badge');
+      if(!productionBadge) return false;
       productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>';
       productionBadge.setAttribute('aria-label','UX 6.6 · trilha guiada');
+      return true;
+    };
+    if(!promoteProductionBadge()){
+      const identityRoot=$('.ux64-brand-cluster')||$('.topbar');
+      if(identityRoot && 'MutationObserver' in window){
+        const identityObserver=new MutationObserver(()=>{
+          if(promoteProductionBadge()) identityObserver.disconnect();
+        });
+        identityObserver.observe(identityRoot,{childList:true});
+        window.setTimeout(()=>identityObserver.disconnect(),2000);
+      }
+      window.requestAnimationFrame(promoteProductionBadge);
     }
     const shell=document.createElement('section');
     shell.id='ux66Guide'; shell.className='ux66-guide'; shell.setAttribute('aria-label','Trilha guiada de estudo');

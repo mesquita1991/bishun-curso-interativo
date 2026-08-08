@@ -65,3 +65,7 @@ O segundo reteste mostrou que a sincronização passiva via `MutationObserver` a
 - Concluir 40/40 agora fecha cronômetro/estado e executa um único `render()`, permitindo que o foco do botão **Concluir trilha** seja transferido para **Recomeçar do início**.
 - Textos azuis pequenos usam `--ux66-blue-text`; no tema escuro o token é `#8eabff`, com contraste aproximado 7,8:1 contra `#121a2b`/`#101a2e`, sem clarear os fundos azuis que usam `--ux66-blue`.
 - O badge de produção herdado é promovido na inicialização para **6.6 · trilha**, eliminando o sinal visual 6.5 remanescente.
+
+## Badge 6.6 — corrida de inicialização
+
+Em scripts `defer`, a 6.5 pode agendar sua inicialização em `requestAnimationFrame` enquanto a 6.6 já executa. A promoção do badge agora é idempotente: tenta imediatamente, agenda um `requestAnimationFrame` e, se o badge ainda não existir, observa por no máximo 2 s somente o cluster de identidade. Assim que `.ux65-badge` aparece, ele é convertido para **6.6 · trilha** e o observer é desconectado. Esse observer não participa de navegação, scroll ou progresso.
