@@ -26,7 +26,7 @@ assert(js.includes('CHECKPOINT_MS = 15000')&&js.includes('function checkpoint()'
 assert(js.includes("finished=state.completed.length===PATH.length")&&js.includes('Recomeçar do início'),'completed trail restart action missing');
 assert(css.includes('body.ux-drawer-open .ux66-dock{visibility:hidden;pointer-events:none}'),'guided dock must be hidden under modal drawer');
 assert(css.includes('html.ux66-guided-active body.ux-body.ux64-body.ux65-body{padding-bottom:calc(152px + env(safe-area-inset-bottom))}'),'mobile dock clearance override missing');
-assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('history.pushState')&&js.includes('queueMicrotask(()=>ensureRoute(id,{focus}))'),'storage-independent guided routing fallback missing');
+assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('history.pushState')&&js.includes('const persisted=save(); render();')&&js.includes('if(persisted && a)')&&js.includes('else ensureRoute(id,{focus})'),'storage-independent guided routing fallback missing');
 assert(js.includes('focusedAction=')&&js.includes("if(focusedAction==='pause') nextAction='resume'")&&js.includes('requestAnimationFrame(()=>scope.querySelector'),'guided control focus restoration missing');
 assert(css.includes('.ux66-guided-active .ux-mobile-dock{display:none!important}'),'inherited mobile dock must be hidden during guided sessions');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');

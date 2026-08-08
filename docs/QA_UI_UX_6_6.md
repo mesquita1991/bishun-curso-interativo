@@ -57,3 +57,5 @@ O segundo reteste mostrou que a sincronização passiva via `MutationObserver` a
 - A navegação guiada mantém o roteamento 6.3 quando disponível, mas executa `ensureRoute()` em microtask: se um `saveState()` legado falhar por armazenamento bloqueado, `history.pushState` + scroll/foco ainda levam ao passo correto sem depender de persistência.
 - `render()` captura a ação guiada focada e restaura foco ao controle semântico equivalente após substituir o DOM (Pause ↔ Continue; Previous/Next permanecem; conclusão final transfere foco para Restart).
 - Durante sessão guiada, `.ux-mobile-dock` herdado fica `display:none!important`, evitando foco invisível sob o dock 6.6.
+
+- Quando `save()` retorna `false`, o roteador legado é ignorado completamente e `ensureRoute()` assume URL/scroll/foco, evitando a exceção não capturada da UX 6.3.

@@ -78,11 +78,13 @@
     i=Math.max(0,Math.min(PATH.length-1,i));
     state.current=i; state.active=true;
     if(state.paused){ state.paused=false; state.startedAt=Date.now(); }
-    save(); render();
+    const persisted=save(); render();
     const id=PATH[i][0];
     const a=$(`#ux66Guide a[data-guide-index="${i}"]`);
-    if(a) a.click();
-    queueMicrotask(()=>ensureRoute(id,{focus}));
+    if(persisted && a){
+      a.click();
+      queueMicrotask(()=>ensureRoute(id,{focus}));
+    } else ensureRoute(id,{focus});
   }
   function startFresh(){ state.completed=[]; state.current=0; state.elapsedMs=0; state.startedAt=Date.now(); state.active=true; state.paused=false; state.opened=true; save(); render(); routeTo(0); }
   function resume(){
