@@ -25,3 +25,8 @@ A trilha observa o estado ativo produzido pela UX 6.3; navegação via mapa, bus
 - P1: clique direto em passo `data-guide-index` sincroniza `state.current` explicitamente.
 - P2: `resume()` não reinicia `startedAt` quando a sessão já está em andamento.
 - P2: `release-manifest.json` regenerado para 6.6, com rollback 6.6 e inventário/hash exatos dos novos artefatos.
+
+## Segunda rodada Codex
+
+- P1: o gate herdado 6.5 passou a aceitar releases 6.x posteriores, sem deixar a versão regredir abaixo de 6.5.
+- P2: `pageshow` rerenderiza a trilha após restauração por bfcache, mantendo controles coerentes com o estado pausado salvo no `pagehide`.

@@ -103,6 +103,7 @@
     const legacyCurrent=document.getElementById('uxCurrentSection');
     if(legacyCurrent && 'MutationObserver' in window) new MutationObserver(syncFromLegacyNavigation).observe(legacyCurrent,{childList:true,characterData:true,subtree:true});
     window.addEventListener('pagehide',()=>{ if(!state.paused&&state.startedAt){ state.elapsedMs+=Date.now()-state.startedAt; state.startedAt=null; state.paused=true; save(); } });
+    window.addEventListener('pageshow',()=>render());
     window.addEventListener('hashchange',()=>{
       const raw=location.hash.slice(1); let id=raw; try{id=decodeURIComponent(raw)}catch{}
       const i=indexFor(id); if(i>=0 && state.active){ state.current=i; save(); render(); }

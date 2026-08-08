@@ -1,6 +1,6 @@
 {
   "version": "6.6.0",
-  "generatedAt": "2026-08-08T18:02:00Z",
+  "generatedAt": "2026-08-08T18:06:00Z",
   "baseCommit": "1e5c0f5edafeb2410168c1f9328a544c0067a0fe",
   "rollbackLayer": [
     "ux-6.6.0.css?v=6.6.0",
@@ -108,8 +108,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6049,
-      "sha256": "c6ac3026aef57fe1efefde9fc0057fc6dad2b70af53f171d4f4a8c53026b807d"
+      "bytes": 6082,
+      "sha256": "2bd8f4ef7b87b9f532bf7a83fef9f58abd01ff9522511483b0d2f44e02f73a22"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -123,8 +123,8 @@
     },
     {
       "path": "ux-6.6.0.js",
-      "bytes": 12828,
-      "sha256": "f708faefe578fcb01e5a5ff6aa1c86c6eb3f03ad93139e58148e6d93c87c8459"
+      "bytes": 12882,
+      "sha256": "fa8fae01edb01cdaa8c39acb9ce73072a8e1a80a86ebdf6662b08730aafcb7c8"
     },
     {
       "path": "ux-6.6.0.css",
@@ -133,13 +133,13 @@
     },
     {
       "path": "tests/ux-6.6-regression-check.mjs",
-      "bytes": 3139,
-      "sha256": "a8a2d106e5f09b986bcb85a22f5ba4bc9fb0b758efbcd619e2ec3035015872f1"
+      "bytes": 3406,
+      "sha256": "f4216b1a8ae1b2a21eac0c4d2876527653f73b76806cf2fc8e25abf0d3cadf8c"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
-      "bytes": 1462,
-      "sha256": "7b2b794c0c268dbea0447bb11398b9dacf12579400326cbbbbbec7e1aa3ef479"
+      "bytes": 1743,
+      "sha256": "b2ab61a91d5e43d9cabbd48fbf6d106988ebba07c342af69ab77eef6fc95cf45"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_6.md",

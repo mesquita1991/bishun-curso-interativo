@@ -54,7 +54,7 @@ assert(css.includes('.version-badge,') && css.includes('.ux64-preview-badge'), '
 assert(manifest.theme_color === '#071126', 'Manifest não acompanha a identidade 6.5.');
 assert(manifest.background_color === '#f4f7fc', 'Background do manifest não acompanha a 6.5.');
 assert(manifest.id === './', 'Manifest sem ID estável.');
-assert(pkg.version === '6.5.0', 'package.json não foi promovido para 6.5.0.');
+assert(/^6\.(?:[5-9]|[1-9]\d+)\./.test(pkg.version), 'package.json não pode regredir abaixo da linha UX 6.5.');
 assert(pkg.scripts.check.includes('core-integrity-check.mjs') && pkg.scripts.check.includes('ux-6.5-regression-check.mjs'), 'npm check não cobre integridade + UX 6.5.');
 
 console.log(JSON.stringify({
