@@ -26,10 +26,16 @@ assert(js.includes('CHECKPOINT_MS = 15000')&&js.includes('function checkpoint()'
 assert(js.includes("finished=state.completed.length===PATH.length")&&js.includes('Recomeçar do início'),'completed trail restart action missing');
 assert(css.includes('body.ux-drawer-open .ux66-dock{visibility:hidden;pointer-events:none}'),'guided dock must be hidden under modal drawer');
 assert(css.includes('html.ux66-guided-active body.ux-body.ux64-body.ux65-body{padding-bottom:calc(152px + env(safe-area-inset-bottom))}'),'mobile dock clearance override missing');
-assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('history.pushState')&&js.includes('const persisted=save(); render();')&&js.includes('if(persisted && a)')&&js.includes('else ensureRoute(id,{focus})'),'storage-independent guided routing fallback missing');
+assert(js.includes('function ensureRoute(id, {focus=true}={})')&&js.includes('history.pushState')&&js.includes('save(); render();')&&js.includes('syncUx63Resume(id);')&&js.includes('ensureRoute(id,{focus});'),'storage-independent direct guided routing missing');
 assert(js.includes('focusedAction=')&&js.includes("if(focusedAction==='pause') nextAction='resume'")&&js.includes('requestAnimationFrame(()=>scope.querySelector'),'guided control focus restoration missing');
 assert(css.includes('.ux66-guided-active .ux-mobile-dock{display:none!important}'),'inherited mobile dock must be hidden during guided sessions');
 assert(!js.includes('else { pause(); state.active=false; save(); render(); }')&&js.includes("else if(focusedAction==='next'&&!state.active&&finished) nextAction='start'"),'final completion must render once and transfer focus to restart');
+
+assert(js.includes('function syncUx63Resume(id)')&&js.includes('legacy.lastSection=id')&&js.includes('syncUx63Resume(id);'),'guided routing must safely synchronize UX 6.3 resume state');
+assert(!js.includes('a.click();'),'guided routed actions must not synthesize legacy anchor focus');
+assert(js.includes('const firstMissing=PATH.findIndex')&&js.includes('if(firstMissing>=0){ routeTo(firstMissing,{focus:false}); return; }'),'final step with earlier gaps must route to first pending lesson');
+assert(js.includes("routeTo(state.current+1,{focus:false})")&&js.includes("routeTo(state.current-1,{focus:false})"),'dock Previous/Next must route without delayed section focus');
+assert(js.includes("hasOtherPending?'Concluir e ir à pendência →':'Concluir trilha'"),'final-step action must disclose outstanding lessons');
 assert(js.includes("const promoteProductionBadge=()=>")&&js.includes("productionBadge.innerHTML='<strong>6.6</strong><small>trilha</small>'")&&js.includes("UX 6.6 · trilha guiada"),'visible production badge must be promoted to 6.6');
 assert(js.includes("identityObserver.observe(identityRoot,{childList:true})")&&js.includes('requestAnimationFrame(promoteProductionBadge)'),'6.6 badge promotion must survive deferred 6.5 insertion race');
 assert(css.includes('--ux66-blue-text:#8eabff')&&css.includes('color:var(--ux66-blue-text)'),'dark-theme blue text contrast token missing');

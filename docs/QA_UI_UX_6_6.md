@@ -69,3 +69,12 @@ O segundo reteste mostrou que a sincronização passiva via `MutationObserver` a
 ## Badge 6.6 — corrida de inicialização
 
 Em scripts `defer`, a 6.5 pode agendar sua inicialização em `requestAnimationFrame` enquanto a 6.6 já executa. A promoção do badge agora é idempotente: tenta imediatamente, agenda um `requestAnimationFrame` e, se o badge ainda não existir, observa por no máximo 2 s somente o cluster de identidade. Assim que `.ux65-badge` aparece, ele é convertido para **6.6 · trilha** e o observer é desconectado. Esse observer não participa de navegação, scroll ou progresso.
+
+
+## Gate final antes da publicação — pendências e foco de rota
+
+- passo 40 não encerra a trilha enquanto existir qualquer um dos 39 passos anteriores pendente; após concluir o passo atual, a navegação segue para a primeira pendência;
+- o CTA final informa `Concluir e ir à pendência →` quando ainda há lacunas;
+- Anterior e Concluir/continuar roteiam com `focus:false`, mantendo o foco de teclado no dock após o rerender;
+- o clique sintético em âncora 6.3 foi removido; a 6.6 sincroniza `bishunUxV63.lastSection` de modo protegido e executa rota/history/scroll diretamente;
+- falha de `localStorage` continua não bloqueando a navegação em memória.

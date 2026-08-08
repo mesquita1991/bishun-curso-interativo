@@ -74,17 +74,23 @@
     if(focus) window.setTimeout(()=>target.focus({preventScroll:true}),smooth?500:0);
   }
 
+  function syncUx63Resume(id){
+    try {
+      const legacy=JSON.parse(localStorage.getItem(UX63_KEY)||'{}');
+      legacy.lastSection=id;
+      if(Array.isArray(legacy.visited) && !legacy.visited.includes(id)) legacy.visited.push(id);
+      localStorage.setItem(UX63_KEY,JSON.stringify(legacy));
+    } catch { /* guided routing remains functional without storage */ }
+  }
+
   function routeTo(i, {focus=true}={}){
     i=Math.max(0,Math.min(PATH.length-1,i));
     state.current=i; state.active=true;
     if(state.paused){ state.paused=false; state.startedAt=Date.now(); }
-    const persisted=save(); render();
+    save(); render();
     const id=PATH[i][0];
-    const a=$(`#ux66Guide a[data-guide-index="${i}"]`);
-    if(persisted && a){
-      a.click();
-      queueMicrotask(()=>ensureRoute(id,{focus}));
-    } else ensureRoute(id,{focus});
+    syncUx63Resume(id);
+    ensureRoute(id,{focus});
   }
   function startFresh(){ state.completed=[]; state.current=0; state.elapsedMs=0; state.startedAt=Date.now(); state.active=true; state.paused=false; state.opened=true; save(); render(); routeTo(0); }
   function resume(){
@@ -98,17 +104,17 @@
   function completeAndNext(){
     const id=PATH[state.current][0];
     if(!state.completed.includes(id)) state.completed.push(id);
-    if(state.current<PATH.length-1) routeTo(state.current+1);
-    else {
-      if(!state.paused&&state.startedAt) state.elapsedMs+=Date.now()-state.startedAt;
-      state.startedAt=null;
-      state.paused=true;
-      state.active=false;
-      save();
-      render();
-    }
+    if(state.current<PATH.length-1){ routeTo(state.current+1,{focus:false}); return; }
+    const firstMissing=PATH.findIndex(([candidate])=>!state.completed.includes(candidate));
+    if(firstMissing>=0){ routeTo(firstMissing,{focus:false}); return; }
+    if(!state.paused&&state.startedAt) state.elapsedMs+=Date.now()-state.startedAt;
+    state.startedAt=null;
+    state.paused=true;
+    state.active=false;
+    save();
+    render();
   }
-  function goBack(){ if(state.current>0) routeTo(state.current-1); }
+  function goBack(){ if(state.current>0) routeTo(state.current-1,{focus:false}); }
   function toggleGuide(){ state.opened=!state.opened; save(); render(); }
 
   function syncInitialLocation(){
@@ -207,7 +213,7 @@
     const activeElement=document.activeElement;
     const focusedAction=(shell.contains(activeElement)||dock.contains(activeElement))?activeElement?.closest?.('[data-guide-action]')?.dataset.guideAction:null;
     const legacyIndex=indexFor(ux63Last());
-    const phase=phaseAt(state.current),pct=progressPct(),hasProgress=state.completed.length>0||state.current>0||legacyIndex>=0,finished=state.completed.length===PATH.length;
+    const phase=phaseAt(state.current),pct=progressPct(),hasProgress=state.completed.length>0||state.current>0||legacyIndex>=0,finished=state.completed.length===PATH.length,hasOtherPending=state.current===PATH.length-1&&PATH.some(([id],i)=>i!==state.current&&!state.completed.includes(id));
     shell.classList.toggle('is-open',state.opened);
     shell.innerHTML=`
       <div class="ux66-home">
@@ -224,7 +230,7 @@
       <div class="ux66-details" ${state.opened?'':'hidden'}><div class="ux66-details-head"><div><span>Rota completa</span><h3>Do início ao fim, sem saltos</h3></div><p>Os painéis, fontes, histórico e busca continuam disponíveis como apoio, mas não interrompem esta sequência.</p></div>${stepsMarkup()}</div>`;
     dock.hidden=!state.active;
     if(state.active){
-      dock.innerHTML=`<div class="ux66-dock-inner"><button type="button" data-guide-action="prev" ${state.current===0?'disabled':''} aria-label="Passo anterior">←</button><div class="ux66-dock-current"><small>${escapeHtml(phase.label)} · ${state.current+1}/${PATH.length}</small><strong>${escapeHtml(titleAt(state.current))}</strong></div><button type="button" class="ux66-pause" data-guide-action="${state.paused?'resume':'pause'}">${state.paused?'▶ Continuar':'■ Parar e salvar'}</button><button type="button" class="ux66-next" data-guide-action="next">${state.current===PATH.length-1?'Concluir trilha':'Concluir e continuar →'}</button></div>`;
+      dock.innerHTML=`<div class="ux66-dock-inner"><button type="button" data-guide-action="prev" ${state.current===0?'disabled':''} aria-label="Passo anterior">←</button><div class="ux66-dock-current"><small>${escapeHtml(phase.label)} · ${state.current+1}/${PATH.length}</small><strong>${escapeHtml(titleAt(state.current))}</strong></div><button type="button" class="ux66-pause" data-guide-action="${state.paused?'resume':'pause'}">${state.paused?'▶ Continuar':'■ Parar e salvar'}</button><button type="button" class="ux66-next" data-guide-action="next">${state.current===PATH.length-1?(hasOtherPending?'Concluir e ir à pendência →':'Concluir trilha'):'Concluir e continuar →'}</button></div>`;
     }
     document.documentElement.classList.toggle('ux66-guided-active',state.active);
     document.documentElement.classList.toggle('ux66-guided-paused',state.paused);
