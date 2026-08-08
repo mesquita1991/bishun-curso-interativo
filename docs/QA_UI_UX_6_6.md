@@ -51,3 +51,9 @@ O segundo reteste mostrou que a sincronização passiva via `MutationObserver` a
 - Após 40/40, a ação primária vira **Recomeçar do início**.
 - Em mobile, um seletor de maior especificidade reserva 152 px + safe-area para o dock de duas linhas.
 - Durante o drawer modal do mapa, o dock guiado fica invisível e sem pointer events, mantendo o foco/modalidade coerentes.
+
+## Revisão final Codex — fallback, foco e dock legado
+
+- A navegação guiada mantém o roteamento 6.3 quando disponível, mas executa `ensureRoute()` em microtask: se um `saveState()` legado falhar por armazenamento bloqueado, `history.pushState` + scroll/foco ainda levam ao passo correto sem depender de persistência.
+- `render()` captura a ação guiada focada e restaura foco ao controle semântico equivalente após substituir o DOM (Pause ↔ Continue; Previous/Next permanecem; conclusão final transfere foco para Restart).
+- Durante sessão guiada, `.ux-mobile-dock` herdado fica `display:none!important`, evitando foco invisível sob o dock 6.6.

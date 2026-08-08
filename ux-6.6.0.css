@@ -22,3 +22,5 @@ html[data-theme="dark"] .ux66-support{background:#101a2e}
 /* Guided dock must never escape modal focus or cover the last mobile content. */
 body.ux-drawer-open .ux66-dock{visibility:hidden;pointer-events:none}
 @media(max-width:820px){html.ux66-guided-active body.ux-body.ux64-body.ux65-body{padding-bottom:calc(152px + env(safe-area-inset-bottom))}}
+
+.ux66-guided-active .ux-mobile-dock{display:none!important}

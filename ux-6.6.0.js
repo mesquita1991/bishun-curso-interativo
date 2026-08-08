@@ -56,18 +56,33 @@
   function clock(ms){ const total=Math.floor(ms/1000),m=Math.floor(total/60),s=total%60; return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; }
   function escapeHtml(v){ return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
+  function ensureRoute(id, {focus=true}={}){
+    const target=document.getElementById(id);
+    if(!target) return;
+    let hash='';
+    try { hash=decodeURIComponent(location.hash.slice(1)); } catch { hash=location.hash.slice(1); }
+    if(hash!==id){
+      try {
+        const url=new URL(location.href);
+        url.hash=id;
+        const currentState=history.state&&typeof history.state==='object'?history.state:{};
+        history.pushState({...currentState,uxSection:id},'',`${url.pathname}${url.search}${url.hash}`);
+      } catch { /* scrolling still works if history is unavailable */ }
+    }
+    const smooth=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});
+    if(focus) window.setTimeout(()=>target.focus({preventScroll:true}),smooth?500:0);
+  }
+
   function routeTo(i, {focus=true}={}){
     i=Math.max(0,Math.min(PATH.length-1,i));
     state.current=i; state.active=true;
     if(state.paused){ state.paused=false; state.startedAt=Date.now(); }
     save(); render();
+    const id=PATH[i][0];
     const a=$(`#ux66Guide a[data-guide-index="${i}"]`);
-    if(a){ a.click(); }
-    else {
-      const target=document.getElementById(PATH[i][0]);
-      target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-      if(focus) setTimeout(()=>target?.focus({preventScroll:true}),400);
-    }
+    if(a) a.click();
+    queueMicrotask(()=>ensureRoute(id,{focus}));
   }
   function startFresh(){ state.completed=[]; state.current=0; state.elapsedMs=0; state.startedAt=Date.now(); state.active=true; state.paused=false; state.opened=true; save(); render(); routeTo(0); }
   function resume(){
@@ -162,6 +177,8 @@
   }
   function render(){
     const shell=$('#ux66Guide'), dock=$('#ux66Dock'); if(!shell||!dock) return;
+    const activeElement=document.activeElement;
+    const focusedAction=(shell.contains(activeElement)||dock.contains(activeElement))?activeElement?.closest?.('[data-guide-action]')?.dataset.guideAction:null;
     const legacyIndex=indexFor(ux63Last());
     const phase=phaseAt(state.current),pct=progressPct(),hasProgress=state.completed.length>0||state.current>0||legacyIndex>=0,finished=state.completed.length===PATH.length;
     shell.classList.toggle('is-open',state.opened);
@@ -184,6 +201,14 @@
     }
     document.documentElement.classList.toggle('ux66-guided-active',state.active);
     document.documentElement.classList.toggle('ux66-guided-paused',state.paused);
+    if(focusedAction){
+      let nextAction=focusedAction;
+      if(focusedAction==='pause') nextAction='resume';
+      else if(focusedAction==='resume') nextAction='pause';
+      else if(focusedAction==='next'&&!state.active&&finished) nextAction='start';
+      const scope=nextAction==='start'?shell:dock;
+      window.requestAnimationFrame(()=>scope.querySelector(`[data-guide-action="${nextAction}"]`)?.focus({preventScroll:true}));
+    }
   }
 
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',build,{once:true}); else build();
