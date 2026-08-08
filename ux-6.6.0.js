@@ -4,6 +4,8 @@
   const VERSION = '6.6.0';
   const STORAGE_KEY = 'bishunGuidedV66';
   const UX63_KEY = 'bishunUxV63';
+  const CHECKPOINT_MS = 15000;
+  const RECOVERY_CAP_MS = 30000;
   const PATH = [
     ['fundamentos','Fundamentos'],['tracos-fundamentais','Traços fundamentais'],['regras','Ordem dos traços'],['estruturas','Estruturas'],['pronuncia','Pronúncia'],['treinador','Treinador'],['jornada','Jornada Base 300'],['vocabulario','Vocabulário Base 300'],['gramatica-300','Gramática Base 300'],['escuta','Escuta Base 300'],['revisao','Revisão Base 300'],['prova-300','Prova Base 300'],['proporcao','Proporção'],['variantes','Variantes'],['erros-comuns','Erros comuns'],['metodo-estudo','Método de estudo'],['pratica','Prática'],
     ['programa-integral','Programa integral'],['mapa-etapas','Mapa das etapas'],['unidades-integrais','Unidades integrais'],['atlas-integral','Atlas integral'],['laboratorio-integral','Laboratório integral'],['vocabulario-integral','Vocabulário integral'],['silabas-integral','Sílabas integrais'],['gramatica-integral','Gramática integral'],['competencias-integral','Competências integrais'],['revisao-integral','Revisão integral'],['prova-integral','Prova integral'],
@@ -27,12 +29,25 @@
       const state={...defaults(),...raw};
       state.completed=Array.isArray(raw.completed)?raw.completed.filter(id=>PATH.some(([x])=>x===id)):[];
       state.current=Math.max(0,Math.min(PATH.length-1,Number(raw.current)||0));
-      if(state.active && !state.paused && !state.startedAt) state.startedAt=Date.now();
+      if(state.active && !state.paused){
+        const gap=state.startedAt ? Math.max(0,Date.now()-state.startedAt) : 0;
+        state.elapsedMs+=Math.min(gap,RECOVERY_CAP_MS);
+        state.paused=true;
+        state.startedAt=null;
+      }
       return state;
     } catch { return defaults(); }
   }
   const state=load();
-  function save(){ localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); }
+  function save(){ try { localStorage.setItem(STORAGE_KEY,JSON.stringify(state)); return true; } catch { return false; } }
+  function checkpoint(){
+    if(state.paused || !state.startedAt) return;
+    const now=Date.now();
+    if(now-state.startedAt<CHECKPOINT_MS) return;
+    state.elapsedMs+=now-state.startedAt;
+    state.startedAt=now;
+    save();
+  }
   function ux63Last(){ try { return JSON.parse(localStorage.getItem(UX63_KEY)||'{}').lastSection||null; } catch { return null; } }
   function indexFor(id){ return PATH.findIndex(([x])=>x===id); }
   function titleAt(i){ return PATH[i]?.[1]||''; }
@@ -118,13 +133,16 @@
       if(route || jump || hashTarget){ syncExplicitTarget(route || jump || hashTarget); return; }
       if(e.target.closest('[data-ux-command-index]')) queueMicrotask(()=>syncExplicitTarget(ux63Last()));
     });
+    document.getElementById('uxCommandInput')?.addEventListener('keydown',e=>{
+      if(e.key==='Enter') queueMicrotask(()=>syncExplicitTarget(ux63Last()));
+    });
     window.addEventListener('pagehide',()=>{ if(!state.paused&&state.startedAt){ state.elapsedMs+=Date.now()-state.startedAt; state.startedAt=null; state.paused=true; save(); } });
     window.addEventListener('pageshow',()=>render());
     window.addEventListener('hashchange',()=>{
       const raw=location.hash.slice(1); let id=raw; try{id=decodeURIComponent(raw)}catch{}
       const i=indexFor(id); if(i>=0 && state.active){ state.current=i; save(); render(); }
     });
-    tick=window.setInterval(()=>{ const el=$('[data-guide-clock]'); if(el) el.textContent=clock(elapsed()); },1000);
+    tick=window.setInterval(()=>{ checkpoint(); const el=$('[data-guide-clock]'); if(el) el.textContent=clock(elapsed()); },1000);
     syncInitialLocation();
     save();
     render();
@@ -145,15 +163,15 @@
   function render(){
     const shell=$('#ux66Guide'), dock=$('#ux66Dock'); if(!shell||!dock) return;
     const legacyIndex=indexFor(ux63Last());
-    const phase=phaseAt(state.current),pct=progressPct(),hasProgress=state.completed.length>0||state.current>0||legacyIndex>=0;
+    const phase=phaseAt(state.current),pct=progressPct(),hasProgress=state.completed.length>0||state.current>0||legacyIndex>=0,finished=state.completed.length===PATH.length;
     shell.classList.toggle('is-open',state.opened);
     shell.innerHTML=`
       <div class="ux66-home">
         <div class="ux66-home-copy"><span class="ux66-kicker">TRILHA GUIADA · 40 PASSOS</span><h2>Não escolha para onde ir. Siga o próximo passo.</h2><p>Uma sequência única organiza o curso do fundamento ao domínio. Você pode pausar a qualquer momento e continuar exatamente de onde parou.</p></div>
         <div class="ux66-start-card">
-          <div class="ux66-status-line"><span>${state.active&&!state.paused?'Sessão em andamento':hasProgress?'Sua trilha está salva':'Primeiro acesso'}</span><strong data-guide-clock>${clock(elapsed())}</strong></div>
+          <div class="ux66-status-line"><span>${finished?'Trilha concluída':state.active&&!state.paused?'Sessão em andamento':hasProgress?'Sua trilha está salva':'Primeiro acesso'}</span><strong data-guide-clock>${clock(elapsed())}</strong></div>
           <div class="ux66-current"><small>${escapeHtml(phase.label)} · passo ${state.current+1} de ${PATH.length}</small><strong>${escapeHtml(titleAt(state.current))}</strong><span>${pct}% concluído</span></div>
-          <div class="ux66-start-actions">${!hasProgress?'<button class="ux66-primary" data-guide-action="start">Começar do início</button>':`<button class="ux66-primary" data-guide-action="resume">${state.paused?'Continuar daqui':'Ir para o passo atual'}</button>`}<button class="ux66-secondary" data-guide-action="toggle">${state.opened?'Fechar trilha':'Ver trilha completa'}</button></div>
+          <div class="ux66-start-actions">${finished?'<button class="ux66-primary" data-guide-action="start">Recomeçar do início</button>':!hasProgress?'<button class="ux66-primary" data-guide-action="start">Começar do início</button>':`<button class="ux66-primary" data-guide-action="resume">${state.paused?'Continuar daqui':'Ir para o passo atual'}</button>`}<button class="ux66-secondary" data-guide-action="toggle">${state.opened?'Fechar trilha':'Ver trilha completa'}</button></div>
         </div>
       </div>
       <div class="ux66-progress" role="progressbar" aria-label="Progresso da trilha principal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><span style="width:${pct}%"></span></div>

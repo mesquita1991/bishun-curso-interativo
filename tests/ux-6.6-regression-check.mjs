@@ -19,6 +19,13 @@ assert(js.indexOf('syncInitialLocation();')<js.lastIndexOf('render();'),'initial
 assert(js.includes('syncExplicitTarget')&&js.includes('[data-ux-route]')&&js.includes('[data-ux-jump]')&&js.includes('[data-ux-command-index]'),'explicit legacy navigation sync missing');
 assert(!js.includes('MutationObserver(syncFromLegacyNavigation)')&&!js.includes('syncFromLegacyNavigation'),'passive scroll/observer must never move guided state');
 assert(js.includes('const plainPrimary=e.button===0')&&js.includes('!e.metaKey')&&js.includes('!e.ctrlKey'),'guided link sync must preserve modified-click semantics');
+assert(js.includes("document.getElementById('uxCommandInput')?.addEventListener('keydown'")&&js.includes("if(e.key==='Enter') queueMicrotask(()=>syncExplicitTarget(ux63Last()))"),'keyboard command selection sync missing');
+assert(js.includes('function save(){ try { localStorage.setItem')&&js.includes('catch { return false; }'),'storage-write failure must not abort guide rendering');
+assert(js.includes('RECOVERY_CAP_MS = 30000')&&js.includes('state.elapsedMs+=Math.min(gap,RECOVERY_CAP_MS)')&&js.includes('state.paused=true')&&js.includes('state.startedAt=null'),'interrupted running session recovery missing');
+assert(js.includes('CHECKPOINT_MS = 15000')&&js.includes('function checkpoint()')&&js.includes('checkpoint(); const el='),'bounded session checkpointing missing');
+assert(js.includes("finished=state.completed.length===PATH.length")&&js.includes('Recomeçar do início'),'completed trail restart action missing');
+assert(css.includes('body.ux-drawer-open .ux66-dock{visibility:hidden;pointer-events:none}'),'guided dock must be hidden under modal drawer');
+assert(css.includes('html.ux66-guided-active body.ux-body.ux64-body.ux65-body{padding-bottom:calc(152px + env(safe-area-inset-bottom))}'),'mobile dock clearance override missing');
 assert(js.includes('if(state.paused || !state.startedAt) state.startedAt=Date.now()'),'running clock preservation missing');
 assert(css.includes('#uxLaunchpad')&&css.includes('#ux65StageRail'),'competing legacy navigation must be visually retired'); assert(js.includes('pagehide')&&js.includes("window.addEventListener('pageshow',()=>render())"),'bfcache session UI refresh missing');
 assert(!inherited65.includes("pkg.version === '6.5.0'"),'inherited 6.5 gate must allow later 6.x releases'); assert(js.includes('Explorar mapa')&&js.includes('Progresso')&&js.includes('Fontes'),'support access missing');

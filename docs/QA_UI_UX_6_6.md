@@ -42,3 +42,12 @@ O navegador real reproduziu um caso em que um reload sem fragmento restaurava o 
 ## Browser QA — somente intenção explícita
 
 O segundo reteste mostrou que a sincronização passiva via `MutationObserver` ainda confundia scroll restaurado com intenção de navegação. O observer foi removido. A trilha agora sincroniza apenas cliques explícitos já reconhecidos pela UX 6.3 (`data-ux-route`, `data-ux-jump`, hash primário e item de busca), preservando cliques modificados e impedindo que scroll/layout alterem `current`.
+
+## Rodada tardia Codex — robustez de sessão e mobile
+
+- Enter na command palette sincroniza a trilha após o `navigateTo()` da UX 6.3.
+- Sessões persistidas como “rodando” são tratadas como interrompidas no próximo carregamento; apenas uma janela limitada é recuperada, e checkpoints de 15 s reduzem perda sem contabilizar horas offline.
+- `save()` tolera indisponibilidade/quota de `localStorage`, preservando a experiência em memória.
+- Após 40/40, a ação primária vira **Recomeçar do início**.
+- Em mobile, um seletor de maior especificidade reserva 152 px + safe-area para o dock de duas linhas.
+- Durante o drawer modal do mapa, o dock guiado fica invisível e sem pointer events, mantendo o foco/modalidade coerentes.
