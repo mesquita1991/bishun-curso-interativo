@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="ux-6.5.0.css?v=6.5.0">
   <link rel="stylesheet" href="ux-6.6.0.css?v=6.6.0">
   <link rel="stylesheet" href="ux-6.7.0.css?v=6.7.0">
+  <link rel="stylesheet" href="ux-6.8.0.css?v=6.8.0">
   <script defer src="curriculum-data.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script defer src="app.js?v=6.3.0"></script>
@@ -42,6 +43,8 @@
   <script defer src="ux-6.5.0.js?v=6.5.0"></script>
   <script defer src="ux-6.6.0.js?v=6.6.0"></script>
   <script defer src="ux-6.7.0.js?v=6.7.0"></script>
+  <script defer src="visual-mnemonics.js?v=6.8.0"></script>
+  <script defer src="ux-6.8.0.js?v=6.8.0"></script>
   <script>
   (() => {
     try {
@@ -63,7 +66,7 @@
       </span>
     </a>
 
-    <span class="version-badge" title="Versão atual do curso">v<span data-version>6.3.0</span></span>
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>6.8.0</span></span>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#programa-integral">Programa integral</a>
@@ -106,7 +109,7 @@
       <div class="hero-copy">
         <div class="hero-kicker">
           <p class="eyebrow">Programa integral + imersão aberta</p>
-          <span class="release-pill">Atualizado · v<span data-version>6.3.0</span></span>
+          <span class="release-pill">Atualizado · v<span data-version>6.8.0</span></span>
         </div>
         <h1>Do primeiro traço à <span>imersão em conteúdo real</span>.</h1>
         <p class="hero-lead">Domine o padrão formal e continue por <strong>léxico aberto, pragmática, leitura, produção e análise de qualquer texto chinês</strong>, com dados sob demanda e progresso local.</p>
@@ -388,6 +391,30 @@
         <button class="complete-button" type="button">Marcar módulo como concluído</button>
       </div>
     </section>
+
+    <div id="mnemonicos-visuais" class="band visual-mnemonic-section" role="region" aria-labelledby="visualMnemonicTitle">
+      <div class="section-shell">
+        <div class="section-heading">
+          <span class="section-number">图</span>
+          <div>
+            <p class="eyebrow">Ponte visual para a escrita</p>
+            <h2 id="visualMnemonicTitle">Compare o caractere com uma imagem simples.</h2>
+            <p>Comece pelos 12 exemplos mais transparentes. A comparação mostra o caractere ao lado da ilustração; os demais ficam disponíveis sem alongar a página inteira.</p>
+          </div>
+        </div>
+        <div class="visual-mnemonic-toolbar">
+          <label>Buscar<input id="visualMnemonicSearch" type="search" placeholder="山, árvore, chuva..." autocomplete="off"></label>
+          <label>Relação<select id="visualMnemonicType"><option value="all">Todas</option><option value="pictograma">Pictogramas</option><option value="mnemônico">Associações mnemônicas</option></select></label>
+          <button id="visualMnemonicReset" type="button" class="button ghost">Limpar</button>
+          <strong id="visualMnemonicCount" aria-live="polite">0 de 48</strong>
+        </div>
+        <div id="visualMnemonicGrid" class="visual-mnemonic-grid" aria-live="polite"></div>
+        <div class="visual-mnemonic-actions">
+          <button id="visualMnemonicMore" type="button" class="button secondary" aria-expanded="false">Mostrar todos os 48</button>
+        </div>
+        <p class="full-notice"><strong>Limite histórico:</strong> “Pictograma” indica relação visual útil; “associação mnemônica” é apenas uma técnica de memória e não uma explicação etimológica.</p>
+      </div>
+    </div>
 
     <section id="jornada" class="section-shell content-section course-section">
       <div class="section-heading"><span class="section-number">A1</span><div><p class="eyebrow">Trilha curricular</p><h2>30 unidades · 300 caracteres</h2><p>Cada unidade libera dez caracteres e o vocabulário que já pode ser formado com o repertório acumulado.</p></div></div>
@@ -815,9 +842,13 @@
         </div>
 
         <div class="release-card current-release">
-          <div class="release-card-head"><div><span class="release-version">v<span data-version>6.3.0</span></span><h3>UX 6.3 · navegação, busca e jornada responsiva</h3></div><time datetime="2026-08-07">7 de agosto de 2026</time></div>
-          <ul class="release-list"><li>Entrada por intenção com quatro rotas: começar, retomar, explorar e praticar com texto real.</li><li>Busca global acessível em todo o conteúdo das 47 seções, sem truncamento de resultados.</li><li>Mapa completo 47/47, favoritos, breadcrumb contextual e dock móvel.</li><li>Retomada persistente protegida contra saltos automáticos de inicialização e restaurações nativas do histórico.</li><li>URLs curriculares compartilháveis com Back/Forward, preservando cliques modificados e hashes não curriculares.</li><li>Drawer modal com foco contido/restaurado, combobox anunciado a tecnologias assistivas e suporte a movimento reduzido.</li><li>Command palette adaptada à altura disponível, inclusive em viewports baixos.</li><li>Núcleo pedagógico e funcional 6.2.3 preservado sem alteração de dados ou motores.</li></ul>
+          <div class="release-card-head"><div><span class="release-version">v<span data-version>6.8.0</span></span><h3>UX 6.8 · 48 ilustrações restauradas dentro da trilha</h3></div><time datetime="2026-08-09">9 de agosto de 2026</time></div>
+          <ul class="release-list"><li>Recuperação auditável dos 48 cartões vetoriais publicados em 6.2.0 e refinados em 6.2.1.</li><li>12 relações visuais essenciais aparecem primeiro, com expansão para todos os 48, busca e filtro pictograma/mnemônico.</li><li>No modo guiado, a biblioteca abre em foco dentro do passo Treinador (6/40), sem acrescentar uma nova etapa nem alongar a página.</li><li>Em Explorar tudo, a biblioteca reaparece inline entre Treinador e Jornada, preservando a disposição histórica.</li><li>O asset histórico é preservado byte a byte fora da árvore curricular protegida.</li><li>Trilha 40/40, 47 seções curriculares, Start/Stop, retomada, busca, mapa, SRS, provas, áudio e motores permanecem preservados.</li></ul>
         </div>
+
+        <details class="release-card previous-release"><summary><span><b>v6.7.0</b> · Modo foco de uma etapa por vez</span><time datetime="2026-08-09">9 de agosto de 2026</time></summary><ul class="release-list"><li>Trilha guiada como modo padrão, exibindo somente a etapa curricular atual.</li><li>Explorar tudo restaura as 47 seções sem alterar o progresso Start/Stop.</li></ul></details>
+
+        <details class="release-card previous-release"><summary><span><b>v6.3.0</b> · Navegação, busca e jornada responsiva</span><time datetime="2026-08-07">7 de agosto de 2026</time></summary><ul class="release-list"><li>Entrada por intenção com quatro rotas: começar, retomar, explorar e praticar com texto real.</li><li>Busca global acessível em todo o conteúdo das 47 seções, sem truncamento de resultados.</li><li>Mapa completo 47/47, favoritos, breadcrumb contextual e dock móvel.</li><li>Retomada persistente protegida contra saltos automáticos de inicialização e restaurações nativas do histórico.</li><li>URLs curriculares compartilháveis com Back/Forward, preservando cliques modificados e hashes não curriculares.</li><li>Drawer modal com foco contido/restaurado, combobox anunciado a tecnologias assistivas e suporte a movimento reduzido.</li><li>Command palette adaptada à altura disponível, inclusive em viewports baixos.</li><li>Núcleo pedagógico e funcional 6.2.3 preservado sem alteração de dados ou motores.</li></ul></details>
 
         <details class="release-card previous-release"><summary><span><b>v6.2.3</b> · Recuperação e validação longitudinal</span><time datetime="2026-08-05">5 de agosto de 2026</time></summary><ul class="release-list"><li>36 textos autorais inéditos em 12 gêneros e três níveis.</li><li>Seis provas independentes: leitura, ditado, cloze, shadowing, produção e transferência.</li><li>Índice geral bloqueado até existir evidência repetida e diversidade de gêneros.</li><li>Extensão v5, programa integral e Base 300 preservados.</li></ul></details>
 
@@ -849,7 +880,7 @@
 
   <footer>
     <div class="section-shell footer-inner">
-      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>6.3.0</span></span></strong><p>Programa integral, extensão pós-padrão e validação longitudinal em português.</p></div>
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>6.8.0</span></span></strong><p>Programa integral, extensão pós-padrão e validação longitudinal em português.</p></div>
       <p>Currículo: GF0025-2021. Extensão aberta: CC-CEDICT sob CC BY-SA 4.0. Análise, SRS e progresso permanecem locais.</p>
     </div>
   </footer>

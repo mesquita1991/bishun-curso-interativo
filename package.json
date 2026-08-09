@@ -1,10 +1,10 @@
 {
   "name": "bishun-mandarin-integral",
-  "version": "6.7.0",
+  "version": "6.8.0",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node --check ux-6.7.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs && node tests/ux-6.7-regression-check.mjs"
+    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node --check ux-6.7.0.js && node --check visual-mnemonics.js && node --check ux-6.8.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs && node tests/ux-6.7-regression-check.mjs && node tests/ux-6.8-regression-check.mjs"
   },
-  "description": "Programa integral de mandarim com UX 6.7, estudo em uma etapa por vez, trilha Start/Stop, exploração integral opcional e validação longitudinal."
+  "description": "Programa integral de mandarim UX 6.8 com trilha de uma etapa por vez, 48 ilustrações vetoriais restauradas, Start/Stop e exploração integral opcional."
 }

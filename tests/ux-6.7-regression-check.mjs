@@ -1,7 +1,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const assert=(v,m)=>{if(!v)throw new Error(m)};
 const html=read('index.html'),js=read('ux-6.7.0.js'),css=read('ux-6.7.0.css'),pkg=JSON.parse(read('package.json'));
-assert(pkg.version==='6.7.0','package version must be 6.7.0');
+const [pkgMajor,pkgMinor]=String(pkg.version||'0.0').split('.').map(Number); assert(pkgMajor===6&&pkgMinor>=7,'package version must remain at 6.7+');
 assert(html.includes('ux-6.7.0.css?v=6.7.0')&&html.includes('ux-6.7.0.js?v=6.7.0'),'6.7 assets missing');
 assert(html.indexOf('ux-6.7.0.css')>html.indexOf('ux-6.6.0.css')&&html.indexOf('ux-6.7.0.js')>html.indexOf('ux-6.6.0.js'),'6.7 must load after 6.6');
 ['bishunFocusV67','guided','explore','ux67-guided-view','ux67-explore-view','ux67-current-step','ux67-suppressed','Trilha guiada','Explorar tudo','Uma etapa por vez','Concluir e continuar'].forEach(x=>assert(js.includes(x)||css.includes(x),`missing ${x}`));
@@ -15,6 +15,6 @@ assert(css.includes('@media print')&&css.includes('ux67-suppressed{display:block
 assert(!js.includes('localStorage.clear(')&&!js.includes("localStorage.removeItem(GUIDE_KEY"),'6.7 must preserve guided progress');
 assert(js.includes("guideObserver.observe(guide, { childList: true, subtree: true })"),'guide rerender synchronization missing');
 assert(js.includes("bootObserver.observe(document.body, { childList: true, subtree: true })")&&js.includes('bootObserver.disconnect()'),'boot observer must be transient');
-const release=JSON.parse(read('release-manifest.json')); assert(release.version==='6.7.0','release manifest must be 6.7.0'); assert(release.rollbackLayer?.includes('ux-6.7.0.js?v=6.7.0')&&release.rollbackLayer?.includes('ux-6.7.0.css?v=6.7.0'),'6.7 rollback layer missing');
+const release=JSON.parse(read('release-manifest.json')); const [relMajor,relMinor]=String(release.version||'0.0').split('.').map(Number); assert(relMajor===6&&relMinor>=7,'release manifest must remain at 6.7+'); if(release.version==='6.7.0') assert(release.rollbackLayer?.includes('ux-6.7.0.js?v=6.7.0')&&release.rollbackLayer?.includes('ux-6.7.0.css?v=6.7.0'),'6.7 rollback layer missing'); else assert(release.focusStage?.version==='6.7.0','later releases must preserve the 6.7 focus-stage contract');
 for(const p of ['index.html','package.json','ux-6.7.0.js','ux-6.7.0.css','tests/ux-6.7-regression-check.mjs','docs/QA_UI_UX_6_7.md','docs/UI_UX_UPGRADE_6_7.md']){const body=read(p),entry=release.files.find(x=>x.path===p);assert(entry,`release inventory missing ${p}`);assert(entry.bytes===Buffer.byteLength(body),`release bytes stale for ${p}`);assert(entry.sha256===crypto.createHash('sha256').update(body).digest('hex'),`release hash stale for ${p}`);}
 console.log(JSON.stringify({ok:true,version:'6.7.0',defaultMode:'guided',singleStep:true,exploreFallback:true,preservesV66:true},null,2));

@@ -1,0 +1,23 @@
+import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
+const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const assert=(v,m)=>{if(!v)throw new Error(m)};
+const html=read('index.html'),ui=read('ux-6.8.0.js'),css=read('ux-6.8.0.css'),visual=read('visual-mnemonics.js'),dataRaw=read('visual-mnemonics-6.2.1.json'),data=JSON.parse(dataRaw),pkg=JSON.parse(read('package.json'));
+assert(pkg.version==='6.8.0','package version must be 6.8.0');
+assert(html.includes('ux-6.8.0.css?v=6.8.0')&&html.includes('visual-mnemonics.js?v=6.8.0')&&html.includes('ux-6.8.0.js?v=6.8.0'),'6.8 assets missing');
+assert(html.indexOf('ux-6.8.0.css')>html.indexOf('ux-6.7.0.css')&&html.indexOf('ux-6.8.0.js')>html.indexOf('ux-6.7.0.js'),'6.8 must load after 6.7');
+assert(data.version==='6.2.1'&&data.items.length===48,'historical 6.2.1 data must contain exactly 48 items');
+assert(new Set(data.items.map(x=>x.char)).size===48,'visual characters must be unique');
+assert(data.items.every(x=>typeof x.svg==='string'&&x.svg.includes('<svg')&&x.svg.includes('</svg>')),'all 48 items must preserve SVG illustrations');
+const featured=[...visual.matchAll(/const FEATURED=\[([^\]]+)\]/g)][0]?.[1]?.match(/'[^']+'/g)?.map(x=>x.slice(1,-1))||[]; assert(featured.length===12,'exactly 12 essentials must lead the library');
+['山','川','水','火','木','林','森','日','月','雨','目','休'].forEach(x=>assert(featured.includes(x),`missing featured ${x}`));
+assert(visual.includes("visual-mnemonics-6.2.1.json?v=6.8.0")&&visual.includes("SOURCE_VERSION='6.2.1'"),'historical provenance/data URL missing');
+['visualMnemonicSearch','visualMnemonicType','visualMnemonicReset','visualMnemonicMore','Mostrar todos os 48','Mostrar apenas os 12 essenciais','data-open-visual-char'].forEach(x=>assert(html.includes(x)||visual.includes(x),`missing ${x}`));
+const trainer=html.indexOf('id="treinador"'),visualSection=html.indexOf('id="mnemonicos-visuais"'),journey=html.indexOf('id="jornada"'); assert(trainer>=0&&visualSection>trainer&&journey>visualSection,'visual library must sit between Trainer and Journey');
+assert(ui.includes('ux68VisualDialog')&&ui.includes('showModal')&&ui.includes('returnFocus')&&ui.includes('restoreSection'),'accessible focused dialog integration missing');
+assert(ui.includes('Passo 6 · Treinador')&&ui.includes('48 ilustrações'),'guided discoverability missing');
+assert(css.includes('html.ux67-guided-view #mnemonicos-visuais:not(.ux68-dialog-mounted){display:none!important}')&&css.includes('html.ux67-explore-view #mnemonicos-visuais{display:block}'),'guided/explore visibility contract missing');
+assert(css.includes('body.ux68-visual-open #ux66Dock{visibility:hidden;pointer-events:none}'),'guided dock must not cover visual dialog');
+const ux66=read('ux-6.6.0.js'); const ids=[...ux66.matchAll(/\['([a-z0-9-]+)','[^']+'\]/g)].map(m=>m[1]); assert(ids.length===40,'canonical guided path must remain 40 steps'); assert(ids[5]==='treinador'&&ids[6]==='jornada','visual library must remain companion to Trainer, not a new mandatory step');
+assert(html.includes('mastery-v6.js?v=6.2.3-c711049'),'critical mastery recovery query changed');
+const release=JSON.parse(read('release-manifest.json')); assert(release.version==='6.8.0','release manifest must be 6.8.0'); assert(release.restoredVisualMnemonics?.sourceCommit==='5cf48efc3a58eefeeb6f2f8f8f35f5dad6cbd318','historical source commit missing'); assert(release.restoredVisualMnemonics?.items===48,'restored item count missing');
+for(const p of ['index.html','package.json','manifest.webmanifest','README.md','visual-mnemonics.js','visual-mnemonics-6.2.1.json','ux-6.8.0.js','ux-6.8.0.css','tests/ux-6.7-regression-check.mjs','tests/ux-6.8-regression-check.mjs','docs/QA_UI_UX_6_8.md','docs/UI_UX_UPGRADE_6_8.md']){const body=read(p),entry=release.files.find(x=>x.path===p);assert(entry,`release inventory missing ${p}`);assert(entry.bytes===Buffer.byteLength(body),`release bytes stale for ${p}`);assert(entry.sha256===crypto.createHash('sha256').update(body).digest('hex'),`release hash stale for ${p}`);}
+console.log(JSON.stringify({ok:true,version:'6.8.0',illustrations:data.items.length,featured:featured.length,source:'6.2.1',guidedSteps:ids.length,trainerCompanion:true,exploreInline:true},null,2));
