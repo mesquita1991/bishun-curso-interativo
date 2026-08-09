@@ -1,0 +1,20 @@
+import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
+const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const assert=(v,m)=>{if(!v)throw new Error(m)};
+const html=read('index.html'),js=read('ux-6.7.0.js'),css=read('ux-6.7.0.css'),pkg=JSON.parse(read('package.json'));
+assert(pkg.version==='6.7.0','package version must be 6.7.0');
+assert(html.includes('ux-6.7.0.css?v=6.7.0')&&html.includes('ux-6.7.0.js?v=6.7.0'),'6.7 assets missing');
+assert(html.indexOf('ux-6.7.0.css')>html.indexOf('ux-6.6.0.css')&&html.indexOf('ux-6.7.0.js')>html.indexOf('ux-6.6.0.js'),'6.7 must load after 6.6');
+['bishunFocusV67','guided','explore','ux67-guided-view','ux67-explore-view','ux67-current-step','ux67-suppressed','Trilha guiada','Explorar tudo','Uma etapa por vez','Concluir e continuar'].forEach(x=>assert(js.includes(x)||css.includes(x),`missing ${x}`));
+assert(js.includes("return { mode: 'guided' }")&&js.includes("parsed.mode === 'explore' ? 'explore' : 'guided'"),'guided mode must be the safe default');
+assert(js.includes("main.insertBefore(bar, main.firstElementChild)")&&js.includes("main.insertBefore(guide, bar.nextSibling)"),'guide must be promoted above the long document');
+assert(js.includes("$$('[data-ux-section]')")&&js.includes("section.id === currentId")&&js.includes("section.classList.toggle('ux67-suppressed', suppress)"),'single-step suppression logic missing');
+assert(css.includes('html.ux67-guided-view [data-ux-section].ux67-suppressed{display:none!important}'),'hidden lessons must leave vertical flow');
+assert(css.includes('html.ux67-guided-view .desktop-nav')&&css.includes('html.ux67-guided-view .ux-contextbar'),'guided header decluttering missing');
+assert(css.includes('html.ux67-explore-view #ux66Dock{display:none!important}'),'explore mode must not compete with guided dock');
+assert(css.includes('@media print')&&css.includes('ux67-suppressed{display:block!important}'),'print must preserve full content');
+assert(!js.includes('localStorage.clear(')&&!js.includes("localStorage.removeItem(GUIDE_KEY"),'6.7 must preserve guided progress');
+assert(js.includes("guideObserver.observe(guide, { childList: true, subtree: true })"),'guide rerender synchronization missing');
+assert(js.includes("bootObserver.observe(document.body, { childList: true, subtree: true })")&&js.includes('bootObserver.disconnect()'),'boot observer must be transient');
+const release=JSON.parse(read('release-manifest.json')); assert(release.version==='6.7.0','release manifest must be 6.7.0'); assert(release.rollbackLayer?.includes('ux-6.7.0.js?v=6.7.0')&&release.rollbackLayer?.includes('ux-6.7.0.css?v=6.7.0'),'6.7 rollback layer missing');
+for(const p of ['index.html','package.json','ux-6.7.0.js','ux-6.7.0.css','tests/ux-6.7-regression-check.mjs','docs/QA_UI_UX_6_7.md','docs/UI_UX_UPGRADE_6_7.md']){const body=read(p),entry=release.files.find(x=>x.path===p);assert(entry,`release inventory missing ${p}`);assert(entry.bytes===Buffer.byteLength(body),`release bytes stale for ${p}`);assert(entry.sha256===crypto.createHash('sha256').update(body).digest('hex'),`release hash stale for ${p}`);}
+console.log(JSON.stringify({ok:true,version:'6.7.0',defaultMode:'guided',singleStep:true,exploreFallback:true,preservesV66:true},null,2));

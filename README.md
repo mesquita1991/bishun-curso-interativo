@@ -78,3 +78,8 @@ A primeira iteração foi deliberadamente conservadora e podia ser confundida co
 ## UX 6.5.0 — Experience System
 
 A camada 6.5 promove a interface inteira sem reescrever o núcleo: identidade única, rail de macro-orientação, consistência entre 47 seções, acessibilidade de alto contraste/forced-colors, safe-area, tabelas roláveis por teclado, metadados de produção e suíte de integridade do core. A 6.4 permanece imediatamente abaixo como fallback reversível.
+
+
+## UX 6.7 — estudo em uma etapa por vez
+
+A trilha guiada passa a ser o modo padrão: o usuário vê orientação, Start/Continue e somente a etapa curricular atual. O documento completo permanece disponível em **Explorar tudo**. Nenhum conteúdo, motor ou dado é removido.
