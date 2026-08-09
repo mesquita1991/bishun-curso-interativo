@@ -45,8 +45,10 @@ assert(!inherited65.includes("pkg.version === '6.5.0'"),'inherited 6.5 gate must
 assert(!css.includes('\\n.ux66-ready'),'escaped CSS newline literal present');
 assert(css.includes('env(safe-area-inset-bottom)'),'safe area missing'); assert(css.includes('prefers-reduced-motion'),'reduced motion missing');
 const release=JSON.parse(read('release-manifest.json'));
-assert(release.version==='6.6.0','release manifest version mismatch');
-assert(release.rollbackLayer?.includes('ux-6.6.0.js?v=6.6.0')&&release.rollbackLayer?.includes('ux-6.6.0.css?v=6.6.0'),'rollback layer must be 6.6');
+const [releaseMajor,releaseMinor]=String(release.version||'0.0').split('.').map(Number);
+assert(releaseMajor===6&&releaseMinor>=6,'release manifest must remain at 6.6+');
+if(release.version==='6.6.0') assert(release.rollbackLayer?.includes('ux-6.6.0.js?v=6.6.0')&&release.rollbackLayer?.includes('ux-6.6.0.css?v=6.6.0'),'6.6 rollback layer mismatch');
+else assert(release.guidedPath?.version==='6.6.0','later releases must preserve the 6.6 guided-path contract');
 for(const p of ['index.html','package.json','ux-6.6.0.js','ux-6.6.0.css','tests/ux-6.6-regression-check.mjs','docs/QA_UI_UX_6_6.md','docs/UI_UX_UPGRADE_6_6.md','tests/ux-6.5-regression-check.mjs']){
   const body=read(p), entry=release.files.find(x=>x.path===p); assert(entry,`release inventory missing ${p}`);
   assert(entry.bytes===Buffer.byteLength(body),`release bytes stale for ${p}`);
