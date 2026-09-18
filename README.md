@@ -1,4 +1,4 @@
-# Mandarim Integral · 笔顺 — v6.3.0
+# Mandarim Integral · 笔顺 — v6.8.0
 
 Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 
@@ -83,3 +83,7 @@ A camada 6.5 promove a interface inteira sem reescrever o núcleo: identidade ú
 ## UX 6.7 — estudo em uma etapa por vez
 
 A trilha guiada passa a ser o modo padrão: o usuário vê orientação, Start/Continue e somente a etapa curricular atual. O documento completo permanece disponível em **Explorar tudo**. Nenhum conteúdo, motor ou dado é removido.
+
+## UX 6.8 — restauração das 48 ilustrações
+
+A biblioteca visual original das versões 6.2.0/6.2.1 foi recuperada do histórico Git e reintegrada sem alterar o núcleo curricular. Os 48 SVGs históricos são preservados byte a byte em `visual-mnemonics-6.2.1.json`. No modo guiado, a biblioteca abre em foco dentro do passo **Treinador (6/40)**; em **Explorar tudo**, a seção histórica reaparece inline entre Treinador e Jornada. São exibidos 12 exemplos essenciais inicialmente, com busca, filtro pictograma/mnemônico e expansão para os 48.

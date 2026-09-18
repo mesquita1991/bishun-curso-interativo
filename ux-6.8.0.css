@@ -1,0 +1,44 @@
+/* Bǐshùn UX 6.8 — restoration of the original 6.2.1 visual mnemonic library. */
+.visual-mnemonic-section{padding-block:72px}
+.visual-mnemonic-toolbar{display:grid;grid-template-columns:minmax(220px,1fr) minmax(190px,auto) auto auto;gap:12px;align-items:end;margin:22px 0}
+.visual-mnemonic-toolbar label{display:grid;gap:6px;font-weight:750;color:var(--muted)}
+.visual-mnemonic-toolbar input,.visual-mnemonic-toolbar select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+.visual-mnemonic-toolbar strong{align-self:center;justify-self:end;color:var(--muted);font-size:.88rem;white-space:nowrap}
+.visual-mnemonic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.visual-char-card{min-width:0;display:grid;grid-template-rows:auto 1fr;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--surface);box-shadow:0 10px 30px color-mix(in srgb,var(--ink) 7%,transparent)}
+.visual-compare{min-height:150px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;padding:18px;background:linear-gradient(145deg,color-mix(in srgb,var(--accent-soft) 55%,var(--paper)),var(--paper));color:var(--accent)}
+.visual-glyph{display:grid;place-items:center;font:700 clamp(3.5rem,7vw,5.4rem)/1 "Noto Serif SC","Songti SC",serif;color:var(--ink)}
+.visual-connector{font-size:1.3rem;font-weight:900;color:var(--gold)}
+.visual-drawing{display:grid;place-items:center;aspect-ratio:1;max-width:112px;width:100%;justify-self:center}
+.visual-drawing svg{display:block;width:100%;height:100%;stroke-width:3.5}
+.visual-char-copy{display:flex;flex-direction:column;align-items:flex-start;padding:18px}
+.visual-type{display:inline-flex;align-items:center;min-height:26px;padding:3px 9px;border:1px solid var(--line);border-radius:999px;font-size:.68rem;font-weight:850;letter-spacing:.04em}
+.visual-type.is-pictogram{background:color-mix(in srgb,var(--gold-soft) 65%,var(--surface));color:var(--ink)}
+.visual-type.is-mnemonic{background:color-mix(in srgb,var(--accent-soft) 70%,var(--surface));color:var(--accent)}
+.visual-char-copy h3{font-size:1.05rem;margin:.7rem 0 .25rem}
+.visual-char-copy p{min-height:2.8em;margin:0;color:var(--muted);font-size:.9rem}
+.visual-char-copy button{margin-top:auto;padding-top:10px}
+.visual-mnemonic-actions{display:flex;justify-content:center;margin:22px 0 0}
+
+.ux68-visual-bridge{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;margin:0 0 26px;padding:18px 20px;border:1px solid color-mix(in srgb,var(--ux67-blue,#3158d4) 28%,var(--line));border-radius:20px;background:linear-gradient(135deg,color-mix(in srgb,var(--ux67-soft,#eef3ff) 78%,var(--surface)),var(--surface));box-shadow:0 12px 32px rgba(15,31,68,.07)}
+.ux68-visual-bridge div{display:grid;gap:4px}.ux68-visual-bridge span{font-size:.7rem;font-weight:900;letter-spacing:.09em;color:var(--ux67-blue,#3158d4)}.ux68-visual-bridge strong{font-size:1.12rem}.ux68-visual-bridge p{margin:0;color:var(--muted);max-width:72ch}
+.ux68-mode-hint{margin:10px 0 0!important;padding-top:10px;border-top:1px solid color-mix(in srgb,currentColor 15%,transparent);font-size:.78rem!important;opacity:.9}
+
+html.ux67-guided-view #mnemonicos-visuais:not(.ux68-dialog-mounted){display:none!important}
+html.ux67-explore-view #mnemonicos-visuais{display:block}
+.ux68-visual-dialog{width:min(1180px,calc(100vw - 28px));max-width:none;height:min(880px,calc(100dvh - 28px));max-height:none;margin:auto;padding:0;border:1px solid color-mix(in srgb,var(--line) 78%,transparent);border-radius:26px;background:var(--paper);color:var(--ink);box-shadow:0 30px 100px rgba(4,12,31,.34);overflow:hidden}
+.ux68-visual-dialog::backdrop{background:rgba(4,10,24,.7);backdrop-filter:blur(5px)}
+.ux68-dialog-frame{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr)}
+.ux68-dialog-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--surface) 88%,var(--paper));position:sticky;top:0;z-index:2}
+.ux68-dialog-head div{display:grid;gap:2px}.ux68-dialog-head span{font-size:.68rem;font-weight:900;letter-spacing:.08em;color:var(--accent)}.ux68-dialog-head h2{margin:0;font-size:clamp(1.3rem,2.5vw,2rem)}.ux68-dialog-head p{margin:0;color:var(--muted)}
+.ux68-dialog-close{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border:1px solid var(--line);border-radius:14px;background:var(--paper);color:var(--ink);font-size:1.7rem;cursor:pointer}
+.ux68-dialog-mount{min-height:0;overflow:auto;overscroll-behavior:contain}
+.ux68-dialog-mount #mnemonicos-visuais.ux68-dialog-mounted{display:block!important;padding-block:0;background:transparent}
+.ux68-dialog-mount #mnemonicos-visuais>.section-shell{width:100%;max-width:none;margin:0;padding:24px}
+body.ux68-visual-open{overflow:hidden}
+body.ux68-visual-open #ux66Dock{visibility:hidden;pointer-events:none}
+html[data-theme="dark"] .ux68-visual-dialog{background:#0d1525;color:#edf2ff}.ux68-visual-dialog :focus-visible,.ux68-visual-bridge :focus-visible{outline:3px solid color-mix(in srgb,var(--ux67-blue,#3158d4) 65%,white);outline-offset:3px}
+@media(max-width:900px){.visual-mnemonic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-mnemonic-toolbar{grid-template-columns:1fr 1fr}.visual-mnemonic-toolbar strong{justify-self:start}.ux68-visual-bridge{grid-template-columns:1fr}.ux68-visual-bridge .button{justify-self:start}}
+@media(max-width:620px){.visual-mnemonic-section{padding-block:52px}.visual-mnemonic-grid{grid-template-columns:1fr}.visual-mnemonic-toolbar{grid-template-columns:1fr}.visual-mnemonic-toolbar strong{justify-self:start}.visual-compare{min-height:132px}.visual-glyph{font-size:4.2rem}.visual-drawing{max-width:96px}.ux68-visual-dialog{width:calc(100vw - 12px);height:calc(100dvh - 12px);border-radius:18px}.ux68-dialog-head{padding:14px}.ux68-dialog-mount #mnemonicos-visuais>.section-shell{padding:16px}.ux68-visual-bridge{padding:16px}}
+@media(prefers-reduced-motion:reduce){.ux68-visual-dialog *{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+@media print{.ux68-visual-dialog,.ux68-visual-bridge{display:none!important}#mnemonicos-visuais{display:block!important}}

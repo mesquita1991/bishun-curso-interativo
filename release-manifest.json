@@ -1,10 +1,11 @@
 {
-  "version": "6.7.0",
-  "generatedAt": "2026-08-09T00:16:00Z",
-  "baseCommit": "b5baf8ac83022dc37aed47104b53ebf9d73271f7",
+  "version": "6.8.0",
+  "generatedAt": "2026-08-09T03:48:00Z",
+  "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
-    "ux-6.7.0.css?v=6.7.0",
-    "ux-6.7.0.js?v=6.7.0"
+    "ux-6.8.0.css?v=6.8.0",
+    "visual-mnemonics.js?v=6.8.0",
+    "ux-6.8.0.js?v=6.8.0"
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
@@ -18,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 64161,
-      "sha256": "bb5779ee7a2518db83bc45c62e1bd82671607338f3deef0e447f36bff8561771"
+      "bytes": 67435,
+      "sha256": "2ba41036aa53358a0ae6efbfe793247f5835e66cebfc76c302fbf4fa1e7f4e64"
     },
     {
       "path": "styles.css",
@@ -88,18 +89,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 525,
-      "sha256": "bdddf4fe3dd0ee32e4d2bc682082bd0d245518e56fd0938d77be4c1f26103ae3"
+      "bytes": 563,
+      "sha256": "ade61c5dc62dec00bfa18d678e88894c1f7fca1f34559447dabc83912384886e"
     },
     {
       "path": "package.json",
-      "bytes": 890,
-      "sha256": "2a2a3f8f989f9940a1864684c0c551104048ae43563d0e9f051fdd11b933b549"
+      "bytes": 1002,
+      "sha256": "488727015b4528139d58fe285c8aac7e692c1acef1ca1c67df115ef2a8a3f1a7"
     },
     {
       "path": "README.md",
-      "bytes": 5206,
-      "sha256": "f7bb0eb02ccad12274ab121fc4b938a146caf7036e4829cd9193b237db9a6b00"
+      "bytes": 5760,
+      "sha256": "2a7ff9c9d104da237a08987e3bf1f43756bb4b7088d0758bdaa53e4cd436e63d"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -158,8 +159,8 @@
     },
     {
       "path": "tests/ux-6.7-regression-check.mjs",
-      "bytes": 3322,
-      "sha256": "80dd42bf192ba79b26c86f3b4974309721f7247b790ed04cca32a3d8f46de3bb"
+      "bytes": 3638,
+      "sha256": "2ecf511a548cf01cab4ce7a8dd6eb967c703b936cbf89e27cdc0e2f5d9c4a889"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -170,6 +171,41 @@
       "path": "docs/UI_UX_UPGRADE_6_7.md",
       "bytes": 1040,
       "sha256": "1eef13de4d37448d5dd937105509e016144959e147ef5b773944c4a2838d0f8c"
+    },
+    {
+      "path": "visual-mnemonics.js",
+      "bytes": 4001,
+      "sha256": "d8bf3fc2b3044f401612d8e3eec15860e7d047beecf862c27c899c5e99ef2bb4"
+    },
+    {
+      "path": "visual-mnemonics-6.2.1.json",
+      "bytes": 21410,
+      "sha256": "9e4ca6b235aac09f6470e6ad9d574eadf44223b351fbcdfaa40ab8f81b929807"
+    },
+    {
+      "path": "ux-6.8.0.js",
+      "bytes": 6476,
+      "sha256": "5a0584dfba0f902c7165a883b5b4eab6b041e7fc6096c159425165acf8952f2e"
+    },
+    {
+      "path": "ux-6.8.0.css",
+      "bytes": 6372,
+      "sha256": "b50db0ec33bf8bffca1f31c85adbf74fd7e3bc4ddd2a7b4150f7d278c647b38c"
+    },
+    {
+      "path": "tests/ux-6.8-regression-check.mjs",
+      "bytes": 4337,
+      "sha256": "62b541b33e37243a6b902380b2ee9022d337eac17489b57fc4e93cd4c09d4359"
+    },
+    {
+      "path": "docs/QA_UI_UX_6_8.md",
+      "bytes": 2317,
+      "sha256": "326f885f3ab78b8021d7dd97921cba8c8b9e45885aa571f018dc752f6a610bb1"
+    },
+    {
+      "path": "docs/UI_UX_UPGRADE_6_8.md",
+      "bytes": 920,
+      "sha256": "86ab9e3604e448f83c53ead992657b343630b5fe1e0da251bcd8d12fd163dbde"
     }
   ],
   "guidedPath": {
@@ -196,5 +232,23 @@
     "singleStep": true,
     "preservesGuidedPathV66": true,
     "fullDocumentRestorable": true
+  },
+  "restoredVisualMnemonics": {
+    "version": "6.8.0",
+    "sourceVersion": "6.2.1",
+    "sourceCommit": "5cf48efc3a58eefeeb6f2f8f8f35f5dad6cbd318",
+    "introducedCommit": "3223487eb405017fb94a8ee2bf5cecded22b100d",
+    "sourceGitBlob": "4053e13ad4c0fdf5f95c6987ae4ce8bbe243684a",
+    "assetPath": "visual-mnemonics-6.2.1.json",
+    "sha256": "9e4ca6b235aac09f6470e6ad9d574eadf44223b351fbcdfaa40ab8f81b929807",
+    "bytes": 21410,
+    "items": 48,
+    "featured": 12,
+    "exactHistoricalBytes": true,
+    "protectedDataTreeUnchanged": true,
+    "guidedPlacement": "treinador",
+    "guidedStep": 6,
+    "mandatoryPathSteps": 40,
+    "exploreInline": true
   }
 }
