@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "f0c411ca4b3552282fe032454e0544abfe0112d3a04d80514f1e061f299d1e3a"
+      "sha256": "e44d4dad75e048a1d4b37281634915a1ed41a1e3732abc45f74b4ad0d83b1cd0"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "09bee8dcdb0d04898bc9a965edb5f2667fdbb4fb0a1f19b3f37de57a99af0356"
+      "sha256": "e2e96bcc9eda1154072f743d1c4b3ff7e7a11c4d674f0527fe568aa1bdd28e91"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -424,7 +424,7 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "8c35e081e3ac365cae3e0e2652a6734d2eae2877a2bc41e19965451c918d879c",
+      "sha256": "b2ff2fa3043a6f4f95d76cd6d952de5c88274d4b7a5e73655116174d5375bf01",
       "bytes": 3492
     },
     {
@@ -444,7 +444,7 @@
     },
     {
       "path": "tests/unit-study-check.mjs",
-      "sha256": "802dfc1ddc2ffab097b28f9303e0c3c7b961fbe23f28fd6041ab4ea09e70d36d",
+      "sha256": "73b6042056e4c061d401bd20727c2c580d60597e6195947ca690d38d4fa3b08b",
       "bytes": 2126
     },
     {
@@ -460,7 +460,7 @@
     {
       "path": "tests/student-guidance-check.mjs",
       "bytes": 2530,
-      "sha256": "f96bd1d0a4417ca56e2ca2da985e11980d2b876754a7f69888b7ebdca104242f"
+      "sha256": "22de184550ebb4e5a1e2b5ad02948d821fa4ac1e90797329f31fbae4c6ebee4b"
     },
     {
       "path": ".github/workflows/ux681-gate.yml",
@@ -474,7 +474,7 @@
     },
     {
       "path": "tests/site-design-check.mjs",
-      "sha256": "962d2bf0915bd55eeb642cff9e85ce4fc550c7545204812e5affab2236ad72fb",
+      "sha256": "298f1a7ea9e34234831da57dda41ca97b266766ba779324ae222dd3c4dc72448",
       "bytes": 4324
     },
     {
