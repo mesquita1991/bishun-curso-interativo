@@ -1,6 +1,6 @@
 {
-  "version": "7.0.0",
-  "generatedAt": "2026-10-16T17:00:00Z",
+  "version": "7.0.1",
+  "generatedAt": "2026-10-16T20:11:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7416,
-      "sha256": "71fa2f4e550aaa685ae82c02e98ceb03a324ddf9a155682db1f5810813fdc016"
+      "bytes": 8131,
+      "sha256": "9915b9c077b62e4b2cd05fe4a5d7c6cce73ecf3f3fb4d09b8f02fff49ca47549"
     },
     {
       "path": "styles.css",
@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1819,
-      "sha256": "8360b3bb42395ac74c9f5d3a77f2b87951acb85283ead3fd3c40f47cd018a67c"
+      "bytes": 1843,
+      "sha256": "940de79526a3f9265b91ec6d96229bc6687018e6c0370e8ca95b6b27b9ced1ee"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -249,13 +249,13 @@
     },
     {
       "path": "portal.js",
-      "bytes": 1129,
-      "sha256": "3da729731d41570bbf9196d10cd26e7b3d58f54f6f5d9a3be90d8fa61a5db3f5"
+      "bytes": 1137,
+      "sha256": "2959bcd0c3e801c6ec8c5503033a1821c92cc2effca061d1f4f47785fbb600f4"
     },
     {
       "path": "etapa.js",
       "bytes": 6209,
-      "sha256": "fec09e43bf700350983b7c91ac443cddf15f9ee3fd7c8e2b5506fcaa354e2c86"
+      "sha256": "28f142e366be5e7a594410e23084abcf6c72190b77f43ce8664ec21d1a301ed9"
     },
     {
       "path": "base.html",
@@ -429,18 +429,18 @@
     },
     {
       "path": "estudar.html",
-      "sha256": "7f386d108b61e6d8e41b3223678ff5b6047f5c27e4efb7d1334945d3dbc4c205",
-      "bytes": 9341
+      "sha256": "09de1e1dfca8820579f6f146bdc217dd20d8b25a5c5d5d3d9ab64ea1c8562c80",
+      "bytes": 10131
     },
     {
       "path": "estudar.css",
-      "sha256": "330c5ce2cd979c7a497a5c7543b6527f38fdda68bd2985ea7d716957cfeba086",
-      "bytes": 9972
+      "sha256": "63f2baa32b4af9fbdd5236aa355c621556c6720d95cb2b730b38b23da557fcda",
+      "bytes": 10951
     },
     {
       "path": "estudar.js",
-      "sha256": "f8189af7460b42622c2108a607644cb308d14a86a87d1166b567afa29b8080af",
-      "bytes": 21980
+      "sha256": "c69ec9bab460825c6946275696bf752b2bfad75ed8d86fde55dcf7186906764e",
+      "bytes": 23140
     },
     {
       "path": "tests/unit-study-check.mjs",
@@ -451,6 +451,11 @@
       "path": "tests/unit-study-browser-smoke.mjs",
       "sha256": "88571c988175deb0ca58e8c2b1530678cc50d96397f061fb657bf263423f0a7a",
       "bytes": 4336
+    },
+    {
+      "path": "jornada.css",
+      "bytes": 2551,
+      "sha256": "630b3ca14885b5ea5539030f46693ceda76743c7eedf27631944f000988b1efa"
     }
   ],
   "guidedPath": {
@@ -513,7 +518,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "7.0.0",
+    "version": "7.0.1",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -560,7 +565,7 @@
     "restoredVisualMnemonics": 48
   },
   "unitStudy": {
-    "version": "7.0.0",
+    "version": "7.0.1",
     "page": "estudar.html",
     "modes": [
       "aprender",
@@ -572,6 +577,14 @@
     "progressKey": "bishunUnitJourneyV70",
     "legacyContextKey": "bishunFullV4",
     "completion": "four explicitly tracked activities; exam threshold 70%, writing quiz >=1 completed",
-    "protectedCurriculumUnchanged": true
+    "protectedCurriculumUnchanged": true,
+    "studentJourney": "Conhecer e ouvir → Observar e escrever → Lembrar sem olhar → Conferir o que aprendeu",
+    "technicalTermsRemovedFromHome": true
+  },
+  "ciPolicy": {
+    "oneAutoWorkflow": true,
+    "fastBeforeBrowser": true,
+    "cancelSuperseded": true,
+    "noAutoRetry": true
   }
 }
