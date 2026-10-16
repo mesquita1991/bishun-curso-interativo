@@ -103,7 +103,7 @@ assert(ux.includes('const plainPrimaryHashClick = hashLink'), 'Roteamento de lin
 assert(ux.includes('!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey'), 'Links curriculares devem preservar cliques modificados nativos.');
 assert(ux.includes("(!hashLink.target || hashLink.target === '_self')"), 'Links com target próprio devem manter semântica nativa.');
 assert(ux.includes("!hashLink.hasAttribute('download')"), 'Links com download não podem ser interceptados.');
-assert(!fullCourse.includes('openFullTrainer(trainerChar.char,{scroll:false})'), 'O núcleo full-course deve permanecer intacto; a correção de startup pertence à camada UX.');
+assert(fullCourse.includes('openFullTrainer(trainerChar.char,{scroll:false})'), '6.8.1 deve impedir rolagem automática na inicialização.');
 
 assert(fs.existsSync(path.join(root,'ux-6.3.0.css')), 'Asset CSS UX 6.3 ausente.');
 
