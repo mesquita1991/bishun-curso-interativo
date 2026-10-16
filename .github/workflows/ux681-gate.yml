@@ -26,7 +26,9 @@ jobs:
         with:
           node-version: '22'
       - name: Verificação funcional, sintática e curricular
-        run: npm run check
+        run: |
+          npm run check
+          node tests/manual-integrity-check.mjs
       - name: Impedir modificações não autorizadas no currículo
         if: github.event_name == 'pull_request'
         run: |
@@ -52,3 +54,4 @@ jobs:
           node tests/multipage-browser-smoke.mjs
           node tests/unit-study-browser-smoke.mjs
           node tests/site-design-browser-smoke.mjs
+          node tests/manual-browser-smoke.mjs

@@ -1,0 +1,32 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8');
+const manifest=JSON.parse(read('manual-assets.json'));
+const index=JSON.parse(read('manual-index.json'));
+const html=read('manual.html'),home=read('index.html'),sitemap=read('sitemap.xml');
+assert.equal(manifest.bytes,5743579,'Tamanho original inesperado');
+assert.equal(manifest.pdfPages,198,'Número de páginas alterado');
+assert.equal(manifest.pdfLinks,7762,'Links do documento original alterados');
+assert.equal(manifest.pdfInternalLinks+manifest.pdfExternalLinks,manifest.pdfLinks,'Contagem de hiperlinks incompatível');
+assert.equal(index.pages.length,manifest.pdfPages,'Índice de páginas incompleto');
+assert.equal(index.toc.length,manifest.bookmarks,'Sumário incompleto');
+assert.equal(new Set(index.pages.map(x=>x.page)).size,198,'Páginas duplicadas no índice');
+assert.ok(index.pages[0].text.includes('MANDARIM'),'Capa ausente');
+assert.ok(index.pages[125].text.includes('164 caracteres'),'Pranchas de escrita ausentes');
+assert.ok(index.pages[197].text.includes('L37'),'Matriz final ausente');
+assert.ok(home.includes('href="manual.html"'),'Entrada na home ausente');
+assert.ok(sitemap.includes('/manual.html</loc>'),'URL do manual ausente do sitemap');
+for(const id of ['manualSearch','manualToc','manualOpen','manualDownload','manualFrame','manualStatus'])assert.ok(html.includes(id),'Componente do manual não encontrado: '+id);
+const files=[];
+for(const part of manifest.chunks){
+ const bytes=fs.readFileSync(part.path);
+ assert.equal(bytes.length,part.bytes,'Fragmento incompleto: '+part.path);
+ assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),part.sha256,'Fragmento modificado: '+part.path);
+ files.push(bytes);
+}
+const pdf=Buffer.concat(files);
+assert.equal(pdf.byteLength,manifest.bytes,'PDF reconstruído incompleto');
+assert.equal(pdf.subarray(0,8).toString(),'%PDF-1.7','Cabeçalho PDF divergente');
+assert.equal(crypto.createHash('sha256').update(pdf).digest('hex'),manifest.sha256,'PDF original alterado');
+console.log(JSON.stringify({ok:true,sourcePreserved:true,pages:198,bookmarks:176,links:7762,internal:3658,external:4104,chunks:files.length,bytes:pdf.byteLength}));
