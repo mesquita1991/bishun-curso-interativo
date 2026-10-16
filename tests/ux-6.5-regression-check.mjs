@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(process.cwd());
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const html = read('index.html');
+const html = read('curso.html');
 const js = read('ux-6.5.0.js');
 const css = read('ux-6.5.0.css');
 const manifest = JSON.parse(read('manifest.webmanifest'));
@@ -19,7 +19,7 @@ assert(html.indexOf('ux-6.4.0.css?v=6.4.0') < html.indexOf('ux-6.5.0.css?v=6.5.0
 assert(html.includes('ux-6.4.0.js?v=6.4.0') && html.includes('ux-6.5.0.js?v=6.5.0'), 'Cadeia JS 6.4 → 6.5 incompleta.');
 assert(html.indexOf('ux-6.4.0.js?v=6.4.0') < html.indexOf('ux-6.5.0.js?v=6.5.0'), 'UX 6.5 JS deve carregar após 6.4.');
 assert(html.includes('mastery-v6.js?v=6.2.3-c711049'), 'Referência crítica do mastery foi alterada.');
-assert(html.includes('rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/"'), 'Canonical de produção ausente.');
+assert(html.includes('rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/curso.html"'), 'Canonical de produção ausente.');
 assert(html.includes('rel="preconnect" href="https://cdn.jsdelivr.net"'), 'Preconnect para a única origem externa ausente.');
 assert(html.includes('name="color-scheme" content="light dark"'), 'Color scheme explícito ausente.');
 assert(html.includes('name="robots" content="index,follow,max-image-preview:large"'), 'Robots meta ausente.');
