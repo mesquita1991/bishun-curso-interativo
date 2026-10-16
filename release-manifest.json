@@ -259,18 +259,18 @@
     },
     {
       "path": "base.html",
-      "bytes": 4975,
-      "sha256": "5dc82bb8aed1583e2b3fcc58677045e8c5068e3b3b8e8a0cce8dd3e231f70dfd"
+      "bytes": 5020,
+      "sha256": "4c9277fb0b7b812d243d054f923605c5bb67a2269df091d60543ff4ce4e6bf98"
     },
     {
       "path": "imersao.html",
-      "bytes": 3774,
-      "sha256": "9fdb2069b8e4bbb1c6c525c259d3c39ea4fe350d17c450a138d52d655a9916eb"
+      "bytes": 3819,
+      "sha256": "ffa9cd0bb3c406a0bf92c2b69b47fa7135dde87aa617b5a150b8b76fbb340393"
     },
     {
       "path": "validacao.html",
-      "bytes": 3914,
-      "sha256": "f57ea98f217e429985f019974e600ac82f401b86e05809d2e1122c6090d49a2d"
+      "bytes": 3959,
+      "sha256": "0f90c5bd38884a6174d11a572e1f9617ba273d1d0d5a6caa34f29cdb5c0befe9"
     },
     {
       "path": "etapa-1.html",
@@ -354,13 +354,13 @@
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
-      "bytes": 596,
-      "sha256": "916f77320e75c0dcde03ff0b932c39da4dcdd7a5b2fc24f7a646ba16ad942237"
+      "bytes": 658,
+      "sha256": "04fe6b4754c2d3e93f6b73082414dba10e976321a6b95fe1bc2f4d6a527f1ce7"
     },
     {
       "path": "laboratorio.html",
-      "sha256": "d4aed9b5a5b1b1418ed5df47b3d9b568258b91bbb7812afed0b39938267579d1",
-      "bytes": 4923
+      "sha256": "49d9e8a77bea8488bcf05db02f61d6dbe4398adf21e474711ee540adc8a9d423",
+      "bytes": 4957
     },
     {
       "path": "laboratorio.js",
@@ -369,8 +369,8 @@
     },
     {
       "path": "catalogo.html",
-      "sha256": "e1765130b0861cf66ebfbb9f6feb41d899f94d6ed6b370cbfa593bfe87a4cb6d",
-      "bytes": 3289
+      "sha256": "306d845b50ed4786757858c32dc8b26b87e3766a3f1d9cbe5934cec7a5233a41",
+      "bytes": 3323
     },
     {
       "path": "catalogo.js",
@@ -379,8 +379,8 @@
     },
     {
       "path": "avaliacao.html",
-      "sha256": "816037e996ca9ee4ca15acafa969e6a6810ac2bca4baca9db283ab680ce4c9fe",
-      "bytes": 2948
+      "sha256": "e68cf006c232d7c0734d1b53fb252f299a770e6f78fa20e49c405c70f446c336",
+      "bytes": 2982
     },
     {
       "path": "avaliacao.js",
@@ -389,8 +389,8 @@
     },
     {
       "path": "aulas.html",
-      "sha256": "c43c1b0bf9efdd38f7c4c3351b1c0e9c410a1f79bf7acfde190435de06633bdd",
-      "bytes": 2397
+      "sha256": "b6a4e8fd72cebd83028cf07e0a6918e028e117b5f1d9cd0e99a262a908dc4b6a",
+      "bytes": 2431
     },
     {
       "path": "aulas.js",
@@ -399,8 +399,8 @@
     },
     {
       "path": "mapa.html",
-      "sha256": "9e6dbc2557f99ca0e15a5b1eb9f576f582458b506bb83a8a5b0779162632d758",
-      "bytes": 3762
+      "sha256": "13e6a9763d720f05af8d5e1f15e1d3ef7e44072289ce538c3dc33709657cd642",
+      "bytes": 3892
     },
     {
       "path": "rotas.js",
