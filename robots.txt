@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mesquita1991.github.io/bishun-curso-interativo/sitemap.xml
