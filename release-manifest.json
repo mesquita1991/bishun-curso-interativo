@@ -94,8 +94,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1234,
-      "sha256": "9ee62d8fca2cd20d20ee3fdc81035759e3f0b964a4d6d4bcdf95773195bd3cd5"
+      "bytes": 1280,
+      "sha256": "ba64247f5a1289b0f533c432ca2f9909f5fc025765f69403bf1daa9d8eb77ece"
     },
     {
       "path": "README.md",
@@ -240,7 +240,7 @@
     {
       "path": "curso.html",
       "bytes": 67732,
-      "sha256": "c9fa748ffebc6a557f15332a702e1bbb973c494f86a845ba43dd1c9e66bc3b7b"
+      "sha256": "320260bcf29bc437e37bc59f60ac32130803228590772e71b05b5df110420eec"
     },
     {
       "path": "portal.css",
@@ -249,8 +249,8 @@
     },
     {
       "path": "portal.js",
-      "bytes": 849,
-      "sha256": "ca233cc3c4a530c09a759f2dcfd98ec42ddf1ce8b55245a8b703a4ef8cf5dd2e"
+      "bytes": 831,
+      "sha256": "c1baa06e62645e38aed0d6edad3cec77e502dbd3e12721fb4a06f22c9876df3b"
     },
     {
       "path": "etapa.js",
@@ -341,6 +341,11 @@
       "path": "tests/ux-6.4-regression-check.mjs",
       "bytes": 6910,
       "sha256": "3462d799333b55cff3a53c4b586e0ec9ac1da6e72e0ba85e4a565f86fcd2b596"
+    },
+    {
+      "path": "tests/multipage-interaction-smoke.mjs",
+      "bytes": 2445,
+      "sha256": "430a936dfb949a8ccaa189a0393eae8ca0de4503d804cc2ddcb183c3b232759e"
     }
   ],
   "guidedPath": {
@@ -428,6 +433,7 @@
     "offlineShellOnly": true,
     "originalCurriculumUnchanged": true,
     "legacyAnchorRedirect": true,
-    "requiresBrowserQA": true
+    "requiresBrowserQA": true,
+    "interactionSmoke": true
   }
 }
