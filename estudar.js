@@ -208,33 +208,27 @@ function beginReview(){
  $('startReview').hidden=true;renderReview()
 }
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function quizQuestions(){
- const {chars}=components(),source=current.characters.filter(x=>x.meaning);
- return shuffle(chars.filter(x=>x.meaning)).slice(0,10).map(c=>{const distractors=shuffle(source.filter(x=>x.char!==c.char&&x.meaning!==c.meaning)).map(x=>x.meaning);
-  const options=[c.meaning];for(const choice of distractors){if(!options.includes(choice))options.push(choice);if(options.length===4)break}
-  return {char:c.char,correct:c.meaning,options:shuffle(options)}
- }).filter(q=>q.options.length===4)
-}
+function quizQuestions(){const {chars}=components();return pedagogia.assessment(chars,current.characters)}
 function renderExam(){
  const box=$('testCard');
  if(examAt>=exam.length){
-  const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.7);
-  const prev=progress();updateProgress({evaluated:passed||prev.evaluated,score,examTotal:exam.length,lastTestedAt:Date.now()});
-  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você acertou pelo menos sete questões e concluiu este passo.':'Você ainda não acertou sete questões. Revise os significados e tente novamente.')+'</p><p class="study-muted">Esta avaliação mede apenas reconhecimento de significados.</p>';
+  const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.8);
+  const prev=progress(),best=Math.max(prev.score||0,score);updateProgress({evaluated:passed||prev.evaluated,score:best,lastScore:score,examTotal:exam.length,lastTestedAt:Date.now(),missedCharacters:wrongChars,retentionDueAt:passed?(prev.retentionDueAt||Date.now()+pedagogia.DAY):prev.retentionDueAt});
+  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você reconheceu pelo menos oito significados nesta prova inicial.':'Reveja os caracteres que errou e tente novamente; são necessários oito acertos.')+'</p><p class="study-muted">Caracteres a rever: '+esc(wrongChars.join(' · ')||'nenhum')+'. Este exercício avalia somente significados.</p>';
   $('startTest').textContent='Tentar as perguntas novamente';
   return
  }
  const question=exam[examAt];
  box.innerHTML='<p class="study-muted">Questão '+(examAt+1)+' de '+exam.length+'</p><h4>Qual é o significado de <span lang="zh-Hans">'+esc(question.char)+'</span>?</h4><div class="quiz-options">'+question.options.map((option,i)=>'<button type="button" data-answer="'+i+'">'+esc(option)+'</button>').join('')+'</div><p class="quiz-feedback" id="testFeedback" aria-live="polite"></p><button type="button" class="study-button" id="advanceQuestion" hidden>Próxima pergunta →</button>';
  examLocked=false;box.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>{
-  if(examLocked)return;examLocked=true;const answer=question.options[Number(b.dataset.answer)],right=answer===question.correct;if(right)score++;
+  if(examLocked)return;examLocked=true;const answer=question.options[Number(b.dataset.answer)],right=answer===question.correct;if(right)score++;else wrongChars.push(question.char);
   box.querySelectorAll('[data-answer]').forEach(el=>{el.disabled=true;el.setAttribute('aria-pressed',String(el===b))});
   $('testFeedback').textContent=right?'Correto.':'Resposta correta: '+question.correct;
   $('advanceQuestion').hidden=false;$('advanceQuestion').textContent=examAt===exam.length-1?'Ver resultado →':'Próxima pergunta →';
  }));
  $('advanceQuestion').addEventListener('click',()=>{examAt++;renderExam()})
 }
-function startTest(){if(!current)return;exam=quizQuestions();examAt=0;score=0;if(exam.length<5){$('testCard').innerHTML='<p>Questões insuficientes nesta unidade.</p>';return}renderExam()}
+function startTest(){if(!current)return;exam=quizQuestions();examAt=0;score=0;wrongChars=[];if(exam.length!==components().chars.length){$('testCard').innerHTML='<p>Questões insuficientes nesta unidade.</p>';return}renderExam()}
 function registerEvents(){
  $('studyStage').addEventListener('change',()=>{const n=Number($('studyStage').value),record=readJourney().last||{};loadStage(n,Number(legacyState().unitsByStage?.[n]||1),'aprender',true)});
  $('studyUnit').addEventListener('change',()=>selectUnit(Number($('studyUnit').value)));
