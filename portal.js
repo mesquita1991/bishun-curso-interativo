@@ -10,8 +10,9 @@ if(resume){
   const limits=[30,30,30,30,30,30,40,40,40];
   unit=Math.max(1,Math.min(limits[stage-1],Number(last.unit||saved.unitsByStage?.[stage]||saved.unit)||1));
  }catch{}
- resume.href='estudar.html?etapa='+stage+'&unidade='+unit;
- resume.textContent=hasProgress?'Continuar: etapa '+stage+', unidade '+unit:'Abrir minha primeira unidade';
+ const r=flow.units?.[stage+':'+unit]||{};const reviewDue=Boolean(r.retentionDueAt&&r.retentionDueAt<=Date.now()&&!(r.retentionCheckedAt>=r.retentionDueAt&&r.retentionRemembered>=r.retentionTotal*.8));
+ resume.href='estudar.html?etapa='+stage+'&unidade='+unit+(reviewDue?'&modo=revisar':'');
+ resume.textContent=reviewDue?'Rever o que aprendi na unidade '+unit:hasProgress?'Continuar: etapa '+stage+', unidade '+unit:'Abrir minha primeira unidade';
 }
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
