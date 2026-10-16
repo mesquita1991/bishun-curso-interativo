@@ -1,0 +1,6 @@
+(()=>{
+'use strict';
+const routes={"treinador":"laboratorio.html","mnemonicos-visuais":"laboratorio.html","laboratorio-integral":"laboratorio.html","programa-integral":"mapa.html","mapa-etapas":"mapa.html","unidades-integrais":"mapa.html","jornada":"etapa-1.html","atlas-integral":"catalogo.html#caracteres","vocabulario-integral":"catalogo.html#palavras","vocabulario":"catalogo.html#palavras","gramatica-integral":"catalogo.html#gramatica","gramatica-300":"catalogo.html#gramatica","silabas-integral":"catalogo.html#silabas","lexico-pos":"catalogo.html#palavras","revisao":"avaliacao.html#revisao","revisao-integral":"avaliacao.html#revisao","prova-300":"avaliacao.html#prova","prova-integral":"avaliacao.html#prova","validacao-v6":"avaliacao.html#validacao","benchmark-v6":"avaliacao.html#validacao","matriz-v6":"avaliacao.html#validacao","plano-v6":"avaliacao.html#validacao","dominio-real":"avaliacao.html#validacao"};
+function forSection(raw){let id='';try{id=decodeURIComponent(String(raw||'').replace(/^#/,''))}catch{id=String(raw||'').replace(/^#/,'')}return routes[id]||('aulas.html'+(id?'#'+encodeURIComponent(id):''))}
+window.BishunRoutes=Object.freeze({routes,forSection});
+})();
