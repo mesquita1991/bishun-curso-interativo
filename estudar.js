@@ -169,8 +169,8 @@ async function runWriting(type){
   $('writingFeedback').textContent='Agora tente escrever na ordem mostrada. Você pode usar o dedo ou o mouse.';
   writer.quiz({showHintAfterMisses:2,onComplete:result=>{
    if(char!==writerChar||!current||seq!==writingTicket)return;
-   updateProgress({written:true,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0});
-   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). Atividade registrada.'
+   const p=progress(),writtenChars=[...new Set([...(p.writtenChars||[]),char])];updateProgress({writtenChars,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0,writingAttempts:(p.writingAttempts||0)+1});writingCoverage();
+   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). Continue até praticar três caracteres diferentes.'
   }});
  }catch(e){console.error(e);$('writerFrame').innerHTML='<span class="writer-hanzi" lang="zh-Hans">'+esc(char)+'</span>';$('writingFeedback').textContent='A animação exige acesso ao motor externo. O conteúdo e o áudio permanecem disponíveis.'}
 }
