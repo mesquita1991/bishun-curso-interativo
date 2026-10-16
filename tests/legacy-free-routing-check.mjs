@@ -10,7 +10,7 @@ for(const file of [...pages,...js]){
 }
 assert.ok(!read('etapa.js').includes('curso.html'),'Dynamic stage links must never return to monolith');
 assert.ok(read('etapa.js').includes('laboratorio.html?etapa='),'Stage page should pass current stage to trainer');
-assert.ok(read('portal.js').includes("progress.href='etapa-'+n+'.html'"),'Resume must open progressive stage');
+assert.ok(read('portal.js').includes("resume.href='estudar.html?etapa='"),'Resume must open same study unit');
 const legacy=read('curso.html');
 assert.ok(legacy.length<1600,'Old route must be lightweight redirect, not full app');
 assert.ok(legacy.includes('window.BishunRoutes.forSection(location.hash)'),'Every old hash must be mapped before page UI');
