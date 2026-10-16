@@ -109,8 +109,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6092,
-      "sha256": "79e9e41e6ed578d5a658a0a07b32e793dc6b6be8c6cb2fc692d53b860b24921f"
+      "bytes": 6111,
+      "sha256": "32e08449bf43af5c01bf0c0e1cc96869e9ff86b53de78289c59739292d3acaf2"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -134,8 +134,8 @@
     },
     {
       "path": "tests/ux-6.6-regression-check.mjs",
-      "bytes": 8112,
-      "sha256": "7dba640326ecff1bfd6cf0518729cfe5ebaf408ea8166cbdea9f3961a30e755f"
+      "bytes": 8131,
+      "sha256": "3975d1fae9ba6e48b132980c7cc1a72d5983226996e4f86eed413f36990c22eb"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
@@ -159,8 +159,8 @@
     },
     {
       "path": "tests/ux-6.7-regression-check.mjs",
-      "bytes": 3638,
-      "sha256": "7c3dca603695a8d06216de5cbbf2ce9721cbe37ebf44fb82af618f0d84db00b3"
+      "bytes": 3657,
+      "sha256": "82335f798b20b4082879c09df73b01691d8a383546a5c6e3760b85b7dd851178"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4375,
-      "sha256": "b51e4f02bebb5b042ef5726e34b6994e5b6185351b85f7cb715e2145ad5ba888"
+      "bytes": 4394,
+      "sha256": "f36bacb35dcf75c76790bfab0e0a5da0badb6e4e5d1ca368df1a7ab8839a9685"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -214,13 +214,13 @@
     },
     {
       "path": "tests/ux-regression-check.mjs",
-      "bytes": 12186,
-      "sha256": "f51a92ddad8bc7dc00d03660faedfa4ef54331ff189f12ee5e3a97f84ff32a51"
+      "bytes": 12205,
+      "sha256": "4bb02fda8f34f4dec79c2a5da24d1060fa075bfd3f302fcf6dd6a7da85be10ec"
     },
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
-      "bytes": 1350,
-      "sha256": "57d6052e6d3cfac5352b7cee8a9c4a615a86b3999279530808d36579c2c352b0"
+      "bytes": 1369,
+      "sha256": "fc0fb5c9d07e948d5760fbbe62f84b86c98d20e7b4c5a4fe7e60eb2ef51b6d69"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -334,13 +334,13 @@
     },
     {
       "path": "tests/multipage-performance-check.mjs",
-      "bytes": 3406,
-      "sha256": "271e470bb4d9bec068193118feb91a9680c552c06c56a7394fd73864c1e1b7b3"
+      "bytes": 3424,
+      "sha256": "231d7639d39553060b734496148e9add805297a0aac82b5f0969b47e978a826b"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
-      "bytes": 6910,
-      "sha256": "3462d799333b55cff3a53c4b586e0ec9ac1da6e72e0ba85e4a565f86fcd2b596"
+      "bytes": 6929,
+      "sha256": "f3fbf9c121cb7f8b071f4a68a84a762e1dc24a80cf26fb76e7b3a5da7ede5280"
     },
     {
       "path": "tests/multipage-interaction-smoke.mjs",
@@ -349,8 +349,8 @@
     },
     {
       "path": "tests/multipage-browser-smoke.mjs",
-      "bytes": 3151,
-      "sha256": "a010a6ae2fb0a54b791ece107923d40058c1311874dc10b6360e7a47a6b0e72f"
+      "bytes": 4755,
+      "sha256": "7cd3462e8ae17505dc08f87ad7fbfe4928bd225af13e0d2889a674595a4d12a4"
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
