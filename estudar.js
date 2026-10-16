@@ -240,7 +240,7 @@ function registerEvents(){
  $('learnCharacters').addEventListener('click',e=>{const btn=e.target.closest('[data-say]');if(btn)speak(btn.dataset.say)});
  $('prevChunk').addEventListener('click',()=>{learnChunk=Math.max(0,learnChunk-1);paintChunk()});
  $('nextChunk').addEventListener('click',()=>{learnChunk=Math.min(pedagogia.chunks(components().chars,2).length-1,learnChunk+1);paintChunk()});
- $('finishLearn').addEventListener('click',()=>{if(!current)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
+ $('finishLearn').addEventListener('click',()=>{if(!current)return;if($('finishLearn').disabled)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
  $('writeCharacter').addEventListener('change',()=>{writerChar=$('writeCharacter').value;paintWriter()});
  $('animateCharacter').addEventListener('click',()=>runWriting('animate'));
  $('quizWriting').addEventListener('click',()=>runWriting('quiz'));
