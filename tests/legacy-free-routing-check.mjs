@@ -1,6 +1,6 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>fs.readFileSync(p,'utf8');
-const pages=['index.html','base.html','imersao.html','validacao.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
+const pages=['index.html','base.html','imersao.html','validacao.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','estudar.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
 const js=['portal.js','etapa.js','laboratorio.js','catalogo.js','avaliacao.js','aulas.js','rotas.js'];
 for(const file of [...pages,...js]){
  const contents=read(file);
@@ -29,5 +29,5 @@ assert.equal(routes['laboratorio-integral'],'laboratorio.html');assert.equal(rou
 assert.equal(routes['prova-integral'],'avaliacao.html#prova');
 const sitemap=read('sitemap.xml');assert.ok(!sitemap.includes('/curso.html'),'Old route must not be indexed');for(const file of pages.filter(x=>!x.startsWith('etapa-')||true).slice(1))assert.ok(sitemap.includes(file),'Missing SEO entry '+file);
 assert.ok(read('sw.js').includes("bishun-offline-6.9.1"),'Old offline cache not invalidated');
-const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'6.9.1');
+const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'7.0.0');
 console.log(JSON.stringify({ok:true,version:pkg.version,livePages:pages.length,legacyLinks:0,historicalSections:sections.length,independentTools:4,oldRouteIsRedirect:true}));
