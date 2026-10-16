@@ -51,3 +51,4 @@ jobs:
         run: |
           node tests/multipage-browser-smoke.mjs
           node tests/unit-study-browser-smoke.mjs
+          node tests/site-design-browser-smoke.mjs
