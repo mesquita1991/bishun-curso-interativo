@@ -1,6 +1,6 @@
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8');
-const html=read('index.html'), js=read('ux-6.6.0.js'), css=read('ux-6.6.0.css'), inherited65=read('tests/ux-6.5-regression-check.mjs');
+const html=read('curso.html'), js=read('ux-6.6.0.js'), css=read('ux-6.6.0.css'), inherited65=read('tests/ux-6.5-regression-check.mjs');
 const assert=(v,m)=>{if(!v)throw new Error(m)};
 assert(html.includes('ux-6.6.0.css?v=6.6.0')&&html.includes('ux-6.6.0.js?v=6.6.0'),'6.6 assets missing');
 assert(html.indexOf('ux-6.6.0.css')>html.indexOf('ux-6.5.0.css'),'6.6 CSS must be additive after 6.5');
