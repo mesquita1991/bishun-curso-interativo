@@ -79,6 +79,7 @@ function renderLearn(){
  $('learnGrammar').innerHTML=grammar.map(g=>'<article class="grammar-item"><h5>'+esc(g.title)+'</h5><p class="pattern">'+esc(g.pattern)+'</p><p>'+esc(g.explanation||g.source?.content)+'</p>'+(g.examples||[]).slice(0,2).map(e=>'<p><span lang="zh-Hans">'+esc(e.zh)+'</span> · '+esc(e.pinyin)+' · '+esc(e.pt)+'</p>').join('')+'</article>').join('')||'<p>Nenhuma explicação gramatical adicional nesta unidade.</p>';
  $('learnSyllables').innerHTML=syllables.map(item=>'<span>'+esc(item.pinyin)+' <span lang="zh-Hans">'+esc(item.representative)+'</span></span>').join('')||'<p>Sem novas sílabas registradas.</p>';
 }
+function writingCoverage(){const r=pedagogia.writingCompletion(progress(),components().chars);$('writingCoverage').textContent=r.count+' de '+r.needed+' caracteres diferentes praticados'+(r.complete?' · concluído.':'.');}
 function renderWriting(){
  const {chars}=components();$('writeCharacter').innerHTML=chars.map(x=>'<option value="'+esc(x.char)+'">'+esc(x.char)+' · '+esc(x.pinyin)+' · '+esc(x.meaning)+'</option>').join('');
  writerChar=chars[0]?.char||'';paintWriter();
@@ -90,7 +91,7 @@ function paintWriter(){
  $('writeHanzi').textContent=writerChar||'';
  $('writePinyin').textContent=c?.pinyin||'';
  $('writeMeaning').textContent=c?.meaning||'';
- $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.'
+ $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.';writingCoverage()
 }
 const studentGuidance={
  aprender:['Passo 1 de 4','Conhecer e ouvir','Leia os caracteres, ouça a pronúncia e conheça os significados. Quando terminar, escolha o botão para praticar a escrita.'],
