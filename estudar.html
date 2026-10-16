@@ -60,8 +60,8 @@
 <div class="panel-actions"><button id="finishLearn" type="button" class="study-button">Já li e ouvi · vou praticar a escrita <span aria-hidden="true">→</span></button></div>
 </section>
 <section id="panel-escrever" class="activity-panel" role="tabpanel" aria-labelledby="tab-escrever" hidden>
-<div class="panel-lead"><h3>Aprenda a desenhar os caracteres</h3><p>Escolha um caractere, observe a ordem dos traços e tente escrevê-lo. Você pode repetir quantas vezes precisar.</p></div>
-<label class="inline-field" for="writeCharacter">Caractere <select id="writeCharacter"></select></label>
+<div class="panel-lead"><h3>Aprenda a desenhar os caracteres</h3><p>Observe os traços e escreva três caracteres diferentes da unidade. Esta prática não comprova domínio completo da escrita.</p></div>
+<p id="writingCoverage" class="study-muted" aria-live="polite">0 de 3 caracteres praticados.</p><label class="inline-field" for="writeCharacter">Caractere <select id="writeCharacter"></select></label>
 <div class="writer-layout">
 <div class="writer-frame" id="writerFrame" aria-label="Área de escrita"><span class="writer-hanzi" id="writerFallback" lang="zh-Hans">字</span></div>
 <div class="writer-detail"><strong class="writer-character" lang="zh-Hans" id="writeHanzi">字</strong><span id="writePinyin"></span><p id="writeMeaning"></p><p id="writingFeedback" aria-live="polite">Ouça, anime ou pratique a escrita para começar.</p>
@@ -69,13 +69,13 @@
 <div class="panel-actions"><button type="button" class="study-button secondary" id="skipToReview">Já pratiquei · quero tentar lembrar <span aria-hidden="true">→</span></button></div>
 </section>
 <section id="panel-revisar" class="activity-panel" role="tabpanel" aria-labelledby="tab-revisar" hidden>
-<div class="panel-lead"><h3>Você lembra o que cada caractere significa?</h3><p>Veja o caractere, tente lembrar seu significado sem olhar e depois revele a resposta. Diga se lembrou, teve dificuldade ou não lembrou.</p></div>
+<div class="panel-lead"><h3>Você lembra o que cada caractere significa?</h3><p>Tente lembrar antes de revelar a resposta. Na primeira visita, pratique os itens novos; ao retornar, revise os itens vencidos.</p></div>
 <p id="reviewContext" class="study-muted">Se um caractere for novo, esta será sua primeira tentativa de lembrá-lo.</p>
 <div id="reviewCard" class="quiz-box"><p>Inicie a revisão quando estiver preparado.</p></div>
 <div class="panel-actions"><button type="button" id="startReview" class="study-button">Começar a lembrar</button><button type="button" id="reviewToTest" class="study-button secondary" hidden>Conferir o que aprendi <span aria-hidden="true">→</span></button></div>
 </section>
 <section id="panel-avaliar" class="activity-panel" role="tabpanel" aria-labelledby="tab-avaliar" hidden>
-<div class="panel-lead"><h3>Confira o que você consegue reconhecer</h3><p>Responda a dez perguntas sobre o significado dos caracteres. Ao acertar pelo menos sete, você conclui este passo. Se precisar, pode voltar e tentar de novo.</p></div>
+<div class="panel-lead"><h3>Confira o que você consegue reconhecer</h3><p>Confira o significado de todos os dez caracteres. Oito acertos em dez concluem a atividade; volte depois para verificar sua memória.</p></div>
 <div id="testCard" class="quiz-box"><p>Escolha a resposta que corresponde ao significado de cada caractere. Este exercício verifica apenas o reconhecimento dos significados.</p></div>
 <div class="panel-actions"><button type="button" id="startTest" class="study-button">Responder às dez perguntas</button></div>
 </section>
