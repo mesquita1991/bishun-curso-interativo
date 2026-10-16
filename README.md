@@ -1,3 +1,21 @@
+# Bǐshùn 7.0.1 — percurso do aluno e execuções controladas
+
+## Jornada de aprendizagem exibida ao estudante
+
+A página inicial prioriza o que o estudante realmente faz, sem explicações sobre arquitetura ou carregamento: **Conhecer e ouvir → Observar e escrever → Lembrar sem olhar → Conferir o que aprendeu**. O botão principal abre a primeira unidade e a retomada abre a unidade registrada anteriormente. As nove etapas continuam acessíveis em seção secundária, sem competir com a próxima atividade.
+
+Em `estudar.html`, cada passo apresenta uma orientação prática: o que observar ou tentar, como concluir e o que fazer depois. Os textos dos botões e mensagens explicam a ação do aluno. Isso não altera os critérios de conclusão: leitura marcada, ao menos um exercício de escrita finalizado, itens da sessão de memória respondidos e avaliação de significados com pelo menos sete acertos em dez questões.
+
+## Política de uso responsável do GitHub Actions
+
+Há **um pipeline automático** em `.github/workflows/ux681-gate.yml`. Ele executa `npm run check` primeiro; **somente se passar** instala e executa o Chromium. A chave de `concurrency` identifica PR/branch e `cancel-in-progress: true` cancela verificações obsoletas quando há uma atualização. O antigo pipeline duplicado de navegador (`.github/workflows/multipage-browser-qa.yml`) passou a ser **somente manual** (`workflow_dispatch`).
+
+As alterações devem ser reunidas em uma branch e verificadas antes da abertura de um único PR. Não há loop de tentativas automáticas após falha. Diante de um erro de código, corrige-se o código e publica-se nova revisão; diante de erros temporários da infraestrutura ou `403/429`, deve-se respeitar `Retry-After` ou aguardar pelo menos um minuto com backoff exponencial, sem insistir indefinidamente. Uma tentativa manual de reexecução pode ser feita após examinar a causa, jamais um ciclo de reexecuções.
+
+A estratégia evita **runs duplicados e testes pesados de mudanças já inválidas**, sem prometer um limite fixo de consumo da API.
+
+---
+
 # Bǐshùn 7.0 — área de estudo por unidade
 
 A interface de estudo central é `estudar.html`. Ela carrega somente o inventário JSON da etapa selecionada (1 a 9) e exibe uma unidade por vez, com **quatro atividades na mesma tela**: Aprender, Escrever, Revisar e Avaliar.

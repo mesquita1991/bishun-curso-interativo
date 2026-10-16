@@ -1,0 +1,29 @@
+/* Home de aprendizagem 7.0.1: clareza da jornada antes de estatísticas e recursos */
+.journey-hero{padding:48px 0 24px}
+.journey-hero h1{max-width:19ch}
+.journey-small{color:var(--muted);font-size:.84rem;margin:12px 0 0}
+.journey-example{display:flex;flex-direction:column;justify-content:center}
+.journey-example>strong{font-size:5.1rem}
+.journey-example .journey-pinyin{font-size:1.3rem;color:#204caa;font-weight:700;margin:-3px 0 7px}
+.journey-example h2{font-size:1.2rem;margin:0 0 8px}
+.journey-example a{font-weight:750;margin-top:13px}
+.journey-route{padding:29px 0}
+.journey-steps{list-style:none;padding:0;margin:20px 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.journey-steps li{border:1px solid var(--line);border-radius:19px;background:#fff;padding:20px 17px;display:flex;flex-direction:column;gap:15px}
+.journey-number{width:38px;height:38px;background:#eaf0ff;color:#1e469c;border-radius:50%;display:grid;place-items:center;font-weight:850}
+.journey-steps h3{font-size:1.02rem;margin:0 0 8px}
+.journey-steps p{font-size:.9rem;color:#43516c;line-height:1.5;margin:0 0 12px}
+.journey-steps small{color:#64718a;font-size:.78rem;line-height:1.4;display:block}
+.journey-summary{background:#e9efff;border:1px solid #cfdbf6;border-radius:17px;padding:20px;display:flex;gap:24px;align-items:center;justify-content:space-between}
+.journey-summary strong{color:#163a86;font-size:1.13rem}
+.journey-summary p{font-size:.92rem;color:#41516d;margin:4px 0 0}
+.journey-summary .button{flex-shrink:0}
+.journey-support{margin-top:16px}
+.journey-stages details{border:1px solid var(--line);background:#fff;padding:18px;border-radius:17px}
+.journey-stages summary{font-weight:750;color:#1d479c;cursor:pointer}
+.journey-stages .stage-grid{margin:18px 0 12px}
+.journey-continuity{border-top:1px solid var(--line);margin-top:20px}
+.journey-continuity>p{max-width:80ch;color:#53617b}
+@media(max-width:1050px){.journey-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.journey-hero{padding-top:28px}.journey-example>strong{font-size:3.5rem}}
+@media(max-width:600px){.journey-steps{grid-template-columns:1fr}.journey-steps li{flex-direction:row;gap:16px}.journey-number{flex-shrink:0}.journey-summary{flex-direction:column;align-items:stretch;gap:16px}.journey-hero .actions .button{width:100%}.topnav{flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;max-width:100%;padding-bottom:5px}.topbar .wrap{max-width:100%;padding-inline:16px}.journey-example{padding:18px 20px}.journey-small{line-height:1.5}}

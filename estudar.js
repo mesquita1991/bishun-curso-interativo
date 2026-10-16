@@ -40,13 +40,13 @@ function paintProgress(){
  $('unitProgressPct').textContent=done*25+'%';
  $('unitProgressBar').setAttribute('aria-valuenow',String(done));
  $('unitProgressFill').style.width=done*25+'%';
- $('completionLabel').textContent=done===4?'Unidade concluída':done+' de 4 concluídas';
+ $('completionLabel').textContent=done===4?'Você concluiu os quatro passos':done===0?'Comece conhecendo os caracteres':done+' de 4 passos realizados';
  $('completionLabel').classList.toggle('complete',done===4);
  document.querySelectorAll('[data-progress]').forEach(el=>{const status=Boolean(p[stepFields[el.dataset.progress]]);el.classList.toggle('done',status);el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
  const next=modes.find(m=>!p[stepFields[m]]);
- $('nextSuggested').textContent=next?'Próxima atividade: '+({aprender:'Aprender',escrever:'Escrever',revisar:'Revisar',avaliar:'Avaliar'})[next]:'As quatro atividades foram concluídas';
- $('nextDescription').textContent=next?'Use as abas para continuar, sem mudar de unidade.':'Você pode avançar ou refazer qualquer atividade para consolidar.';
- $('finishLearn').textContent=p.learned?'Leitura registrada · seguir para escrita →':'Concluir leitura e seguir para escrita →';
+ $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você passou pelos quatro passos';
+ $('nextDescription').textContent=next?'Escolha esse passo acima e continue quando estiver pronto.':'Avance para outra unidade ou refaça um passo que queira praticar.';
+ $('finishLearn').textContent=p.learned?'Já conheci o conteúdo · continuar a escrita →':'Já li e ouvi · vou praticar a escrita →';
  const buttons=$('unitIndex').querySelectorAll('button[data-unit]');
  buttons.forEach(b=>{const s=readJourney().units[stage+':'+b.dataset.unit]||{};b.classList.toggle('complete',['learned','written','reviewed','evaluated'].every(x=>s[x]));b.classList.toggle('active',Number(b.dataset.unit)===unit)});
 }
@@ -69,10 +69,17 @@ function paintWriter(){
  $('writeHanzi').textContent=writerChar||'';
  $('writePinyin').textContent=c?.pinyin||'';
  $('writeMeaning').textContent=c?.meaning||'';
- $('writingFeedback').textContent='Use Animar para observar os traços ou Praticar escrita para desenhá-los.'
+ $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.'
 }
+const studentGuidance={
+ aprender:['Passo 1 de 4','Conhecer e ouvir','Leia os caracteres, ouça a pronúncia e conheça os significados. Quando terminar, escolha o botão para praticar a escrita.'],
+ escrever:['Passo 2 de 4','Observar e escrever','Veja a ordem dos traços e tente escrever pelo menos um caractere. Você pode repetir antes de seguir.'],
+ revisar:['Passo 3 de 4','Lembrar sem olhar','Pense no significado de cada caractere antes de revelar a resposta. Diga se lembrou ou não.'],
+ avaliar:['Passo 4 de 4','Conferir o que aprendeu','Responda às dez perguntas. Sete acertos concluem este passo; se precisar, volte a praticar.']
+};
 function setMode(next,{historyMode=false,focus=false}={}){
  if(!modes.includes(next))next='aprender';mode=next;
+ const guidance=studentGuidance[mode];$('studentStepNumber').textContent=guidance[0];$('studentGoal').textContent=guidance[1];$('studentAction').textContent=guidance[2];
  for(const m of modes){const tab=$('tab-'+m),panel=$('panel-'+m),active=m===mode;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;panel.hidden=!active}
  if(current){rememberContext();setURL(historyMode);takeHide()}
  if(focus)$('tab-'+mode).focus({preventScroll:true})
@@ -87,10 +94,10 @@ function paintUnit(){
  $('studyUnit').value=String(unit);
  renderLearn();renderWriting();
  reviewItems=[];reviewAt=0;exam=[];examAt=0;
- $('reviewCard').innerHTML='<p>Inicie a revisão quando estiver preparado.</p>';
- $('reviewContext').textContent=progress().learned?'Você já registrou a leitura da unidade.':'Itens novos podem aparecer como prática inicial, não como revisão vencida.';
- $('startReview').hidden=false;$('reviewToTest').hidden=true;$('testCard').innerHTML='<p>Inicie quando desejar. Esta avaliação mede reconhecimento de significados.</p>';
- $('startTest').textContent='Iniciar avaliação da unidade';
+ $('reviewCard').innerHTML='<p>Comece quando estiver pronto. Tente lembrar antes de revelar a resposta.</p>';
+ $('reviewContext').textContent=progress().learned?'Agora tente lembrar o significado sem consultar a lista de caracteres.':'Se ainda não conhece alguns caracteres, use este exercício como primeira prática de memória.';
+ $('startReview').hidden=false;$('reviewToTest').hidden=true;$('testCard').innerHTML='<p>Escolha o significado correto de cada caractere. Este exercício verifica apenas o reconhecimento dos significados.</p>';
+ $('startTest').textContent='Responder às dez perguntas';
  paintProgress();
  $('prevUnit').disabled=stage===1&&unit===1;
  $('nextUnit').disabled=stage===9&&unit===40;
@@ -136,8 +143,8 @@ async function runWriting(type){
   if(seq!==writingTicket||char!==writerChar||mode!=='escrever')return;
   const frame=$('writerFrame');frame.innerHTML='';const size=Math.min(290,frame.clientWidth||290);
   writer=lib.create(frame,char,{width:size,height:size,padding:25,showOutline:true,showCharacter:true,strokeColor:'#224b9a',outlineColor:'#cbd9ec',highlightColor:'#db8129',drawingColor:'#1f4aa8',drawingWidth:8});
-  if(type==='animate'){writer.animateCharacter();$('writingFeedback').textContent='Observe a sequência dos traços.';return}
-  $('writingFeedback').textContent='Desenhe os traços com mouse ou toque seguindo a ordem.';
+  if(type==='animate'){writer.animateCharacter();$('writingFeedback').textContent='Observe por onde começa cada traço e a ordem até completar o caractere.';return}
+  $('writingFeedback').textContent='Agora tente escrever na ordem mostrada. Você pode usar o dedo ou o mouse.';
   writer.quiz({showHintAfterMisses:2,onComplete:result=>{
    if(char!==writerChar||!current||seq!==writingTicket)return;
    updateProgress({written:true,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0});
@@ -160,9 +167,9 @@ function grade(item,q){
 }
 function renderReview(){
  const box=$('reviewCard');
- if(reviewAt>=reviewItems.length){updateProgress({reviewed:true,reviewCount:reviewRatings,reviewedAt:Date.now()});box.innerHTML='<h4>Prática de recuperação concluída</h4><p>Você classificou '+reviewRatings+' itens desta unidade. Os registros foram atualizados neste navegador.</p>';$('reviewToTest').hidden=false;$('startReview').textContent='Repetir revisão';$('startReview').hidden=false;return}
+ if(reviewAt>=reviewItems.length){updateProgress({reviewed:true,reviewCount:reviewRatings,reviewedAt:Date.now()});box.innerHTML='<h4>Você terminou este exercício de memória</h4><p>Você tentou lembrar '+reviewRatings+' caracteres ou palavras. Agora confira o que aprendeu.</p>';$('reviewToTest').hidden=false;$('startReview').textContent='Tentar lembrar novamente';$('startReview').hidden=false;return}
  const item=reviewItems[reviewAt];
- box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Prática inicial':'Revisão')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
+ box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':'Já visto antes')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
  $('revealAnswer').addEventListener('click',()=>{$('reviewAnswer').hidden=false;$('revealAnswer').hidden=true});
  box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{grade(item,Number(btn.dataset.grade));reviewRatings++;reviewAt++;renderReview()}))
 }
@@ -180,8 +187,8 @@ function renderExam(){
  if(examAt>=exam.length){
   const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.7);
   const prev=progress();updateProgress({evaluated:passed||prev.evaluated,score,examTotal:exam.length,lastTestedAt:Date.now()});
-  box.innerHTML='<h4>Resultado da avaliação</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Critério desta atividade alcançado.':'Ainda não alcançou o critério de 70%. Revise os conteúdos e tente novamente.')+'</p><p class="study-muted">Esta avaliação mede apenas reconhecimento de significados.</p>';
-  $('startTest').textContent='Refazer avaliação';
+  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você acertou pelo menos sete questões e concluiu este passo.':'Você ainda não acertou sete questões. Revise os significados e tente novamente.')+'</p><p class="study-muted">Esta avaliação mede apenas reconhecimento de significados.</p>';
+  $('startTest').textContent='Tentar as perguntas novamente';
   return
  }
  const question=exam[examAt];
@@ -221,7 +228,7 @@ function registerEvents(){
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
-  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.0.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.0.1',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
   if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
  },{once:true})
 }

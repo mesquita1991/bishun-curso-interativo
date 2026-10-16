@@ -1,6 +1,6 @@
 {
-  "version": "7.0.0",
-  "generatedAt": "2026-10-16T17:00:00Z",
+  "version": "7.0.1",
+  "generatedAt": "2026-10-16T20:11:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7416,
-      "sha256": "71fa2f4e550aaa685ae82c02e98ceb03a324ddf9a155682db1f5810813fdc016"
+      "bytes": 8131,
+      "sha256": "9915b9c077b62e4b2cd05fe4a5d7c6cce73ecf3f3fb4d09b8f02fff49ca47549"
     },
     {
       "path": "styles.css",
@@ -89,18 +89,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 553,
-      "sha256": "faa196b28b43e84d77afe50c5854f7590b1b01613cbb4aa798220b78fc198152"
+      "bytes": 554,
+      "sha256": "4abdb729c80ef25f2c67d719cda2f1f405f9295c08bc8b2a907906e562f2ff31"
     },
     {
       "path": "package.json",
-      "bytes": 1493,
-      "sha256": "15545ceca243f8285bd7ae74299012384c58e2d1654b40c1442451a438c8ca3a"
+      "bytes": 1528,
+      "sha256": "af39c0302317a82ede1c0a005803f7a4324bcf55a1e928ba47d1a7cf97b1b931"
     },
     {
       "path": "README.md",
-      "bytes": 12400,
-      "sha256": "9d104df9c91e4bded5c9832d0c96bc66c4a53f3c39d5adab565f88d997967e0a"
+      "bytes": 14497,
+      "sha256": "2dc13ca6bb91ec8c8767ccc12485750efac275a95fa84093a141fe84649211d9"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4431,
-      "sha256": "d2f1bff6a364e4e39c3bbf7c007909bbfd624e74d109d61689baa1b199cb78a4"
+      "bytes": 4434,
+      "sha256": "bd32cfad531d60990cd3da594e931a5e9e9f6b89a0901da01c2354875a72c223"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1819,
-      "sha256": "8360b3bb42395ac74c9f5d3a77f2b87951acb85283ead3fd3c40f47cd018a67c"
+      "bytes": 1843,
+      "sha256": "940de79526a3f9265b91ec6d96229bc6687018e6c0370e8ca95b6b27b9ced1ee"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "a5ba158fc356a9d4cdb0921a633283fc611a2195b0b395b15116884fc9a555b3"
+      "sha256": "9faa7422b4470ae4f8a98aa01da03e24fce69912445371eb82b8a553e624eb26"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -249,73 +249,73 @@
     },
     {
       "path": "portal.js",
-      "bytes": 1129,
-      "sha256": "3da729731d41570bbf9196d10cd26e7b3d58f54f6f5d9a3be90d8fa61a5db3f5"
+      "bytes": 1137,
+      "sha256": "2959bcd0c3e801c6ec8c5503033a1821c92cc2effca061d1f4f47785fbb600f4"
     },
     {
       "path": "etapa.js",
       "bytes": 6209,
-      "sha256": "fec09e43bf700350983b7c91ac443cddf15f9ee3fd7c8e2b5506fcaa354e2c86"
+      "sha256": "28f142e366be5e7a594410e23084abcf6c72190b77f43ce8664ec21d1a301ed9"
     },
     {
       "path": "base.html",
       "bytes": 5020,
-      "sha256": "4c9277fb0b7b812d243d054f923605c5bb67a2269df091d60543ff4ce4e6bf98"
+      "sha256": "b7f3ad2846c429c41490a8fed24365a33f95dc68e54c26e33bbacbd1e70aa30d"
     },
     {
       "path": "imersao.html",
       "bytes": 3819,
-      "sha256": "ffa9cd0bb3c406a0bf92c2b69b47fa7135dde87aa617b5a150b8b76fbb340393"
+      "sha256": "9821af0d6ae750731a501d07b3704ad32bb96ccbd4c172c5d28bafe6152cd934"
     },
     {
       "path": "validacao.html",
       "bytes": 3959,
-      "sha256": "0f90c5bd38884a6174d11a572e1f9617ba273d1d0d5a6caa34f29cdb5c0befe9"
+      "sha256": "29ac036ddb9ce9f71496243d65807157e62b4b75adaac7d783d5174b2cbb8a9a"
     },
     {
       "path": "etapa-1.html",
-      "bytes": 4654,
-      "sha256": "f0f6bc6d9d5138ac2400645f3d1c3229e8cb7d3cee750f80adc63915ac2593cb"
+      "bytes": 4603,
+      "sha256": "b4bc73e786295334ed6c2c1bf09af3663b4cf922439904bce35eb0956988ceb1"
     },
     {
       "path": "etapa-2.html",
-      "bytes": 4720,
-      "sha256": "38a8395cfb278201cbb17704877a281c5fddc16b26e146a1feebb524e89fc954"
+      "bytes": 4669,
+      "sha256": "bdcbce0696878fb5110408cb8d9a62ea8c011b81a81e3e40c19f0fffa6f66a71"
     },
     {
       "path": "etapa-3.html",
-      "bytes": 4720,
-      "sha256": "4faa286fa82f16b59b832820935760f97db82a367defacdb2b2b8bfd3ff9db6a"
+      "bytes": 4669,
+      "sha256": "6a87cac41277f46827b5409ec3c61265916a33db0708e9eb55d9c088c7098106"
     },
     {
       "path": "etapa-4.html",
-      "bytes": 4724,
-      "sha256": "31aecfbc07b67c02a718fde11cd8527a20922213e92abee5d0feb842750b3bc3"
+      "bytes": 4673,
+      "sha256": "dc0260b4f5958f45e85a486e766c3cd716b723f0860d6b0302d1101f959188a3"
     },
     {
       "path": "etapa-5.html",
-      "bytes": 4724,
-      "sha256": "c42ea366fc1935f6b346ddadc455ec823195df57e57c8931049316e9cb6748bb"
+      "bytes": 4673,
+      "sha256": "c3f75e207b72de0ca6bdfe936948a4e05ed1133a30fa28c3b16be5d730da86f3"
     },
     {
       "path": "etapa-6.html",
-      "bytes": 4724,
-      "sha256": "98db29ad0d27145d84e1c6d0ed2c1af3ff43c4a0b4100761aa5d140a2e05919f"
+      "bytes": 4673,
+      "sha256": "bef2274c0cd36d9bd57789ef0976627de1907ad6173f2664e007176a2d8d3b88"
     },
     {
       "path": "etapa-7.html",
-      "bytes": 4766,
-      "sha256": "ab92cea394ef86f508c971f784be6b800d9896a0f8780f17c7ee2bd6b95f3ab7"
+      "bytes": 4715,
+      "sha256": "c349440994fffd06067e227637916f8b2908cd3d8e5f8b53a2d8a4cf0d60c9e1"
     },
     {
       "path": "etapa-8.html",
-      "bytes": 4766,
-      "sha256": "ca5fb88907e4671d5310e39fd7c66da6bdf9e9fad1c21df6d83451f091289b16"
+      "bytes": 4715,
+      "sha256": "a68bc1cd27c790661cb0feee7dcd860682ddf06e90c0b1aa4d7173a65a46d979"
     },
     {
       "path": "etapa-9.html",
-      "bytes": 4765,
-      "sha256": "a0335a103fb469afef8a70592b52da22013a814ca1b7cdf7ff9e37565f893eeb"
+      "bytes": 4714,
+      "sha256": "bc1d26318cb4bcb2574a62d81fbc194a9b3f6d5a6fa75f1e7ff685fff3e4b2fb"
     },
     {
       "path": "sitemap.xml",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "9484bf798a87f78fe70b290675323f1d39434e902d53a4a17caa91e1f71d8008"
+      "sha256": "aab0bc485ad6a14d223cdff076e263f5d7786adff82737759976b723bcc05ffc"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -354,8 +354,8 @@
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
-      "bytes": 658,
-      "sha256": "04fe6b4754c2d3e93f6b73082414dba10e976321a6b95fe1bc2f4d6a527f1ce7"
+      "bytes": 889,
+      "sha256": "4836ab39f4b0ef2de61fce0ba2fcb14be2b6f0ed49ce86c4f4fe31e434ecdf8c"
     },
     {
       "path": "laboratorio.html",
@@ -424,33 +424,48 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "942a109414c6c1009975cd94827d64892647945be1f6a7c62ec6fbd90fe2d470",
+      "sha256": "062dd5d9103595d7ecdd0f92fead3da080798557c1dab2864a002967eb99183f",
       "bytes": 3492
     },
     {
       "path": "estudar.html",
-      "sha256": "7f386d108b61e6d8e41b3223678ff5b6047f5c27e4efb7d1334945d3dbc4c205",
-      "bytes": 9341
+      "sha256": "09de1e1dfca8820579f6f146bdc217dd20d8b25a5c5d5d3d9ab64ea1c8562c80",
+      "bytes": 10131
     },
     {
       "path": "estudar.css",
-      "sha256": "330c5ce2cd979c7a497a5c7543b6527f38fdda68bd2985ea7d716957cfeba086",
-      "bytes": 9972
+      "sha256": "63f2baa32b4af9fbdd5236aa355c621556c6720d95cb2b730b38b23da557fcda",
+      "bytes": 10951
     },
     {
       "path": "estudar.js",
-      "sha256": "f8189af7460b42622c2108a607644cb308d14a86a87d1166b567afa29b8080af",
-      "bytes": 21980
+      "sha256": "c69ec9bab460825c6946275696bf752b2bfad75ed8d86fde55dcf7186906764e",
+      "bytes": 23140
     },
     {
       "path": "tests/unit-study-check.mjs",
-      "sha256": "3c49b291f48ea34a42701fd4e2178fe9be583537ad9c0924278f544b53f0f614",
+      "sha256": "5e8787693fb970d5d811a274f6d1219c31fe2991f59d3e6587a8fe5326d75cfd",
       "bytes": 2126
     },
     {
       "path": "tests/unit-study-browser-smoke.mjs",
-      "sha256": "88571c988175deb0ca58e8c2b1530678cc50d96397f061fb657bf263423f0a7a",
-      "bytes": 4336
+      "sha256": "0a9fac2da5b72be14dbdedb12da244911d9653b2d32a685fc07f09a5fae6debd",
+      "bytes": 4351
+    },
+    {
+      "path": "jornada.css",
+      "bytes": 2551,
+      "sha256": "630b3ca14885b5ea5539030f46693ceda76743c7eedf27631944f000988b1efa"
+    },
+    {
+      "path": "tests/student-guidance-check.mjs",
+      "bytes": 2530,
+      "sha256": "f711378655d7ce7fda5062e0d94047edc437d95e460fd75e3a842532b0143581"
+    },
+    {
+      "path": ".github/workflows/ux681-gate.yml",
+      "bytes": 1662,
+      "sha256": "e5f3c4ead428e64ebf25e20e8744d99aa135b0be60211dc416e06ac80fd7f613"
     }
   ],
   "guidedPath": {
@@ -513,7 +528,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "7.0.0",
+    "version": "7.0.1",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -560,7 +575,7 @@
     "restoredVisualMnemonics": 48
   },
   "unitStudy": {
-    "version": "7.0.0",
+    "version": "7.0.1",
     "page": "estudar.html",
     "modes": [
       "aprender",
@@ -572,6 +587,14 @@
     "progressKey": "bishunUnitJourneyV70",
     "legacyContextKey": "bishunFullV4",
     "completion": "four explicitly tracked activities; exam threshold 70%, writing quiz >=1 completed",
-    "protectedCurriculumUnchanged": true
+    "protectedCurriculumUnchanged": true,
+    "studentJourney": "Conhecer e ouvir → Observar e escrever → Lembrar sem olhar → Conferir o que aprendeu",
+    "technicalTermsRemovedFromHome": true
+  },
+  "ciPolicy": {
+    "oneAutoWorkflow": true,
+    "fastBeforeBrowser": true,
+    "cancelSuperseded": true,
+    "noAutoRetry": true
   }
 }
