@@ -1,6 +1,7 @@
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
+const pedagogia=window.BishunPedagogy;if(!pedagogia)throw Error('Regras pedagógicas indisponíveis');
 const modes=['aprender','escrever','revisar','avaliar'],KEY='bishunUnitJourneyV70',LEGACY='bishunFullV4',DAY=86400000;
 const stepFields={aprender:'learned',escrever:'written',revisar:'reviewed',avaliar:'evaluated'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11,7 +12,7 @@ const readJourney=()=>{const s=readJSON(KEY);s.units=s.units&&typeof s.units==='
 const legacyState=()=>readJSON(LEGACY);
 const stageCache=new Map();
 let current=null,stage=1,unit=1,mode='aprender',ticket=0,stageLoading=false;
-let reviewItems=[],reviewAt=0,reviewRatings=0,exam=[],examAt=0,score=0,examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0;
+let reviewItems=[],reviewAt=0,reviewRatings=0,reviewRemembered=0,reviewDelayed=false,exam=[],examAt=0,score=0,wrongChars=[],examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0,learnChunk=0;
 const params=new URLSearchParams(location.search),old=legacyState(),previous=readJourney().last||{};
 const unitLimits=[30,30,30,30,30,30,40,40,40];
 const initialStage=bounds(params.get('etapa')||previous.stage||old.stage||1,1,9);
@@ -19,7 +20,7 @@ const initialUnit=bounds(params.get('unidade')||previous.unit||old.unitsByStage?
 const initialMode=modes.includes(params.get('modo'))?params.get('modo'):(modes.includes(previous.mode)?previous.mode:'aprender');
 function progressKey(){return stage+':'+unit}
 function progress(){const s=readJourney(),v=s.units[progressKey()]||{};return {learned:false,written:false,reviewed:false,evaluated:false,score:null,completedAt:null,...v}}
-function updateProgress(update){const s=readJourney(),key=progressKey(),next={...progress(),...update,updatedAt:Date.now()};const all=['learned','written','reviewed','evaluated'].every(x=>next[x]);if(all&&!next.completedAt)next.completedAt=Date.now();if(!all)next.completedAt=null;s.units[key]=next;s.last={stage,unit,mode};saveJSON(KEY,s);paintProgress();return next}
+function updateProgress(update){const s=readJourney(),key=progressKey(),next={...progress(),...update,updatedAt:Date.now()};const all=pedagogia.completePractice(next,components().chars).completed===4;if(all&&!next.completedAt)next.completedAt=Date.now();if(!all)next.completedAt=null;s.units[key]=next;s.last={stage,unit,mode};saveJSON(KEY,s);paintProgress();return next}
 function rememberContext(){
  const state=legacyState();state.stage=stage;state.unit=unit;state.unitsByStage=state.unitsByStage&&typeof state.unitsByStage==='object'&&!Array.isArray(state.unitsByStage)?state.unitsByStage:{};state.unitsByStage[stage]=unit;saveJSON(LEGACY,state);
  const flow=readJourney();flow.last={stage,unit,mode};saveJSON(KEY,flow)
