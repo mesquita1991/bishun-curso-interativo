@@ -269,13 +269,13 @@
     },
     {
       "path": "validacao.html",
-      "bytes": 3959,
-      "sha256": "29ac036ddb9ce9f71496243d65807157e62b4b75adaac7d783d5174b2cbb8a9a"
+      "bytes": 4867,
+      "sha256": "465d88d8cc6195346378b0d5849e0d24d83a17fd900016757fb25cc3225218ed"
     },
     {
       "path": "etapa-1.html",
-      "bytes": 4603,
-      "sha256": "b4bc73e786295334ed6c2c1bf09af3663b4cf922439904bce35eb0956988ceb1"
+      "bytes": 5772,
+      "sha256": "1089fcf72975b8e04334079b9042f5b5a53bb6daf1ef7ffbe3c6446a31125948"
     },
     {
       "path": "etapa-2.html",
@@ -359,8 +359,8 @@
     },
     {
       "path": "laboratorio.html",
-      "sha256": "49d9e8a77bea8488bcf05db02f61d6dbe4398adf21e474711ee540adc8a9d423",
-      "bytes": 4957
+      "sha256": "ec6ec46499550a52c59da4d84416d93d4d1cf01511e71bbd1e991e79f41f0880",
+      "bytes": 6157
     },
     {
       "path": "laboratorio.js",
@@ -369,8 +369,8 @@
     },
     {
       "path": "catalogo.html",
-      "sha256": "306d845b50ed4786757858c32dc8b26b87e3766a3f1d9cbe5934cec7a5233a41",
-      "bytes": 3323
+      "sha256": "6b586a13f0fb9c175d5f3237012343101fdaf3005ac4914897b98e9e9a910515",
+      "bytes": 4498
     },
     {
       "path": "catalogo.js",
@@ -379,8 +379,8 @@
     },
     {
       "path": "avaliacao.html",
-      "sha256": "e68cf006c232d7c0734d1b53fb252f299a770e6f78fa20e49c405c70f446c336",
-      "bytes": 2982
+      "sha256": "647aa23142c20dd43edc308bb7dbb2824537cec6f0f7b3e0cbd9aef4bb6e41bb",
+      "bytes": 4180
     },
     {
       "path": "avaliacao.js",
@@ -389,8 +389,8 @@
     },
     {
       "path": "aulas.html",
-      "sha256": "b6a4e8fd72cebd83028cf07e0a6918e028e117b5f1d9cd0e99a262a908dc4b6a",
-      "bytes": 2431
+      "sha256": "383ef07a2fb67b9afc2b9331c52997a7da533d533db1b43b29da1e17969f3486",
+      "bytes": 3630
     },
     {
       "path": "aulas.js",
