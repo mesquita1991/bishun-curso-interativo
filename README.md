@@ -1,4 +1,17 @@
-# Mandarim Integral · 笔顺 — v6.8.0
+# Bǐshùn — Mandarim Integral v6.9.0
+
+## Arquitetura multipágina e carregamento progressivo (6.9.0)
+
+A entrada `index.html` agora é um **portal leve** (HTML inicial < 12 KB), com `portal.css` e `portal.js`; não inicializa os motores ou o inventário curricular. O aplicativo 6.8.1 completo foi **preservado** em `curso.html`, na mesma origem e com as mesmas chaves de progresso. Links legados `index.html#secao` são redirecionados para `curso.html#secao`, preservando o destino original.
+
+Páginas independentes: `base.html`, `imersao.html`, `validacao.html`, e `etapa-1.html` até `etapa-9.html`. O `etapa.js` só obtém `data/stage-N.json` mediante clique explícito, renderiza uma unidade por vez e preserva o acesso ao treino avançado. Essas páginas não fazem carregamento antecipado de `full-course.js`, `post-standard.js`, `mastery-v6.js` ou Hanzi Writer.
+
+O `sw.js` pré-armazena apenas os seis arquivos essenciais da interface leve, em vez de toda a aplicação; dados de etapas e páginas completas são guardados sob demanda. `sitemap.xml`, `robots.txt`, canonical exclusivo por página, landmarks, labels, foco de teclado e estrutura H1/H2 organizam SEO e acessibilidade.
+
+**Escopo de preservação:** os dados de `data/`, os 48 SVGs mnemônicos, as 47 seções, os 40 passos guiados, o SRS, as provas, o histórico e a opção Explorar tudo continuam acessíveis em `curso.html`. Os recursos do aplicativo integral podem continuar mais pesados quando abertos; o principal ganho é evitar esse custo na entrada e nas páginas de etapa. Consulte `docs/PERFORMANCE_6_9_0.md`.
+
+## Versão integral preservada — 6.8.1
+
 
 Aplicação estática local-first em português. Preserva integralmente a Base 300 e o inventário GF0025-2021, acrescentando uma extensão pós-padrão orientada por conteúdo real.
 
