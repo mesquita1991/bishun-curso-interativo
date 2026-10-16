@@ -5,7 +5,7 @@ const root = path.resolve(process.cwd());
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
 
-const html = read('index.html');
+const html = read('curso.html');
 const css = read('ux-6.4.0.css');
 const js = read('ux-6.4.0.js');
 const baseUx = read('ux-6.3.0.js');
