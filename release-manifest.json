@@ -1,5 +1,5 @@
 {
-  "version": "7.0.1",
+  "version": "7.1.0",
   "generatedAt": "2026-10-16T20:11:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 8131,
-      "sha256": "9915b9c077b62e4b2cd05fe4a5d7c6cce73ecf3f3fb4d09b8f02fff49ca47549"
+      "bytes": 9223,
+      "sha256": "badade54dae8976ad2c37fc1ee0d81787918b41954385965ce2127aa52b01b8c"
     },
     {
       "path": "styles.css",
@@ -259,13 +259,13 @@
     },
     {
       "path": "base.html",
-      "bytes": 5020,
-      "sha256": "b7f3ad2846c429c41490a8fed24365a33f95dc68e54c26e33bbacbd1e70aa30d"
+      "bytes": 6137,
+      "sha256": "a11271439fee15dee70c03cf145c9217b30c6ea97fc6442240fd3fd2df15c484"
     },
     {
       "path": "imersao.html",
-      "bytes": 3819,
-      "sha256": "9821af0d6ae750731a501d07b3704ad32bb96ccbd4c172c5d28bafe6152cd934"
+      "bytes": 4723,
+      "sha256": "bfb87c08eca653ea69ca07177ec7c594251f19b5be20c845ae7f0243950eb921"
     },
     {
       "path": "validacao.html",
@@ -399,8 +399,8 @@
     },
     {
       "path": "mapa.html",
-      "sha256": "13e6a9763d720f05af8d5e1f15e1d3ef7e44072289ce538c3dc33709657cd642",
-      "bytes": 3892
+      "sha256": "8149fdb6d2b87001437d960cf16d315c97c65d583b0b2ebdca01f8f47c211d4b",
+      "bytes": 4914
     },
     {
       "path": "rotas.js",
@@ -429,8 +429,8 @@
     },
     {
       "path": "estudar.html",
-      "sha256": "09de1e1dfca8820579f6f146bdc217dd20d8b25a5c5d5d3d9ab64ea1c8562c80",
-      "bytes": 10131
+      "sha256": "99b7d6c85bf77b9d9f86a5129cec2cfdb0d9c33296271abf7c9902bea6525382",
+      "bytes": 11255
     },
     {
       "path": "estudar.css",
@@ -466,6 +466,11 @@
       "path": ".github/workflows/ux681-gate.yml",
       "bytes": 1662,
       "sha256": "e5f3c4ead428e64ebf25e20e8744d99aa135b0be60211dc416e06ac80fd7f613"
+    },
+    {
+      "path": "interface.css",
+      "bytes": 5936,
+      "sha256": "98996e7a3da3925bb9321651d5c92bdbea51ca9bbdd63ea3ce59c6babd0b182e"
     }
   ],
   "guidedPath": {
@@ -528,7 +533,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "7.0.1",
+    "version": "7.1.0",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -575,7 +580,7 @@
     "restoredVisualMnemonics": 48
   },
   "unitStudy": {
-    "version": "7.0.1",
+    "version": "7.1.0",
     "page": "estudar.html",
     "modes": [
       "aprender",
@@ -596,5 +601,15 @@
     "fastBeforeBrowser": true,
     "cancelSuperseded": true,
     "noAutoRetry": true
+  },
+  "designSystem": {
+    "version": "7.1.0",
+    "styleSheet": "interface.css",
+    "publicPages": 19,
+    "sharedNavLinks": 7,
+    "accessibleMobileMenu": true,
+    "sharedFooter": true,
+    "legacyRedirectPreserved": true,
+    "protectedCurriculumUnchanged": true
   }
 }
