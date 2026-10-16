@@ -1,0 +1,23 @@
+name: Bǐshùn UX 6.8.1 regression
+on:
+  push:
+    branches: [main, fix/ux-6-8-1-stabilization]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify curriculum and UX regressions
+        run: npm run check
+      - name: Verify protected curriculum is unchanged
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          git diff --exit-code "origin/${{ github.base_ref }}" HEAD -- data/

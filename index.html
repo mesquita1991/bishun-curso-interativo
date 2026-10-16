@@ -31,11 +31,12 @@
   <link rel="stylesheet" href="ux-6.6.0.css?v=6.6.0">
   <link rel="stylesheet" href="ux-6.7.0.css?v=6.7.0">
   <link rel="stylesheet" href="ux-6.8.0.css?v=6.8.0">
+  <link rel="stylesheet" href="ux-6.8.1-stability.css?v=6.8.1">
   <script defer src="curriculum-data.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
-  <script defer src="app.js?v=6.3.0"></script>
+  <script defer src="app.js?v=6.8.1"></script>
   <script defer src="course.js"></script>
-  <script defer src="full-course.js"></script>
+  <script defer src="full-course.js?v=6.8.1"></script>
   <script defer src="post-standard.js"></script>
   <script defer src="mastery-v6.js?v=6.2.3-c711049"></script>
   <script defer src="ux-6.3.0.js?v=6.3.0"></script>
@@ -45,14 +46,7 @@
   <script defer src="ux-6.7.0.js?v=6.7.0"></script>
   <script defer src="visual-mnemonics.js?v=6.8.0"></script>
   <script defer src="ux-6.8.0.js?v=6.8.0"></script>
-  <script>
-  (() => {
-    try {
-      if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(items => Promise.all(items.map(item => item.unregister())));
-      if ('caches' in window) caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('bishun-')).map(key => caches.delete(key))));
-    } catch (_) {}
-  })();
-  </script>
+  <script defer src="ux-6.8.1-stability.js?v=6.8.1"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -66,7 +60,7 @@
       </span>
     </a>
 
-    <span class="version-badge" title="Versão atual do curso">v<span data-version>6.8.0</span></span>
+    <span class="version-badge" title="Versão atual do curso">v<span data-version>6.8.1</span></span>
 
     <nav class="desktop-nav" aria-label="Navegação principal">
       <a href="#programa-integral">Programa integral</a>
@@ -91,6 +85,7 @@
   <nav id="mobileNav" class="mobile-nav" aria-label="Navegação móvel" hidden>
     <a href="#programa-integral">Programa integral</a>
     <a href="#pos-padrao">Extensão pós-padrão</a>
+    <a href="#validacao-v6">Validação</a>
     <a href="#imersao-aberta">Laboratório de imersão</a>
     <a href="#lexico-pos">Léxico ampliado</a>
     <a href="#pragmatica-pos">Pragmática</a>
@@ -109,7 +104,7 @@
       <div class="hero-copy">
         <div class="hero-kicker">
           <p class="eyebrow">Programa integral + imersão aberta</p>
-          <span class="release-pill">Atualizado · v<span data-version>6.8.0</span></span>
+          <span class="release-pill">Atualizado · v<span data-version>6.8.1</span></span>
         </div>
         <h1>Do primeiro traço à <span>imersão em conteúdo real</span>.</h1>
         <p class="hero-lead">Domine o padrão formal e continue por <strong>léxico aberto, pragmática, leitura, produção e análise de qualquer texto chinês</strong>, com dados sob demanda e progresso local.</p>
@@ -491,8 +486,8 @@
 
     <section id="mapa-etapas" class="section-shell full-section" aria-labelledby="stageMapTitle">
       <div class="section-heading"><span class="section-number">9</span><div><p class="eyebrow">Progressão curricular</p><h2 id="stageMapTitle">Mapa das nove etapas</h2><p>Selecione apenas a etapa em estudo. Os dados são carregados sob demanda.</p></div></div>
-      <div id="stageMap" class="stage-map"></div>
-      <div class="stage-control"><label for="stageSelect">Etapa ativa</label><select id="stageSelect"></select></div>
+      <div id="stageMap" class="stage-map" aria-live="polite"><p>Carregando as nove etapas…</p></div>
+      <div class="stage-control"><label for="stageSelect">Etapa ativa</label><select id="stageSelect" aria-describedby="stageHint"><option value="1">Etapa 1</option><option value="2">Etapa 2</option><option value="3">Etapa 3</option><option value="4">Etapa 4</option><option value="5">Etapa 5</option><option value="6">Etapa 6</option><option value="7">Etapa 7</option><option value="8">Etapa 8</option><option value="9">Etapa 9</option></select><small id="stageHint">Selecione uma etapa; o conteúdo será carregado.</small></div>
       <article class="stage-detail-card"><h3 id="stageTitle">Etapa 1</h3><div id="stageSummary" class="stage-summary"></div></article>
     </section>
 
@@ -842,7 +837,7 @@
         </div>
 
         <div class="release-card current-release">
-          <div class="release-card-head"><div><span class="release-version">v<span data-version>6.8.0</span></span><h3>UX 6.8 · 48 ilustrações restauradas dentro da trilha</h3></div><time datetime="2026-08-09">9 de agosto de 2026</time></div>
+          <div class="release-card-head"><div><span class="release-version">v<span data-version>6.8.1</span></span><h3>UX 6.8 · 48 ilustrações restauradas dentro da trilha</h3></div><time datetime="2026-08-09">9 de agosto de 2026</time></div>
           <ul class="release-list"><li>Recuperação auditável dos 48 cartões vetoriais publicados em 6.2.0 e refinados em 6.2.1.</li><li>12 relações visuais essenciais aparecem primeiro, com expansão para todos os 48, busca e filtro pictograma/mnemônico.</li><li>No modo guiado, a biblioteca abre em foco dentro do passo Treinador (6/40), sem acrescentar uma nova etapa nem alongar a página.</li><li>Em Explorar tudo, a biblioteca reaparece inline entre Treinador e Jornada, preservando a disposição histórica.</li><li>O asset histórico é preservado byte a byte fora da árvore curricular protegida.</li><li>Trilha 40/40, 47 seções curriculares, Start/Stop, retomada, busca, mapa, SRS, provas, áudio e motores permanecem preservados.</li></ul>
         </div>
 
@@ -880,7 +875,7 @@
 
   <footer>
     <div class="section-shell footer-inner">
-      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>6.8.0</span></span></strong><p>Programa integral, extensão pós-padrão e validação longitudinal em português.</p></div>
+      <div><strong>笔顺 · Bǐshùn <span class="footer-version">v<span data-version>6.8.1</span></span></strong><p>Programa integral, extensão pós-padrão e validação longitudinal em português.</p></div>
       <p>Currículo: GF0025-2021. Extensão aberta: CC-CEDICT sob CC BY-SA 4.0. Análise, SRS e progresso permanecem locais.</p>
     </div>
   </footer>

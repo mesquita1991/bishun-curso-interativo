@@ -1,9 +1,5 @@
-const RECOVERY_VERSION='6.2.3';
-self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
-self.addEventListener('activate',event=>event.waitUntil((async()=>{
-  const keys=await caches.keys();
-  await Promise.all(keys.filter(key=>key.startsWith('bishun-')).map(key=>caches.delete(key)));
-  await self.registration.unregister();
-  const clientsList=await self.clients.matchAll({type:'window',includeUncontrolled:true});
-  for(const client of clientsList) client.postMessage({type:'BISHUN_CACHE_RESET',version:RECOVERY_VERSION});
-})()));
+const CACHE='bishun-offline-6.8.1';
+const CORE=['./','./index.html','./styles.css','./favicon.svg','./manifest.webmanifest','./curriculum-data.js','./app.js?v=6.8.1','./course.js','./full-course.js?v=6.8.1','./post-standard.js','./mastery-v6.js?v=6.2.3-c711049','./ux-6.3.0.css?v=6.3.0','./ux-6.4.0.css?v=6.4.0','./ux-6.5.0.css?v=6.5.0','./ux-6.6.0.css?v=6.6.0','./ux-6.7.0.css?v=6.7.0','./ux-6.8.0.css?v=6.8.0','./ux-6.8.1-stability.css?v=6.8.1','./ux-6.3.0.js?v=6.3.0','./ux-6.4.0.js?v=6.4.0','./ux-6.5.0.js?v=6.5.0','./ux-6.6.0.js?v=6.6.0','./ux-6.7.0.js?v=6.7.0','./ux-6.8.0.js?v=6.8.0','./ux-6.8.1-stability.js?v=6.8.1','./visual-mnemonics.js?v=6.8.0','./visual-mnemonics-6.2.1.json?v=6.8.0','./data/meta.json','./data/stage-1.json'];
+self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(CORE);await self.skipWaiting()})()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('bishun-')&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
+self.addEventListener('fetch',event=>{const request=event.request;if(request.method!=='GET')return;const url=new URL(request.url);if(url.origin!==self.location.origin)return;if(request.mode==='navigate'){event.respondWith(fetch(request).then(async response=>{if(response.ok){const cache=await caches.open(CACHE);await cache.put('./index.html',response.clone())}return response}).catch(async()=>await caches.match('./index.html')||Response.error()));return}event.respondWith((async()=>{const saved=await caches.match(request);if(saved)return saved;const response=await fetch(request);if(response.ok){const cache=await caches.open(CACHE);await cache.put(request,response.clone())}return response})())});

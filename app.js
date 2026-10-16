@@ -682,17 +682,11 @@
   }
 
   async function registerServiceWorker() {
-    if (!('serviceWorker' in navigator)) return;
+    const secure=location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname);
+    if (!('serviceWorker' in navigator) || !secure) return;
     try {
-      const registrations = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(registrations.map(registration => registration.unregister()));
-      if ('caches' in window) {
-        const keys = await caches.keys();
-        await Promise.all(keys.filter(key => key.startsWith('bishun-')).map(key => caches.delete(key)));
-      }
-    } catch (error) {
-      console.warn('Limpeza de cache:', error);
-    }
+      await navigator.serviceWorker.register('./sw.js?v=6.8.1', { updateViaCache: 'none' });
+    } catch(error) { console.warn('Service worker indisponível:',error); }
   }
 
   function init() {
