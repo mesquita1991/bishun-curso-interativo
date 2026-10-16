@@ -349,8 +349,8 @@
     },
     {
       "path": "tests/multipage-browser-smoke.mjs",
-      "bytes": 2747,
-      "sha256": "16e0426a6efd7a671cbb0804187602d6a813524793fa8f93dcef915969d3c90f"
+      "bytes": 3151,
+      "sha256": "a010a6ae2fb0a54b791ece107923d40058c1311874dc10b6360e7a47a6b0e72f"
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
@@ -445,6 +445,11 @@
     "legacyAnchorRedirect": true,
     "requiresBrowserQA": true,
     "interactionSmoke": true,
-    "chromiumWorkflow": true
+    "chromiumWorkflow": true,
+    "chromiumPRValidation": {
+      "runId": 38921872807,
+      "conclusion": "success",
+      "scope": "local PR browser smoke; production Core Web Vitals not measured"
+    }
   }
 }
