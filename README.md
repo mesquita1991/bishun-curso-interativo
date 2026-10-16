@@ -1,3 +1,37 @@
+# Bǐshùn 7.1 — padrões compartilhados em todas as páginas
+
+A experiência visual pública segue um único sistema de identidade `interface.css`, aplicado às **19 páginas** (início, estudo, mapa, quatro ferramentas, três páginas de apoio e nove etapas). A rota `curso.html` permanece exclusivamente como redirecionador de compatibilidade e não volta a carregar a aplicação antiga; o arquivo histórico continua preservado fora da navegação comum.
+
+## Orientação ao estudante
+
+- **Início**: a sequência Conhecer e ouvir → Observar e escrever → Lembrar sem olhar → Conferir o que aprendeu.
+- **Minha unidade**: estudo contínuo e retomada da última unidade.
+- **Etapas**: seleção do percurso e acesso às nove etapas.
+- **Escrita**: animação e exercício individual de traços.
+- **Consultar**: caracteres, palavras, sílabas e gramática disponíveis por etapa.
+- **Revisão**: exercícios de memória e perguntas sobre significados.
+- **Biblioteca**: explicações e fontes complementares.
+
+Os sete destinos aparecem **na mesma ordem** em todas as páginas. No celular, um controle nativo **Menu** apresenta esses mesmos destinos; não é necessário baixar um framework para navegação.
+
+## Design system
+
+- **Base**: `portal.css`, com tipografia do sistema e escalas responsivas.
+- **Identidade compartilhada**: `interface.css`, com cabeçalho, rodapé, navegação compacta, estados de foco, cartões, margens e hierarquia.
+- **Estilos locais preservados**: `jornada.css` (início), `estudar.css` (percurso) e `modulos.css` (ferramentas), sem eliminar recursos nem seletores JS.
+- **SEO**: títulos terminados em `| Bǐshùn`, um título principal por página e URL canônica por página.
+- **Acessibilidade**: link para pular ao conteúdo, navegação sem JavaScript via `<details>`, contraste e foco visível, suporte à preferência por movimento reduzido.
+- **Rodapé**: links essenciais e aviso uniforme de armazenamento local; nenhum recurso é apresentado como certificação de proficiência.
+- **Offline**: o cache `bishun-offline-7.1.0` inclui a identidade visual comum; conteúdos curriculares continuam sob demanda.
+
+## Prevenção de regressões
+
+O teste `tests/site-design-check.mjs`, incluído em `npm run check`, exige que as 19 páginas exibam o mesmo menu, rodapé, títulos, estilos e caminhos internos válidos. `tests/site-design-browser-smoke.mjs` verifica a interface em Chromium, incluindo menu móvel e transbordamento horizontal. Os testes rodam **dentro do pipeline consolidado existente**, sem novo workflow automático. Uma alteração que falhe no teste rápido não executa o navegador.
+
+**Não foram modificados arquivos de `data/` nem removidos conteúdos curriculares.** A padronização não afirma equivalência entre exercícios concluídos e domínio da língua.
+
+---
+
 # Bǐshùn 7.0.1 — percurso do aluno e execuções controladas
 
 ## Jornada de aprendizagem exibida ao estudante
