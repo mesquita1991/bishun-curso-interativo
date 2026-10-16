@@ -40,3 +40,13 @@
 @media(max-width:760px){.study-layout{grid-template-columns:1fr}.study-sidebar{position:static}.study-sidebar-card{padding:17px}.unit-choices{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}.unit-choices label{grid-row:1}.unit-choices select{grid-row:2}.progress-list{grid-template-columns:repeat(4,1fr);gap:3px}.progress-list li{flex-direction:column;text-align:center;gap:3px;font-size:.69rem}.unit-index-list{grid-template-columns:repeat(10,1fr)}.study-sidebar .unit-index{margin-top:13px}.study-note{display:none}.study-intro{align-items:flex-start;flex-direction:column;gap:10px}.lesson-topline{padding:22px 20px}.activity-panel{padding:20px}.study-next{margin:0 20px 20px}.writer-layout{grid-template-columns:1fr}.writer-frame{height:280px;width:280px;margin-inline:auto}.vocabulary-grid{grid-template-columns:1fr}.study-tabs button{min-height:56px}}
 @media(max-width:440px){.study-root{width:calc(100% - 20px)}.study-intro h1{font-size:1.8rem}.study-tabs button{font-size:.78rem;padding:10px 3px}.study-tabs button span{display:block;margin:0 0 3px}.character-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.unit-index-list{grid-template-columns:repeat(8,1fr)}.lesson-topline{align-items:flex-start;flex-direction:column}.nav-unit-actions{flex-direction:column}.nav-unit-actions .study-button{width:100%}.panel-actions .study-button{width:100%}.writer-actions .study-button{flex:1}.study-head .topnav a{font-size:.81rem}}
 @media(prefers-reduced-motion:reduce){.progress-track span{transition:none}}
+
+/* Percurso visível ao aluno: um objetivo e uma ação a cada passo. */
+.study-guidance{display:flex;align-items:flex-start;gap:16px;margin:20px 28px 0;border:1px solid #d2def4;border-radius:15px;padding:16px 18px;background:#f8faff}
+.study-guidance-number{flex-shrink:0;font-size:.76rem;font-weight:800;color:#244ba0;letter-spacing:.01em;margin-top:3px}
+.study-guidance strong{display:block;font-size:1rem;margin-bottom:4px}
+.study-guidance p{font-size:.9rem;color:#435370;line-height:1.5;margin:0}
+.progress-list li{line-height:1.35}
+.progress-list li>span{flex-shrink:0}
+@media(max-width:760px){.study-guidance{margin:16px 20px 0;padding:14px;gap:10px}.progress-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.progress-list li{flex-direction:row;text-align:left;font-size:.78rem}}
+@media(max-width:440px){.study-guidance{flex-direction:column;gap:6px}.study-guidance-number{margin:0}.study-tabs button{font-size:.77rem}.study-sidebar-card h2{font-size:1.06rem}}
