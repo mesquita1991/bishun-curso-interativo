@@ -238,6 +238,8 @@ function registerEvents(){
   tab.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let i=modes.indexOf(mode);if(e.key==='ArrowRight')i=(i+1)%4;if(e.key==='ArrowLeft')i=(i+3)%4;if(e.key==='Home')i=0;if(e.key==='End')i=3;setMode(modes[i],{historyMode:true,focus:true})})
  });
  $('learnCharacters').addEventListener('click',e=>{const btn=e.target.closest('[data-say]');if(btn)speak(btn.dataset.say)});
+ $('prevChunk').addEventListener('click',()=>{learnChunk=Math.max(0,learnChunk-1);paintChunk()});
+ $('nextChunk').addEventListener('click',()=>{learnChunk=Math.min(pedagogia.chunks(components().chars,2).length-1,learnChunk+1);paintChunk()});
  $('finishLearn').addEventListener('click',()=>{if(!current)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
  $('writeCharacter').addEventListener('change',()=>{writerChar=$('writeCharacter').value;paintWriter()});
  $('animateCharacter').addEventListener('click',()=>runWriting('animate'));
