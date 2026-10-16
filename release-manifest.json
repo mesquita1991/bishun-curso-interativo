@@ -109,8 +109,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6082,
-      "sha256": "2bd8f4ef7b87b9f532bf7a83fef9f58abd01ff9522511483b0d2f44e02f73a22"
+      "bytes": 6092,
+      "sha256": "79e9e41e6ed578d5a658a0a07b32e793dc6b6be8c6cb2fc692d53b860b24921f"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -135,7 +135,7 @@
     {
       "path": "tests/ux-6.6-regression-check.mjs",
       "bytes": 8112,
-      "sha256": "83ea59bce8025ad642c1016f379d96411658aa94dfcfdca013e2e50b202a5db6"
+      "sha256": "7dba640326ecff1bfd6cf0518729cfe5ebaf408ea8166cbdea9f3961a30e755f"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
@@ -160,7 +160,7 @@
     {
       "path": "tests/ux-6.7-regression-check.mjs",
       "bytes": 3638,
-      "sha256": "2ecf511a548cf01cab4ce7a8dd6eb967c703b936cbf89e27cdc0e2f5d9c4a889"
+      "sha256": "7c3dca603695a8d06216de5cbbf2ce9721cbe37ebf44fb82af618f0d84db00b3"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4377,
-      "sha256": "265839760d0023a57cfdc976fc590b75d58a6a7143ee04c922cc5b2dc7e9d00a"
+      "bytes": 4375,
+      "sha256": "b51e4f02bebb5b042ef5726e34b6994e5b6185351b85f7cb715e2145ad5ba888"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1350,
-      "sha256": "e2448252f5874425c1ef2e8107e8d2c1f753e260ac87f9b989de7b35368133fa"
+      "sha256": "57d6052e6d3cfac5352b7cee8a9c4a615a86b3999279530808d36579c2c352b0"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -336,6 +336,11 @@
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3406,
       "sha256": "271e470bb4d9bec068193118feb91a9680c552c06c56a7394fd73864c1e1b7b3"
+    },
+    {
+      "path": "tests/ux-6.4-regression-check.mjs",
+      "bytes": 6910,
+      "sha256": "3462d799333b55cff3a53c4b586e0ec9ac1da6e72e0ba85e4a565f86fcd2b596"
     }
   ],
   "guidedPath": {
