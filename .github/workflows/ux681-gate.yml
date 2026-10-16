@@ -1,23 +1,53 @@
-name: Bǐshùn UX 6.8.1 regression
+name: Bǐshùn — validação consolidada
 on:
-  push:
-    branches: [main, fix/ux-6-8-1-stabilization]
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
   workflow_dispatch:
+
+# Uma execução por PR/branch; novas versões substituem testes obsoletos.
+# Falha de código NÃO provoca nova tentativa automática nem publicação.
+concurrency:
+  group: bishun-qa-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
-  check:
+  fast:
+    name: Pré-verificação do código
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify curriculum and UX regressions
+      - name: Verificação funcional, sintática e curricular
         run: npm run check
-      - name: Verify protected curriculum is unchanged
+      - name: Impedir modificações não autorizadas no currículo
         if: github.event_name == 'pull_request'
         run: |
           git fetch origin "${{ github.base_ref }}" --depth=1
           git diff --exit-code "origin/${{ github.base_ref }}" HEAD -- data/
+
+  browser:
+    name: Navegação real após aprovação do código
+    needs: fast
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preparar testes de navegador
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install chromium --with-deps
+      - name: Testar navegação multipágina e percurso do aluno
+        run: |
+          node tests/multipage-browser-smoke.mjs
+          node tests/unit-study-browser-smoke.mjs
