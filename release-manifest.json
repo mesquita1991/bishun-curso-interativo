@@ -1,6 +1,6 @@
 {
-  "version": "6.9.0",
-  "generatedAt": "2026-10-16T15:00:47.471Z",
+  "version": "6.9.1",
+  "generatedAt": "2026-10-16T16:30:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7045,
-      "sha256": "53349a8627463678ad51d217b6e96c78b7beb67291fb95948b9b884c13188de0"
+      "bytes": 7227,
+      "sha256": "4c00b575e4fe837c334fe5ce5efecbe7a4e682650e000b897adbd26070748896"
     },
     {
       "path": "styles.css",
@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1301,
-      "sha256": "59874def0098bfc40c8033d674262cb5bc34fbb32b61bf7f231df8e336dac993"
+      "bytes": 1322,
+      "sha256": "4ce3f53843f9a28dcbc4d33fa166bcf9a311c3b48825b5ab5ab35c2969a5f77c"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -239,8 +239,8 @@
     },
     {
       "path": "curso.html",
-      "bytes": 67732,
-      "sha256": "320260bcf29bc437e37bc59f60ac32130803228590772e71b05b5df110420eec"
+      "bytes": 764,
+      "sha256": "2221fb8e604381b598f1b05a419441dd41f88641fd5e42e4bf4cb5e537ec8f50"
     },
     {
       "path": "portal.css",
@@ -249,28 +249,28 @@
     },
     {
       "path": "portal.js",
-      "bytes": 831,
-      "sha256": "c1baa06e62645e38aed0d6edad3cec77e502dbd3e12721fb4a06f22c9876df3b"
+      "bytes": 837,
+      "sha256": "9df03ae1cdf230a77558fcbfa8d901bd27a0d95a79d8aa7279a2eb163fbe7816"
     },
     {
       "path": "etapa.js",
-      "bytes": 6065,
-      "sha256": "e07f68cce6f483875ba55a9c992581d36babd045605cc31467aaf167798c3c4e"
+      "bytes": 6096,
+      "sha256": "2fe594f59aedad644802813fe8e1f9cae7d6b83dc3b3c6a56e8ed6b94fde826f"
     },
     {
       "path": "base.html",
-      "bytes": 4986,
-      "sha256": "98f19a56e8aa67260b986f767fb442a8369bd53d8c9970c4a4fb3c77c5e82db6"
+      "bytes": 4975,
+      "sha256": "5dc82bb8aed1583e2b3fcc58677045e8c5068e3b3b8e8a0cce8dd3e231f70dfd"
     },
     {
       "path": "imersao.html",
-      "bytes": 3777,
-      "sha256": "1da6cd2612d21294a700e5277f0f7c5af6c328b8e7e41dd524c05e0b7b863175"
+      "bytes": 3774,
+      "sha256": "9fdb2069b8e4bbb1c6c525c259d3c39ea4fe350d17c450a138d52d655a9916eb"
     },
     {
       "path": "validacao.html",
-      "bytes": 3916,
-      "sha256": "57970acad8dba1c49d6d57c159b946994e4791ab1d45ce22ff8ab427eda25789"
+      "bytes": 3914,
+      "sha256": "f57ea98f217e429985f019974e600ac82f401b86e05809d2e1122c6090d49a2d"
     },
     {
       "path": "etapa-1.html",
@@ -418,7 +418,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "6.9.0",
+    "version": "6.9.1",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -450,6 +450,17 @@
       "runId": 38921872807,
       "conclusion": "success",
       "scope": "local PR browser smoke; production Core Web Vitals not measured"
-    }
+    },
+    "legacyCourseRedirect": true,
+    "newIndependentTools": [
+      "laboratorio.html",
+      "catalogo.html",
+      "avaliacao.html",
+      "aulas.html",
+      "mapa.html"
+    ],
+    "archivedLegacyHtml": "docs/arquivo-curso-6.8.1.html",
+    "historicalSectionsPreserved": 47,
+    "legacyLinksInLivePages": 0
   }
 }
