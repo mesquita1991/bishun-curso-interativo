@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(process.cwd());
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const html = read('curso.html');
+const html = read('docs/arquivo-curso-6.8.1.html');
 const js = read('ux-6.5.0.js');
 const css = read('ux-6.5.0.css');
 const manifest = JSON.parse(read('manifest.webmanifest'));

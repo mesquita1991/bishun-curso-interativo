@@ -1,6 +1,6 @@
 
-const CACHE='bishun-offline-6.9.0';
-const SHELL=['./','./index.html','./portal.css?v=6.9.0','./portal.js?v=6.9.0','./favicon.svg','./manifest.webmanifest'];
+const CACHE='bishun-offline-6.9.1';
+const SHELL=['./','./index.html','./portal.css?v=6.9.0','./portal.js?v=6.9.1','./rotas.js?v=6.9.1','./favicon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(SHELL);await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('bishun-')&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
 self.addEventListener('fetch',event=>{

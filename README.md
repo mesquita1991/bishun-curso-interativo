@@ -1,3 +1,24 @@
+# Bǐshùn 6.9.1 — navegação modular sem retorno à interface antiga
+
+**Estado operacional:** a antiga rota `curso.html` agora redireciona imediatamente para o módulo pertinente, inclusive quando recebe hashes históricos como `#laboratorio-integral`. Nenhuma página de navegação nova utiliza links para ela.
+
+- `laboratorio.html` — treino real de escrita e áudio, com Hanzi Writer carregado apenas ao solicitar.
+- `catalogo.html` — caracteres, palavras, sílabas e gramática, carregamento por etapa.
+- `avaliacao.html` — revisão espaçada e provas objetivas por etapa.
+- `aulas.html` — textos pedagógicos e instruções extraídos das **47 seções** históricas em `conteudos.json`.
+- `mapa.html` — acesso às nove etapas e ferramentas.
+- `rotas.js` — mapeamento de fragmentos legados e favoritos para páginas independentes.
+- `docs/arquivo-curso-6.8.1.html` — cópia de auditoria do HTML anterior, fora de toda navegação normal.
+- As páginas `etapa-1.html` a `etapa-9.html`, a home e os três hubs temáticos foram corrigidos para não chamar a aplicação antiga.
+- O progresso permanece no mesmo domínio e usa `bishunFullV4`. Nenhuma rotina apaga o histórico.
+- `sw.js` versão 6.9.1 invalida os caches antigos; `sitemap.xml` omite a rota descontinuada.
+
+**Nota de escopo:** a interatividade do antigo documento único foi substituída por ferramentas independentes nas rotas documentadas. Funcionalidades antigas muito específicas continuam preservadas em arquivo histórico; isso não equivale a dizer que toda antiga subferramenta foi reimplementada. O objetivo desta correção é garantir percursos utilizáveis, evitar a tela quebrada e não perder dados nem textos didáticos.
+
+Consulte os testes `tests/legacy-free-routing-check.mjs` e `tests/multipage-browser-smoke.mjs` para as garantias automatizadas de roteamento e fluxos reais.
+
+---
+
 # Bǐshùn — Mandarim Integral v6.9.0
 
 ## Arquitetura multipágina e carregamento progressivo (6.9.0)

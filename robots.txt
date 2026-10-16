@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /bishun-curso-interativo/docs/arquivo-curso-6.8.1.html
 Sitemap: https://mesquita1991.github.io/bishun-curso-interativo/sitemap.xml

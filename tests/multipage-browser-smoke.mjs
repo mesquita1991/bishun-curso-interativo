@@ -26,9 +26,30 @@ try{
   assert.equal(await stage.evaluate(()=>JSON.parse(localStorage.getItem('bishunFullV4')).unitsByStage['1']),2);
   assert.ok((await stage.evaluate(()=>document.body.scrollWidth))<=width+2,'Stage horizontal overflow '+width);
   if(width===1440){const advanced=await context.newPage();await advanced.goto(url+'/etapa-9.html',{waitUntil:'domcontentloaded'});await advanced.locator('#loadStageButton').click();await advanced.locator('#stageLoaded').waitFor({state:'visible',timeout:20000});assert.ok((await advanced.locator('.hanzi-card').count())>=10,'Advanced stage must render a unit');await advanced.close();}
+  const lab=await context.newPage(),labFailures=[];lab.on('pageerror',e=>labFailures.push(e.message));
+  await lab.goto(url+'/laboratorio.html?etapa=1&unidade=2',{waitUntil:'domcontentloaded'});
+  await lab.locator('#carregar').click();await lab.locator('#laboratorio').waitFor({state:'visible',timeout:12000});
+  assert.ok((await lab.locator('.mini-result').count())>0,'Writing lab should contain characters');
+  assert.ok((await lab.locator('#writer').innerText()).length>0,'Writer fallback should show a character');
+  await lab.locator('#memoriaVisual summary').click();
+  await lab.locator('#visualGrid .tool-card').first().waitFor({state:'visible',timeout:12000});
+  assert.equal(await lab.locator('#visualGrid .tool-card').count(),12,'12 featured mnemonic images');
+  await lab.locator('#visualMore').click();
+  assert.equal(await lab.locator('#visualGrid .tool-card').count(),48,'All 48 mnemonic images');
+  assert.deepEqual(labFailures,[],'Independent lab must initialize without JS errors');
+  await lab.goto(url+'/catalogo.html?etapa=1#palavras',{waitUntil:'domcontentloaded'});
+  await lab.locator('#carregar').click();await lab.locator('#catalogo').waitFor({state:'visible',timeout:12000});assert.ok((await lab.locator('.tool-card').count())>0,'Vocabulary catalog');
+  await lab.goto(url+'/avaliacao.html?etapa=1',{waitUntil:'domcontentloaded'});
+  await lab.locator('#carregar').click();await lab.locator('#avaliacao').waitFor({state:'visible',timeout:12000});
+  await lab.locator('#provar').click();assert.equal(await lab.locator('.quiz-option').count(),4,'Exam must offer four answers');
+  await lab.goto(url+'/aulas.html#fontes',{waitUntil:'domcontentloaded'});
+  await lab.locator('#material h2').waitFor({state:'visible',timeout:12000});
   await stage.goto(url+'/index.html#treinador',{waitUntil:'commit',timeout:30000});
-  await stage.waitForURL('**/curso.html#treinador',{waitUntil:'commit',timeout:12000});
+  await stage.waitForURL('**/laboratorio.html',{waitUntil:'commit',timeout:12000});
+  await stage.goto(url+'/curso.html#laboratorio-integral',{waitUntil:'commit',timeout:30000});
+  await stage.waitForURL('**/laboratorio.html',{waitUntil:'commit',timeout:12000});
+  await lab.close();
   await context.close();
  }
- console.log(JSON.stringify({ok:true,viewports:[390,1440],initialHeavyAssets:0,lazyStageFetch:true,unitPersistence:true,legacyHashRouting:true}));
+ console.log(JSON.stringify({ok:true,viewports:[390,1440],initialHeavyAssets:0,lazyStageFetch:true,unitPersistence:true,legacyHashRouting:true,oldCourseRedirect:true,independentTools:true}));
 }finally{await browser?.close();server.kill('SIGTERM')}

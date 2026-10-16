@@ -1,0 +1,33 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8');
+const pages=['index.html','base.html','imersao.html','validacao.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
+const js=['portal.js','etapa.js','laboratorio.js','catalogo.js','avaliacao.js','aulas.js','rotas.js'];
+for(const file of [...pages,...js]){
+ const contents=read(file);
+ assert.ok(!/href=["'](?:\.\/)?curso\.html(?:[?#"'])/.test(contents),'Link antigo ainda presente em '+file);
+ assert.ok(!/location\.(?:replace|assign)\(['"]curso\.html/.test(contents),'Redirecionamento para interface quebrada em '+file);
+ assert.ok(!contents.includes('<script defer src="full-course.js'),'Monólito carregado indevidamente em '+file);
+}
+assert.ok(!read('etapa.js').includes('curso.html'),'Dynamic stage links must never return to monolith');
+assert.ok(read('etapa.js').includes('laboratorio.html?etapa='),'Stage page should pass current stage to trainer');
+assert.ok(read('portal.js').includes("progress.href='etapa-'+n+'.html'"),'Resume must open progressive stage');
+const legacy=read('curso.html');
+assert.ok(legacy.length<1600,'Old route must be lightweight redirect, not full app');
+assert.ok(legacy.includes('window.BishunRoutes.forSection(location.hash)'),'Every old hash must be mapped before page UI');
+assert.ok(!legacy.includes('full-course.js')&&!legacy.includes('curriculum-data.js'),'Old app scripts cannot initialize');
+const historical=read('docs/arquivo-curso-6.8.1.html'),sections=[...historical.matchAll(/<section\s[^>]*\bid="([^"]+)"/g)].map(x=>x[1]);
+assert.equal(sections.length,47,'All 47 historical sections must be preserved in archive');
+const data=JSON.parse(read('conteudos.json'));assert.equal(data.sections.length,47);
+const set=new Set(data.sections.map(x=>x.id));for(const sec of sections)assert.ok(set.has(sec),'Missing lesson: '+sec);
+assert.ok(data.sections.reduce((n,s)=>n+s.items.length,0)>=200,'Lessons were lost');
+assert.equal(JSON.parse(read('visual-mnemonics-6.2.1.json')).items.length,48,'All 48 visuals must remain available');
+assert.ok(read('laboratorio.js').includes("fetch('visual-mnemonics-6.2.1.json?v=6.9.1')"),'Visual resources must load only on user request');
+const routeSrc=read('rotas.js');const m=routeSrc.match(/const routes=(\{[^;]+\});/);assert.ok(m);const routes=JSON.parse(m[1]);
+for(const [source,dest] of Object.entries(routes))assert.ok(fs.existsSync(dest.split(/[?#]/)[0]),'Broken module destination '+source+': '+dest);
+for(const dest of ['laboratorio.html','catalogo.html','avaliacao.html','aulas.html'])assert.ok(pages.includes(dest));
+assert.equal(routes['laboratorio-integral'],'laboratorio.html');assert.equal(routes.treinador,'laboratorio.html');
+assert.equal(routes['prova-integral'],'avaliacao.html#prova');
+const sitemap=read('sitemap.xml');assert.ok(!sitemap.includes('/curso.html'),'Old route must not be indexed');for(const file of pages.filter(x=>!x.startsWith('etapa-')||true).slice(1))assert.ok(sitemap.includes(file),'Missing SEO entry '+file);
+assert.ok(read('sw.js').includes("bishun-offline-6.9.1"),'Old offline cache not invalidated');
+const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'6.9.1');
+console.log(JSON.stringify({ok:true,version:pkg.version,livePages:pages.length,legacyLinks:0,historicalSections:sections.length,independentTools:4,oldRouteIsRedirect:true}));

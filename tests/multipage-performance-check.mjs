@@ -1,10 +1,10 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import path from 'node:path';
-const read=p=>fs.readFileSync(path.join(process.cwd(),p),'utf8'),home=read('index.html'),legacy=read('curso.html'),sw=read('sw.js'),client=read('etapa.js'),portal=read('portal.js'),pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'6.9.0');
+const read=p=>fs.readFileSync(path.join(process.cwd(),p),'utf8'),home=read('index.html'),legacy=read('docs/arquivo-curso-6.8.1.html'),sw=read('sw.js'),client=read('etapa.js'),portal=read('portal.js'),pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'6.9.1');
 assert.ok(Buffer.byteLength(home)<12000,'Homepage HTML must be <12KB');
 assert.ok(Buffer.byteLength(read('portal.css'))<13000,'First-view CSS must be compact');
 assert.ok(Buffer.byteLength(portal)<4000,'First-view JS must be compact');
 for(const heavy of ['curriculum-data.js','full-course.js','mastery-v6.js','post-standard.js','hanzi-writer.min.js','visual-mnemonics.js'])assert.ok(!home.includes('<script defer src="'+heavy),'Heavy runtime loaded on home: '+heavy);
-assert.ok(home.includes("location.replace('curso.html'+location.search+location.hash)"),'Legacy deep-links must keep functioning');
+assert.ok(home.includes('window.BishunRoutes.forSection(location.hash)'),'Legacy deep-links must route without loading monolith');
 assert.ok(legacy.includes('id="treinador"')&&legacy.includes('id="programa-integral"')&&legacy.includes('visual-mnemonics.js?v=6.8.0'),'Complete training environment must remain available');
 const originalSections=[...legacy.matchAll(/<section[^>]*data-ux-section/g)]; // 47 IDs are annotated at runtime; verify canonical section boundaries explicitly below.
 for(const id of ['fundamentos','regras','treinador','jornada','programa-integral','mapa-etapas','unidades-integrais','pos-padrao','validacao-v6','dominio-real'])assert.ok(legacy.includes('id="'+id+'"'),'Preserved section '+id);
