@@ -8,9 +8,11 @@
   const $$ = (s,r=document) => [...r.querySelectorAll(s)];
   const esc = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const shuffle = a => { const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; };
-  const defaultState = () => ({stage:1,unit:1,records:{char:{},word:{},grammar:{},syllable:{},listening:{},reading:{},speaking:{},translation:{}},lastExam:null,downloaded:[],created:Date.now()});
+  const defaultState = () => ({stage:1,unit:1,unitsByStage:{},records:{char:{},word:{},grammar:{},syllable:{},listening:{},reading:{},speaking:{},translation:{}},lastExam:null,downloaded:[],created:Date.now()});
   let state;
   try { state={...defaultState(),...JSON.parse(localStorage.getItem(KEY)||'{}')}; } catch { state=defaultState(); }
+  state.unitsByStage = state.unitsByStage && typeof state.unitsByStage === 'object' && !Array.isArray(state.unitsByStage) ? state.unitsByStage : {};
+  if (!state.unitsByStage[state.stage]) state.unitsByStage[state.stage] = Math.max(1,Number(state.unit)||1);
   state.records ||= defaultState().records;
   Object.keys(defaultState().records).forEach(k=>state.records[k] ||= {});
   const cache = new Map();
@@ -18,8 +20,9 @@
   let trainerWriter=null, trainerChar=null, lab=null, reviewQueue=[], reviewIndex=0, exam=[];
   const globalResults={atlas:null,vocab:null,syllable:null,grammar:null};
   const searchTimers={};
+  let stageRequestSequence=0;
 
-  function save(){ localStorage.setItem(KEY,JSON.stringify(state)); }
+  function save(){ try { localStorage.setItem(KEY,JSON.stringify(state)); return true; } catch(e) { console.warn('Armazenamento indisponível:',e); return false; } }
   function rec(type,id){ return {level:0,due:0,attempts:0,correct:0,last:0,...(state.records[type]?.[id]||{})}; }
   function grade(type,id,q){ const r=rec(type,id);r.attempts++;if(q>=2){r.correct++;r.level=Math.min(INTERVALS.length-1,r.level+1);}else if(q===1){r.level=Math.max(1,r.level);}else r.level=0;r.last=Date.now();r.due=Date.now()+INTERVALS[r.level]*DAY;state.records[type][id]=r;save();renderFullDashboard(); }
   function mastered(type,id){ return rec(type,id).level>=4; }
@@ -30,16 +33,41 @@
   function notice(msg,kind=''){ const el=$('#fullNotice');if(!el)return;el.textContent=msg;el.className='full-notice '+kind; }
   async function fetchJSON(path){ const r=await fetch(path);if(!r.ok)throw new Error(`${r.status} ${path}`);return r.json(); }
   async function loadMeta(){ meta=await fetchJSON('./data/meta.json'); renderMeta(); renderStageMap(); }
-  async function loadStage(n,quiet=false){
+
+  async function loadStage(n,quiet=false,requestedUnit=null){
     n=Math.max(1,Math.min(9,Number(n)||1));
-    if(!quiet)notice(`Carregando etapa ${n}…`);
+    const ticket=++stageRequestSequence;
+    const map=$('#stageMap'),select=$('#stageSelect');
+    map?.setAttribute('aria-busy','true');
+    select?.setAttribute('aria-busy','true');
+    if(!quiet)notice('Carregando etapa '+n+'…');
     try {
-      if(!cache.has(n))cache.set(n,await fetchJSON(`./data/stage-${n}.json`));
-      current=cache.get(n);state.stage=n;state.unit=Math.min(state.unit||1,current.units.length);save();
+      let next=cache.get(n);
+      if(!next){ next=await fetchJSON('./data/stage-'+n+'.json'); cache.set(n,next); }
+      if(ticket!==stageRequestSequence)return false;
+      if(!next || !Array.isArray(next.units) || !next.units.length)throw new Error('Etapa '+n+' sem unidades válidas');
+      current=next;
+      state.stage=n;
+      const saved=Number(requestedUnit ?? state.unitsByStage[n] ?? 1);
+      state.unit=Math.max(1,Math.min(Number.isFinite(saved)?saved:1,current.units.length));
+      state.unitsByStage[n]=state.unit;
+      save();
       atlasPage=vocabPage=syllablePage=grammarPage=0;
-      renderStage();renderFullDashboard();populateSelectors();chooseLab('reading');startReview();startExam();
-      if(!quiet)notice(`Etapa ${n} carregada: ${current.characters.length} caracteres e ${current.vocabulary.length} palavras.`,'ok');
-    } catch(e){ console.error(e);notice('Não foi possível carregar esta etapa. Verifique a conexão ou tente novamente.','error'); }
+      renderStage();renderFullDashboard();populateSelectors();
+      chooseLab('reading');startReview();
+      exam=[];
+      $('#fullExam').innerHTML='<p class="full-notice">Prova ainda não iniciada. Clique em “Gerar prova” para começar.</p>';
+      $('#fullExamResult').textContent='';
+      if(!quiet)notice('Etapa '+n+' carregada: '+current.characters.length+' caracteres e '+current.vocabulary.length+' palavras.','ok');
+      return true;
+    }catch(e){
+      if(ticket!==stageRequestSequence)return false;
+      console.error(e);notice('Falha ao carregar a etapa '+n+'. A etapa anterior foi mantida. Tente novamente.','error');
+      if(select)select.value=String(state.stage);
+      return false;
+    }finally{
+      if(ticket===stageRequestSequence){map?.removeAttribute('aria-busy');select?.removeAttribute('aria-busy');}
+    }
   }
   async function ensureAllStages(){
     await Promise.all([...Array(9)].map(async(_,i)=>{const n=i+1;if(!cache.has(n))cache.set(n,await fetchJSON(`./data/stage-${n}.json`));}));
@@ -132,7 +160,7 @@
     $('#stageSelect').innerHTML=meta.stages.map(s=>`<option value="${s.stage}">Etapa ${s.stage}${s.splitType==='official'?'':' · interna'}</option>`).join('');$('#stageSelect').value=String(current.stage);
     const groups=[...new Set(current.grammar.map(x=>x.groupPt))].sort();$('#grammarGroup').innerHTML='<option value="all">Todos os grupos</option>'+groups.map(g=>`<option>${esc(g)}</option>`).join('');
   }
-  function openFullTrainer(ch){ const x=current.characters.find(c=>c.char===ch)||[...cache.values()].flatMap(d=>d.characters).find(c=>c.char===ch);if(!x)return;trainerChar=x;$('#fullTrainerChar').textContent=x.char;$('#fullTrainerPinyin').textContent=x.pinyin;$('#fullTrainerMeaning').textContent=x.meaning;$('#fullTrainerMeta').textContent=`Etapa ${x.stage} · tradicional ${x.traditional||x.char} · ${x.writingLevel?`escrita nível ${x.writingLevel}`:'reconhecimento avançado'}`;$('#fullTrainerExamples').innerHTML=(x.examples||[]).map(e=>`<span>${e}</span>`).join('');createFullWriter();$('#laboratorio-integral').scrollIntoView({behavior:'smooth',block:'start'}); }
+  function openFullTrainer(ch,{scroll=true}={}){ const x=current.characters.find(c=>c.char===ch)||[...cache.values()].flatMap(d=>d.characters).find(c=>c.char===ch);if(!x)return;trainerChar=x;$('#fullTrainerChar').textContent=x.char;$('#fullTrainerPinyin').textContent=x.pinyin;$('#fullTrainerMeaning').textContent=x.meaning;$('#fullTrainerMeta').textContent=`Etapa ${x.stage} · tradicional ${x.traditional||x.char} · ${x.writingLevel?`escrita nível ${x.writingLevel}`:'reconhecimento avançado'}`;$('#fullTrainerExamples').innerHTML=(x.examples||[]).map(e=>`<span>${e}</span>`).join('');createFullWriter();if(scroll)$('#laboratorio-integral').scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); }
   function createFullWriter(){ const target=$('#fullWriter');target.innerHTML='';if(!trainerChar)return;const size=Math.min(330,Math.max(250,target.clientWidth||330));target.style.width=target.style.height=size+'px';if(!window.HanziWriter){target.innerHTML=`<div class="writer-fallback">${trainerChar.char}</div>`;return;}try{trainerWriter=HanziWriter.create(target,trainerChar.char,{width:size,height:size,padding:25,showOutline:true,showCharacter:true,strokeColor:getComputedStyle(document.documentElement).getPropertyValue('--ink').trim(),outlineColor:getComputedStyle(document.documentElement).getPropertyValue('--line').trim(),highlightColor:getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(),drawingColor:getComputedStyle(document.documentElement).getPropertyValue('--accent').trim(),drawingWidth:7});}catch(e){target.innerHTML=`<div class="writer-fallback">${trainerChar.char}</div>`;} }
   function chooseLab(kind){ if(!current)return;const words=current.vocabulary.filter(x=>x.meaning&&x.pinyin);const w=words[Math.floor(Math.random()*words.length)],opts=shuffle([w,...shuffle(words.filter(x=>x.id!==w.id)).slice(0,3)]);lab={kind,w,opts};$('#labMode').textContent=({reading:'Leitura',listening:'Escuta',translation:'Tradução',speaking:'Fala'}[kind]||kind);let html='';if(kind==='reading')html=`<p class="lab-prompt"><b>${w.hanzi}</b><span>${w.pinyin}</span></p><p>Qual é o significado?</p>`;if(kind==='listening')html=`<p class="lab-prompt"><button type="button" data-full-speak="${w.hanzi}" class="audio-large">▶ Ouvir</button></p><p>Qual tradução corresponde ao áudio?</p>`;if(kind==='translation')html=`<p class="lab-prompt"><b>${esc(w.meaning)}</b></p><label>Digite em caracteres chineses<input id="translationInput" autocomplete="off" lang="zh-Hans"></label><button type="button" id="checkTranslation" class="button primary">Verificar</button>`;if(kind==='speaking')html=`<p class="lab-prompt"><b>${w.hanzi}</b><span>${w.pinyin} · ${esc(w.meaning)}</span></p><button type="button" id="startRecognition" class="button primary">Gravar pronúncia</button><p id="speechResult">Use reconhecimento de voz quando disponível ou faça autoavaliação.</p><div class="mini-grade"><button data-self-speech="0">Preciso repetir</button><button data-self-speech="2">Pronunciei bem</button></div>`;if(['reading','listening'].includes(kind))html+=`<div class="lab-options">${opts.map(o=>`<button type="button" data-lab-answer="${o.id}">${esc(o.meaning)}</button>`).join('')}</div>`;$('#skillLab').innerHTML=html; }
   function answerLab(id){ const ok=id===lab.w.id;$('#labFeedback').textContent=ok?`Correto: ${lab.w.hanzi} · ${lab.w.pinyin} · ${lab.w.meaning}`:`Resposta: ${lab.w.hanzi} · ${lab.w.pinyin} · ${lab.w.meaning}`;grade(lab.kind,lab.w.id,ok?2:0);setTimeout(()=>chooseLab(lab.kind),900); }
@@ -143,14 +171,30 @@
   function makeOptions(correct,pool,key){return shuffle([correct,...shuffle(pool.filter(x=>x[key]!==correct[key])).slice(0,3)]);}
   function startExam(){ if(!current)return;const qs=[];const cs=shuffle(current.characters).slice(0,6),ws=shuffle(current.vocabulary).slice(0,18),ss=shuffle(current.syllables).slice(0,3),gs=shuffle(current.grammar).slice(0,3);cs.forEach(x=>qs.push({type:'char',prompt:`O que indica ${x.char}?`,correct:x.meaning,options:makeOptions(x,current.characters,'char').map(o=>o.meaning)}));ws.slice(0,6).forEach(x=>qs.push({type:'word',prompt:`Qual é o significado de ${x.hanzi}?`,correct:x.meaning,options:makeOptions(x,current.vocabulary,'id').map(o=>o.meaning)}));ws.slice(6,12).forEach(x=>qs.push({type:'reading',prompt:`Qual é o pinyin de ${x.hanzi}?`,correct:x.pinyin,options:makeOptions(x,current.vocabulary,'id').map(o=>o.pinyin)}));ws.slice(12,18).forEach(x=>qs.push({type:'listening',audio:x.hanzi,prompt:'Ouça e selecione o significado.',correct:x.meaning,options:makeOptions(x,current.vocabulary,'id').map(o=>o.meaning)}));ss.forEach(x=>qs.push({type:'syllable',prompt:`Qual caractere representa a sílaba ${x.pinyin}?`,correct:x.representative,options:makeOptions(x,current.syllables,'no').map(o=>o.representative)}));gs.forEach(x=>qs.push({type:'grammar',prompt:`A qual categoria pertence “${x.pattern}”?`,correct:x.title,options:makeOptions(x,current.grammar,'no').map(o=>o.title)}));exam=shuffle(qs);renderExam();}
   function renderExam(){ $('#fullExam').innerHTML=exam.map((q,i)=>`<fieldset class="exam-q"><legend>${i+1}. ${q.audio?`<button type="button" data-full-speak="${q.audio}">🔊 Ouvir</button> `:''}${esc(q.prompt)}</legend>${shuffle([...new Set(q.options)]).map(o=>`<label><input type="radio" name="fullExam${i}" value="${esc(o)}"> ${esc(o)}</label>`).join('')}</fieldset>`).join('');$('#fullExamResult').textContent=''; }
-  function submitExam(){let ok=0;const per={};exam.forEach((q,i)=>{const v=$(`input[name="fullExam${i}"]:checked`)?.value;const hit=v===q.correct;ok+=hit?1:0;per[q.type]??={ok:0,n:0};per[q.type].n++;per[q.type].ok+=hit?1:0;});state.lastExam={date:Date.now(),ok,total:exam.length,stage:current.stage,per};save();$('#fullExamResult').innerHTML=`<strong>${ok}/${exam.length} · ${pct(ok,exam.length)}%</strong><div>${Object.entries(per).map(([k,v])=>`<span>${k}: ${v.ok}/${v.n}</span>`).join('')}</div>`;}
-  async function downloadStage(){ if(!('caches' in window)){notice('Cache offline indisponível neste navegador.','error');return;}const urls=['./','./index.html','./styles.css','./app.js','./course.js','./full-course.js','./curriculum-data.js','./data/meta.json',`./data/stage-${current.stage}.json`];const c=await caches.open(`bishun-stage-${current.stage}-v4`);await c.addAll(urls);if(!state.downloaded.includes(current.stage))state.downloaded.push(current.stage);save();notice(`Etapa ${current.stage} disponível offline neste navegador.`,'ok'); }
+  function submitExam(){if(!exam.length){$('#fullExamResult').textContent='Primeiro clique em Gerar prova.';return;}let ok=0;const per={};exam.forEach((q,i)=>{const v=$(`input[name="fullExam${i}"]:checked`)?.value;const hit=v===q.correct;ok+=hit?1:0;per[q.type]??={ok:0,n:0};per[q.type].n++;per[q.type].ok+=hit?1:0;});state.lastExam={date:Date.now(),ok,total:exam.length,stage:current.stage,per};save();$('#fullExamResult').innerHTML=`<strong>${ok}/${exam.length} · ${pct(ok,exam.length)}%</strong><div>${Object.entries(per).map(([k,v])=>`<span>${k}: ${v.ok}/${v.n}</span>`).join('')}</div>`;}
+  async function downloadStage(){
+    if(!('caches' in window)||!('serviceWorker' in navigator)||!window.isSecureContext){notice('O modo offline exige navegador com HTTPS, Cache API e service worker.','error');return;}
+    if(!current){notice('Selecione uma etapa antes do download.','error');return;}
+    const active=current.stage;
+    const name='bishun-offline-6.8.1';
+    try {
+      const registration=await navigator.serviceWorker.getRegistration();
+      if(!registration?.active&&!registration?.waiting)throw new Error('Service worker ainda não ativado');
+      const cache=await caches.open(name);
+      await cache.addAll(['./data/meta.json','./data/stage-'+active+'.json']);
+      const ready=await Promise.all(['./data/meta.json','./data/stage-'+active+'.json'].map(u=>cache.match(u)));
+      if(ready.some(x=>!x))throw new Error('Verificação do cache falhou');
+      if(!state.downloaded.includes(active))state.downloaded.push(active);
+      save();
+      notice('Dados da etapa '+active+' salvos neste navegador. O uso offline completo depende da instalação do aplicativo e dos demais recursos carregados.','ok');
+    }catch(e){console.error(e);notice('Falha no download offline da etapa '+active+'. Não foi marcado como concluído.','error');}
+  }
   function exportProgress(){const blob=new Blob([JSON.stringify({schema:'bishun-full-v4',version:VERSION,exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`bishun-progresso-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);}
   function importProgress(file){const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(x.schema!=='bishun-full-v4'||!x.state)throw 0;state={...defaultState(),...x.state};save();location.reload();}catch{notice('Arquivo de progresso inválido.','error');}};r.readAsText(file);}
   document.addEventListener('click',e=>{
     const b=e.target.closest('button');if(!b)return;
     if(b.dataset.stage)loadStage(b.dataset.stage);
-    if(b.dataset.fullUnit){state.unit=Number(b.dataset.fullUnit);save();renderUnits();$('#unitDetailFull').scrollIntoView({behavior:'smooth',block:'start'});}
+    if(b.dataset.fullUnit){state.unit=Number(b.dataset.fullUnit);state.unitsByStage[state.stage]=state.unit;save();renderUnits();$('#unitDetailFull').scrollIntoView({behavior:'smooth',block:'start'});}
     if(b.dataset.fullSpeak)speak(b.dataset.fullSpeak,Number(b.dataset.rate||.82));
     if(b.dataset.fullTrainChar)openFullTrainer(b.dataset.fullTrainChar);
     if(b.dataset.fullGrade){const [t,id,q]=b.dataset.fullGrade.split('|');grade(t,id,Number(q));renderUnitDetail();renderAtlas();renderVocabulary();renderSyllables();renderGrammar();}
@@ -170,6 +214,6 @@
   $('#syllableSearch')?.addEventListener('input',()=>scheduleGlobalSearch('syllable'));$('#syllableStatus')?.addEventListener('change',()=>{syllablePage=0;renderSyllables();});
   $('#fullGrammarSearch')?.addEventListener('input',()=>scheduleGlobalSearch('grammar'));$('#grammarGroup')?.addEventListener('change',()=>{grammarPage=0;renderGrammar();});
   $('#stageSelect')?.addEventListener('change',e=>loadStage(e.target.value));$('#importFullProgress')?.addEventListener('change',e=>e.target.files[0]&&importProgress(e.target.files[0]));
-  async function init(){ try{await loadMeta();await loadStage(state.stage,true);trainerChar=current.characters[0];openFullTrainer(trainerChar.char);notice('Programa integral carregado. Selecione uma etapa para começar.','ok');}catch(e){console.error(e);notice('Falha ao iniciar o programa integral.','error');} }
+  async function init(){ try{await loadMeta();const loaded=await loadStage(state.stage,true);if(!loaded||!current)return;trainerChar=current.characters[0];openFullTrainer(trainerChar.char,{scroll:false});notice('Programa integral carregado. Selecione uma etapa para começar.','ok');}catch(e){console.error(e);notice('Falha ao iniciar o programa integral.','error');} }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
