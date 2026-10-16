@@ -219,4 +219,10 @@ function registerEvents(){
  addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);const n=bounds(p.get('etapa'),1,9),u=bounds(p.get('unidade'),1,unitLimits[n-1]),m=modes.includes(p.get('modo'))?p.get('modo'):'aprender';if(current&&n===stage){unit=u;paintUnit();setMode(m)}else loadStage(n,u,m)});
 }
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
+if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
+ window.addEventListener('load',()=>{
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.0.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
+ },{once:true})
+}
 })();
