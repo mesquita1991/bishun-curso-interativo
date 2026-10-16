@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4434,
-      "sha256": "bd32cfad531d60990cd3da594e931a5e9e9f6b89a0901da01c2354875a72c223"
+      "bytes": 4443,
+      "sha256": "b10c955a30637871bc99a750b5c067d1eb90cd458828a513a8b9d40edb0f295d"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "9faa7422b4470ae4f8a98aa01da03e24fce69912445371eb82b8a553e624eb26"
+      "sha256": "f0c411ca4b3552282fe032454e0544abfe0112d3a04d80514f1e061f299d1e3a"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "aab0bc485ad6a14d223cdff076e263f5d7786adff82737759976b723bcc05ffc"
+      "sha256": "09bee8dcdb0d04898bc9a965edb5f2667fdbb4fb0a1f19b3f37de57a99af0356"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -424,7 +424,7 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "062dd5d9103595d7ecdd0f92fead3da080798557c1dab2864a002967eb99183f",
+      "sha256": "8c35e081e3ac365cae3e0e2652a6734d2eae2877a2bc41e19965451c918d879c",
       "bytes": 3492
     },
     {
@@ -444,7 +444,7 @@
     },
     {
       "path": "tests/unit-study-check.mjs",
-      "sha256": "5e8787693fb970d5d811a274f6d1219c31fe2991f59d3e6587a8fe5326d75cfd",
+      "sha256": "802dfc1ddc2ffab097b28f9303e0c3c7b961fbe23f28fd6041ab4ea09e70d36d",
       "bytes": 2126
     },
     {
@@ -460,7 +460,7 @@
     {
       "path": "tests/student-guidance-check.mjs",
       "bytes": 2530,
-      "sha256": "f711378655d7ce7fda5062e0d94047edc437d95e460fd75e3a842532b0143581"
+      "sha256": "f96bd1d0a4417ca56e2ca2da985e11980d2b876754a7f69888b7ebdca104242f"
     },
     {
       "path": ".github/workflows/ux681-gate.yml",
