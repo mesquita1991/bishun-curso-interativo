@@ -2,9 +2,9 @@
 'use strict';
 const resume=document.getElementById('portalResume');
 if(resume){
- let stage=1,unit=1,hasProgress=false;
+ let stage=1,unit=1,hasProgress=false,flow={};
  try{
-  const saved=JSON.parse(localStorage.getItem('bishunFullV4')||'{}'),flow=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}'),last=flow.last||{};
+  const saved=JSON.parse(localStorage.getItem('bishunFullV4')||'{}');flow=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}');const last=flow.last||{};
   hasProgress=Boolean(last.stage||saved.stage);
   stage=Math.max(1,Math.min(9,Number(last.stage||saved.stage)||1));
   const limits=[30,30,30,30,30,30,40,40,40];
