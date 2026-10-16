@@ -20,6 +20,8 @@ assert.equal(sections.length,47,'All 47 historical sections must be preserved in
 const data=JSON.parse(read('conteudos.json'));assert.equal(data.sections.length,47);
 const set=new Set(data.sections.map(x=>x.id));for(const sec of sections)assert.ok(set.has(sec),'Missing lesson: '+sec);
 assert.ok(data.sections.reduce((n,s)=>n+s.items.length,0)>=200,'Lessons were lost');
+assert.equal(JSON.parse(read('visual-mnemonics-6.2.1.json')).items.length,48,'All 48 visuals must remain available');
+assert.ok(read('laboratorio.js').includes("fetch('visual-mnemonics-6.2.1.json?v=6.9.1')"),'Visual resources must load only on user request');
 const routeSrc=read('rotas.js');const m=routeSrc.match(/const routes=(\{[^;]+\});/);assert.ok(m);const routes=JSON.parse(m[1]);
 for(const [source,dest] of Object.entries(routes))assert.ok(fs.existsSync(dest.split(/[?#]/)[0]),'Broken module destination '+source+': '+dest);
 for(const dest of ['laboratorio.html','catalogo.html','avaliacao.html','aulas.html'])assert.ok(pages.includes(dest));
