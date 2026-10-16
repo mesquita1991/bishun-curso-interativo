@@ -1,25 +1,28 @@
-name: Bǐshùn 6.9 browser QA
+# Testes de navegador avulsos: desativados como gatilho automático.
+# O workflow "Bǐshùn — validação consolidada" executa estes testes
+# somente após aprovação do pré-check, evitando runs duplicados.
+name: Bǐshùn — navegador sob demanda
 on:
-  pull_request:
-  push:
-    branches: [main]
   workflow_dispatch:
+concurrency:
+  group: bishun-browser-manual-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
 jobs:
   chromium:
     runs-on: ubuntu-latest
     timeout-minutes: 12
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install Chromium test runner
+      - name: Preparar navegador
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install chromium --with-deps
-      - name: Verify progressive pages in Chromium
+      - name: Validar navegação
         run: |
           node tests/multipage-browser-smoke.mjs
           node tests/unit-study-browser-smoke.mjs
