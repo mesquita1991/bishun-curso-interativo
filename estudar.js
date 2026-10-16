@@ -59,12 +59,25 @@ function paintProgress(){
  buttons.forEach(b=>{const record=units[stage+':'+b.dataset.unit]||{},u=current?.units.find(x=>x.id===Number(b.dataset.unit)),set=new Set((u?.characters||[]).map(String)),cs=current?.characters.filter(x=>set.has(String(x.id)))||[];b.classList.toggle('complete',pedagogia.completePractice(record,cs).completed===4);b.classList.toggle('active',Number(b.dataset.unit)===unit)});
 }
 function speak(text,rate=.82){if(!('speechSynthesis'in window)){$('writingFeedback').textContent='Síntese de voz indisponível neste navegador.';return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(text));u.lang='zh-CN';u.rate=rate;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang.toLowerCase()==='zh-cn')||voices.find(v=>v.lang.toLowerCase().startsWith('zh'))||null;speechSynthesis.speak(u)}catch(e){console.warn('Áudio indisponível',e)}}
+function paintChunk(){
+ const {chars,words}=components(),parts=pedagogia.chunks(chars,2),size=parts.length;
+ learnChunk=Math.max(0,Math.min(size-1,learnChunk));
+ const shown=parts[learnChunk]||[],prev=progress(),seen=[...new Set([...(prev.seenParts||[]),learnChunk])];
+ if(size&&seen.length!==((prev.seenParts||[]).length))updateProgress({seenParts:seen});
+ $('learnChunkTitle').textContent='Conheça estes '+shown.length+' caracteres';
+ $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+seen.length+' partes visitadas';
+ $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
+ const relevant=words.filter(w=>shown.some(c=>String(w.hanzi||'').includes(c.char))).slice(0,6);
+ $('learnWords').innerHTML=(relevant.length?relevant:words.slice(learnChunk*2,learnChunk*2+3)).map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
+ $('prevChunk').disabled=learnChunk===0;
+ $('nextChunk').disabled=learnChunk>=size-1;
+ $('nextChunk').textContent=learnChunk>=size-1?'Todos os caracteres apresentados':'Conhecer os próximos →';
+ $('finishLearn').disabled=!progress().learned&&seen.length<size;
+}
 function renderLearn(){
- const {chars,words,grammar,syllables}=components();
- $('learnCharacters').innerHTML=chars.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
- $('learnWords').innerHTML=words.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Nenhum vocábulo cadastrado nesta unidade.</p>';
- $('learnGrammar').innerHTML=grammar.map(g=>'<article class="grammar-item"><h5>'+esc(g.title)+'</h5><p class="pattern">'+esc(g.pattern)+'</p><p>'+esc(g.explanation||g.source?.content)+'</p>'+(g.examples||[]).slice(0,2).map(e=>'<p><span lang="zh-Hans">'+esc(e.zh)+'</span> · '+esc(e.pinyin)+' · '+esc(e.pt)+'</p>').join('')+'</article>').join('')||'<p>Nenhum registro gramatical adicional nesta unidade.</p>';
- $('learnSyllables').innerHTML=syllables.map(s=>'<span>'+esc(s.pinyin)+' <span lang="zh-Hans">'+esc(s.representative)+'</span></span>').join('')||'<p>Sem novas sílabas registradas.</p>';
+ const {chars,grammar,syllables}=components();learnChunk=0;paintChunk();
+ $('learnGrammar').innerHTML=grammar.map(g=>'<article class="grammar-item"><h5>'+esc(g.title)+'</h5><p class="pattern">'+esc(g.pattern)+'</p><p>'+esc(g.explanation||g.source?.content)+'</p>'+(g.examples||[]).slice(0,2).map(e=>'<p><span lang="zh-Hans">'+esc(e.zh)+'</span> · '+esc(e.pinyin)+' · '+esc(e.pt)+'</p>').join('')+'</article>').join('')||'<p>Nenhuma explicação gramatical adicional nesta unidade.</p>';
+ $('learnSyllables').innerHTML=syllables.map(item=>'<span>'+esc(item.pinyin)+' <span lang="zh-Hans">'+esc(item.representative)+'</span></span>').join('')||'<p>Sem novas sílabas registradas.</p>';
 }
 function renderWriting(){
  const {chars}=components();$('writeCharacter').innerHTML=chars.map(x=>'<option value="'+esc(x.char)+'">'+esc(x.char)+' · '+esc(x.pinyin)+' · '+esc(x.meaning)+'</option>').join('');
