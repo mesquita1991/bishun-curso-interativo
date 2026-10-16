@@ -346,6 +346,16 @@
       "path": "tests/multipage-interaction-smoke.mjs",
       "bytes": 2445,
       "sha256": "430a936dfb949a8ccaa189a0393eae8ca0de4503d804cc2ddcb183c3b232759e"
+    },
+    {
+      "path": "tests/multipage-browser-smoke.mjs",
+      "bytes": 2747,
+      "sha256": "16e0426a6efd7a671cbb0804187602d6a813524793fa8f93dcef915969d3c90f"
+    },
+    {
+      "path": ".github/workflows/multipage-browser-qa.yml",
+      "bytes": 596,
+      "sha256": "916f77320e75c0dcde03ff0b932c39da4dcdd7a5b2fc24f7a646ba16ad942237"
     }
   ],
   "guidedPath": {
@@ -434,6 +444,7 @@
     "originalCurriculumUnchanged": true,
     "legacyAnchorRedirect": true,
     "requiresBrowserQA": true,
-    "interactionSmoke": true
+    "interactionSmoke": true,
+    "chromiumWorkflow": true
   }
 }
