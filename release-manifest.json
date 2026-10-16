@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1843,
-      "sha256": "940de79526a3f9265b91ec6d96229bc6687018e6c0370e8ca95b6b27b9ced1ee"
+      "bytes": 1869,
+      "sha256": "ab089ce9988f4d2824ecb34233d8c2aafdfe8b9be40e2561b0852f070ce1b8a3"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -250,12 +250,12 @@
     {
       "path": "portal.js",
       "bytes": 1137,
-      "sha256": "2959bcd0c3e801c6ec8c5503033a1821c92cc2effca061d1f4f47785fbb600f4"
+      "sha256": "769565cce25f21eed2ee7570efb49414c300498296740b16aad3960d7c3cdb75"
     },
     {
       "path": "etapa.js",
       "bytes": 6209,
-      "sha256": "28f142e366be5e7a594410e23084abcf6c72190b77f43ce8664ec21d1a301ed9"
+      "sha256": "a277e4bf608d0e68397aab06849f476177c337c9d2e8dc617b33ee5b4b60f591"
     },
     {
       "path": "base.html",
@@ -309,13 +309,13 @@
     },
     {
       "path": "etapa-8.html",
-      "bytes": 4715,
-      "sha256": "a68bc1cd27c790661cb0feee7dcd860682ddf06e90c0b1aa4d7173a65a46d979"
+      "bytes": 5884,
+      "sha256": "0f273c4bf04fc13dd0a12849e097979d45d126ba06bc428222d8d62af5c5cfc8"
     },
     {
       "path": "etapa-9.html",
-      "bytes": 4714,
-      "sha256": "bc1d26318cb4bcb2574a62d81fbc194a9b3f6d5a6fa75f1e7ff685fff3e4b2fb"
+      "bytes": 5883,
+      "sha256": "0a396ca589a26997dcc6dfb32f6aa8852a93a7d367f17d638f92f8e9c79c9029"
     },
     {
       "path": "sitemap.xml",
@@ -439,7 +439,7 @@
     },
     {
       "path": "estudar.js",
-      "sha256": "c69ec9bab460825c6946275696bf752b2bfad75ed8d86fde55dcf7186906764e",
+      "sha256": "d8560604f7cd12fd0c83c9c98e4ec2fdbd445e4787aef948d1d3ca277eb3f058",
       "bytes": 23140
     },
     {
