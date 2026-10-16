@@ -15,10 +15,9 @@ if(location.hash&&!['#topo','#conteudo','#rota','#etapas','#continuidade'].inclu
 const next=new URL(window.BishunRoutes.forSection(location.hash),location.href);
 new URLSearchParams(location.search).forEach((v,k)=>next.searchParams.set(k,v));
 location.replace(next.href);
-}</script></head>
-<body><a class="skip" href="#conteudo">Pular para conteúdo</a>
-<header class="topbar"><div class="wrap"><a class="brand" href="./">笔顺 Bǐshùn <span>· Mandarim passo a passo</span></a>
-<nav class="topnav" aria-label="Navegação"><a href="./" aria-current="page">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav></div></header>
+}</script><link rel="stylesheet" href="interface.css?v=7.1.0"></head>
+<body class="bishun-site"><a class="skip" href="#conteudo">Pular para conteúdo</a>
+<header class="topbar site-header"><div class="wrap site-header-inner"><a class="brand site-brand" href="./"><span class="site-brand-name">笔顺 Bǐshùn</span><span class="site-brand-tag">Mandarim passo a passo</span></a><nav class="topnav" aria-label="Navegação principal"><a href="./" aria-current="page">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav><details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Navegação no celular"><a href="./" aria-current="page">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav></details></div></header>
 <main id="conteudo"><div class="wrap">
 <section class="hero journey-hero" id="topo"><div class="hero-grid">
 <div><p class="eyebrow">Seu curso de mandarim em português</p><h1>Aprenda mandarim, uma unidade de cada vez.</h1>
@@ -61,5 +60,5 @@ location.replace(next.href);
 <p>Ao voltar a este navegador, você pode retomar a unidade e os passos registrados. Se trocar de aparelho ou apagar os dados do navegador, seu histórico poderá não estar disponível.</p>
 <p><a href="mapa.html">Ver todas as unidades →</a> · <a href="aulas.html#fontes">Consultar as fontes do curso →</a></p></section>
 </div></main>
-<footer class="foot"><div class="wrap">Bǐshùn · Aprenda mandarim em português · <a href="mapa.html">Explorar as etapas</a> · <a href="aulas.html">Biblioteca</a></div></footer>
+<footer class="foot site-footer"><div class="wrap site-footer-inner"><div><strong class="site-footer-heading">笔顺 Bǐshùn · Mandarim passo a passo</strong><p class="site-footer-description">Conheça, escreva, lembre e confira o que aprendeu. Uma unidade de cada vez.</p></div><nav class="site-footer-nav" aria-label="Links de apoio"><a href="./">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="catalogo.html">Consultar palavras</a><a href="aulas.html#fontes">Fontes do curso</a></nav><p class="site-footer-meta">Seu progresso fica neste navegador. Atividades concluídas não são uma certificação de proficiência.</p></div></footer>
 </body></html>
