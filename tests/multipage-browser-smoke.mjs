@@ -31,6 +31,11 @@ try{
   await lab.locator('#carregar').click();await lab.locator('#laboratorio').waitFor({state:'visible',timeout:12000});
   assert.ok((await lab.locator('.mini-result').count())>0,'Writing lab should contain characters');
   assert.ok((await lab.locator('#writer').innerText()).length>0,'Writer fallback should show a character');
+  await lab.locator('#memoriaVisual summary').click();
+  await lab.locator('#visualGrid .tool-card').first().waitFor({state:'visible',timeout:12000});
+  assert.equal(await lab.locator('#visualGrid .tool-card').count(),12,'12 featured mnemonic images');
+  await lab.locator('#visualMore').click();
+  assert.equal(await lab.locator('#visualGrid .tool-card').count(),48,'All 48 mnemonic images');
   assert.deepEqual(labFailures,[],'Independent lab must initialize without JS errors');
   await lab.goto(url+'/catalogo.html?etapa=1#palavras',{waitUntil:'domcontentloaded'});
   await lab.locator('#carregar').click();await lab.locator('#catalogo').waitFor({state:'visible',timeout:12000});assert.ok((await lab.locator('.tool-card').count())>0,'Vocabulary catalog');
