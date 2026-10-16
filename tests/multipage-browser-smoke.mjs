@@ -25,6 +25,7 @@ try{
   await stage.locator('#stageUnitSelect').selectOption('2');
   assert.equal(await stage.evaluate(()=>JSON.parse(localStorage.getItem('bishunFullV4')).unitsByStage['1']),2);
   assert.ok((await stage.evaluate(()=>document.body.scrollWidth))<=width+2,'Stage horizontal overflow '+width);
+  if(width===1440){const advanced=await context.newPage();await advanced.goto(url+'/etapa-9.html',{waitUntil:'domcontentloaded'});await advanced.locator('#loadStageButton').click();await advanced.locator('#stageLoaded').waitFor({state:'visible',timeout:20000});assert.ok((await advanced.locator('.hanzi-card').count())>=10,'Advanced stage must render a unit');await advanced.close();}
   await stage.goto(url+'/index.html#treinador',{waitUntil:'commit',timeout:30000});
   await stage.waitForURL('**/curso.html#treinador',{waitUntil:'commit',timeout:12000});
   await context.close();
