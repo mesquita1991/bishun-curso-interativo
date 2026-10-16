@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4431,
-      "sha256": "d2f1bff6a364e4e39c3bbf7c007909bbfd624e74d109d61689baa1b199cb78a4"
+      "bytes": 4434,
+      "sha256": "bd32cfad531d60990cd3da594e931a5e9e9f6b89a0901da01c2354875a72c223"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "a5ba158fc356a9d4cdb0921a633283fc611a2195b0b395b15116884fc9a555b3"
+      "sha256": "9faa7422b4470ae4f8a98aa01da03e24fce69912445371eb82b8a553e624eb26"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -260,17 +260,17 @@
     {
       "path": "base.html",
       "bytes": 5020,
-      "sha256": "4c9277fb0b7b812d243d054f923605c5bb67a2269df091d60543ff4ce4e6bf98"
+      "sha256": "b7f3ad2846c429c41490a8fed24365a33f95dc68e54c26e33bbacbd1e70aa30d"
     },
     {
       "path": "imersao.html",
       "bytes": 3819,
-      "sha256": "ffa9cd0bb3c406a0bf92c2b69b47fa7135dde87aa617b5a150b8b76fbb340393"
+      "sha256": "9821af0d6ae750731a501d07b3704ad32bb96ccbd4c172c5d28bafe6152cd934"
     },
     {
       "path": "validacao.html",
       "bytes": 3959,
-      "sha256": "0f90c5bd38884a6174d11a572e1f9617ba273d1d0d5a6caa34f29cdb5c0befe9"
+      "sha256": "29ac036ddb9ce9f71496243d65807157e62b4b75adaac7d783d5174b2cbb8a9a"
     },
     {
       "path": "etapa-1.html",
@@ -314,8 +314,8 @@
     },
     {
       "path": "etapa-9.html",
-      "bytes": 4765,
-      "sha256": "a0335a103fb469afef8a70592b52da22013a814ca1b7cdf7ff9e37565f893eeb"
+      "bytes": 4714,
+      "sha256": "bc1d26318cb4bcb2574a62d81fbc194a9b3f6d5a6fa75f1e7ff685fff3e4b2fb"
     },
     {
       "path": "sitemap.xml",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "9484bf798a87f78fe70b290675323f1d39434e902d53a4a17caa91e1f71d8008"
+      "sha256": "aab0bc485ad6a14d223cdff076e263f5d7786adff82737759976b723bcc05ffc"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -424,7 +424,7 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "942a109414c6c1009975cd94827d64892647945be1f6a7c62ec6fbd90fe2d470",
+      "sha256": "062dd5d9103595d7ecdd0f92fead3da080798557c1dab2864a002967eb99183f",
       "bytes": 3492
     },
     {
