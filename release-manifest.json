@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4443,
-      "sha256": "b10c955a30637871bc99a750b5c067d1eb90cd458828a513a8b9d40edb0f295d"
+      "bytes": 4446,
+      "sha256": "0c67901ff7c77be7e22cb28023d315adf43274bc969cff45e79849c5f1b5a4f6"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -295,27 +295,27 @@
     {
       "path": "etapa-5.html",
       "bytes": 5842,
-      "sha256": "a4a4a6e2e3de56379385000cd0fef9d92abe9cb3fb983f46d6fedc9589d87b5b"
+      "sha256": "6a65c28e427c8550349225132ed16998f779d706cc973db6a6e4fcf405b33078"
     },
     {
       "path": "etapa-6.html",
       "bytes": 5842,
-      "sha256": "c408a2685df1b1d7d563d57edf1c4ac6595f8750333fef67639ee5ee376718cf"
+      "sha256": "9f5f27533353860f9f0224b161b1a878c06b6b89c78c0ea61550de407448ad23"
     },
     {
       "path": "etapa-7.html",
       "bytes": 5884,
-      "sha256": "a9ad53ecacf061ee72e4cebe2b95c50be7aa08077cd1b421cd2b7a69aaa0d440"
+      "sha256": "704b6c1db4315c18709c997de14077d64371942f9973f1ce92ff718a4197e0a7"
     },
     {
       "path": "etapa-8.html",
       "bytes": 5884,
-      "sha256": "0f273c4bf04fc13dd0a12849e097979d45d126ba06bc428222d8d62af5c5cfc8"
+      "sha256": "6ab6694508e09b673c8dda92b8438cb4569beca99d6aa640a47d6cf89607453b"
     },
     {
       "path": "etapa-9.html",
       "bytes": 5883,
-      "sha256": "0a396ca589a26997dcc6dfb32f6aa8852a93a7d367f17d638f92f8e9c79c9029"
+      "sha256": "4d5d6ab1eaca86539cd438883bddf8630a5b48bf93ec59f9e70c3b121763796a"
     },
     {
       "path": "sitemap.xml",
@@ -449,8 +449,8 @@
     },
     {
       "path": "tests/unit-study-browser-smoke.mjs",
-      "sha256": "0a9fac2da5b72be14dbdedb12da244911d9653b2d32a685fc07f09a5fae6debd",
-      "bytes": 4351
+      "sha256": "fa97773e09e3b614e3b8a241318fdc744cb35efa97181b22a28abf4aa8731eec",
+      "bytes": 4944
     },
     {
       "path": "jornada.css",
@@ -486,6 +486,11 @@
       "path": "pedagogia.js",
       "sha256": "08d6b4ef5c7091e425c907911f73f7722a7f08f394dfd90ff64dd861182dea15",
       "bytes": 3503
+    },
+    {
+      "path": "tests/pedagogy-check.mjs",
+      "sha256": "526ba9a12801a1df1a8f28920697946aec5fa86a5413693e47384f2ce8f041c6",
+      "bytes": 2023
     }
   ],
   "guidedPath": {
