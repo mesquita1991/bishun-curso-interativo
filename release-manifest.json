@@ -349,8 +349,8 @@
     },
     {
       "path": "tests/multipage-browser-smoke.mjs",
-      "bytes": 4755,
-      "sha256": "7cd3462e8ae17505dc08f87ad7fbfe4928bd225af13e0d2889a674595a4d12a4"
+      "bytes": 5149,
+      "sha256": "f54aff425cc45ef442eb1585b4b95e4df103a948f9da1f0b79b7c53fa1ea6b83"
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
@@ -359,13 +359,13 @@
     },
     {
       "path": "laboratorio.html",
-      "sha256": "7e3f2f905276801144035f411ac88c09827761b4c0c1ab8dc20de04f30754c2b",
-      "bytes": 4207
+      "sha256": "d4aed9b5a5b1b1418ed5df47b3d9b568258b91bbb7812afed0b39938267579d1",
+      "bytes": 4923
     },
     {
       "path": "laboratorio.js",
-      "sha256": "c24cb54196aa8ed794fd1b61cf7cac12ff96886117d7c9fd85b1e92fce1a52e9",
-      "bytes": 8536
+      "sha256": "e33aef14031968fa31eda3de347fcf3b5e58ebb0e2165f234cac55a94e05dd83",
+      "bytes": 10263
     },
     {
       "path": "catalogo.html",
@@ -409,8 +409,8 @@
     },
     {
       "path": "modulos.css",
-      "sha256": "2d687f5ec2bb05449c0770e53aa59fc927b9e84f1294c3097a2b2c04ce359b97",
-      "bytes": 3745
+      "sha256": "5de702830e20b39b02be9666588ab24cfe63eed50e725f434a8247b3bad06b98",
+      "bytes": 4439
     },
     {
       "path": "conteudos.json",
@@ -424,8 +424,8 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "c62b51565cf6eef11d4b650bbf07a43d9a7da6509effdefb009c74039d2be042",
-      "bytes": 3213
+      "sha256": "b788610fac15d05a25a7a7d0e8c8c599b2eec2ef2e3c6a821e3320f2a3946372",
+      "bytes": 3473
     }
   ],
   "guidedPath": {
@@ -531,6 +531,7 @@
     ],
     "archivedLegacyHtml": "docs/arquivo-curso-6.8.1.html",
     "historicalSectionsPreserved": 47,
-    "legacyLinksInLivePages": 0
+    "legacyLinksInLivePages": 0,
+    "restoredVisualMnemonics": 48
   }
 }
