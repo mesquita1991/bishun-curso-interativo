@@ -1,6 +1,6 @@
 {
-  "version": "7.2.0",
-  "generatedAt": "2026-10-16T20:11:00Z",
+  "version": "7.2.1",
+  "generatedAt": "2026-10-16T23:01:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -94,13 +94,13 @@
     },
     {
       "path": "package.json",
-      "bytes": 1643,
-      "sha256": "69186fdb2dd59c2babee1b2aa558f0d4c2ce354849aa4e59d53e8f758f47f1dd"
+      "bytes": 1647,
+      "sha256": "db72c84105ee289099ed6a684db9e2ff0916c245f75e74a404f067dbc0d711d7"
     },
     {
       "path": "README.md",
-      "bytes": 19361,
-      "sha256": "eafc776cf2e9e51340d50bfa5d8ce6566eb0fd4c4fe92d70b7991f2495a16850"
+      "bytes": 20348,
+      "sha256": "0b4fe80a888f8b26ce22dbe33cec9734ec21a301d1aed12de5af0d6f566dad1c"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4446,
-      "sha256": "0c67901ff7c77be7e22cb28023d315adf43274bc969cff45e79849c5f1b5a4f6"
+      "bytes": 4448,
+      "sha256": "e5a10420568a8945ccf0996143f4a5a8466172c34ebb80e8cedf67a443659260"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -210,7 +210,7 @@
     {
       "path": "sw.js",
       "bytes": 1869,
-      "sha256": "6b16e9b660f4a94066e20cdffbb907b1ad4d2133c265fd2ec372af4e8b6417f7"
+      "sha256": "d4c5e1931b7f3567f44c3244ad967afede368b5f4ca8527f735781281588b1cd"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "e44d4dad75e048a1d4b37281634915a1ed41a1e3732abc45f74b4ad0d83b1cd0"
+      "sha256": "f0f3edfb0437b0705a0490037c85684ccb55cf628a11809fa6084babc38e01ee"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "e2e96bcc9eda1154072f743d1c4b3ff7e7a11c4d674f0527fe568aa1bdd28e91"
+      "sha256": "9ae882ac72056aade146464a060bb0812ab82ce5d40c55978de98522c7a6ed59"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -424,33 +424,33 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "b2ff2fa3043a6f4f95d76cd6d952de5c88274d4b7a5e73655116174d5375bf01",
+      "sha256": "3a69bbd55fb2f1b0df6a6b36350e6d06a8f834be32626fecc3590e0cd00c0824",
       "bytes": 3492
     },
     {
       "path": "estudar.html",
-      "sha256": "9b9ad7ab5756923ee47ed3c66db663ffcf5e0681cf9ea56dd6bc532044519287",
-      "bytes": 11967
+      "sha256": "5de75e8801c3f4441be591835be14ccc80a0aacfeac5e929a22a3170991d93d0",
+      "bytes": 12569
     },
     {
       "path": "estudar.css",
-      "sha256": "b08e9b68d0866d385aa180f07c331fb36513cea88e0339775861fc1ed5617953",
-      "bytes": 11883
+      "sha256": "3a6788cb39621034b3f0a48a85964ccd90aba71c2309e5895e5cd9a8ee0f27af",
+      "bytes": 12218
     },
     {
       "path": "estudar.js",
-      "sha256": "5c22595c10cc2dcf81fb83a202ce9dfacb7f89be166be9859556300f5d5dd4f4",
-      "bytes": 26613
+      "sha256": "fc99164702513a1bf01922961d573f7584928489adb93484b3cf8c62a23b172a",
+      "bytes": 29565
     },
     {
       "path": "tests/unit-study-check.mjs",
-      "sha256": "73b6042056e4c061d401bd20727c2c580d60597e6195947ca690d38d4fa3b08b",
+      "sha256": "0fc13d281a4220647a4e276143391d2e2f2d2cfc1af5e2e5d30fa36d859b2273",
       "bytes": 2126
     },
     {
       "path": "tests/unit-study-browser-smoke.mjs",
-      "sha256": "fa97773e09e3b614e3b8a241318fdc744cb35efa97181b22a28abf4aa8731eec",
-      "bytes": 4944
+      "sha256": "5cc64d729ceb2214848284946009669de2b358b7a44b65671295a80712415915",
+      "bytes": 6353
     },
     {
       "path": "jornada.css",
@@ -459,8 +459,8 @@
     },
     {
       "path": "tests/student-guidance-check.mjs",
-      "bytes": 2530,
-      "sha256": "22de184550ebb4e5a1e2b5ad02948d821fa4ac1e90797329f31fbae4c6ebee4b"
+      "bytes": 2670,
+      "sha256": "40e5f45d36ad3c7a061dbcf89f29f93cf1755cde2d2dd7f65594d64933b28307"
     },
     {
       "path": ".github/workflows/ux681-gate.yml",
@@ -474,7 +474,7 @@
     },
     {
       "path": "tests/site-design-check.mjs",
-      "sha256": "298f1a7ea9e34234831da57dda41ca97b266766ba779324ae222dd3c4dc72448",
+      "sha256": "643aea74038ce02652fc53d05e15edf45bbf0b029c1b80ef411500e4ff5bceac",
       "bytes": 4324
     },
     {
@@ -484,13 +484,13 @@
     },
     {
       "path": "pedagogia.js",
-      "sha256": "08d6b4ef5c7091e425c907911f73f7722a7f08f394dfd90ff64dd861182dea15",
-      "bytes": 3503
+      "sha256": "2881d50b412177597fd7d5518eb2a446197019bc42bdfc4749b88f7b54b752fd",
+      "bytes": 3828
     },
     {
       "path": "tests/pedagogy-check.mjs",
-      "sha256": "526ba9a12801a1df1a8f28920697946aec5fa86a5413693e47384f2ce8f041c6",
-      "bytes": 2023
+      "sha256": "9fee5106eebffb692761fbec5b9b1d754eb16216f6998d1d6672107c726f7c79",
+      "bytes": 2351
     }
   ],
   "guidedPath": {
