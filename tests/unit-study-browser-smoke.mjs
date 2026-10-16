@@ -46,7 +46,7 @@ try{
   assert.equal(await page.locator('#studyUnit').inputValue(),'2','resume via URL and storage');
   await page.locator('#studyStage').selectOption('9');
   await page.locator('#studyContent').waitFor({state:'visible',timeout:18000});
-  assert.match(await page.locator('#unitEyebrow').innerText(),/Etapa 9/);
+  assert.match(await page.locator('#unitEyebrow').innerText(),/etapa 9/i);
   assert.equal(reqs.filter(p=>p.includes('/data/stage-9.json')).length,1);
   assert.deepEqual(errors,[],'page errors');
   await ctx.close();
