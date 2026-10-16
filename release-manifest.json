@@ -424,8 +424,8 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "fa57d65972672c9771941da05db084ed36e1a9226e622084e0ea7c43343a5e1c",
-      "bytes": 3488
+      "sha256": "872d5b60422244e79db6b648fe02c208aa3fdffa5143dee540fa1512a244e975",
+      "bytes": 3487
     },
     {
       "path": "estudar.html",
