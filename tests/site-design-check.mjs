@@ -8,7 +8,7 @@ function navLinks(html,pattern){const m=html.match(pattern);assert.ok(m,'Missing
 for(const file of pages){
  const html=read(file);
  assert.ok(html.includes('<body class="bishun-site">'),'Shared body absent: '+file);
- assert.ok(html.includes('interface.css?v=7.1.0'),'Shared design stylesheet absent: '+file);
+ assert.ok(html.includes('interface.css?v=7.2.0'),'Shared design stylesheet absent: '+file);
  assert.equal((html.match(/<header class="topbar site-header">/g)||[]).length,1,'Duplicated or missing header: '+file);
  assert.equal((html.match(/<footer class="foot site-footer">/g)||[]).length,1,'Duplicated or missing footer: '+file);
  assert.ok(html.includes('<main id="conteudo"'),'Missing skip-link destination: '+file);
@@ -37,10 +37,10 @@ assert.equal(shell.size,1,'Header navigation differs between pages');
 assert.equal(footers.size,1,'Footers differ between pages');
 assert.deepEqual(broken,[],'Some local links have no file destination');
 assert.ok(!read('interface.css').includes('@import'),'Design system must not require a remote font');
-const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'7.1.0');
+const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'7.2.0');
 assert.equal(JSON.parse(read('release-manifest.json')).version,pkg.version);
-assert.ok(read('sw.js').includes('bishun-offline-7.1.0'),'Cache version must be updated');
-assert.ok(read('sw.js').includes('./interface.css?v=7.1.0'),'Shared UI must be part of offline shell');
+assert.ok(read('sw.js').includes('bishun-offline-7.2.0'),'Cache version must be updated');
+assert.ok(read('sw.js').includes('./interface.css?v=7.2.0'),'Shared UI must be part of offline shell');
 assert.ok(read('estudar.html').includes('id="studentGoal"'),'Student guidance must remain');
 assert.ok(read('etapa.js').includes('Estudar esta unidade · 4 atividades'),'Existing stage links remain');
 console.log(JSON.stringify({ok:true,pages:pages.length,sharedHeaders:shell.size,sharedFooters:footers.size,missingLocalLinks:0,version:pkg.version,largestHTMLBytes:Math.max(...pageMeta.map(x=>x.htmlBytes))}));
