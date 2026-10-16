@@ -50,3 +50,13 @@
 .progress-list li>span{flex-shrink:0}
 @media(max-width:760px){.study-guidance{margin:16px 20px 0;padding:14px;gap:10px}.progress-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.progress-list li{flex-direction:row;text-align:left;font-size:.78rem}}
 @media(max-width:440px){.study-guidance{flex-direction:column;gap:6px}.study-guidance-number{margin:0}.study-tabs button{font-size:.77rem}.study-sidebar-card h2{font-size:1.06rem}}
+
+/* Didática 7.2: um par de caracteres por apresentação; progresso e revisão diferida visíveis. */
+.micro-intro{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:12px 15px;border-radius:13px;background:#f0f5ff;border:1px solid #d8e5ff}
+.micro-intro strong{font-size:.98rem;color:#1b438f}
+.micro-intro p{margin:0}
+.micro-controls{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:14px 0 20px}
+.micro-controls .study-button{min-width:135px}
+.study-retention{margin:13px 0 0;padding:12px 13px;color:#245072;background:#f0f6fb;border-left:3px solid #5281c8;border-radius:10px;font-size:.84rem;line-height:1.45}
+#writingCoverage{font-weight:750;color:#264880;margin:0 0 13px}
+@media(max-width:540px){.micro-intro{align-items:flex-start;flex-direction:column;gap:2px}.micro-controls{gap:8px}.micro-controls .study-button{min-width:0;flex:1;padding:10px 8px;font-size:.78rem}}

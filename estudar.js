@@ -1,6 +1,7 @@
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
+const pedagogia=window.BishunPedagogy;if(!pedagogia)throw Error('Regras pedagógicas indisponíveis');
 const modes=['aprender','escrever','revisar','avaliar'],KEY='bishunUnitJourneyV70',LEGACY='bishunFullV4',DAY=86400000;
 const stepFields={aprender:'learned',escrever:'written',revisar:'reviewed',avaliar:'evaluated'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11,7 +12,7 @@ const readJourney=()=>{const s=readJSON(KEY);s.units=s.units&&typeof s.units==='
 const legacyState=()=>readJSON(LEGACY);
 const stageCache=new Map();
 let current=null,stage=1,unit=1,mode='aprender',ticket=0,stageLoading=false;
-let reviewItems=[],reviewAt=0,reviewRatings=0,exam=[],examAt=0,score=0,examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0;
+let reviewItems=[],reviewAt=0,reviewRatings=0,reviewRemembered=0,reviewDelayed=false,exam=[],examAt=0,score=0,wrongChars=[],examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0,learnChunk=0;
 const params=new URLSearchParams(location.search),old=legacyState(),previous=readJourney().last||{};
 const unitLimits=[30,30,30,30,30,30,40,40,40];
 const initialStage=bounds(params.get('etapa')||previous.stage||old.stage||1,1,9);
@@ -19,7 +20,7 @@ const initialUnit=bounds(params.get('unidade')||previous.unit||old.unitsByStage?
 const initialMode=modes.includes(params.get('modo'))?params.get('modo'):(modes.includes(previous.mode)?previous.mode:'aprender');
 function progressKey(){return stage+':'+unit}
 function progress(){const s=readJourney(),v=s.units[progressKey()]||{};return {learned:false,written:false,reviewed:false,evaluated:false,score:null,completedAt:null,...v}}
-function updateProgress(update){const s=readJourney(),key=progressKey(),next={...progress(),...update,updatedAt:Date.now()};const all=['learned','written','reviewed','evaluated'].every(x=>next[x]);if(all&&!next.completedAt)next.completedAt=Date.now();if(!all)next.completedAt=null;s.units[key]=next;s.last={stage,unit,mode};saveJSON(KEY,s);paintProgress();return next}
+function updateProgress(update){const s=readJourney(),key=progressKey(),next={...progress(),...update,updatedAt:Date.now()};const all=pedagogia.completePractice(next,components().chars).completed===4;if(all&&!next.completedAt)next.completedAt=Date.now();if(!all)next.completedAt=null;s.units[key]=next;s.last={stage,unit,mode};saveJSON(KEY,s);paintProgress();return next}
 function rememberContext(){
  const state=legacyState();state.stage=stage;state.unit=unit;state.unitsByStage=state.unitsByStage&&typeof state.unitsByStage==='object'&&!Array.isArray(state.unitsByStage)?state.unitsByStage:{};state.unitsByStage[stage]=unit;saveJSON(LEGACY,state);
  const flow=readJourney();flow.last={stage,unit,mode};saveJSON(KEY,flow)
@@ -35,29 +36,50 @@ function components(){
  return {u:unitData,chars:(unitData.characters||[]).map(x=>charsById.get(String(x))).filter(Boolean),words:(unitData.words||[]).map(x=>wordsById.get(String(x))).filter(Boolean),grammar:(unitData.grammar||[]).map(x=>gramById.get(String(x))).filter(Boolean),syllables:(unitData.syllables||[]).map(x=>sylById.get(String(x))).filter(Boolean)}
 }
 function paintProgress(){
- const p=progress(),done=modes.filter(m=>p[stepFields[m]]).length;
+ const p=progress(),chars=components().chars,states=pedagogia.completePractice(p,chars),done=states.completed;
  $('unitProgressLabel').textContent=done+' de 4 atividades';
  $('unitProgressPct').textContent=done*25+'%';
  $('unitProgressBar').setAttribute('aria-valuenow',String(done));
  $('unitProgressFill').style.width=done*25+'%';
- $('completionLabel').textContent=done===4?'Você concluiu os quatro passos':done===0?'Comece conhecendo os caracteres':done+' de 4 passos realizados';
+ $('completionLabel').textContent=done===4?'Primeira prática concluída':done===0?'Comece conhecendo os caracteres':done+' de 4 atividades feitas';
  $('completionLabel').classList.toggle('complete',done===4);
- document.querySelectorAll('[data-progress]').forEach(el=>{const status=Boolean(p[stepFields[el.dataset.progress]]);el.classList.toggle('done',status);el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
- const next=modes.find(m=>!p[stepFields[m]]);
- $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você passou pelos quatro passos';
- $('nextDescription').textContent=next?'Escolha esse passo acima e continue quando estiver pronto.':'Avance para outra unidade ou refaça um passo que queira praticar.';
- $('finishLearn').textContent=p.learned?'Já conheci o conteúdo · continuar a escrita →':'Já li e ouvi · vou praticar a escrita →';
+ document.querySelectorAll('[data-progress]').forEach(el=>{const status=states[stepFields[el.dataset.progress]];el.classList.toggle('done',Boolean(status));el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
+ const next=modes.find(m=>!states[stepFields[m]]);
+ $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você concluiu as quatro atividades iniciais';
+ $('nextDescription').textContent=next?'Continue a atividade ainda não realizada.':'Volte em outro dia para testar o que ainda lembra; pode avançar e estudar outra unidade.';
+ $('finishLearn').textContent=states.learned?'Já conheci o conteúdo · continuar a escrita →':'Terminei as partes · praticar escrita →';
+ const status=pedagogia.retentionStatus(p);
+ $('retentionNotice').textContent=status.phase==='observed'
+  ?'Na revisão posterior, você declarou lembrar '+status.remembered+' de '+status.total+' caracteres. Continue praticando.'
+  :status.phase==='due'?'Sua revisão de outro dia já pode ser feita. Abra Lembrar e tente novamente.'
+  :status.phase==='scheduled'?'Volte para testar sua memória a partir de '+new Date(status.dueAt).toLocaleDateString('pt-BR')+'.'
+  :'Após a avaliação inicial, será marcada uma revisão em outro dia.';
  const buttons=$('unitIndex').querySelectorAll('button[data-unit]');
- buttons.forEach(b=>{const s=readJourney().units[stage+':'+b.dataset.unit]||{};b.classList.toggle('complete',['learned','written','reviewed','evaluated'].every(x=>s[x]));b.classList.toggle('active',Number(b.dataset.unit)===unit)});
+ const units=readJourney().units;
+ buttons.forEach(b=>{const record=units[stage+':'+b.dataset.unit]||{},u=current?.units.find(x=>x.id===Number(b.dataset.unit)),set=new Set((u?.characters||[]).map(String)),cs=current?.characters.filter(x=>set.has(String(x.id)))||[];b.classList.toggle('complete',pedagogia.completePractice(record,cs).completed===4);b.classList.toggle('active',Number(b.dataset.unit)===unit)});
 }
 function speak(text,rate=.82){if(!('speechSynthesis'in window)){$('writingFeedback').textContent='Síntese de voz indisponível neste navegador.';return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(text));u.lang='zh-CN';u.rate=rate;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang.toLowerCase()==='zh-cn')||voices.find(v=>v.lang.toLowerCase().startsWith('zh'))||null;speechSynthesis.speak(u)}catch(e){console.warn('Áudio indisponível',e)}}
-function renderLearn(){
- const {chars,words,grammar,syllables}=components();
- $('learnCharacters').innerHTML=chars.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
- $('learnWords').innerHTML=words.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Nenhum vocábulo cadastrado nesta unidade.</p>';
- $('learnGrammar').innerHTML=grammar.map(g=>'<article class="grammar-item"><h5>'+esc(g.title)+'</h5><p class="pattern">'+esc(g.pattern)+'</p><p>'+esc(g.explanation||g.source?.content)+'</p>'+(g.examples||[]).slice(0,2).map(e=>'<p><span lang="zh-Hans">'+esc(e.zh)+'</span> · '+esc(e.pinyin)+' · '+esc(e.pt)+'</p>').join('')+'</article>').join('')||'<p>Nenhum registro gramatical adicional nesta unidade.</p>';
- $('learnSyllables').innerHTML=syllables.map(s=>'<span>'+esc(s.pinyin)+' <span lang="zh-Hans">'+esc(s.representative)+'</span></span>').join('')||'<p>Sem novas sílabas registradas.</p>';
+function paintChunk(){
+ const {chars,words}=components(),parts=pedagogia.chunks(chars,2),size=parts.length;
+ learnChunk=Math.max(0,Math.min(size-1,learnChunk));
+ const shown=parts[learnChunk]||[],prev=progress(),seen=[...new Set([...(prev.seenParts||[]),learnChunk])];
+ if(size&&seen.length!==((prev.seenParts||[]).length))updateProgress({seenParts:seen});
+ $('learnChunkTitle').textContent='Conheça estes '+shown.length+' caracteres';
+ $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+seen.length+' partes visitadas';
+ $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
+ const relevant=words.filter((w,index)=>{const at=parts.findIndex(group=>group.some(c=>String(w.hanzi||'').includes(c.char)));return (at<0?index%size:at)===learnChunk});
+ $('learnWords').innerHTML=relevant.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
+ $('prevChunk').disabled=learnChunk===0;
+ $('nextChunk').disabled=learnChunk>=size-1;
+ $('nextChunk').textContent=learnChunk>=size-1?'Todos os caracteres apresentados':'Conhecer os próximos →';
+ $('finishLearn').disabled=!progress().learned&&seen.length<size;
 }
+function renderLearn(){
+ const {chars,grammar,syllables}=components();learnChunk=0;paintChunk();
+ $('learnGrammar').innerHTML=grammar.map(g=>'<article class="grammar-item"><h5>'+esc(g.title)+'</h5><p class="pattern">'+esc(g.pattern)+'</p><p>'+esc(g.explanation||g.source?.content)+'</p>'+(g.examples||[]).slice(0,2).map(e=>'<p><span lang="zh-Hans">'+esc(e.zh)+'</span> · '+esc(e.pinyin)+' · '+esc(e.pt)+'</p>').join('')+'</article>').join('')||'<p>Nenhuma explicação gramatical adicional nesta unidade.</p>';
+ $('learnSyllables').innerHTML=syllables.map(item=>'<span>'+esc(item.pinyin)+' <span lang="zh-Hans">'+esc(item.representative)+'</span></span>').join('')||'<p>Sem novas sílabas registradas.</p>';
+}
+function writingCoverage(){const r=pedagogia.writingCompletion(progress(),components().chars);$('writingCoverage').textContent=r.count+' de '+r.needed+' caracteres diferentes praticados'+(r.complete?' · concluído.':'.');}
 function renderWriting(){
  const {chars}=components();$('writeCharacter').innerHTML=chars.map(x=>'<option value="'+esc(x.char)+'">'+esc(x.char)+' · '+esc(x.pinyin)+' · '+esc(x.meaning)+'</option>').join('');
  writerChar=chars[0]?.char||'';paintWriter();
@@ -69,13 +91,13 @@ function paintWriter(){
  $('writeHanzi').textContent=writerChar||'';
  $('writePinyin').textContent=c?.pinyin||'';
  $('writeMeaning').textContent=c?.meaning||'';
- $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.'
+ $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.';writingCoverage()
 }
 const studentGuidance={
  aprender:['Passo 1 de 4','Conhecer e ouvir','Leia os caracteres, ouça a pronúncia e conheça os significados. Quando terminar, escolha o botão para praticar a escrita.'],
- escrever:['Passo 2 de 4','Observar e escrever','Veja a ordem dos traços e tente escrever pelo menos um caractere. Você pode repetir antes de seguir.'],
+ escrever:['Passo 2 de 4','Observar e escrever','Observe e escreva três caracteres diferentes. Depois, confira sua memória.'],
  revisar:['Passo 3 de 4','Lembrar sem olhar','Pense no significado de cada caractere antes de revelar a resposta. Diga se lembrou ou não.'],
- avaliar:['Passo 4 de 4','Conferir o que aprendeu','Responda às dez perguntas. Sete acertos concluem este passo; se precisar, volte a praticar.']
+ avaliar:['Passo 4 de 4','Conferir o que aprendeu','Responda às dez perguntas. Oito acertos concluem este passo; se precisar, volte a praticar.']
 };
 function setMode(next,{historyMode=false,focus=false}={}){
  if(!modes.includes(next))next='aprender';mode=next;
@@ -147,16 +169,12 @@ async function runWriting(type){
   $('writingFeedback').textContent='Agora tente escrever na ordem mostrada. Você pode usar o dedo ou o mouse.';
   writer.quiz({showHintAfterMisses:2,onComplete:result=>{
    if(char!==writerChar||!current||seq!==writingTicket)return;
-   updateProgress({written:true,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0});
-   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). Atividade registrada.'
+   const p=progress(),writtenChars=[...new Set([...(p.writtenChars||[]),char])];updateProgress({writtenChars,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0,writingAttempts:(p.writingAttempts||0)+1});writingCoverage();
+   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). Continue até praticar três caracteres diferentes.'
   }});
  }catch(e){console.error(e);$('writerFrame').innerHTML='<span class="writer-hanzi" lang="zh-Hans">'+esc(char)+'</span>';$('writingFeedback').textContent='A animação exige acesso ao motor externo. O conteúdo e o áudio permanecem disponíveis.'}
 }
-function reviewQueue(){
- const {chars,words}=components(),src=[...chars.slice(0,8).map(x=>({type:'char',id:x.char,char:x.char,pinyin:x.pinyin,meaning:x.meaning})),...words.slice(0,4).map(x=>({type:'word',id:x.id,char:x.hanzi,pinyin:x.pinyin,meaning:x.meaning}))];
- const records=legacyState().records||{};
- return src.map(x=>({...x,isNew:!records[x.type]?.[x.id]}));
-}
+function reviewQueue(){const {chars,words}=components();const p=progress();const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,legacyState().records||{},first,Date.now())}
 function grade(item,q){
  const state=legacyState();state.records=state.records&&typeof state.records==='object'?state.records:{};
  state.records[item.type]=state.records[item.type]&&typeof state.records[item.type]==='object'?state.records[item.type]:{};
@@ -167,41 +185,50 @@ function grade(item,q){
 }
 function renderReview(){
  const box=$('reviewCard');
- if(reviewAt>=reviewItems.length){updateProgress({reviewed:true,reviewCount:reviewRatings,reviewedAt:Date.now()});box.innerHTML='<h4>Você terminou este exercício de memória</h4><p>Você tentou lembrar '+reviewRatings+' caracteres ou palavras. Agora confira o que aprendeu.</p>';$('reviewToTest').hidden=false;$('startReview').textContent='Tentar lembrar novamente';$('startReview').hidden=false;return}
+ if(reviewAt>=reviewItems.length){
+  const p=progress(),c=components().chars.length,charCount=reviewItems.filter(x=>x.type==='char').length;
+  const updates={reviewed:p.reviewed||reviewRatings>=c,reviewCount:Math.max(p.reviewCount||0,reviewRatings),reviewedAt:Date.now(),lastRecallTotal:charCount,lastRecallRemembered:reviewRemembered};
+  const due=reviewDelayed&&charCount>=Math.ceil(c*.8);
+  if(due){updates.retentionTotal=charCount;updates.retentionRemembered=reviewRemembered;updates.retentionLastAttemptAt=Date.now();if(reviewRemembered>=Math.ceil(charCount*.8))updates.retentionCheckedAt=Date.now()}
+  updateProgress(updates);
+  box.innerHTML='<h4>Você terminou a prática de memória</h4><p>Você declarou lembrar '+reviewRemembered+' de '+charCount+' caracteres. '+(due?'Esta foi uma verificação realizada em outro dia.':'Esta atividade inicial não prova retenção posterior.')+'</p>';
+  $('reviewToTest').hidden=false;$('startReview').textContent='Repetir quando houver revisão pendente';$('startReview').hidden=false;return
+ }
  const item=reviewItems[reviewAt];
- box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':'Já visto antes')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
+ box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':item.isDue?'Revisão vencida':'Prática inicial')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
  $('revealAnswer').addEventListener('click',()=>{$('reviewAnswer').hidden=false;$('revealAnswer').hidden=true});
- box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{grade(item,Number(btn.dataset.grade));reviewRatings++;reviewAt++;renderReview()}))
+ box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{const gradeValue=Number(btn.dataset.grade);grade(item,gradeValue);if(item.type==='char'&&gradeValue===2)reviewRemembered++;reviewRatings++;reviewAt++;renderReview()}))
 }
-function beginReview(){if(!current)return;reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;$('reviewToTest').hidden=true;$('startReview').hidden=true;renderReview()}
+function beginReview(){
+ if(!current)return;
+ reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;reviewRemembered=0;
+ reviewDelayed=Boolean(progress().retentionDueAt&&Date.now()>=progress().retentionDueAt);
+ $('reviewToTest').hidden=true;
+ if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para outra atividade.</p>';$('startReview').textContent='Verificar novamente depois';return}
+ $('startReview').hidden=true;renderReview()
+}
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function quizQuestions(){
- const {chars}=components(),source=current.characters.filter(x=>x.meaning);
- return shuffle(chars.filter(x=>x.meaning)).slice(0,10).map(c=>{const distractors=shuffle(source.filter(x=>x.char!==c.char&&x.meaning!==c.meaning)).map(x=>x.meaning);
-  const options=[c.meaning];for(const choice of distractors){if(!options.includes(choice))options.push(choice);if(options.length===4)break}
-  return {char:c.char,correct:c.meaning,options:shuffle(options)}
- }).filter(q=>q.options.length===4)
-}
+function quizQuestions(){const {chars}=components();return pedagogia.assessment(chars,current.characters)}
 function renderExam(){
  const box=$('testCard');
  if(examAt>=exam.length){
-  const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.7);
-  const prev=progress();updateProgress({evaluated:passed||prev.evaluated,score,examTotal:exam.length,lastTestedAt:Date.now()});
-  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você acertou pelo menos sete questões e concluiu este passo.':'Você ainda não acertou sete questões. Revise os significados e tente novamente.')+'</p><p class="study-muted">Esta avaliação mede apenas reconhecimento de significados.</p>';
+  const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.8);
+  const prev=progress(),best=Math.max(prev.score||0,score);updateProgress({evaluated:passed||prev.evaluated,score:best,lastScore:score,examTotal:exam.length,lastTestedAt:Date.now(),missedCharacters:wrongChars,retentionDueAt:passed?(prev.retentionDueAt||Date.now()+pedagogia.DAY):prev.retentionDueAt});
+  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você reconheceu pelo menos oito significados nesta prova inicial.':'Reveja os caracteres que errou e tente novamente; são necessários oito acertos.')+'</p><p class="study-muted">Caracteres a rever: '+esc(wrongChars.join(' · ')||'nenhum')+'. Este exercício avalia somente significados.</p>';
   $('startTest').textContent='Tentar as perguntas novamente';
   return
  }
  const question=exam[examAt];
  box.innerHTML='<p class="study-muted">Questão '+(examAt+1)+' de '+exam.length+'</p><h4>Qual é o significado de <span lang="zh-Hans">'+esc(question.char)+'</span>?</h4><div class="quiz-options">'+question.options.map((option,i)=>'<button type="button" data-answer="'+i+'">'+esc(option)+'</button>').join('')+'</div><p class="quiz-feedback" id="testFeedback" aria-live="polite"></p><button type="button" class="study-button" id="advanceQuestion" hidden>Próxima pergunta →</button>';
  examLocked=false;box.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>{
-  if(examLocked)return;examLocked=true;const answer=question.options[Number(b.dataset.answer)],right=answer===question.correct;if(right)score++;
+  if(examLocked)return;examLocked=true;const answer=question.options[Number(b.dataset.answer)],right=answer===question.correct;if(right)score++;else wrongChars.push(question.char);
   box.querySelectorAll('[data-answer]').forEach(el=>{el.disabled=true;el.setAttribute('aria-pressed',String(el===b))});
   $('testFeedback').textContent=right?'Correto.':'Resposta correta: '+question.correct;
   $('advanceQuestion').hidden=false;$('advanceQuestion').textContent=examAt===exam.length-1?'Ver resultado →':'Próxima pergunta →';
  }));
  $('advanceQuestion').addEventListener('click',()=>{examAt++;renderExam()})
 }
-function startTest(){if(!current)return;exam=quizQuestions();examAt=0;score=0;if(exam.length<5){$('testCard').innerHTML='<p>Questões insuficientes nesta unidade.</p>';return}renderExam()}
+function startTest(){if(!current)return;exam=quizQuestions();examAt=0;score=0;wrongChars=[];if(exam.length!==components().chars.length){$('testCard').innerHTML='<p>Questões insuficientes nesta unidade.</p>';return}renderExam()}
 function registerEvents(){
  $('studyStage').addEventListener('change',()=>{const n=Number($('studyStage').value),record=readJourney().last||{};loadStage(n,Number(legacyState().unitsByStage?.[n]||1),'aprender',true)});
  $('studyUnit').addEventListener('change',()=>selectUnit(Number($('studyUnit').value)));
@@ -211,7 +238,9 @@ function registerEvents(){
   tab.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let i=modes.indexOf(mode);if(e.key==='ArrowRight')i=(i+1)%4;if(e.key==='ArrowLeft')i=(i+3)%4;if(e.key==='Home')i=0;if(e.key==='End')i=3;setMode(modes[i],{historyMode:true,focus:true})})
  });
  $('learnCharacters').addEventListener('click',e=>{const btn=e.target.closest('[data-say]');if(btn)speak(btn.dataset.say)});
- $('finishLearn').addEventListener('click',()=>{if(!current)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
+ $('prevChunk').addEventListener('click',()=>{learnChunk=Math.max(0,learnChunk-1);paintChunk()});
+ $('nextChunk').addEventListener('click',()=>{learnChunk=Math.min(pedagogia.chunks(components().chars,2).length-1,learnChunk+1);paintChunk()});
+ $('finishLearn').addEventListener('click',()=>{if(!current)return;if($('finishLearn').disabled)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
  $('writeCharacter').addEventListener('change',()=>{writerChar=$('writeCharacter').value;paintWriter()});
  $('animateCharacter').addEventListener('click',()=>runWriting('animate'));
  $('quizWriting').addEventListener('click',()=>runWriting('quiz'));
@@ -228,7 +257,7 @@ function registerEvents(){
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
-  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.1.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.2.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
   if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
  },{once:true})
 }

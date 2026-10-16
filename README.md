@@ -1,3 +1,17 @@
+# Bǐshùn 7.2 — aprendizagem progressiva e memória diferida
+
+A unidade de estudo começa com **dois caracteres por apresentação** (cinco partes na unidade de dez caracteres). O aluno observa e escuta, relaciona palavras aos caracteres exibidos e percorre todas as partes antes de marcar a leitura como realizada. Percorrer os grupos registra **exposição**, não domínio.
+
+A prática de escrita exige concluir exercícios de **três caracteres diferentes**; repetir um só não conclui a atividade. A revisão inicial pede recuperação ativa de **todos os dez caracteres** e até quatro palavras, com a resposta escondida até o aluno tentar lembrar. Em visitas posteriores, a revisão mostra apenas os itens vencidos conforme os registros locais de repetição espaçada.
+
+A avaliação inclui **uma questão para cada um dos dez caracteres**, com quatro opções distintas e feedback. Oito acertos concluem a **avaliação inicial de reconhecimento de significados**. Os caracteres errados ficam visíveis para orientar a próxima tentativa. Concluir quatro atividades não é sinônimo de fluência nem prova de retenção.
+
+Após a primeira avaliação aprovada, o aplicativo agenda uma nova **verificação de memória para pelo menos 24 horas depois**. A página inicial orienta a retomá-la quando chegar o momento. O resultado depende de autoavaliação do aluno: registra quantos caracteres ele afirmou lembrar, distinguindo explicitamente essa informação de uma medida objetiva de retenção. Não altera ou remove históricos antigos; os critérios mais rigorosos exigem evidências novas para contar uma unidade como concluída.
+
+Os nove arquivos curriculares e todas as 300 unidades permanecem inalterados. O algoritmo puro em `pedagogia.js` é auditado por `tests/pedagogy-check.mjs` e os fluxos pelo Chromium, **no pipeline consolidado existente**, sem novo workflow automático nem repetição cíclica de runs.
+
+---
+
 # Bǐshùn 7.1 — padrões compartilhados em todas as páginas
 
 A experiência visual pública segue um único sistema de identidade `interface.css`, aplicado às **19 páginas** (início, estudo, mapa, quatro ferramentas, três páginas de apoio e nove etapas). A rota `curso.html` permanece exclusivamente como redirecionador de compatibilidade e não volta a carregar a aplicação antiga; o arquivo histórico continua preservado fora da navegação comum.
@@ -38,7 +52,7 @@ O teste `tests/site-design-check.mjs`, incluído em `npm run check`, exige que a
 
 A página inicial prioriza o que o estudante realmente faz, sem explicações sobre arquitetura ou carregamento: **Conhecer e ouvir → Observar e escrever → Lembrar sem olhar → Conferir o que aprendeu**. O botão principal abre a primeira unidade e a retomada abre a unidade registrada anteriormente. As nove etapas continuam acessíveis em seção secundária, sem competir com a próxima atividade.
 
-Em `estudar.html`, cada passo apresenta uma orientação prática: o que observar ou tentar, como concluir e o que fazer depois. Os textos dos botões e mensagens explicam a ação do aluno. Isso não altera os critérios de conclusão: leitura marcada, ao menos um exercício de escrita finalizado, itens da sessão de memória respondidos e avaliação de significados com pelo menos sete acertos em dez questões.
+Em `estudar.html`, cada passo apresenta uma orientação prática: o que observar ou tentar, como concluir e o que fazer depois. Os textos dos botões e mensagens explicam a ação do aluno. Isso não altera os critérios de conclusão: leitura de todos os grupos registrada, três caracteres diferentes escritos, todos os caracteres da unidade recuperados na prática inicial e avaliação de significados com pelo menos oito acertos em dez questões.
 
 ## Política de uso responsável do GitHub Actions
 
@@ -57,9 +71,9 @@ A interface de estudo central é `estudar.html`. Ela carrega somente o inventár
 ## Fluxo efetivamente implementado
 
 1. **Aprender:** ler os caracteres com pinyin, significados e áudio; consultar palavras, gramática e sílabas; pressionar `Concluir leitura` para registrar a atividade.
-2. **Escrever:** selecionar caractere e escolher animação ou escrita interativa, usando Hanzi Writer carregado sob demanda. Uma escrita concluída registra a atividade da unidade. A conexão pode ser necessária para acessar o motor externo.
-3. **Revisar:** praticar até doze itens da **unidade atual**, revelando a resposta e marcando Não lembrei / Com dificuldade / Lembrei. Itens nunca estudados são identificados como prática inicial. Ao avaliar todos os itens da sessão, a atividade fica registrada; as autoavaliações atualizam os intervalos de revisão no armazenamento local.
-4. **Avaliar:** responder a dez perguntas de reconhecimento de significados de caracteres da unidade, escolhendo entre quatro alternativas, com feedback imediato. Sete acertos ou mais satisfazem o critério desta atividade. Isso **não é certificação de proficiência**.
+2. **Escrever:** selecionar caractere e escolher animação ou escrita interativa, usando Hanzi Writer carregado sob demanda. Três caracteres diferentes praticados registram a atividade da unidade. A conexão pode ser necessária para acessar o motor externo.
+3. **Revisar:** praticar os dez caracteres e até quatro palavras da **unidade atual**, revelando a resposta e marcando Não lembrei / Com dificuldade / Lembrei. Itens nunca estudados são identificados como prática inicial. Ao avaliar todos os itens da sessão, a atividade fica registrada; as autoavaliações atualizam os intervalos de revisão no armazenamento local.
+4. **Avaliar:** responder a dez perguntas de reconhecimento de significados de caracteres da unidade, escolhendo entre quatro alternativas, com feedback imediato. Oito acertos ou mais satisfazem o critério desta atividade. Isso **não é certificação de proficiência**.
 
 O indicador `0 de 4` a `4 de 4` representa somente a conclusão operacional dessas quatro atividades; não equivale ao domínio do conteúdo. A área de estudo salva os resultados por etapa e unidade na chave local `bishunUnitJourneyV70`. O contexto de etapa e unidade continua compatível com `bishunFullV4`, sem apagar registros anteriores.
 
