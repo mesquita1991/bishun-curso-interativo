@@ -1,0 +1,74 @@
+/* Bǐshùn Design System 7.1 — consistent navigation and visual language. No external font dependencies. */
+:root{
+ --bishun-space-1:4px;--bishun-space-2:8px;--bishun-space-3:12px;--bishun-space-4:16px;
+ --bishun-space-6:24px;--bishun-space-8:32px;--bishun-space-12:48px;
+ --bishun-radius-sm:10px;--bishun-radius-card:18px;
+ --bishun-focus:#f6a53e;--bishun-success:#186049;--bishun-shadow:0 9px 26px rgb(20 32 59 / 7%);
+}
+html{scroll-padding-top:24px}
+body.bishun-site{min-height:100vh;display:flex;flex-direction:column;overflow-wrap:break-word}
+body.bishun-site>main{flex:1}
+.bishun-site :is(button,input,select,textarea,a,summary):focus-visible{outline:3px solid var(--bishun-focus);outline-offset:3px}
+.bishun-site :is(input,select,textarea){max-width:100%}
+.bishun-site :is(.button,.study-button){min-height:44px;line-height:1.35;transition:filter .16s ease,background-color .16s ease}
+.bishun-site :is(.card,.feature,.stage-card,.tool-card,.module-content,.lesson-panel){box-shadow:0 3px 15px rgb(20 32 59 / 3%)}
+.bishun-site :is(.stage-card,.feature,.tool-card) a:not(.button){text-underline-offset:3px}
+.site-header{position:relative;z-index:25;background:var(--dark)}
+.site-header>.site-header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+.site-header .site-brand{display:inline-flex;align-items:baseline;gap:9px;min-width:0;white-space:nowrap}
+.site-brand .site-brand-name{font-size:1.12rem;letter-spacing:-.02em;font-weight:800}
+.site-brand .site-brand-tag{font-size:.72rem;font-weight:600;color:#cbd8ff;letter-spacing:.02em}
+.site-header .topnav{display:flex;gap:2px;align-items:center;flex-wrap:nowrap}
+.site-header .topnav a{white-space:nowrap;font-size:.82rem;min-height:41px;display:flex;align-items:center;padding:8px 9px}
+.site-header .topnav a[aria-current="page"],.site-header .topnav a:hover{background:#ffffff26;color:#fff}
+.site-mobile-menu{display:none}
+.site-mobile-menu summary{list-style:none;cursor:pointer;border:1px solid rgb(255 255 255 / 40%);padding:8px 13px;min-width:82px;min-height:42px;border-radius:11px;color:white;font-weight:700;text-align:center}
+.site-mobile-menu summary::-webkit-details-marker{display:none}
+.site-mobile-menu[open] summary{background:rgb(255 255 255 / 16%)}
+.site-mobile-menu nav{position:absolute;right:16px;left:16px;top:calc(100% - 1px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;background:#122758;border:1px solid #6276ac;border-radius:0 0 16px 16px;padding:13px;box-shadow:0 16px 35px rgb(0 0 0 / 22%);max-height:calc(100vh - 110px);overflow:auto}
+.site-mobile-menu nav a{display:block;color:#f0f4ff;text-decoration:none;border-radius:10px;padding:12px 10px;min-height:44px;font-size:.9rem}
+.site-mobile-menu nav a:hover,.site-mobile-menu nav a[aria-current="page"]{background:#ffffff27;color:white}
+.site-footer{border-top:1px solid var(--line);background:#f0f3fa;margin-top:46px;padding:29px 0 34px;color:#40506c}
+.site-footer .site-footer-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:17px 28px;align-items:start}
+.site-footer .site-footer-heading{display:block;font-size:.91rem;color:var(--ink);font-weight:800}
+.site-footer .site-footer-description{font-size:.82rem;margin:5px 0 0;max-width:48ch;line-height:1.55}
+.site-footer .site-footer-nav{display:flex;gap:8px 16px;flex-wrap:wrap;justify-content:flex-end;max-width:510px}
+.site-footer .site-footer-nav a{font-weight:650;color:#284880;font-size:.84rem}
+.site-footer .site-footer-meta{grid-column:1/-1;border-top:1px solid #d9e0ee;padding-top:10px;font-size:.74rem;color:#65718a;max-width:95ch}
+.bishun-site .breadcrumb{line-height:1.5;display:flex;gap:7px;flex-wrap:wrap;align-items:center;color:#64728d}
+.bishun-site .breadcrumb a{text-decoration:none;color:#335b9e}
+.bishun-site .breadcrumb a:hover{text-decoration:underline}
+.bishun-site :is(.hero,.study-intro){scroll-margin-top:30px}
+.bishun-site .hero:not(.journey-hero){padding-top:32px;padding-bottom:20px}
+.bishun-site .hero:not(.journey-hero) h1{font-size:clamp(1.8rem,3.5vw,2.55rem);line-height:1.16}
+.bishun-site .hero:not(.journey-hero) .lead{max-width:75ch;line-height:1.55}
+.bishun-site .eyebrow{letter-spacing:.07em}
+.bishun-site :is(.section,.activity-panel) h2{line-height:1.25}
+.bishun-site .site-page-intro{font-size:.98rem;color:var(--muted);max-width:75ch;line-height:1.65;margin:9px 0 16px}
+.bishun-site .site-go-study{margin:16px 0 22px;background:#e9effb;border-radius:15px;padding:15px 19px;border:1px solid #d0dcf4;display:flex;align-items:center;gap:14px;justify-content:space-between}
+.bishun-site .site-go-study p{font-size:.88rem;color:#435373;margin:4px 0 0}
+.bishun-site .site-go-study strong{color:#1a3980}
+.bishun-site .site-go-study .button{flex-shrink:0}
+@media(max-width:1120px){.site-header .site-brand-tag{display:none}.site-header .topnav a{padding:8px 7px}}
+@media(max-width:900px){
+ .site-header>.site-header-inner{min-height:68px;flex-direction:row;align-items:center;padding:10px 0;gap:10px}
+ .site-header .topnav{display:none}
+ .site-header .site-brand-tag{display:inline;font-size:.67rem}
+ .site-mobile-menu{display:block}
+ .site-footer .site-footer-inner{grid-template-columns:1fr}
+ .site-footer .site-footer-nav{justify-content:flex-start;max-width:none}
+}
+@media(max-width:600px){
+ .site-header>.site-header-inner{padding-block:10px;flex-direction:row;align-items:center;min-height:66px}
+ .site-header .site-brand-name{font-size:1rem}
+ .site-header .site-brand-tag{display:none}
+ .site-mobile-menu nav{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .site-footer{padding:24px 0 28px}
+ .bishun-site .site-go-study{flex-direction:column;align-items:flex-start}
+ .bishun-site .site-go-study .button{width:100%}
+ .bishun-site .hero:not(.journey-hero){padding-top:25px}
+ .bishun-site .site-page-intro{font-size:.92rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .bishun-site :is(.button,.study-button){transition:none}
+}
