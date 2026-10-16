@@ -174,11 +174,7 @@ async function runWriting(type){
   }});
  }catch(e){console.error(e);$('writerFrame').innerHTML='<span class="writer-hanzi" lang="zh-Hans">'+esc(char)+'</span>';$('writingFeedback').textContent='A animação exige acesso ao motor externo. O conteúdo e o áudio permanecem disponíveis.'}
 }
-function reviewQueue(){
- const {chars,words}=components(),src=[...chars.slice(0,8).map(x=>({type:'char',id:x.char,char:x.char,pinyin:x.pinyin,meaning:x.meaning})),...words.slice(0,4).map(x=>({type:'word',id:x.id,char:x.hanzi,pinyin:x.pinyin,meaning:x.meaning}))];
- const records=legacyState().records||{};
- return src.map(x=>({...x,isNew:!records[x.type]?.[x.id]}));
-}
+function reviewQueue(){const {chars,words}=components();const p=progress();const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,legacyState().records||{},first,Date.now())}
 function grade(item,q){
  const state=legacyState();state.records=state.records&&typeof state.records==='object'?state.records:{};
  state.records[item.type]=state.records[item.type]&&typeof state.records[item.type]==='object'?state.records[item.type]:{};
