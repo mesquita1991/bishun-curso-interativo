@@ -94,13 +94,13 @@
     },
     {
       "path": "package.json",
-      "bytes": 1280,
-      "sha256": "ba64247f5a1289b0f533c432ca2f9909f5fc025765f69403bf1daa9d8eb77ece"
+      "bytes": 1458,
+      "sha256": "77346b1bf933020fae25cc1e109d0ba92a161901ed74543b6dec935f5e12cdb6"
     },
     {
       "path": "README.md",
-      "bytes": 7357,
-      "sha256": "cb4b1988b16b57cf260a861cbb46db1b196c28ebe54f0da5f07c1c52174507eb"
+      "bytes": 9243,
+      "sha256": "1d5e25d922e2517f24347f301966050b56d2091d1874a9326ec194334e6f7dd7"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -319,13 +319,13 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 1355,
-      "sha256": "01ce019632f5e19ae55c011efd1fa19d4a5ac1cc276bcf7316f03fc8c9193496"
+      "bytes": 1719,
+      "sha256": "d43213e5ba36aaa63532f838b9b5c22c58db1c347d2fbf20d6f1e6c00800e4c4"
     },
     {
       "path": "robots.txt",
-      "bytes": 99,
-      "sha256": "d68da1e8b8ff006a53a8ad5a95286b53a5603991b5ac8080449d081379fc664a"
+      "bytes": 164,
+      "sha256": "398a8b2c3bf3df63e117ad0fcd3564a61011eea717cb9cee10da682ea05bc601"
     },
     {
       "path": "docs/PERFORMANCE_6_9_0.md",
@@ -401,6 +401,31 @@
       "path": "mapa.html",
       "sha256": "9e6dbc2557f99ca0e15a5b1eb9f576f582458b506bb83a8a5b0779162632d758",
       "bytes": 3762
+    },
+    {
+      "path": "rotas.js",
+      "sha256": "560e364ed7f82a3c66e281b33acab67aa550d5d157efc2cc4e5677e244d283c0",
+      "bytes": 1192
+    },
+    {
+      "path": "modulos.css",
+      "sha256": "2d687f5ec2bb05449c0770e53aa59fc927b9e84f1294c3097a2b2c04ce359b97",
+      "bytes": 3745
+    },
+    {
+      "path": "conteudos.json",
+      "sha256": "5832845e5d7a91cdc4c2e016daa477b3496f696c000cdae8941d7b0489212c1e",
+      "bytes": 23989
+    },
+    {
+      "path": "docs/arquivo-curso-6.8.1.html",
+      "sha256": "320260bcf29bc437e37bc59f60ac32130803228590772e71b05b5df110420eec",
+      "bytes": 67732
+    },
+    {
+      "path": "tests/legacy-free-routing-check.mjs",
+      "sha256": "c62b51565cf6eef11d4b650bbf07a43d9a7da6509effdefb009c74039d2be042",
+      "bytes": 3213
     }
   ],
   "guidedPath": {
