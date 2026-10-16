@@ -1,10 +1,10 @@
 {
   "name": "bishun-mandarin-integral",
-  "version": "6.9.0",
+  "version": "6.9.1",
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node --check ux-6.7.0.js && node --check visual-mnemonics.js && node --check ux-6.8.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs && node tests/ux-6.7-regression-check.mjs && node tests/ux-6.8-regression-check.mjs && node --check sw.js && node --check ux-6.8.1-stability.js && node tests/ux-6.8.1-stability-check.mjs && node tests/ux-6.8.1-stage-simulation.mjs && node --check portal.js && node --check etapa.js && node tests/multipage-performance-check.mjs && node tests/multipage-interaction-smoke.mjs"
+    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node --check ux-6.7.0.js && node --check visual-mnemonics.js && node --check ux-6.8.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs && node tests/ux-6.7-regression-check.mjs && node tests/ux-6.8-regression-check.mjs && node --check sw.js && node --check ux-6.8.1-stability.js && node tests/ux-6.8.1-stability-check.mjs && node tests/ux-6.8.1-stage-simulation.mjs && node --check portal.js && node --check etapa.js && node tests/multipage-performance-check.mjs && node tests/multipage-interaction-smoke.mjs && node --check rotas.js && node --check laboratorio.js && node --check catalogo.js && node --check avaliacao.js && node --check aulas.js && node tests/legacy-free-routing-check.mjs"
   },
-  "description": "Bǐshùn 6.9.0: entrada rápida, nove páginas progressivas, modos de estudo preservados da experiência 6.8.1 e serviço offline sob demanda."
+  "description": "Bǐshùn 6.9.1: sem links à antiga aplicação; escrita, catálogos, revisão e materiais independentes com compatibilidade de progresso."
 }
