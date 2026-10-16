@@ -1,6 +1,6 @@
 {
-  "version": "6.8.0",
-  "generatedAt": "2026-08-09T03:48:00Z",
+  "version": "6.8.1",
+  "generatedAt": "2026-10-16T14:00:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -9,18 +9,18 @@
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
-    "app.js": "80addaeda970dad4f41ef1d4d04e3dea40b3c35f",
+    "app.js": "56bbe712d48566a7cd8d5d4f2a2099834efa6463",
     "course.js": "b9b0405458d4c405b55a5caf3a090779f08de664",
     "curriculum-data.js": "f1b633c353e16b60b49d779ac0f8ea9ccce50ea3",
-    "full-course.js": "2daf912b32dc628c4f36b648abbaf13ee590155a",
+    "full-course.js": "6bef1b8f1b2e6aa0652e1be4a60d6e6ad603c6cc",
     "post-standard.js": "1439dc0dfa46a04bbf9597940ea0ba082a8102f7",
     "mastery-v6.js": "86d373377a5dfce39e3cce835300f8ae28eb7a2d"
   },
   "files": [
     {
       "path": "index.html",
-      "bytes": 67435,
-      "sha256": "2ba41036aa53358a0ae6efbfe793247f5835e66cebfc76c302fbf4fa1e7f4e64"
+      "bytes": 67712,
+      "sha256": "a45dc5d09e7caeaceb8c2ae4446934a187ab7e19c24ff8452c107ff34b14ddbb"
     },
     {
       "path": "styles.css",
@@ -44,8 +44,8 @@
     },
     {
       "path": "app.js",
-      "bytes": 43807,
-      "sha256": "c3b07f7163f5908ed347237082cd352bc97513db1bf1b1c2f9fb2de4dcb7e2e8"
+      "bytes": 43661,
+      "sha256": "43b1156a58dd2e545589d88aec858a03e3b85819ea26729e5e490845f3745683"
     },
     {
       "path": "ux-6.3.0.js",
@@ -74,8 +74,8 @@
     },
     {
       "path": "full-course.js",
-      "bytes": 29459,
-      "sha256": "d855349aeaf7eae6011995727ebf1cb983bfcf2430d5d1db8995acb67550f951"
+      "bytes": 31900,
+      "sha256": "3de47ed29b742426daa78d692373c12932281cbd143a21212ac1fa58a8008eca"
     },
     {
       "path": "post-standard.js",
@@ -94,8 +94,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 1002,
-      "sha256": "488727015b4528139d58fe285c8aac7e692c1acef1ca1c67df115ef2a8a3f1a7"
+      "bytes": 1207,
+      "sha256": "243d266d8b472b7c85a480a5f3b6d3e8db8e762463da9617e092ef8bf5789840"
     },
     {
       "path": "README.md",
@@ -105,7 +105,7 @@
     {
       "path": "tests/core-integrity-check.mjs",
       "bytes": 1987,
-      "sha256": "ce06a8334fe0eb24a849dd6ed34d35e40c27a384a31a6f0e97f25d32de9bb6cb"
+      "sha256": "2fff1c0822ff81f21b30be9cadfb154794f93bce6d33a263d5ce7c3362488e74"
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4337,
-      "sha256": "62b541b33e37243a6b902380b2ee9022d337eac17489b57fc4e93cd4c09d4359"
+      "bytes": 4377,
+      "sha256": "265839760d0023a57cfdc976fc590b75d58a6a7143ee04c922cc5b2dc7e9d00a"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -206,6 +206,36 @@
       "path": "docs/UI_UX_UPGRADE_6_8.md",
       "bytes": 920,
       "sha256": "86ab9e3604e448f83c53ead992657b343630b5fe1e0da251bcd8d12fd163dbde"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 1829,
+      "sha256": "16772b21eff1bf80f839cfe16afe176f369e556e472907527f0bd9fbf0169c7b"
+    },
+    {
+      "path": "tests/ux-regression-check.mjs",
+      "bytes": 12186,
+      "sha256": "47a1bae3ea7e62ea9f0fac43b499c8d8b8f5ec1d3298003ac2c4d3b2b3a997cb"
+    },
+    {
+      "path": "tests/ux-6.8.1-stability-check.mjs",
+      "bytes": 1350,
+      "sha256": "e2448252f5874425c1ef2e8107e8d2c1f753e260ac87f9b989de7b35368133fa"
+    },
+    {
+      "path": "tests/ux-6.8.1-stage-simulation.mjs",
+      "bytes": 1752,
+      "sha256": "1df9c34f3b9b49260414df6a59a0fc084c65aaa695adae4407234e4195e561de"
+    },
+    {
+      "path": "ux-6.8.1-stability.js",
+      "bytes": 1247,
+      "sha256": "5389f02bfb88df802434ca0bdf1de513528ddc54870e0ab5efe7e8d5740f75ae"
+    },
+    {
+      "path": "ux-6.8.1-stability.css",
+      "bytes": 1138,
+      "sha256": "6232d4e505ad10777a6e3297e851f9f325144b297a9ececf8a10da1bd7e9629d"
     }
   ],
   "guidedPath": {
@@ -250,5 +280,21 @@
     "guidedStep": 6,
     "mandatoryPathSteps": 40,
     "exploreInline": true
+  },
+  "stabilityFix": {
+    "version": "6.8.1",
+    "previous": "6.8.0",
+    "changes": [
+      "concurrent-stage-requests",
+      "per-stage-units",
+      "no-startup-scroll",
+      "exam-on-demand",
+      "srs-preserved",
+      "offline-service-worker",
+      "mobile-validation",
+      "stage-select-fallback"
+    ],
+    "noDataChanges": true,
+    "rollback": "Revert branch merge commit; preserve user progress exports."
   }
 }
