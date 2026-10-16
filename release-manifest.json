@@ -1,6 +1,6 @@
 {
-  "version": "6.9.1",
-  "generatedAt": "2026-10-16T16:30:00Z",
+  "version": "7.0.0",
+  "generatedAt": "2026-10-16T17:00:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7227,
-      "sha256": "4c00b575e4fe837c334fe5ce5efecbe7a4e682650e000b897adbd26070748896"
+      "bytes": 7416,
+      "sha256": "71fa2f4e550aaa685ae82c02e98ceb03a324ddf9a155682db1f5810813fdc016"
     },
     {
       "path": "styles.css",
@@ -89,18 +89,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 578,
-      "sha256": "c1c5832c5f962ddf84b16bcc5949f97486b369f537a2ea820b3c231c679113de"
+      "bytes": 553,
+      "sha256": "faa196b28b43e84d77afe50c5854f7590b1b01613cbb4aa798220b78fc198152"
     },
     {
       "path": "package.json",
-      "bytes": 1458,
-      "sha256": "77346b1bf933020fae25cc1e109d0ba92a161901ed74543b6dec935f5e12cdb6"
+      "bytes": 1493,
+      "sha256": "15545ceca243f8285bd7ae74299012384c58e2d1654b40c1442451a438c8ca3a"
     },
     {
       "path": "README.md",
-      "bytes": 9243,
-      "sha256": "1d5e25d922e2517f24347f301966050b56d2091d1874a9326ec194334e6f7dd7"
+      "bytes": 12400,
+      "sha256": "9d104df9c91e4bded5c9832d0c96bc66c4a53f3c39d5adab565f88d997967e0a"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4394,
-      "sha256": "f36bacb35dcf75c76790bfab0e0a5da0badb6e4e5d1ca368df1a7ab8839a9685"
+      "bytes": 4431,
+      "sha256": "d2f1bff6a364e4e39c3bbf7c007909bbfd624e74d109d61689baa1b199cb78a4"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1322,
-      "sha256": "4ce3f53843f9a28dcbc4d33fa166bcf9a311c3b48825b5ab5ab35c2969a5f77c"
+      "bytes": 1819,
+      "sha256": "8360b3bb42395ac74c9f5d3a77f2b87951acb85283ead3fd3c40f47cd018a67c"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "fc0fb5c9d07e948d5760fbbe62f84b86c98d20e7b4c5a4fe7e60eb2ef51b6d69"
+      "sha256": "a5ba158fc356a9d4cdb0921a633283fc611a2195b0b395b15116884fc9a555b3"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -249,13 +249,13 @@
     },
     {
       "path": "portal.js",
-      "bytes": 837,
-      "sha256": "9df03ae1cdf230a77558fcbfa8d901bd27a0d95a79d8aa7279a2eb163fbe7816"
+      "bytes": 1129,
+      "sha256": "3da729731d41570bbf9196d10cd26e7b3d58f54f6f5d9a3be90d8fa61a5db3f5"
     },
     {
       "path": "etapa.js",
-      "bytes": 6096,
-      "sha256": "2fe594f59aedad644802813fe8e1f9cae7d6b83dc3b3c6a56e8ed6b94fde826f"
+      "bytes": 6209,
+      "sha256": "fec09e43bf700350983b7c91ac443cddf15f9ee3fd7c8e2b5506fcaa354e2c86"
     },
     {
       "path": "base.html",
@@ -319,8 +319,8 @@
     },
     {
       "path": "sitemap.xml",
-      "bytes": 1719,
-      "sha256": "d43213e5ba36aaa63532f838b9b5c22c58db1c347d2fbf20d6f1e6c00800e4c4"
+      "bytes": 1809,
+      "sha256": "f557b56204811d8c1cf0a366d600b0e46abd0fe509acdd5ccb7c7474705edec6"
     },
     {
       "path": "robots.txt",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "231d7639d39553060b734496148e9add805297a0aac82b5f0969b47e978a826b"
+      "sha256": "9484bf798a87f78fe70b290675323f1d39434e902d53a4a17caa91e1f71d8008"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -424,8 +424,8 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "b788610fac15d05a25a7a7d0e8c8c599b2eec2ef2e3c6a821e3320f2a3946372",
-      "bytes": 3473
+      "sha256": "fa57d65972672c9771941da05db084ed36e1a9226e622084e0ea7c43343a5e1c",
+      "bytes": 3488
     }
   ],
   "guidedPath": {
@@ -488,7 +488,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "6.9.1",
+    "version": "7.0.0",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -533,5 +533,20 @@
     "historicalSectionsPreserved": 47,
     "legacyLinksInLivePages": 0,
     "restoredVisualMnemonics": 48
+  },
+  "unitStudy": {
+    "version": "7.0.0",
+    "page": "estudar.html",
+    "modes": [
+      "aprender",
+      "escrever",
+      "revisar",
+      "avaliar"
+    ],
+    "cacheStrategy": "one-stage-at-a-time",
+    "progressKey": "bishunUnitJourneyV70",
+    "legacyContextKey": "bishunFullV4",
+    "completion": "four explicitly tracked activities; exam threshold 70%, writing quiz >=1 completed",
+    "protectedCurriculumUnchanged": true
   }
 }
