@@ -30,13 +30,19 @@ function reviewItems(chars,words,records={},initial=true,now=Date.now()){
  });
  return initial?items:items.filter(x=>x.isDue)
 }
+// A memória após 24h testa o conjunto inteiro, independentemente da data individual.
+function delayedReviewItems(chars,words,records={},now=Date.now()){
+ const allChars=reviewItems(chars,[],records,true,now);
+ const dueWords=reviewItems([],words,records,false,now);
+ return [...allChars,...dueWords];
+}
 function completePractice(state,characters){const required=writingTarget(characters),writing=writingCompletion(state,characters),reviewed=Boolean(state.reviewed&&state.reviewCount>=characters.length),tested=Boolean(state.evaluated&&state.examTotal===characters.length&&state.score>=Math.ceil(characters.length*.8));return {learned:Boolean(state.learned),written:writing.complete,reviewed,evaluated:tested,writingNeeded:required,writingDone:writing.count,completed:[Boolean(state.learned),writing.complete,reviewed,tested].filter(Boolean).length}}
 function retentionStatus(state,now=Date.now()){
  if(!state?.retentionDueAt)return {phase:'not-scheduled'};
  if(state.retentionCheckedAt&&state.retentionCheckedAt>=state.retentionDueAt&&state.retentionRemembered>=state.retentionTotal*.8)return {phase:'observed',remembered:state.retentionRemembered,total:state.retentionTotal};
  return now>=state.retentionDueAt?{phase:'due'}:{phase:'scheduled',dueAt:state.retentionDueAt}
 }
-const api=Object.freeze({chunks,writingTarget,writingCompletion,shuffle,assessment,reviewItems,completePractice,retentionStatus,DAY});
+const api=Object.freeze({chunks,writingTarget,writingCompletion,shuffle,assessment,reviewItems,delayedReviewItems,completePractice,retentionStatus,DAY});
 root.BishunPedagogy=api;
 if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof window!=='undefined'?window:globalThis);

@@ -60,3 +60,8 @@
 .study-retention{margin:13px 0 0;padding:12px 13px;color:#245072;background:#f0f6fb;border-left:3px solid #5281c8;border-radius:10px;font-size:.84rem;line-height:1.45}
 #writingCoverage{font-weight:750;color:#264880;margin:0 0 13px}
 @media(max-width:540px){.micro-intro{align-items:flex-start;flex-direction:column;gap:2px}.micro-controls{gap:8px}.micro-controls .study-button{min-width:0;flex:1;padding:10px 8px;font-size:.78rem}}
+
+/* Respostas ocultas durante a recuperação ativa de cada par. */
+#panel-aprender.pair-recall #learnCharacters .meaning,#panel-aprender.pair-recall #learnCharacters .pinyin,#panel-aprender.pair-recall #learnWords,#panel-aprender.pair-recall #learnGrammar{visibility:hidden}
+#pairPractice{margin:8px 0 12px}
+#pairProbe{margin:12px 0}

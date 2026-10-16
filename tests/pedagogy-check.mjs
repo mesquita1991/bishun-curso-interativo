@@ -23,4 +23,7 @@ assert.equal(p.retentionStatus({retentionDueAt:2000},1000).phase,'scheduled');
 assert.equal(p.retentionStatus({retentionDueAt:2000},3000).phase,'due');
 assert.equal(p.retentionStatus({retentionDueAt:2000,retentionCheckedAt:3000,retentionTotal:10,retentionRemembered:8},4000).phase,'observed');
 assert.equal(p.reviewItems([{char:'你',pinyin:'nǐ',meaning:'você'}],[],{},false,3000).length,0);
-console.log('Pedagogia verificada em '+count+' unidades.');
+const delayed=p.delayedReviewItems([{char:'你',pinyin:'nǐ',meaning:'você'}],[],{char:{'你':{attempts:1,due:9999999}}},3000);
+assert.equal(delayed.length,1,'Delayed recall includes characters even before individual due dates');
+assert.equal(delayed[0].isDue,false);
+console.log('Pedagogia verificada em '+count+' unidades, com recuperação por pares e revisão posterior integral.');

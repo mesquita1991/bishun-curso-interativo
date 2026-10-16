@@ -12,7 +12,7 @@ const readJourney=()=>{const s=readJSON(KEY);s.units=s.units&&typeof s.units==='
 const legacyState=()=>readJSON(LEGACY);
 const stageCache=new Map();
 let current=null,stage=1,unit=1,mode='aprender',ticket=0,stageLoading=false;
-let reviewItems=[],reviewAt=0,reviewRatings=0,reviewRemembered=0,reviewDelayed=false,exam=[],examAt=0,score=0,wrongChars=[],examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0,learnChunk=0;
+let reviewItems=[],reviewAt=0,reviewRatings=0,reviewRemembered=0,reviewDelayed=false,exam=[],examAt=0,score=0,wrongChars=[],examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0,learnChunk=0,pairQuestions=[],pairAt=0,pairScore=0,pairLocked=false;
 const params=new URLSearchParams(location.search),old=legacyState(),previous=readJourney().last||{};
 const unitLimits=[30,30,30,30,30,30,40,40,40];
 const initialStage=bounds(params.get('etapa')||previous.stage||old.stage||1,1,9);
@@ -65,14 +65,48 @@ function paintChunk(){
  const shown=parts[learnChunk]||[],prev=progress(),seen=[...new Set([...(prev.seenParts||[]),learnChunk])];
  if(size&&seen.length!==((prev.seenParts||[]).length))updateProgress({seenParts:seen});
  $('learnChunkTitle').textContent='Conheça estes '+shown.length+' caracteres';
- $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+seen.length+' partes visitadas';
+ $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+(progress().checkedParts||[]).length+' partes praticadas';
  $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
  const relevant=words.filter((w,index)=>{const at=parts.findIndex(group=>group.some(c=>String(w.hanzi||'').includes(c.char)));return (at<0?index%size:at)===learnChunk});
  $('learnWords').innerHTML=relevant.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
  $('prevChunk').disabled=learnChunk===0;
- $('nextChunk').disabled=learnChunk>=size-1;
- $('nextChunk').textContent=learnChunk>=size-1?'Todos os caracteres apresentados':'Conhecer os próximos →';
- $('finishLearn').disabled=!progress().learned&&seen.length<size;
+ const checked=new Set(Array.isArray(progress().checkedParts)?progress().checkedParts:[]);
+ $('panel-aprender').classList.remove('pair-recall');
+ $('pairProbe').hidden=true;
+ $('pairPractice').textContent=checked.has(learnChunk)?'Repetir as duas perguntas':'Testar o que lembro destes dois';
+ $('nextChunk').disabled=learnChunk>=size-1||!checked.has(learnChunk);
+ $('nextChunk').textContent=learnChunk>=size-1?'Último par desta unidade':'Conhecer os próximos →';
+ $('finishLearn').disabled=!progress().learned&&checked.size<size;
+}
+function renderPairProbe(){
+ const box=$('pairProbe');box.hidden=false;
+ if(pairAt>=pairQuestions.length){
+  const p=progress(),checkedParts=[...new Set([...(p.checkedParts||[]),learnChunk])];
+  updateProgress({checkedParts,pairAttempts:(p.pairAttempts||0)+1});
+  paintChunk();
+  box.hidden=false;
+  box.innerHTML='<p><strong>Par praticado: '+pairScore+' de '+pairQuestions.length+' acertos.</strong> '+(pairScore===pairQuestions.length?'Você reconheceu os dois significados.':'Releia as respostas e repita este par se precisar.')+'</p>';
+  return;
+ }
+ const question=pairQuestions[pairAt];
+ box.innerHTML='<p class="study-muted">Lembrar sem consultar · pergunta '+(pairAt+1)+' de '+pairQuestions.length+'</p><h4>Qual o significado de <span lang="zh-Hans">'+esc(question.char)+'</span>?</h4><div class="quiz-options">'+question.options.map((option,i)=>'<button type="button" data-pair-answer="'+i+'">'+esc(option)+'</button>').join('')+'</div><p class="quiz-feedback" id="pairFeedback" aria-live="polite"></p><button type="button" class="study-button" id="pairAdvance" hidden>'+(pairAt===pairQuestions.length-1?'Ver resultado →':'Próximo caractere →')+'</button>';
+ pairLocked=false;
+ box.querySelectorAll('[data-pair-answer]').forEach(btn=>btn.addEventListener('click',()=>{
+  if(pairLocked)return;pairLocked=true;
+  const answer=question.options[Number(btn.dataset.pairAnswer)],correct=answer===question.correct;
+  if(correct)pairScore++;
+  box.querySelectorAll('[data-pair-answer]').forEach(el=>{el.disabled=true;el.setAttribute('aria-pressed',String(el===btn))});
+  $('pairFeedback').textContent=correct?'Correto.':'Ainda não. Resposta: '+question.correct;
+  $('pairAdvance').hidden=false;
+ }));
+ $('pairAdvance').addEventListener('click',()=>{pairAt++;renderPairProbe()});
+}
+function startPairProbe(){
+ const {chars}=components(),pair=pedagogia.chunks(chars,2)[learnChunk]||[];
+ pairQuestions=pedagogia.assessment(pair,chars);pairAt=0;pairScore=0;
+ if(pairQuestions.length!==pair.length){$('pairProbe').hidden=false;$('pairProbe').textContent='Não foi possível preparar esta prática. Tente novamente.';return}
+ $('panel-aprender').classList.add('pair-recall');
+ renderPairProbe();
 }
 function renderLearn(){
  const {chars,grammar,syllables}=components();learnChunk=0;paintChunk();
@@ -82,7 +116,7 @@ function renderLearn(){
 function writingCoverage(){const r=pedagogia.writingCompletion(progress(),components().chars);$('writingCoverage').textContent=r.count+' de '+r.needed+' caracteres diferentes praticados'+(r.complete?' · concluído.':'.');}
 function renderWriting(){
  const {chars}=components();$('writeCharacter').innerHTML=chars.map(x=>'<option value="'+esc(x.char)+'">'+esc(x.char)+' · '+esc(x.pinyin)+' · '+esc(x.meaning)+'</option>').join('');
- writerChar=chars[0]?.char||'';paintWriter();
+ writerChar=(stage===1&&unit===1?chars.find(x=>x.char==='八'):null)?.char||chars[0]?.char||'';paintWriter();
 }
 function paintWriter(){
  const {chars}=components(),c=chars.find(x=>x.char===writerChar)||chars[0];writer=null;writingTicket++;writerChar=c?.char||'';
@@ -91,7 +125,7 @@ function paintWriter(){
  $('writeHanzi').textContent=writerChar||'';
  $('writePinyin').textContent=c?.pinyin||'';
  $('writeMeaning').textContent=c?.meaning||'';
- $('writingFeedback').textContent='Primeiro veja a ordem dos traços. Depois, tente escrever com o dedo ou com o mouse.';writingCoverage()
+ $('writingFeedback').textContent=(stage===1&&unit===1&&writerChar==='八'?'Comece por 八: são apenas dois traços. ':'')+'Primeiro observe a sequência; depois, escreva com o dedo ou com o mouse.';writingCoverage()
 }
 const studentGuidance={
  aprender:['Passo 1 de 4','Conhecer e ouvir','Leia os caracteres, ouça a pronúncia e conheça os significados. Quando terminar, escolha o botão para praticar a escrita.'],
@@ -174,7 +208,7 @@ async function runWriting(type){
   }});
  }catch(e){console.error(e);$('writerFrame').innerHTML='<span class="writer-hanzi" lang="zh-Hans">'+esc(char)+'</span>';$('writingFeedback').textContent='A animação exige acesso ao motor externo. O conteúdo e o áudio permanecem disponíveis.'}
 }
-function reviewQueue(){const {chars,words}=components();const p=progress();const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,legacyState().records||{},first,Date.now())}
+function reviewQueue(){const {chars,words}=components(),p=progress(),records=legacyState().records||{},now=Date.now();if(pedagogia.retentionStatus(p,now).phase==='due')return pedagogia.delayedReviewItems(chars,words,records,now);const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,records,first,now)}
 function grade(item,q){
  const state=legacyState();state.records=state.records&&typeof state.records==='object'?state.records:{};
  state.records[item.type]=state.records[item.type]&&typeof state.records[item.type]==='object'?state.records[item.type]:{};
@@ -195,14 +229,14 @@ function renderReview(){
   $('reviewToTest').hidden=false;$('startReview').textContent='Repetir quando houver revisão pendente';$('startReview').hidden=false;return
  }
  const item=reviewItems[reviewAt];
- box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':item.isDue?'Revisão vencida':'Prática inicial')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
+ box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(reviewDelayed?'Verificação depois de 24 horas':item.isNew?'Primeiro contato':item.isDue?'Revisão vencida':'Prática inicial')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
  $('revealAnswer').addEventListener('click',()=>{$('reviewAnswer').hidden=false;$('revealAnswer').hidden=true});
  box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{const gradeValue=Number(btn.dataset.grade);grade(item,gradeValue);if(item.type==='char'&&gradeValue===2)reviewRemembered++;reviewRatings++;reviewAt++;renderReview()}))
 }
 function beginReview(){
  if(!current)return;
  reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;reviewRemembered=0;
- reviewDelayed=Boolean(progress().retentionDueAt&&Date.now()>=progress().retentionDueAt);
+ reviewDelayed=pedagogia.retentionStatus(progress()).phase==='due';
  $('reviewToTest').hidden=true;
  if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para outra atividade.</p>';$('startReview').textContent='Verificar novamente depois';return}
  $('startReview').hidden=true;renderReview()
@@ -238,6 +272,7 @@ function registerEvents(){
   tab.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();let i=modes.indexOf(mode);if(e.key==='ArrowRight')i=(i+1)%4;if(e.key==='ArrowLeft')i=(i+3)%4;if(e.key==='Home')i=0;if(e.key==='End')i=3;setMode(modes[i],{historyMode:true,focus:true})})
  });
  $('learnCharacters').addEventListener('click',e=>{const btn=e.target.closest('[data-say]');if(btn)speak(btn.dataset.say)});
+ $('pairPractice').addEventListener('click',startPairProbe);
  $('prevChunk').addEventListener('click',()=>{learnChunk=Math.max(0,learnChunk-1);paintChunk()});
  $('nextChunk').addEventListener('click',()=>{learnChunk=Math.min(pedagogia.chunks(components().chars,2).length-1,learnChunk+1);paintChunk()});
  $('finishLearn').addEventListener('click',()=>{if(!current)return;if($('finishLearn').disabled)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});

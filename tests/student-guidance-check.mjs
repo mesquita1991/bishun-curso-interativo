@@ -5,7 +5,8 @@ const home=read('index.html'),lesson=read('estudar.html'),client=read('estudar.j
 const primary=read('.github/workflows/ux681-gate.yml');
 const secondary=read('.github/workflows/multipage-browser-qa.yml');
 const pkg=JSON.parse(read('package.json'));
-assert.equal(pkg.version,'7.2.0');
+assert.equal(pkg.version,'7.2.1');
+assert.ok(lesson.includes('id="pairPractice"')&&lesson.includes('id="pairProbe"'),'Cada par deve exigir tentativa de recuperação ativa');
 for(const phrase of [
  'Aprenda mandarim, uma unidade de cada vez.',
  'O que fazer em cada unidade?',

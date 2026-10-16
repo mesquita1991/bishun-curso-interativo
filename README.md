@@ -1,3 +1,12 @@
+# Bǐshùn 7.2.1 — correção da qualidade pedagógica
+
+- Cada par de caracteres pede uma **tentativa de recuperação ativa de dois significados** com respostas ocultas, feedback imediato e repetição opcional. Avançar exige responder, não acertar; a avaliação da unidade permanece com dez perguntas. Históricos anteriores são preservados.
+- A **revisão posterior (mínimo 24h)** inclui todos os caracteres da unidade, mesmo quando intervalos individuais ainda não venceram. As revisões de rotina seguem selecionando apenas itens vencidos.
+- A escrita inicial propõe **八**, com dois traços, em lugar de começar por **爱**. Há links diretos para pinyin, tons e traços. A interface deixa explícito quando a escrita fica pendente.
+- Regressões cobrem a recuperação de pares e a memória posterior de dez caracteres com datas individuais futuras. Nenhum dado curricular foi alterado. As alterações são entregues em um único commit no pipeline consolidado.
+
+---
+
 # Bǐshùn 7.2 — aprendizagem progressiva e memória diferida
 
 A unidade de estudo começa com **dois caracteres por apresentação** (cinco partes na unidade de dez caracteres). O aluno observa e escuta, relaciona palavras aos caracteres exibidos e percorre todas as partes antes de marcar a leitura como realizada. Percorrer os grupos registra **exposição**, não domínio.
