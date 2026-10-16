@@ -36,20 +36,27 @@ function components(){
  return {u:unitData,chars:(unitData.characters||[]).map(x=>charsById.get(String(x))).filter(Boolean),words:(unitData.words||[]).map(x=>wordsById.get(String(x))).filter(Boolean),grammar:(unitData.grammar||[]).map(x=>gramById.get(String(x))).filter(Boolean),syllables:(unitData.syllables||[]).map(x=>sylById.get(String(x))).filter(Boolean)}
 }
 function paintProgress(){
- const p=progress(),done=modes.filter(m=>p[stepFields[m]]).length;
+ const p=progress(),chars=components().chars,states=pedagogia.completePractice(p,chars),done=states.completed;
  $('unitProgressLabel').textContent=done+' de 4 atividades';
  $('unitProgressPct').textContent=done*25+'%';
  $('unitProgressBar').setAttribute('aria-valuenow',String(done));
  $('unitProgressFill').style.width=done*25+'%';
- $('completionLabel').textContent=done===4?'Você concluiu os quatro passos':done===0?'Comece conhecendo os caracteres':done+' de 4 passos realizados';
+ $('completionLabel').textContent=done===4?'Primeira prática concluída':done===0?'Comece conhecendo os caracteres':done+' de 4 atividades feitas';
  $('completionLabel').classList.toggle('complete',done===4);
- document.querySelectorAll('[data-progress]').forEach(el=>{const status=Boolean(p[stepFields[el.dataset.progress]]);el.classList.toggle('done',status);el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
- const next=modes.find(m=>!p[stepFields[m]]);
- $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você passou pelos quatro passos';
- $('nextDescription').textContent=next?'Escolha esse passo acima e continue quando estiver pronto.':'Avance para outra unidade ou refaça um passo que queira praticar.';
- $('finishLearn').textContent=p.learned?'Já conheci o conteúdo · continuar a escrita →':'Já li e ouvi · vou praticar a escrita →';
+ document.querySelectorAll('[data-progress]').forEach(el=>{const status=states[stepFields[el.dataset.progress]];el.classList.toggle('done',Boolean(status));el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
+ const next=modes.find(m=>!states[stepFields[m]]);
+ $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você concluiu as quatro atividades iniciais';
+ $('nextDescription').textContent=next?'Continue a atividade ainda não realizada.':'Volte em outro dia para testar o que ainda lembra; pode avançar e estudar outra unidade.';
+ $('finishLearn').textContent=states.learned?'Já conheci o conteúdo · continuar a escrita →':'Terminei as partes · praticar escrita →';
+ const status=pedagogia.retentionStatus(p);
+ $('retentionNotice').textContent=status.phase==='observed'
+  ?'Na revisão posterior, você declarou lembrar '+status.remembered+' de '+status.total+' caracteres. Continue praticando.'
+  :status.phase==='due'?'Sua revisão de outro dia já pode ser feita. Abra Lembrar e tente novamente.'
+  :status.phase==='scheduled'?'Volte para testar sua memória a partir de '+new Date(status.dueAt).toLocaleDateString('pt-BR')+'.'
+  :'Após a avaliação inicial, será marcada uma revisão em outro dia.';
  const buttons=$('unitIndex').querySelectorAll('button[data-unit]');
- buttons.forEach(b=>{const s=readJourney().units[stage+':'+b.dataset.unit]||{};b.classList.toggle('complete',['learned','written','reviewed','evaluated'].every(x=>s[x]));b.classList.toggle('active',Number(b.dataset.unit)===unit)});
+ const units=readJourney().units;
+ buttons.forEach(b=>{const record=units[stage+':'+b.dataset.unit]||{},u=current?.units.find(x=>x.id===Number(b.dataset.unit)),set=new Set((u?.characters||[]).map(String)),cs=current?.characters.filter(x=>set.has(String(x.id)))||[];b.classList.toggle('complete',pedagogia.completePractice(record,cs).completed===4);b.classList.toggle('active',Number(b.dataset.unit)===unit)});
 }
 function speak(text,rate=.82){if(!('speechSynthesis'in window)){$('writingFeedback').textContent='Síntese de voz indisponível neste navegador.';return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(text));u.lang='zh-CN';u.rate=rate;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>v.lang.toLowerCase()==='zh-cn')||voices.find(v=>v.lang.toLowerCase().startsWith('zh'))||null;speechSynthesis.speak(u)}catch(e){console.warn('Áudio indisponível',e)}}
 function renderLearn(){
