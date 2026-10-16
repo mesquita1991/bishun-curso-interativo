@@ -89,18 +89,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 553,
-      "sha256": "faa196b28b43e84d77afe50c5854f7590b1b01613cbb4aa798220b78fc198152"
+      "bytes": 554,
+      "sha256": "4abdb729c80ef25f2c67d719cda2f1f405f9295c08bc8b2a907906e562f2ff31"
     },
     {
       "path": "package.json",
-      "bytes": 1493,
-      "sha256": "15545ceca243f8285bd7ae74299012384c58e2d1654b40c1442451a438c8ca3a"
+      "bytes": 1528,
+      "sha256": "af39c0302317a82ede1c0a005803f7a4324bcf55a1e928ba47d1a7cf97b1b931"
     },
     {
       "path": "README.md",
-      "bytes": 12400,
-      "sha256": "9d104df9c91e4bded5c9832d0c96bc66c4a53f3c39d5adab565f88d997967e0a"
+      "bytes": 14497,
+      "sha256": "2dc13ca6bb91ec8c8767ccc12485750efac275a95fa84093a141fe84649211d9"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -354,8 +354,8 @@
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
-      "bytes": 658,
-      "sha256": "04fe6b4754c2d3e93f6b73082414dba10e976321a6b95fe1bc2f4d6a527f1ce7"
+      "bytes": 889,
+      "sha256": "4836ab39f4b0ef2de61fce0ba2fcb14be2b6f0ed49ce86c4f4fe31e434ecdf8c"
     },
     {
       "path": "laboratorio.html",
@@ -444,18 +444,28 @@
     },
     {
       "path": "tests/unit-study-check.mjs",
-      "sha256": "3c49b291f48ea34a42701fd4e2178fe9be583537ad9c0924278f544b53f0f614",
+      "sha256": "5e8787693fb970d5d811a274f6d1219c31fe2991f59d3e6587a8fe5326d75cfd",
       "bytes": 2126
     },
     {
       "path": "tests/unit-study-browser-smoke.mjs",
-      "sha256": "88571c988175deb0ca58e8c2b1530678cc50d96397f061fb657bf263423f0a7a",
-      "bytes": 4336
+      "sha256": "0a9fac2da5b72be14dbdedb12da244911d9653b2d32a685fc07f09a5fae6debd",
+      "bytes": 4351
     },
     {
       "path": "jornada.css",
       "bytes": 2551,
       "sha256": "630b3ca14885b5ea5539030f46693ceda76743c7eedf27631944f000988b1efa"
+    },
+    {
+      "path": "tests/student-guidance-check.mjs",
+      "bytes": 2530,
+      "sha256": "f711378655d7ce7fda5062e0d94047edc437d95e460fd75e3a842532b0143581"
+    },
+    {
+      "path": ".github/workflows/ux681-gate.yml",
+      "bytes": 1662,
+      "sha256": "e5f3c4ead428e64ebf25e20e8744d99aa135b0be60211dc416e06ac80fd7f613"
     }
   ],
   "guidedPath": {
