@@ -185,13 +185,28 @@ function grade(item,q){
 }
 function renderReview(){
  const box=$('reviewCard');
- if(reviewAt>=reviewItems.length){updateProgress({reviewed:true,reviewCount:reviewRatings,reviewedAt:Date.now()});box.innerHTML='<h4>Você terminou este exercício de memória</h4><p>Você tentou lembrar '+reviewRatings+' caracteres ou palavras. Agora confira o que aprendeu.</p>';$('reviewToTest').hidden=false;$('startReview').textContent='Tentar lembrar novamente';$('startReview').hidden=false;return}
+ if(reviewAt>=reviewItems.length){
+  const p=progress(),c=components().chars.length,charCount=reviewItems.filter(x=>x.type==='char').length;
+  const updates={reviewed:p.reviewed||reviewRatings>=c,reviewCount:Math.max(p.reviewCount||0,reviewRatings),reviewedAt:Date.now(),lastRecallTotal:charCount,lastRecallRemembered:reviewRemembered};
+  const due=reviewDelayed&&charCount>=Math.ceil(c*.8);
+  if(due){updates.retentionTotal=charCount;updates.retentionRemembered=reviewRemembered;updates.retentionLastAttemptAt=Date.now();if(reviewRemembered>=Math.ceil(charCount*.8))updates.retentionCheckedAt=Date.now()}
+  updateProgress(updates);
+  box.innerHTML='<h4>Você terminou a prática de memória</h4><p>Você declarou lembrar '+reviewRemembered+' de '+charCount+' caracteres. '+(due?'Esta foi uma verificação realizada em outro dia.':'Esta atividade inicial não prova retenção posterior.')+'</p>';
+  $('reviewToTest').hidden=false;$('startReview').textContent='Repetir quando houver revisão pendente';$('startReview').hidden=false;return
+ }
  const item=reviewItems[reviewAt];
- box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':'Já visto antes')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
+ box.innerHTML='<p class="study-muted">Item '+(reviewAt+1)+' de '+reviewItems.length+' · '+(item.isNew?'Primeiro contato':item.isDue?'Revisão vencida':'Prática inicial')+'</p><div class="quiz-hanzi" lang="zh-Hans">'+esc(item.char)+'</div><button type="button" class="study-button secondary" id="revealAnswer">Revelar resposta</button><div id="reviewAnswer" hidden><p><strong>'+esc(item.pinyin)+'</strong> · '+esc(item.meaning)+'</p><div class="writer-actions"><button type="button" class="study-button ghost" data-grade="0">Não lembrei</button><button type="button" class="study-button secondary" data-grade="1">Com dificuldade</button><button type="button" class="study-button" data-grade="2">Lembrei</button></div></div>';
  $('revealAnswer').addEventListener('click',()=>{$('reviewAnswer').hidden=false;$('revealAnswer').hidden=true});
- box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{grade(item,Number(btn.dataset.grade));reviewRatings++;reviewAt++;renderReview()}))
+ box.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{const gradeValue=Number(btn.dataset.grade);grade(item,gradeValue);if(item.type==='char'&&gradeValue===2)reviewRemembered++;reviewRatings++;reviewAt++;renderReview()}))
 }
-function beginReview(){if(!current)return;reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;$('reviewToTest').hidden=true;$('startReview').hidden=true;renderReview()}
+function beginReview(){
+ if(!current)return;
+ reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;reviewRemembered=0;
+ reviewDelayed=Boolean(progress().retentionDueAt&&Date.now()>=progress().retentionDueAt);
+ $('reviewToTest').hidden=true;
+ if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para outra atividade.</p>';$('startReview').textContent='Verificar novamente depois';return}
+ $('startReview').hidden=true;renderReview()
+}
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function quizQuestions(){
  const {chars}=components(),source=current.characters.filter(x=>x.meaning);
