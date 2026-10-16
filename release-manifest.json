@@ -109,8 +109,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6111,
-      "sha256": "32e08449bf43af5c01bf0c0e1cc96869e9ff86b53de78289c59739292d3acaf2"
+      "bytes": 6122,
+      "sha256": "48b40101efeb9dc86953155be9310af720bce78321ec805306311003be68c560"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -134,8 +134,8 @@
     },
     {
       "path": "tests/ux-6.6-regression-check.mjs",
-      "bytes": 8131,
-      "sha256": "3975d1fae9ba6e48b132980c7cc1a72d5983226996e4f86eed413f36990c22eb"
+      "bytes": 8151,
+      "sha256": "b07fac153f38d48c5c7c999015ce1fcd47db5d62fa7e4db34e6bfc1e179d7a00"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
@@ -159,8 +159,8 @@
     },
     {
       "path": "tests/ux-6.7-regression-check.mjs",
-      "bytes": 3657,
-      "sha256": "82335f798b20b4082879c09df73b01691d8a383546a5c6e3760b85b7dd851178"
+      "bytes": 3689,
+      "sha256": "49df28b965955c287a4d213b1ea55fcbb82dc6a447c44a2e7e93c7e67907e09e"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -449,8 +449,8 @@
     },
     {
       "path": "tests/unit-study-browser-smoke.mjs",
-      "sha256": "aef607050504c4dc6568d2f15ee60263d9b243b4c945a60e14c51944673d4988",
-      "bytes": 4335
+      "sha256": "88571c988175deb0ca58e8c2b1530678cc50d96397f061fb657bf263423f0a7a",
+      "bytes": 4336
     }
   ],
   "guidedPath": {
