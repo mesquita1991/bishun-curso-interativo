@@ -109,8 +109,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6122,
-      "sha256": "48b40101efeb9dc86953155be9310af720bce78321ec805306311003be68c560"
+      "bytes": 6119,
+      "sha256": "7754250c41acbf4e24182a536e2f29a3e93653129fd74b227bfa242158eeebc9"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
