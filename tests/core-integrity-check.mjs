@@ -4,10 +4,10 @@ import crypto from 'node:crypto';
 
 const root = path.resolve(process.cwd());
 const expectedBlobs = {
-  'app.js': '56bbe712d48566a7cd8d5d4f2a2099834efa6463',
+  'app.js': '7c3c657dd4e59a7e778388b85e8eefbfe61f88d5',
   'course.js': 'b9b0405458d4c405b55a5caf3a090779f08de664',
   'curriculum-data.js': 'f1b633c353e16b60b49d779ac0f8ea9ccce50ea3',
-  'full-course.js': '6bef1b8f1b2e6aa0652e1be4a60d6e6ad603c6cc',
+  'full-course.js': '3e548ea8ace06910d04f5ebc570023deaa55605a',
   'post-standard.js': '1439dc0dfa46a04bbf9597940ea0ba082a8102f7',
   'mastery-v6.js': '86d373377a5dfce39e3cce835300f8ae28eb7a2d'
 };

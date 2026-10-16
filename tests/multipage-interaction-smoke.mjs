@@ -1,0 +1,12 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';
+const js=fs.readFileSync('etapa.js','utf8');const stage=JSON.parse(fs.readFileSync('data/stage-1.json','utf8'));let fetches=0;const handlers={};
+const element=(id)=>({id,innerHTML:'',textContent:'',hidden:false,disabled:false,value:'',addEventListener(type,fn){handlers[id+':'+type]=fn},querySelectorAll(){return[]}});
+const els=Object.fromEntries(['stageStatus','loadStageButton','stageUnitSelect','unitContent','stageLoaded','stageIntro'].map(id=>[id,element(id)]));els.stageLoaded.hidden=true;
+const stored=new Map([['bishunFullV4',JSON.stringify({stage:1,unit:3,unitsByStage:{1:3},records:{char:{'我':{level:5}}}})],['bishunFocusV67',JSON.stringify({mode:'guided',other:true})]]);
+const ctx={document:{querySelector(s){if(s==='[data-stage-number]')return{dataset:{stageNumber:'1'}};return null},getElementById(id){return els[id]},querySelectorAll(){return[]},addEventListener(){}},navigator:{},window:{},location:{},localStorage:{getItem(k){return stored.get(k)??null},setItem(k,v){stored.set(k,v)}},fetch:async url=>{fetches++;assert.equal(url,'data/stage-1.json');return{ok:true,json:async()=>stage}},console};vm.createContext(ctx);vm.runInContext(js,ctx,{timeout:1000});
+assert.equal(fetches,0,'Etapa não deve ser baixada na inicialização');assert.ok(handlers['loadStageButton:click']);
+await handlers['loadStageButton:click']();
+assert.equal(fetches,1);assert.equal(els.stageLoaded.hidden,false);assert.equal(els.stageIntro.hidden,true);assert.equal(els.stageUnitSelect.value,'3','Deve recuperar unidade da etapa');assert.ok(els.unitContent.innerHTML.includes('hanzi-card'),'Caracteres precisam aparecer');assert.ok(els.unitContent.innerHTML.includes('word-card'),'Vocabulário precisa aparecer');assert.ok(els.unitContent.innerHTML.includes('Gramática e padrões'));
+els.stageUnitSelect.value='2';handlers['stageUnitSelect:change']();
+const saved=JSON.parse(stored.get('bishunFullV4'));assert.equal(saved.stage,1);assert.equal(saved.unit,2);assert.equal(saved.unitsByStage[1],2);assert.equal(saved.records.char['我'].level,5,'Progresso antigo não pode ser eliminado');assert.equal(JSON.parse(stored.get('bishunFocusV67')).mode,'explore','Acesso ao laboratório integral deve exibir seções completas');
+console.log(JSON.stringify({ok:true,noEagerFetch:true,stageFetches:fetches,unitRestored:true,progressKept:true,unitsRendered:true}));

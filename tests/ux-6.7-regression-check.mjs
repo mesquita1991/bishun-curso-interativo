@@ -1,6 +1,6 @@
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const assert=(v,m)=>{if(!v)throw new Error(m)};
-const html=read('index.html'),js=read('ux-6.7.0.js'),css=read('ux-6.7.0.css'),pkg=JSON.parse(read('package.json'));
+const html=read('curso.html'),js=read('ux-6.7.0.js'),css=read('ux-6.7.0.css'),pkg=JSON.parse(read('package.json'));
 const [pkgMajor,pkgMinor]=String(pkg.version||'0.0').split('.').map(Number); assert(pkgMajor===6&&pkgMinor>=7,'package version must remain at 6.7+');
 assert(html.includes('ux-6.7.0.css?v=6.7.0')&&html.includes('ux-6.7.0.js?v=6.7.0'),'6.7 assets missing');
 assert(html.indexOf('ux-6.7.0.css')>html.indexOf('ux-6.6.0.css')&&html.indexOf('ux-6.7.0.js')>html.indexOf('ux-6.6.0.js'),'6.7 must load after 6.6');

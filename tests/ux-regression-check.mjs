@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = path.resolve(process.cwd());
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
-const html = read('index.html');
+const html = read('curso.html');
 const ux = read('ux-6.3.0.js');
 const uxCss = read('ux-6.3.0.css');
 const mastery = read('mastery-v6.js');

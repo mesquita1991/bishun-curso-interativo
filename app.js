@@ -685,7 +685,7 @@
     const secure=location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname);
     if (!('serviceWorker' in navigator) || !secure) return;
     try {
-      await navigator.serviceWorker.register('./sw.js?v=6.8.1', { updateViaCache: 'none' });
+      await navigator.serviceWorker.register('./sw.js?v=6.9.0', { updateViaCache: 'none' });
     } catch(error) { console.warn('Service worker indisponível:',error); }
   }
 

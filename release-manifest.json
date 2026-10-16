@@ -1,6 +1,6 @@
 {
-  "version": "6.8.1",
-  "generatedAt": "2026-10-16T14:00:00Z",
+  "version": "6.9.0",
+  "generatedAt": "2026-10-16T15:00:47.471Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -9,18 +9,18 @@
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
-    "app.js": "56bbe712d48566a7cd8d5d4f2a2099834efa6463",
+    "app.js": "7c3c657dd4e59a7e778388b85e8eefbfe61f88d5",
     "course.js": "b9b0405458d4c405b55a5caf3a090779f08de664",
     "curriculum-data.js": "f1b633c353e16b60b49d779ac0f8ea9ccce50ea3",
-    "full-course.js": "6bef1b8f1b2e6aa0652e1be4a60d6e6ad603c6cc",
+    "full-course.js": "3e548ea8ace06910d04f5ebc570023deaa55605a",
     "post-standard.js": "1439dc0dfa46a04bbf9597940ea0ba082a8102f7",
     "mastery-v6.js": "86d373377a5dfce39e3cce835300f8ae28eb7a2d"
   },
   "files": [
     {
       "path": "index.html",
-      "bytes": 67712,
-      "sha256": "a45dc5d09e7caeaceb8c2ae4446934a187ab7e19c24ff8452c107ff34b14ddbb"
+      "bytes": 7045,
+      "sha256": "53349a8627463678ad51d217b6e96c78b7beb67291fb95948b9b884c13188de0"
     },
     {
       "path": "styles.css",
@@ -45,7 +45,7 @@
     {
       "path": "app.js",
       "bytes": 43661,
-      "sha256": "43b1156a58dd2e545589d88aec858a03e3b85819ea26729e5e490845f3745683"
+      "sha256": "bef8bfc6e63477573ce1503c1db065a3a1f1a2891ef6ee70f624804629c9c45e"
     },
     {
       "path": "ux-6.3.0.js",
@@ -75,7 +75,7 @@
     {
       "path": "full-course.js",
       "bytes": 31900,
-      "sha256": "3de47ed29b742426daa78d692373c12932281cbd143a21212ac1fa58a8008eca"
+      "sha256": "bd80218bffa2cf30faa455b29d893845eb93dc173cc006682216c7169d0259ee"
     },
     {
       "path": "post-standard.js",
@@ -89,28 +89,28 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 563,
-      "sha256": "ade61c5dc62dec00bfa18d678e88894c1f7fca1f34559447dabc83912384886e"
+      "bytes": 578,
+      "sha256": "c1c5832c5f962ddf84b16bcc5949f97486b369f537a2ea820b3c231c679113de"
     },
     {
       "path": "package.json",
-      "bytes": 1207,
-      "sha256": "243d266d8b472b7c85a480a5f3b6d3e8db8e762463da9617e092ef8bf5789840"
+      "bytes": 1280,
+      "sha256": "ba64247f5a1289b0f533c432ca2f9909f5fc025765f69403bf1daa9d8eb77ece"
     },
     {
       "path": "README.md",
-      "bytes": 5760,
-      "sha256": "2a7ff9c9d104da237a08987e3bf1f43756bb4b7088d0758bdaa53e4cd436e63d"
+      "bytes": 7357,
+      "sha256": "cb4b1988b16b57cf260a861cbb46db1b196c28ebe54f0da5f07c1c52174507eb"
     },
     {
       "path": "tests/core-integrity-check.mjs",
       "bytes": 1987,
-      "sha256": "2fff1c0822ff81f21b30be9cadfb154794f93bce6d33a263d5ce7c3362488e74"
+      "sha256": "d716469f6e4448e0ffd1900e0ea633c500315f2288688674c1e7f7b08cc27d9c"
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6082,
-      "sha256": "2bd8f4ef7b87b9f532bf7a83fef9f58abd01ff9522511483b0d2f44e02f73a22"
+      "bytes": 6092,
+      "sha256": "79e9e41e6ed578d5a658a0a07b32e793dc6b6be8c6cb2fc692d53b860b24921f"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -135,7 +135,7 @@
     {
       "path": "tests/ux-6.6-regression-check.mjs",
       "bytes": 8112,
-      "sha256": "83ea59bce8025ad642c1016f379d96411658aa94dfcfdca013e2e50b202a5db6"
+      "sha256": "7dba640326ecff1bfd6cf0518729cfe5ebaf408ea8166cbdea9f3961a30e755f"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
@@ -160,7 +160,7 @@
     {
       "path": "tests/ux-6.7-regression-check.mjs",
       "bytes": 3638,
-      "sha256": "2ecf511a548cf01cab4ce7a8dd6eb967c703b936cbf89e27cdc0e2f5d9c4a889"
+      "sha256": "7c3dca603695a8d06216de5cbbf2ce9721cbe37ebf44fb82af618f0d84db00b3"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4377,
-      "sha256": "265839760d0023a57cfdc976fc590b75d58a6a7143ee04c922cc5b2dc7e9d00a"
+      "bytes": 4375,
+      "sha256": "b51e4f02bebb5b042ef5726e34b6994e5b6185351b85f7cb715e2145ad5ba888"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -209,18 +209,18 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1829,
-      "sha256": "16772b21eff1bf80f839cfe16afe176f369e556e472907527f0bd9fbf0169c7b"
+      "bytes": 1301,
+      "sha256": "59874def0098bfc40c8033d674262cb5bc34fbb32b61bf7f231df8e336dac993"
     },
     {
       "path": "tests/ux-regression-check.mjs",
       "bytes": 12186,
-      "sha256": "47a1bae3ea7e62ea9f0fac43b499c8d8b8f5ec1d3298003ac2c4d3b2b3a997cb"
+      "sha256": "f51a92ddad8bc7dc00d03660faedfa4ef54331ff189f12ee5e3a97f84ff32a51"
     },
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1350,
-      "sha256": "e2448252f5874425c1ef2e8107e8d2c1f753e260ac87f9b989de7b35368133fa"
+      "sha256": "57d6052e6d3cfac5352b7cee8a9c4a615a86b3999279530808d36579c2c352b0"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -236,6 +236,126 @@
       "path": "ux-6.8.1-stability.css",
       "bytes": 1138,
       "sha256": "6232d4e505ad10777a6e3297e851f9f325144b297a9ececf8a10da1bd7e9629d"
+    },
+    {
+      "path": "curso.html",
+      "bytes": 67732,
+      "sha256": "320260bcf29bc437e37bc59f60ac32130803228590772e71b05b5df110420eec"
+    },
+    {
+      "path": "portal.css",
+      "bytes": 6036,
+      "sha256": "d46b7b7083530bf1cfb3333c3e283d0d64b79f811ca692ef9d3988c6ffbca5f8"
+    },
+    {
+      "path": "portal.js",
+      "bytes": 831,
+      "sha256": "c1baa06e62645e38aed0d6edad3cec77e502dbd3e12721fb4a06f22c9876df3b"
+    },
+    {
+      "path": "etapa.js",
+      "bytes": 6065,
+      "sha256": "e07f68cce6f483875ba55a9c992581d36babd045605cc31467aaf167798c3c4e"
+    },
+    {
+      "path": "base.html",
+      "bytes": 4986,
+      "sha256": "98f19a56e8aa67260b986f767fb442a8369bd53d8c9970c4a4fb3c77c5e82db6"
+    },
+    {
+      "path": "imersao.html",
+      "bytes": 3777,
+      "sha256": "1da6cd2612d21294a700e5277f0f7c5af6c328b8e7e41dd524c05e0b7b863175"
+    },
+    {
+      "path": "validacao.html",
+      "bytes": 3916,
+      "sha256": "57970acad8dba1c49d6d57c159b946994e4791ab1d45ce22ff8ab427eda25789"
+    },
+    {
+      "path": "etapa-1.html",
+      "bytes": 4616,
+      "sha256": "8241ac338839ed10b975a5022ae14dbdb84298160e7b0df66d92e22f0059bd4f"
+    },
+    {
+      "path": "etapa-2.html",
+      "bytes": 4682,
+      "sha256": "dcaa9e0cb1ffc70a22ab2da636315c38e8701d1227bfaf8138cc913c0666f9f2"
+    },
+    {
+      "path": "etapa-3.html",
+      "bytes": 4682,
+      "sha256": "0c52d854f8eaaef9854281621776237a76700239966a070070967661dab1e781"
+    },
+    {
+      "path": "etapa-4.html",
+      "bytes": 4686,
+      "sha256": "1ca9659bce49a2b68f493644377e632e4b665266082fa094f140d7aa088ac3fd"
+    },
+    {
+      "path": "etapa-5.html",
+      "bytes": 4686,
+      "sha256": "cd23906a8edf39c674afe1f6096f0e2cf8f133ab4bc35cc56c2477866a477a75"
+    },
+    {
+      "path": "etapa-6.html",
+      "bytes": 4686,
+      "sha256": "6d58e49d5f805b818e86f9a4905fdc6b843ff535996bf8eae75d69f4a755bc8a"
+    },
+    {
+      "path": "etapa-7.html",
+      "bytes": 4728,
+      "sha256": "a854ab110b2efcee871569da92c931fdd0117530530d527b675853d1085d2b77"
+    },
+    {
+      "path": "etapa-8.html",
+      "bytes": 4728,
+      "sha256": "a1d71219248f2052891ec0d735e81bb798733443cddfc6194e20159ac761988a"
+    },
+    {
+      "path": "etapa-9.html",
+      "bytes": 4727,
+      "sha256": "bff1fb90acbd068ff0045c64a882a557601cf773e911b9ddb17118597156512f"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 1355,
+      "sha256": "01ce019632f5e19ae55c011efd1fa19d4a5ac1cc276bcf7316f03fc8c9193496"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 99,
+      "sha256": "d68da1e8b8ff006a53a8ad5a95286b53a5603991b5ac8080449d081379fc664a"
+    },
+    {
+      "path": "docs/PERFORMANCE_6_9_0.md",
+      "bytes": 3823,
+      "sha256": "0e3f40118ba12d72916ab1225075d9bd59febd44fb5dee7a1c97105d91fe9ed9"
+    },
+    {
+      "path": "tests/multipage-performance-check.mjs",
+      "bytes": 3406,
+      "sha256": "271e470bb4d9bec068193118feb91a9680c552c06c56a7394fd73864c1e1b7b3"
+    },
+    {
+      "path": "tests/ux-6.4-regression-check.mjs",
+      "bytes": 6910,
+      "sha256": "3462d799333b55cff3a53c4b586e0ec9ac1da6e72e0ba85e4a565f86fcd2b596"
+    },
+    {
+      "path": "tests/multipage-interaction-smoke.mjs",
+      "bytes": 2445,
+      "sha256": "430a936dfb949a8ccaa189a0393eae8ca0de4503d804cc2ddcb183c3b232759e"
+    },
+    {
+      "path": "tests/multipage-browser-smoke.mjs",
+      "bytes": 3151,
+      "sha256": "a010a6ae2fb0a54b791ece107923d40058c1311874dc10b6360e7a47a6b0e72f"
+    },
+    {
+      "path": ".github/workflows/multipage-browser-qa.yml",
+      "bytes": 596,
+      "sha256": "916f77320e75c0dcde03ff0b932c39da4dcdd7a5b2fc24f7a646ba16ad942237"
     }
   ],
   "guidedPath": {
@@ -296,5 +416,40 @@
     ],
     "noDataChanges": true,
     "rollback": "Revert branch merge commit; preserve user progress exports."
+  },
+  "multipage": {
+    "version": "6.9.0",
+    "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
+    "entry": "index.html",
+    "completeCourse": "curso.html",
+    "stagePages": [
+      "etapa-1.html",
+      "etapa-2.html",
+      "etapa-3.html",
+      "etapa-4.html",
+      "etapa-5.html",
+      "etapa-6.html",
+      "etapa-7.html",
+      "etapa-8.html",
+      "etapa-9.html"
+    ],
+    "resourceHubs": [
+      "base.html",
+      "imersao.html",
+      "validacao.html"
+    ],
+    "stageFetchMode": "user-initiated",
+    "stageRenderMode": "one unit",
+    "offlineShellOnly": true,
+    "originalCurriculumUnchanged": true,
+    "legacyAnchorRedirect": true,
+    "requiresBrowserQA": true,
+    "interactionSmoke": true,
+    "chromiumWorkflow": true,
+    "chromiumPRValidation": {
+      "runId": 38921872807,
+      "conclusion": "success",
+      "scope": "local PR browser smoke; production Core Web Vitals not measured"
+    }
   }
 }
