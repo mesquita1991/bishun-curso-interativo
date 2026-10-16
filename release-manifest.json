@@ -274,48 +274,48 @@
     },
     {
       "path": "etapa-1.html",
-      "bytes": 4616,
-      "sha256": "8241ac338839ed10b975a5022ae14dbdb84298160e7b0df66d92e22f0059bd4f"
+      "bytes": 4552,
+      "sha256": "fab20e2613a148005c448c332c7b69b6b9e014f8e48b397bf127aa0e08317754"
     },
     {
       "path": "etapa-2.html",
-      "bytes": 4682,
-      "sha256": "dcaa9e0cb1ffc70a22ab2da636315c38e8701d1227bfaf8138cc913c0666f9f2"
+      "bytes": 4618,
+      "sha256": "42e5c0909003caa3a6d80aa7f54ce0138ccbceb347a4b8b282ff8e5a590be656"
     },
     {
       "path": "etapa-3.html",
-      "bytes": 4682,
-      "sha256": "0c52d854f8eaaef9854281621776237a76700239966a070070967661dab1e781"
+      "bytes": 4618,
+      "sha256": "5e475670208c85072c8d39b58fe684fcff74238ad22310bcb7983aaebb506fb7"
     },
     {
       "path": "etapa-4.html",
-      "bytes": 4686,
-      "sha256": "1ca9659bce49a2b68f493644377e632e4b665266082fa094f140d7aa088ac3fd"
+      "bytes": 4622,
+      "sha256": "9553844586b45085e6d22b96a8aca995ba9b5c94c09d21d80484e53a93c6b9ec"
     },
     {
       "path": "etapa-5.html",
-      "bytes": 4686,
-      "sha256": "cd23906a8edf39c674afe1f6096f0e2cf8f133ab4bc35cc56c2477866a477a75"
+      "bytes": 4622,
+      "sha256": "f7822716bf94af0ef3463ad25b2262576d34dabca58f32f2379c8dd13b29827f"
     },
     {
       "path": "etapa-6.html",
-      "bytes": 4686,
-      "sha256": "6d58e49d5f805b818e86f9a4905fdc6b843ff535996bf8eae75d69f4a755bc8a"
+      "bytes": 4622,
+      "sha256": "8f8dccd7595fbf55170ef2cf7048dc02ef2cf1b5af38d8460f4ae52baf78d480"
     },
     {
       "path": "etapa-7.html",
-      "bytes": 4728,
-      "sha256": "a854ab110b2efcee871569da92c931fdd0117530530d527b675853d1085d2b77"
+      "bytes": 4664,
+      "sha256": "3f311146e5ef1d954c851d2019bf3e5632c9a878c56e0790825593506f149efc"
     },
     {
       "path": "etapa-8.html",
-      "bytes": 4728,
-      "sha256": "a1d71219248f2052891ec0d735e81bb798733443cddfc6194e20159ac761988a"
+      "bytes": 4664,
+      "sha256": "93723170e3a2a140c3db8942c3ead11829fcd66985034a344b014200badacbcb"
     },
     {
       "path": "etapa-9.html",
-      "bytes": 4727,
-      "sha256": "bff1fb90acbd068ff0045c64a882a557601cf773e911b9ddb17118597156512f"
+      "bytes": 4663,
+      "sha256": "81c0fdb1e8aa2f32468279d85e2e10412cbf7159e819ecf55d73271cca0b8c7f"
     },
     {
       "path": "sitemap.xml",
