@@ -257,7 +257,7 @@ function registerEvents(){
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
-  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.1.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.2.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
   if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
  },{once:true})
 }
