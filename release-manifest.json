@@ -1,6 +1,6 @@
 {
-  "version": "6.8.1",
-  "generatedAt": "2026-10-16T14:00:00Z",
+  "version": "6.9.0",
+  "generatedAt": "2026-10-16T15:00:47.471Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -9,18 +9,18 @@
   ],
   "protectedDataTreeGitSha": "f894df48393976e623f645b6e97796facfccfff8",
   "protectedCoreGitBlobs": {
-    "app.js": "56bbe712d48566a7cd8d5d4f2a2099834efa6463",
+    "app.js": "7c3c657dd4e59a7e778388b85e8eefbfe61f88d5",
     "course.js": "b9b0405458d4c405b55a5caf3a090779f08de664",
     "curriculum-data.js": "f1b633c353e16b60b49d779ac0f8ea9ccce50ea3",
-    "full-course.js": "6bef1b8f1b2e6aa0652e1be4a60d6e6ad603c6cc",
+    "full-course.js": "3e548ea8ace06910d04f5ebc570023deaa55605a",
     "post-standard.js": "1439dc0dfa46a04bbf9597940ea0ba082a8102f7",
     "mastery-v6.js": "86d373377a5dfce39e3cce835300f8ae28eb7a2d"
   },
   "files": [
     {
       "path": "index.html",
-      "bytes": 67712,
-      "sha256": "a45dc5d09e7caeaceb8c2ae4446934a187ab7e19c24ff8452c107ff34b14ddbb"
+      "bytes": 7045,
+      "sha256": "53349a8627463678ad51d217b6e96c78b7beb67291fb95948b9b884c13188de0"
     },
     {
       "path": "styles.css",
@@ -236,6 +236,51 @@
       "path": "ux-6.8.1-stability.css",
       "bytes": 1138,
       "sha256": "6232d4e505ad10777a6e3297e851f9f325144b297a9ececf8a10da1bd7e9629d"
+    },
+    {
+      "path": "curso.html",
+      "bytes": 67732,
+      "sha256": "c9fa748ffebc6a557f15332a702e1bbb973c494f86a845ba43dd1c9e66bc3b7b"
+    },
+    {
+      "path": "portal.css",
+      "bytes": 6036,
+      "sha256": "d46b7b7083530bf1cfb3333c3e283d0d64b79f811ca692ef9d3988c6ffbca5f8"
+    },
+    {
+      "path": "portal.js",
+      "bytes": 849,
+      "sha256": "ca233cc3c4a530c09a759f2dcfd98ec42ddf1ce8b55245a8b703a4ef8cf5dd2e"
+    },
+    {
+      "path": "etapa.js",
+      "bytes": 6065,
+      "sha256": "e07f68cce6f483875ba55a9c992581d36babd045605cc31467aaf167798c3c4e"
+    },
+    {
+      "path": "base.html",
+      "bytes": 4986,
+      "sha256": "98f19a56e8aa67260b986f767fb442a8369bd53d8c9970c4a4fb3c77c5e82db6"
+    },
+    {
+      "path": "imersao.html",
+      "bytes": 3777,
+      "sha256": "1da6cd2612d21294a700e5277f0f7c5af6c328b8e7e41dd524c05e0b7b863175"
+    },
+    {
+      "path": "validacao.html",
+      "bytes": 3916,
+      "sha256": "57970acad8dba1c49d6d57c159b946994e4791ab1d45ce22ff8ab427eda25789"
+    },
+    {
+      "path": "etapa-1.html",
+      "bytes": 4616,
+      "sha256": "8241ac338839ed10b975a5022ae14dbdb84298160e7b0df66d92e22f0059bd4f"
+    },
+    {
+      "path": "etapa-2.html",
+      "bytes": 4682,
+      "sha256": "dcaa9e0cb1ffc70a22ab2da636315c38e8701d1227bfaf8138cc913c0666f9f2"
     }
   ],
   "guidedPath": {
@@ -296,5 +341,33 @@
     ],
     "noDataChanges": true,
     "rollback": "Revert branch merge commit; preserve user progress exports."
+  },
+  "multipage": {
+    "version": "6.9.0",
+    "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
+    "entry": "index.html",
+    "completeCourse": "curso.html",
+    "stagePages": [
+      "etapa-1.html",
+      "etapa-2.html",
+      "etapa-3.html",
+      "etapa-4.html",
+      "etapa-5.html",
+      "etapa-6.html",
+      "etapa-7.html",
+      "etapa-8.html",
+      "etapa-9.html"
+    ],
+    "resourceHubs": [
+      "base.html",
+      "imersao.html",
+      "validacao.html"
+    ],
+    "stageFetchMode": "user-initiated",
+    "stageRenderMode": "one unit",
+    "offlineShellOnly": true,
+    "originalCurriculumUnchanged": true,
+    "legacyAnchorRedirect": true,
+    "requiresBrowserQA": true
   }
 }
