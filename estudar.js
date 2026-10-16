@@ -67,8 +67,8 @@ function paintChunk(){
  $('learnChunkTitle').textContent='Conheça estes '+shown.length+' caracteres';
  $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+seen.length+' partes visitadas';
  $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
- const relevant=words.filter(w=>shown.some(c=>String(w.hanzi||'').includes(c.char))).slice(0,6);
- $('learnWords').innerHTML=(relevant.length?relevant:words.slice(learnChunk*2,learnChunk*2+3)).map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
+ const relevant=words.filter((w,index)=>{const at=parts.findIndex(group=>group.some(c=>String(w.hanzi||'').includes(c.char)));return (at<0?index%size:at)===learnChunk});
+ $('learnWords').innerHTML=relevant.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
  $('prevChunk').disabled=learnChunk===0;
  $('nextChunk').disabled=learnChunk>=size-1;
  $('nextChunk').textContent=learnChunk>=size-1?'Todos os caracteres apresentados':'Conhecer os próximos →';
