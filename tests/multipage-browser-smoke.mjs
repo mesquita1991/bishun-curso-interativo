@@ -26,7 +26,7 @@ try{
   assert.equal(await stage.evaluate(()=>JSON.parse(localStorage.getItem('bishunFullV4')).unitsByStage['1']),2);
   assert.ok((await stage.evaluate(()=>document.body.scrollWidth))<=width+2,'Stage horizontal overflow '+width);
   await stage.goto(url+'/index.html#treinador',{waitUntil:'commit',timeout:30000});
-  await stage.waitForURL('**/curso.html#treinador',{timeout:12000});
+  await stage.waitForURL('**/curso.html#treinador',{waitUntil:'commit',timeout:12000});
   await context.close();
  }
  console.log(JSON.stringify({ok:true,viewports:[390,1440],initialHeavyAssets:0,lazyStageFetch:true,unitPersistence:true,legacyHashRouting:true}));
