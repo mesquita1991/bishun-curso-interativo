@@ -45,7 +45,7 @@
     {
       "path": "app.js",
       "bytes": 43661,
-      "sha256": "43b1156a58dd2e545589d88aec858a03e3b85819ea26729e5e490845f3745683"
+      "sha256": "bef8bfc6e63477573ce1503c1db065a3a1f1a2891ef6ee70f624804629c9c45e"
     },
     {
       "path": "ux-6.3.0.js",
@@ -75,7 +75,7 @@
     {
       "path": "full-course.js",
       "bytes": 31900,
-      "sha256": "3de47ed29b742426daa78d692373c12932281cbd143a21212ac1fa58a8008eca"
+      "sha256": "bd80218bffa2cf30faa455b29d893845eb93dc173cc006682216c7169d0259ee"
     },
     {
       "path": "post-standard.js",
@@ -89,23 +89,23 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 563,
-      "sha256": "ade61c5dc62dec00bfa18d678e88894c1f7fca1f34559447dabc83912384886e"
+      "bytes": 578,
+      "sha256": "c1c5832c5f962ddf84b16bcc5949f97486b369f537a2ea820b3c231c679113de"
     },
     {
       "path": "package.json",
-      "bytes": 1207,
-      "sha256": "243d266d8b472b7c85a480a5f3b6d3e8db8e762463da9617e092ef8bf5789840"
+      "bytes": 1234,
+      "sha256": "9ee62d8fca2cd20d20ee3fdc81035759e3f0b964a4d6d4bcdf95773195bd3cd5"
     },
     {
       "path": "README.md",
-      "bytes": 5760,
-      "sha256": "2a7ff9c9d104da237a08987e3bf1f43756bb4b7088d0758bdaa53e4cd436e63d"
+      "bytes": 7357,
+      "sha256": "cb4b1988b16b57cf260a861cbb46db1b196c28ebe54f0da5f07c1c52174507eb"
     },
     {
       "path": "tests/core-integrity-check.mjs",
       "bytes": 1987,
-      "sha256": "2fff1c0822ff81f21b30be9cadfb154794f93bce6d33a263d5ce7c3362488e74"
+      "sha256": "d716469f6e4448e0ffd1900e0ea633c500315f2288688674c1e7f7b08cc27d9c"
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
@@ -209,13 +209,13 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1829,
-      "sha256": "16772b21eff1bf80f839cfe16afe176f369e556e472907527f0bd9fbf0169c7b"
+      "bytes": 1301,
+      "sha256": "59874def0098bfc40c8033d674262cb5bc34fbb32b61bf7f231df8e336dac993"
     },
     {
       "path": "tests/ux-regression-check.mjs",
       "bytes": 12186,
-      "sha256": "47a1bae3ea7e62ea9f0fac43b499c8d8b8f5ec1d3298003ac2c4d3b2b3a997cb"
+      "sha256": "f51a92ddad8bc7dc00d03660faedfa4ef54331ff189f12ee5e3a97f84ff32a51"
     },
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
@@ -331,6 +331,11 @@
       "path": "docs/PERFORMANCE_6_9_0.md",
       "bytes": 3823,
       "sha256": "0e3f40118ba12d72916ab1225075d9bd59febd44fb5dee7a1c97105d91fe9ed9"
+    },
+    {
+      "path": "tests/multipage-performance-check.mjs",
+      "bytes": 3406,
+      "sha256": "271e470bb4d9bec068193118feb91a9680c552c06c56a7394fd73864c1e1b7b3"
     }
   ],
   "guidedPath": {
