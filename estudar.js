@@ -95,9 +95,9 @@ function paintWriter(){
 }
 const studentGuidance={
  aprender:['Passo 1 de 4','Conhecer e ouvir','Leia os caracteres, ouça a pronúncia e conheça os significados. Quando terminar, escolha o botão para praticar a escrita.'],
- escrever:['Passo 2 de 4','Observar e escrever','Veja a ordem dos traços e tente escrever pelo menos um caractere. Você pode repetir antes de seguir.'],
+ escrever:['Passo 2 de 4','Observar e escrever','Observe e escreva três caracteres diferentes. Depois, confira sua memória.'],
  revisar:['Passo 3 de 4','Lembrar sem olhar','Pense no significado de cada caractere antes de revelar a resposta. Diga se lembrou ou não.'],
- avaliar:['Passo 4 de 4','Conferir o que aprendeu','Responda às dez perguntas. Sete acertos concluem este passo; se precisar, volte a praticar.']
+ avaliar:['Passo 4 de 4','Conferir o que aprendeu','Responda às dez perguntas. Oito acertos concluem este passo; se precisar, volte a praticar.']
 };
 function setMode(next,{historyMode=false,focus=false}={}){
  if(!modes.includes(next))next='aprender';mode=next;
