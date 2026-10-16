@@ -34,7 +34,7 @@ try{
    await page.locator('.quiz-options button').nth(idx).click();await page.locator('#advanceQuestion').click();
   }
   assert.match(await page.locator('#unitProgressLabel').innerText(),/4 de 4/);
-  assert.match(await page.locator('#completionLabel').innerText(),/concluída/);
+  assert.match(await page.locator('#completionLabel').innerText(),/concluiu os quatro passos/);
   assert.equal(reqs.filter(p=>p.includes('/data/stage-1.json')).length,1,'mode switches must not refetch data');
   const saved=await page.evaluate(()=>({legacy:JSON.parse(localStorage.getItem('bishunFullV4')),flow:JSON.parse(localStorage.getItem('bishunUnitJourneyV70'))}));
   assert.ok(saved.legacy.records.char);assert.ok(saved.flow.units['1:1'].completedAt);
