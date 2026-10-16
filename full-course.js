@@ -176,7 +176,7 @@
     if(!('caches' in window)||!('serviceWorker' in navigator)||!window.isSecureContext){notice('O modo offline exige navegador com HTTPS, Cache API e service worker.','error');return;}
     if(!current){notice('Selecione uma etapa antes do download.','error');return;}
     const active=current.stage;
-    const name='bishun-offline-6.8.1';
+    const name='bishun-offline-6.9.0';
     try {
       const registration=await navigator.serviceWorker.getRegistration();
       if(!registration?.active&&!registration?.waiting)throw new Error('Service worker ainda não ativado');
