@@ -1,6 +1,6 @@
 {
-  "version": "6.9.1",
-  "generatedAt": "2026-10-16T16:30:00Z",
+  "version": "7.0.0",
+  "generatedAt": "2026-10-16T17:00:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 7227,
-      "sha256": "4c00b575e4fe837c334fe5ce5efecbe7a4e682650e000b897adbd26070748896"
+      "bytes": 7416,
+      "sha256": "71fa2f4e550aaa685ae82c02e98ceb03a324ddf9a155682db1f5810813fdc016"
     },
     {
       "path": "styles.css",
@@ -89,18 +89,18 @@
     },
     {
       "path": "manifest.webmanifest",
-      "bytes": 578,
-      "sha256": "c1c5832c5f962ddf84b16bcc5949f97486b369f537a2ea820b3c231c679113de"
+      "bytes": 553,
+      "sha256": "faa196b28b43e84d77afe50c5854f7590b1b01613cbb4aa798220b78fc198152"
     },
     {
       "path": "package.json",
-      "bytes": 1458,
-      "sha256": "77346b1bf933020fae25cc1e109d0ba92a161901ed74543b6dec935f5e12cdb6"
+      "bytes": 1493,
+      "sha256": "15545ceca243f8285bd7ae74299012384c58e2d1654b40c1442451a438c8ca3a"
     },
     {
       "path": "README.md",
-      "bytes": 9243,
-      "sha256": "1d5e25d922e2517f24347f301966050b56d2091d1874a9326ec194334e6f7dd7"
+      "bytes": 12400,
+      "sha256": "9d104df9c91e4bded5c9832d0c96bc66c4a53f3c39d5adab565f88d997967e0a"
     },
     {
       "path": "tests/core-integrity-check.mjs",
@@ -109,8 +109,8 @@
     },
     {
       "path": "tests/ux-6.5-regression-check.mjs",
-      "bytes": 6111,
-      "sha256": "32e08449bf43af5c01bf0c0e1cc96869e9ff86b53de78289c59739292d3acaf2"
+      "bytes": 6122,
+      "sha256": "48b40101efeb9dc86953155be9310af720bce78321ec805306311003be68c560"
     },
     {
       "path": "docs/UI_UX_UPGRADE_6_5.md",
@@ -134,8 +134,8 @@
     },
     {
       "path": "tests/ux-6.6-regression-check.mjs",
-      "bytes": 8131,
-      "sha256": "3975d1fae9ba6e48b132980c7cc1a72d5983226996e4f86eed413f36990c22eb"
+      "bytes": 8151,
+      "sha256": "b07fac153f38d48c5c7c999015ce1fcd47db5d62fa7e4db34e6bfc1e179d7a00"
     },
     {
       "path": "docs/QA_UI_UX_6_6.md",
@@ -159,8 +159,8 @@
     },
     {
       "path": "tests/ux-6.7-regression-check.mjs",
-      "bytes": 3657,
-      "sha256": "82335f798b20b4082879c09df73b01691d8a383546a5c6e3760b85b7dd851178"
+      "bytes": 3689,
+      "sha256": "49df28b965955c287a4d213b1ea55fcbb82dc6a447c44a2e7e93c7e67907e09e"
     },
     {
       "path": "docs/QA_UI_UX_6_7.md",
@@ -194,8 +194,8 @@
     },
     {
       "path": "tests/ux-6.8-regression-check.mjs",
-      "bytes": 4394,
-      "sha256": "f36bacb35dcf75c76790bfab0e0a5da0badb6e4e5d1ca368df1a7ab8839a9685"
+      "bytes": 4431,
+      "sha256": "d2f1bff6a364e4e39c3bbf7c007909bbfd624e74d109d61689baa1b199cb78a4"
     },
     {
       "path": "docs/QA_UI_UX_6_8.md",
@@ -209,8 +209,8 @@
     },
     {
       "path": "sw.js",
-      "bytes": 1322,
-      "sha256": "4ce3f53843f9a28dcbc4d33fa166bcf9a311c3b48825b5ab5ab35c2969a5f77c"
+      "bytes": 1819,
+      "sha256": "8360b3bb42395ac74c9f5d3a77f2b87951acb85283ead3fd3c40f47cd018a67c"
     },
     {
       "path": "tests/ux-regression-check.mjs",
@@ -220,7 +220,7 @@
     {
       "path": "tests/ux-6.8.1-stability-check.mjs",
       "bytes": 1369,
-      "sha256": "fc0fb5c9d07e948d5760fbbe62f84b86c98d20e7b4c5a4fe7e60eb2ef51b6d69"
+      "sha256": "a5ba158fc356a9d4cdb0921a633283fc611a2195b0b395b15116884fc9a555b3"
     },
     {
       "path": "tests/ux-6.8.1-stage-simulation.mjs",
@@ -249,78 +249,78 @@
     },
     {
       "path": "portal.js",
-      "bytes": 837,
-      "sha256": "9df03ae1cdf230a77558fcbfa8d901bd27a0d95a79d8aa7279a2eb163fbe7816"
+      "bytes": 1129,
+      "sha256": "3da729731d41570bbf9196d10cd26e7b3d58f54f6f5d9a3be90d8fa61a5db3f5"
     },
     {
       "path": "etapa.js",
-      "bytes": 6096,
-      "sha256": "2fe594f59aedad644802813fe8e1f9cae7d6b83dc3b3c6a56e8ed6b94fde826f"
+      "bytes": 6209,
+      "sha256": "fec09e43bf700350983b7c91ac443cddf15f9ee3fd7c8e2b5506fcaa354e2c86"
     },
     {
       "path": "base.html",
-      "bytes": 4975,
-      "sha256": "5dc82bb8aed1583e2b3fcc58677045e8c5068e3b3b8e8a0cce8dd3e231f70dfd"
+      "bytes": 5020,
+      "sha256": "4c9277fb0b7b812d243d054f923605c5bb67a2269df091d60543ff4ce4e6bf98"
     },
     {
       "path": "imersao.html",
-      "bytes": 3774,
-      "sha256": "9fdb2069b8e4bbb1c6c525c259d3c39ea4fe350d17c450a138d52d655a9916eb"
+      "bytes": 3819,
+      "sha256": "ffa9cd0bb3c406a0bf92c2b69b47fa7135dde87aa617b5a150b8b76fbb340393"
     },
     {
       "path": "validacao.html",
-      "bytes": 3914,
-      "sha256": "f57ea98f217e429985f019974e600ac82f401b86e05809d2e1122c6090d49a2d"
+      "bytes": 3959,
+      "sha256": "0f90c5bd38884a6174d11a572e1f9617ba273d1d0d5a6caa34f29cdb5c0befe9"
     },
     {
       "path": "etapa-1.html",
-      "bytes": 4552,
-      "sha256": "fab20e2613a148005c448c332c7b69b6b9e014f8e48b397bf127aa0e08317754"
+      "bytes": 4654,
+      "sha256": "f0f6bc6d9d5138ac2400645f3d1c3229e8cb7d3cee750f80adc63915ac2593cb"
     },
     {
       "path": "etapa-2.html",
-      "bytes": 4618,
-      "sha256": "42e5c0909003caa3a6d80aa7f54ce0138ccbceb347a4b8b282ff8e5a590be656"
+      "bytes": 4720,
+      "sha256": "38a8395cfb278201cbb17704877a281c5fddc16b26e146a1feebb524e89fc954"
     },
     {
       "path": "etapa-3.html",
-      "bytes": 4618,
-      "sha256": "5e475670208c85072c8d39b58fe684fcff74238ad22310bcb7983aaebb506fb7"
+      "bytes": 4720,
+      "sha256": "4faa286fa82f16b59b832820935760f97db82a367defacdb2b2b8bfd3ff9db6a"
     },
     {
       "path": "etapa-4.html",
-      "bytes": 4622,
-      "sha256": "9553844586b45085e6d22b96a8aca995ba9b5c94c09d21d80484e53a93c6b9ec"
+      "bytes": 4724,
+      "sha256": "31aecfbc07b67c02a718fde11cd8527a20922213e92abee5d0feb842750b3bc3"
     },
     {
       "path": "etapa-5.html",
-      "bytes": 4622,
-      "sha256": "f7822716bf94af0ef3463ad25b2262576d34dabca58f32f2379c8dd13b29827f"
+      "bytes": 4724,
+      "sha256": "c42ea366fc1935f6b346ddadc455ec823195df57e57c8931049316e9cb6748bb"
     },
     {
       "path": "etapa-6.html",
-      "bytes": 4622,
-      "sha256": "8f8dccd7595fbf55170ef2cf7048dc02ef2cf1b5af38d8460f4ae52baf78d480"
+      "bytes": 4724,
+      "sha256": "98db29ad0d27145d84e1c6d0ed2c1af3ff43c4a0b4100761aa5d140a2e05919f"
     },
     {
       "path": "etapa-7.html",
-      "bytes": 4664,
-      "sha256": "3f311146e5ef1d954c851d2019bf3e5632c9a878c56e0790825593506f149efc"
+      "bytes": 4766,
+      "sha256": "ab92cea394ef86f508c971f784be6b800d9896a0f8780f17c7ee2bd6b95f3ab7"
     },
     {
       "path": "etapa-8.html",
-      "bytes": 4664,
-      "sha256": "93723170e3a2a140c3db8942c3ead11829fcd66985034a344b014200badacbcb"
+      "bytes": 4766,
+      "sha256": "ca5fb88907e4671d5310e39fd7c66da6bdf9e9fad1c21df6d83451f091289b16"
     },
     {
       "path": "etapa-9.html",
-      "bytes": 4663,
-      "sha256": "81c0fdb1e8aa2f32468279d85e2e10412cbf7159e819ecf55d73271cca0b8c7f"
+      "bytes": 4765,
+      "sha256": "a0335a103fb469afef8a70592b52da22013a814ca1b7cdf7ff9e37565f893eeb"
     },
     {
       "path": "sitemap.xml",
-      "bytes": 1719,
-      "sha256": "d43213e5ba36aaa63532f838b9b5c22c58db1c347d2fbf20d6f1e6c00800e4c4"
+      "bytes": 1809,
+      "sha256": "f557b56204811d8c1cf0a366d600b0e46abd0fe509acdd5ccb7c7474705edec6"
     },
     {
       "path": "robots.txt",
@@ -335,7 +335,7 @@
     {
       "path": "tests/multipage-performance-check.mjs",
       "bytes": 3424,
-      "sha256": "231d7639d39553060b734496148e9add805297a0aac82b5f0969b47e978a826b"
+      "sha256": "9484bf798a87f78fe70b290675323f1d39434e902d53a4a17caa91e1f71d8008"
     },
     {
       "path": "tests/ux-6.4-regression-check.mjs",
@@ -354,13 +354,13 @@
     },
     {
       "path": ".github/workflows/multipage-browser-qa.yml",
-      "bytes": 596,
-      "sha256": "916f77320e75c0dcde03ff0b932c39da4dcdd7a5b2fc24f7a646ba16ad942237"
+      "bytes": 658,
+      "sha256": "04fe6b4754c2d3e93f6b73082414dba10e976321a6b95fe1bc2f4d6a527f1ce7"
     },
     {
       "path": "laboratorio.html",
-      "sha256": "d4aed9b5a5b1b1418ed5df47b3d9b568258b91bbb7812afed0b39938267579d1",
-      "bytes": 4923
+      "sha256": "49d9e8a77bea8488bcf05db02f61d6dbe4398adf21e474711ee540adc8a9d423",
+      "bytes": 4957
     },
     {
       "path": "laboratorio.js",
@@ -369,8 +369,8 @@
     },
     {
       "path": "catalogo.html",
-      "sha256": "e1765130b0861cf66ebfbb9f6feb41d899f94d6ed6b370cbfa593bfe87a4cb6d",
-      "bytes": 3289
+      "sha256": "306d845b50ed4786757858c32dc8b26b87e3766a3f1d9cbe5934cec7a5233a41",
+      "bytes": 3323
     },
     {
       "path": "catalogo.js",
@@ -379,8 +379,8 @@
     },
     {
       "path": "avaliacao.html",
-      "sha256": "816037e996ca9ee4ca15acafa969e6a6810ac2bca4baca9db283ab680ce4c9fe",
-      "bytes": 2948
+      "sha256": "e68cf006c232d7c0734d1b53fb252f299a770e6f78fa20e49c405c70f446c336",
+      "bytes": 2982
     },
     {
       "path": "avaliacao.js",
@@ -389,8 +389,8 @@
     },
     {
       "path": "aulas.html",
-      "sha256": "c43c1b0bf9efdd38f7c4c3351b1c0e9c410a1f79bf7acfde190435de06633bdd",
-      "bytes": 2397
+      "sha256": "b6a4e8fd72cebd83028cf07e0a6918e028e117b5f1d9cd0e99a262a908dc4b6a",
+      "bytes": 2431
     },
     {
       "path": "aulas.js",
@@ -399,8 +399,8 @@
     },
     {
       "path": "mapa.html",
-      "sha256": "9e6dbc2557f99ca0e15a5b1eb9f576f582458b506bb83a8a5b0779162632d758",
-      "bytes": 3762
+      "sha256": "13e6a9763d720f05af8d5e1f15e1d3ef7e44072289ce538c3dc33709657cd642",
+      "bytes": 3892
     },
     {
       "path": "rotas.js",
@@ -424,8 +424,33 @@
     },
     {
       "path": "tests/legacy-free-routing-check.mjs",
-      "sha256": "b788610fac15d05a25a7a7d0e8c8c599b2eec2ef2e3c6a821e3320f2a3946372",
-      "bytes": 3473
+      "sha256": "942a109414c6c1009975cd94827d64892647945be1f6a7c62ec6fbd90fe2d470",
+      "bytes": 3492
+    },
+    {
+      "path": "estudar.html",
+      "sha256": "7f386d108b61e6d8e41b3223678ff5b6047f5c27e4efb7d1334945d3dbc4c205",
+      "bytes": 9341
+    },
+    {
+      "path": "estudar.css",
+      "sha256": "330c5ce2cd979c7a497a5c7543b6527f38fdda68bd2985ea7d716957cfeba086",
+      "bytes": 9972
+    },
+    {
+      "path": "estudar.js",
+      "sha256": "f8189af7460b42622c2108a607644cb308d14a86a87d1166b567afa29b8080af",
+      "bytes": 21980
+    },
+    {
+      "path": "tests/unit-study-check.mjs",
+      "sha256": "3c49b291f48ea34a42701fd4e2178fe9be583537ad9c0924278f544b53f0f614",
+      "bytes": 2126
+    },
+    {
+      "path": "tests/unit-study-browser-smoke.mjs",
+      "sha256": "88571c988175deb0ca58e8c2b1530678cc50d96397f061fb657bf263423f0a7a",
+      "bytes": 4336
     }
   ],
   "guidedPath": {
@@ -488,7 +513,7 @@
     "rollback": "Revert branch merge commit; preserve user progress exports."
   },
   "multipage": {
-    "version": "6.9.1",
+    "version": "7.0.0",
     "baseMainCommit": "a4e4ebb212afdd35bc1f05cea03f8169fe6c31dc",
     "entry": "index.html",
     "completeCourse": "curso.html",
@@ -533,5 +558,20 @@
     "historicalSectionsPreserved": 47,
     "legacyLinksInLivePages": 0,
     "restoredVisualMnemonics": 48
+  },
+  "unitStudy": {
+    "version": "7.0.0",
+    "page": "estudar.html",
+    "modes": [
+      "aprender",
+      "escrever",
+      "revisar",
+      "avaliar"
+    ],
+    "cacheStrategy": "one-stage-at-a-time",
+    "progressKey": "bishunUnitJourneyV70",
+    "legacyContextKey": "bishunFullV4",
+    "completion": "four explicitly tracked activities; exam threshold 70%, writing quiz >=1 completed",
+    "protectedCurriculumUnchanged": true
   }
 }

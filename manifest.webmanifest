@@ -1,7 +1,7 @@
 {
-  "name": "Bǐshùn · Mandarim Integral — páginas progressivas",
+  "name": "Bǐshùn — mandarim por unidades",
   "short_name": "Bǐshùn",
-  "description": "Curso de mandarim em português com entrada leve, nove páginas de etapas, carregamento progressivo e acesso integral aos recursos.",
+  "description": "Estude mandarim por unidade, alternando Aprender, Escrever, Revisar e Avaliar em um só ambiente, com carregamento progressivo.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",

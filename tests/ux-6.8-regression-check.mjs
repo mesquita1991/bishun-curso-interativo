@@ -1,7 +1,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
 const root=path.resolve(process.cwd()); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const assert=(v,m)=>{if(!v)throw new Error(m)};
 const html=read('docs/arquivo-curso-6.8.1.html'),ui=read('ux-6.8.0.js'),css=read('ux-6.8.0.css'),visual=read('visual-mnemonics.js'),dataRaw=read('visual-mnemonics-6.2.1.json'),data=JSON.parse(dataRaw),pkg=JSON.parse(read('package.json'));
-assert(/^6\.(?:8|9)\.\d+$/.test(pkg.version),'package version must preserve 6.8+');
+assert(/^(?:6\.(?:8|9)\.\d+|7\.0\.0)$/.test(pkg.version),'package version must preserve historical or new 7.0 release');
 assert(html.includes('ux-6.8.0.css?v=6.8.0')&&html.includes('visual-mnemonics.js?v=6.8.0')&&html.includes('ux-6.8.0.js?v=6.8.0'),'6.8 assets missing');
 assert(html.indexOf('ux-6.8.0.css')>html.indexOf('ux-6.7.0.css')&&html.indexOf('ux-6.8.0.js')>html.indexOf('ux-6.7.0.js'),'6.8 must load after 6.7');
 assert(data.version==='6.2.1'&&data.items.length===48,'historical 6.2.1 data must contain exactly 48 items');

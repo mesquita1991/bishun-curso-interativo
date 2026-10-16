@@ -1,3 +1,31 @@
+# Bǐshùn 7.0 — área de estudo por unidade
+
+A interface de estudo central é `estudar.html`. Ela carrega somente o inventário JSON da etapa selecionada (1 a 9) e exibe uma unidade por vez, com **quatro atividades na mesma tela**: Aprender, Escrever, Revisar e Avaliar.
+
+## Fluxo efetivamente implementado
+
+1. **Aprender:** ler os caracteres com pinyin, significados e áudio; consultar palavras, gramática e sílabas; pressionar `Concluir leitura` para registrar a atividade.
+2. **Escrever:** selecionar caractere e escolher animação ou escrita interativa, usando Hanzi Writer carregado sob demanda. Uma escrita concluída registra a atividade da unidade. A conexão pode ser necessária para acessar o motor externo.
+3. **Revisar:** praticar até doze itens da **unidade atual**, revelando a resposta e marcando Não lembrei / Com dificuldade / Lembrei. Itens nunca estudados são identificados como prática inicial. Ao avaliar todos os itens da sessão, a atividade fica registrada; as autoavaliações atualizam os intervalos de revisão no armazenamento local.
+4. **Avaliar:** responder a dez perguntas de reconhecimento de significados de caracteres da unidade, escolhendo entre quatro alternativas, com feedback imediato. Sete acertos ou mais satisfazem o critério desta atividade. Isso **não é certificação de proficiência**.
+
+O indicador `0 de 4` a `4 de 4` representa somente a conclusão operacional dessas quatro atividades; não equivale ao domínio do conteúdo. A área de estudo salva os resultados por etapa e unidade na chave local `bishunUnitJourneyV70`. O contexto de etapa e unidade continua compatível com `bishunFullV4`, sem apagar registros anteriores.
+
+Trocar de modo **não baixa novamente a etapa**. Trocar de unidade na mesma etapa reutiliza o conteúdo carregado. Mudanças de etapa carregam apenas o arquivo da nova etapa, com cache em memória durante a visita. O botão Retomar na home abre diretamente a unidade anterior.
+
+As páginas `etapa-N.html`, mapa, biblioteca, catálogo, laboratório e revisão especializada continuam acessíveis. As páginas de etapa agora incluem um acesso explícito ao fluxo integrado. A arquitetura antiga permanece fora da navegação normal.
+
+O serviço offline versão 7.0 não apresenta mais a home no lugar de uma página solicitada indisponível; informa claramente que o conteúdo específico não foi armazenado. A instalação do shell leve e o armazenamento sob demanda não significam que todo o inventário esteja automaticamente disponível offline.
+
+## Testes e preservação
+
+- `npm run check` inclui verificações sintáticas e de consistência do percurso por unidade.
+- O CI em Chromium percorre leitura, escrita simulada, revisão, avaliação e recuperação de progresso nos tamanhos 390 e 1440 px, além dos testes multipágina anteriores.
+- A árvore `data/`, as 48 ilustrações e a biblioteca histórica de 47 seções permanecem intactas.
+- **Limites:** o teste de significados não avalia escuta/fala. A escrita animada depende do serviço de caracteres de Hanzi Writer, e o progresso é armazenado no navegador, sem conta ou sincronização.
+
+---
+
 # Bǐshùn 6.9.1 — navegação modular sem retorno à interface antiga
 
 **Estado operacional:** a antiga rota `curso.html` agora redireciona imediatamente para o módulo pertinente, inclusive quando recebe hashes históricos como `#laboratorio-integral`. Nenhuma página de navegação nova utiliza links para ela.
