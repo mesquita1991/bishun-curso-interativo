@@ -6,7 +6,13 @@ const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 const norm=x=>String(x??'').trim().normalize('NFKC').replace(/\s+/g,' ').toLocaleLowerCase('pt-BR');
 function chunks(items,size=2){const list=Array.isArray(items)?items:[],part=Math.max(1,Math.floor(size));return Array.from({length:Math.ceil(list.length/part)},(_,i)=>list.slice(i*part,i*part+part))}
 function writingTarget(characters){return Math.min(3,characters.length)}
-function writingCompletion(record,characters){const permitted=new Set(characters.map(x=>x.char)),practiced=new Set((Array.isArray(record?.writtenChars)?record.writtenChars:[]).filter(x=>permitted.has(x)));return{count:practiced.size,needed:writingTarget(characters),complete:practiced.size>=writingTarget(characters)}}
+function writingCompletion(record,characters){
+ const permitted=new Set(characters.map(x=>x.char)),evidence=record?.writingResults;
+ const practiced=evidence&&typeof evidence==='object'
+  ?new Set([...permitted].filter(c=>evidence[c]?.passed===true))
+  :new Set((Array.isArray(record?.writtenChars)?record.writtenChars:[]).filter(c=>permitted.has(c)));
+ return {count:practiced.size,needed:writingTarget(characters),complete:practiced.size>=writingTarget(characters)}
+}
 function shuffle(input,random=Math.random){const a=[...input];for(let i=a.length-1;i>0;i--){const j=clamp(Math.floor(random()*(i+1)),0,i);[a[i],a[j]]=[a[j],a[i]]}return a}
 function assessment(unitCharacters,stageCharacters,random=Math.random){
  const chars=shuffle(unitCharacters.filter(c=>c.char&&norm(c.meaning)),random);

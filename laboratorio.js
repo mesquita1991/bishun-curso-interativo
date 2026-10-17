@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const $=x=>document.getElementById(x);
+const $=x=>document.getElementById(x),learning=window.BishunLearning;if(!learning)throw Error('Motor pedagógico indisponível');
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let data=null,list=[],selected=null,writer=null,writerLib=null,ticket=0;
 const stageControl=$('etapa'),loadBtn=$('carregar'),status=$('aviso');
@@ -11,10 +11,27 @@ stageControl.value=String(initial());
 function stageSave(){const s=state();s.stage=Number(stageControl.value);if(!s.unitsByStage||typeof s.unitsByStage!=='object')s.unitsByStage={};s.unit=s.unitsByStage[s.stage]||1;save(s)}
 function selectedUnit(){const s=state();return Number(s.unitsByStage?.[Number(stageControl.value)]||((Number(s.stage)===Number(stageControl.value))?s.unit:1))||1}
 function setUnit(n){const s=state(),stage=Number(stageControl.value);s.stage=stage;s.unit=n;s.unitsByStage=typeof s.unitsByStage==='object'&&s.unitsByStage?s.unitsByStage:{};s.unitsByStage[stage]=n;save(s)}
-function grade(char,q){const s=state();s.records=s.records||{};s.records.char=s.records.char||{};const intervals=[0,1,3,7,14,30,60,120];const now=Date.now();const r={level:0,due:0,attempts:0,correct:0,last:0,...(s.records.char[char]||{})};r.attempts++;if(q>=2){r.correct++;r.level=Math.min(intervals.length-1,r.level+1)}else if(q===1){r.level=Math.max(1,r.level)}else r.level=0;r.last=now;r.due=now+intervals[r.level]*86400000;s.records.char[char]=r;save(s);renderProgress()}
+function grade(char,mistakes){
+ try{
+  const all=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}');
+  all.units=all.units&&typeof all.units==='object'?all.units:{};
+  const owner=data?.units?.find(u=>u.characters.some(id=>data.characters.find(c=>c.id===id)?.char===char));
+  const unitId=owner?.id||Number($('unidade').value),key=Number(stageControl.value)+':'+unitId;
+  const previous=all.units[key]||{};
+  all.units[key]={...previous,...learning.writing(previous,char,mistakes),updatedAt:Date.now()};
+  localStorage.setItem('bishunUnitJourneyV70',JSON.stringify(all));
+ }catch(e){console.warn('Não foi possível registrar a escrita no histórico local',e)}
+ renderProgress();
+}
 function speak(text,rate=.8){if(!('speechSynthesis'in window)){show('A síntese de voz não está disponível no navegador.',true);return}const syn=window.speechSynthesis;syn.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=rate;u.voice=syn.getVoices().find(v=>v.lang.toLowerCase()==='zh-cn')||syn.getVoices().find(v=>v.lang.toLowerCase().startsWith('zh'))||null;syn.speak(u)}
 function show(msg,error=false){const el=$('feedback');el.textContent=msg;el.setAttribute('role',error?'alert':'status')}
-function renderProgress(){if(!data)return;const s=state().records?.char||{};const mastered=data.characters.filter(c=>(s[c.char]?.level||0)>=4).length;const pct=Math.round(mastered/data.characters.length*100);$('dominio').style.width=pct+'%';$('dominioTxt').textContent=mastered+' de '+data.characters.length+' caracteres com revisão consolidada ('+pct+'%).'}
+function renderProgress(){
+ if(!data)return;const record=state().records?.char||{};
+ const spaced=data.characters.filter(c=>(record[c.char]?.verifiedLevel||0)>=3).length;
+ const pct=Math.round(spaced/data.characters.length*100);
+ $('dominio').style.width=pct+'%';
+ $('dominioTxt').textContent=spaced+' de '+data.characters.length+' caracteres com três recordações espaçadas autoavaliadas ('+pct+'%). Não é certificação.';
+}
 function renderChar(char){const x=data?.characters.find(c=>c.char===char);if(!x)return;selected=x;writer=null;$('caractere').value=x.char;$('hanzi').textContent=x.char;$('pinyin').textContent=x.pinyin||'';$('significado').textContent=x.meaning||'';$('tradicional').textContent='Tradicional: '+(x.traditional||x.char)+' · Etapa '+stageControl.value;$('exemplos').textContent=(x.examples||[]).slice(0,5).join(' · ');$('writer').innerHTML='<div class="hanzi-fallback">'+esc(x.char)+'</div>';$('cards').querySelectorAll('[data-char]').forEach(b=>b.setAttribute('aria-current',String(b.dataset.char===x.char)));show('Pronto para ouvir ou animar os traços de '+x.char+'.')}
 function cards(){if(!data)return;const q=$('busca').value.trim().toLocaleLowerCase();const unit=Number($('unidade').value);const u=data.units.find(x=>x.id===unit);list=(u?data.characters.filter(x=>u.characters.includes(x.id)):data.characters).filter(x=>!q||[x.char,x.pinyin,x.meaning,x.traditional].some(t=>String(t||'').toLocaleLowerCase().includes(q)));$('caractere').innerHTML=list.map(x=>'<option value="'+esc(x.char)+'">'+esc(x.char)+' · '+esc(x.pinyin)+' · '+esc(x.meaning).slice(0,42)+'</option>').join('');$('cards').innerHTML=list.slice(0,90).map(x=>'<button type="button" class="mini-result" data-char="'+esc(x.char)+'"><b lang="zh-Hans">'+esc(x.char)+'</b><small>'+esc(x.pinyin)+' — '+esc(x.meaning).slice(0,60)+'</small></button>').join('');if(list.length){renderChar(list.some(x=>x.char===selected?.char)?selected.char:list[0].char)}else{$('writer').innerHTML='';selected=null;$('cards').innerHTML='<p>Nenhum caractere encontrado.</p>';show('Busca sem resultados. Altere o termo ou a unidade.',true)}}
 async function load(){const n=Number(stageControl.value),t=++ticket;loadBtn.disabled=true;status.textContent='Carregando apenas a etapa '+n+'…';try{const response=await fetch('data/stage-'+n+'.json');if(!response.ok)throw Error('HTTP '+response.status);const next=await response.json();if(t!==ticket)return;if(next.stage!==n||!Array.isArray(next.characters)||!Array.isArray(next.units))throw Error('dados inválidos');data=next;selected=null;stageSave();$('laboratorio').hidden=false;$('unidade').innerHTML=data.units.map(x=>'<option value="'+x.id+'">Unidade '+String(x.globalId||x.id).padStart(3,'0')+'</option>').join('');const params=new URLSearchParams(location.search);const requested=params.get('caractere');const foundChar=requested?data.characters.find(c=>c.char===requested):null;const requestedUnit=Number(params.get('unidade'))||0;const matchingUnit=foundChar?data.units.find(u=>u.characters.includes(foundChar.id))?.id:0;const nextUnit=matchingUnit||requestedUnit||selectedUnit();$('unidade').value=String(data.units.some(x=>x.id===nextUnit)?nextUnit:1);cards();if(foundChar)renderChar(foundChar.char);renderProgress();status.textContent='Etapa '+n+' carregada: '+data.characters.length+' caracteres. O laboratório de escrita é carregado sob demanda.'}catch(e){if(t!==ticket)return;status.textContent='Falha ao carregar a etapa. Verifique a conexão e tente novamente.';console.error(e)}finally{if(t===ticket)loadBtn.disabled=false}}
