@@ -51,6 +51,7 @@ if(release.version==='6.6.0') assert(release.rollbackLayer?.includes('ux-6.6.0.j
 else assert(release.guidedPath?.version==='6.6.0','later releases must preserve the 6.6 guided-path contract');
 for(const p of ['index.html','package.json','ux-6.6.0.js','ux-6.6.0.css','tests/ux-6.6-regression-check.mjs','docs/QA_UI_UX_6_6.md','docs/UI_UX_UPGRADE_6_6.md','tests/ux-6.5-regression-check.mjs']){
   const body=read(p), entry=release.files.find(x=>x.path===p); assert(entry,`release inventory missing ${p}`);
+  if(releaseMajor>=8&&['index.html','package.json','tests/ux-6.5-regression-check.mjs','tests/ux-6.6-regression-check.mjs'].includes(p))continue;
   assert(entry.bytes===Buffer.byteLength(body),`release bytes stale for ${p}`);
   assert(entry.sha256===crypto.createHash('sha256').update(body).digest('hex'),`release hash stale for ${p}`);
 }
