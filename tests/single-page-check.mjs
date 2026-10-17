@@ -15,9 +15,9 @@ assert.ok(script.includes('await weekly()')&&script.includes("group('1. Curso ce
 assert.ok(html.includes('mandarim em 12 semanas')&&html.includes('o acervo original'));
 assert.ok(!/<nav\b|<a\b|<button\b/i.test(html),'O projeto continua em uma página sem navegação');
 const allStages=Array.from({length:9},(_,i)=>JSON.parse(read('data/stage-'+(i+1)+'.json')));
-const words=new Set(allStages.flatMap(s=>s.vocabulary.map(x=>x.hanzi)));
-const chars=new Set(allStages.flatMap(s=>s.characters.map(x=>x.char)));
-const grammar=new Set(allStages.flatMap(s=>s.grammar.map(x=>Number(x.no))));
+const availableWords=new Set(allStages.flatMap(s=>s.vocabulary.map(x=>x.hanzi)));
+const availableChars=new Set(allStages.flatMap(s=>s.characters.map(x=>x.char)));
+const availableGrammar=new Set(allStages.flatMap(s=>s.grammar.map(x=>Number(x.no))));
 let countWords=0,countChars=0,countGrammar=0;
 for(const [i,w] of weekly.weeks.entries()){
  assert.equal(w.week,i+1);
@@ -26,9 +26,9 @@ for(const [i,w] of weekly.weeks.entries()){
  assert.equal(w.tasks.length,3);
  assert.equal(w.models.length,3);
  assert.ok(w.words.length>=8&&w.characters.length>=6&&w.grammar.length>=2);
- for(const x of w.words)assert.ok(words.has(x),'Palavra sem origem na semana '+w.week+': '+x);
- for(const x of w.characters)assert.ok(chars.has(x),'Caractere sem origem na semana '+w.week+': '+x);
- for(const x of w.grammar)assert.ok(grammar.has(x),'Gramática sem origem na semana '+w.week+': '+x);
+ for(const x of w.words)assert.ok(availableWords.has(x),'Palavra sem origem na semana '+w.week+': '+x);
+ for(const x of w.characters)assert.ok(availableChars.has(x),'Caractere sem origem na semana '+w.week+': '+x);
+ for(const x of w.grammar)assert.ok(availableGrammar.has(x),'Gramática sem origem na semana '+w.week+': '+x);
  countWords+=w.words.length;countChars+=w.characters.length;countGrammar+=w.grammar.length;
 }
 for(const [i,d] of weekly.closing.entries())assert.equal(d.day,85+i);
