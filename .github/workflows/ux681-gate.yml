@@ -2,6 +2,8 @@ name: Bǐshùn — integridade e navegação da página única
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 concurrency:
   group: bishun-single-page-${{ github.ref }}
