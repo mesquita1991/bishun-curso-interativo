@@ -1,7 +1,7 @@
 (()=>{
 'use strict';
 const $=id=>document.getElementById(id);
-const pedagogia=window.BishunPedagogy;if(!pedagogia)throw Error('Regras pedagógicas indisponíveis');
+const pedagogia=window.BishunPedagogy,learning=window.BishunLearning;if(!pedagogia||!learning)throw Error('Regras pedagógicas indisponíveis');
 const modes=['aprender','escrever','revisar','avaliar'],KEY='bishunUnitJourneyV70',LEGACY='bishunFullV4',DAY=86400000;
 const stepFields={aprender:'learned',escrever:'written',revisar:'reviewed',avaliar:'evaluated'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -46,12 +46,13 @@ function paintProgress(){
  document.querySelectorAll('[data-progress]').forEach(el=>{const status=states[stepFields[el.dataset.progress]];el.classList.toggle('done',Boolean(status));el.querySelector('span').textContent=status?'✓':String(modes.indexOf(el.dataset.progress)+1)});
  const next=modes.find(m=>!states[stepFields[m]]);
  $('nextSuggested').textContent=next?'Seu próximo passo: '+({aprender:'Conhecer e ouvir',escrever:'Observar e escrever',revisar:'Lembrar sem olhar',avaliar:'Conferir o que aprendeu'})[next]:'Você concluiu as quatro atividades iniciais';
- $('nextDescription').textContent=next?'Continue a atividade ainda não realizada.':'Volte em outro dia para testar o que ainda lembra; pode avançar e estudar outra unidade.';
+ $('nextDescription').textContent=next?'Continue a atividade ainda não realizada.':'Você pode explorar outras unidades. A retenção será confirmada apenas por avaliações posteriores.';
  $('finishLearn').textContent=states.learned?'Já conheci o conteúdo · continuar a escrita →':'Terminei as partes · praticar escrita →';
- const status=pedagogia.retentionStatus(p);
- $('retentionNotice').textContent=status.phase==='observed'
-  ?'Na revisão posterior, você declarou lembrar '+status.remembered+' de '+status.total+' caracteres. Continue praticando.'
-  :status.phase==='due'?'Sua revisão de outro dia já pode ser feita. Abra Lembrar e tente novamente.'
+ const status=learning.retentionStatus(p);
+  if(status.phase==='due')$('nextSuggested').textContent='Sua próxima atividade: comprovar a retenção na avaliação';
+ $('retentionNotice').textContent=status.phase==='consolidated'?'Retenção de significados confirmada em duas avaliações objetivas espaçadas. Continue revisando.':status.phase==='observed'
+  ?'Primeira verificação objetiva posterior aprovada. A próxima será em pelo menos três dias.'
+  :status.phase==='due'?'Sua verificação de retenção está vencida: abra Conferir e responda às dez questões sem consultar.'
   :status.phase==='scheduled'?'Volte para testar sua memória a partir de '+new Date(status.dueAt).toLocaleDateString('pt-BR')+'.'
   :'Após a avaliação inicial, será marcada uma revisão em outro dia.';
  const buttons=$('unitIndex').querySelectorAll('button[data-unit]');
@@ -81,11 +82,11 @@ function paintChunk(){
 function renderPairProbe(){
  const box=$('pairProbe');box.hidden=false;
  if(pairAt>=pairQuestions.length){
-  const p=progress(),checkedParts=[...new Set([...(p.checkedParts||[]),learnChunk])];
+  const p=progress(),correctPair=pairScore===pairQuestions.length,checkedParts=correctPair?[...new Set([...(p.checkedParts||[]),learnChunk])]:[...(p.checkedParts||[])];
   updateProgress({checkedParts,pairAttempts:(p.pairAttempts||0)+1});
   paintChunk();
   box.hidden=false;
-  box.innerHTML='<p><strong>Par praticado: '+pairScore+' de '+pairQuestions.length+' acertos.</strong> '+(pairScore===pairQuestions.length?'Você reconheceu os dois significados.':'Releia as respostas e repita este par se precisar.')+'</p>';
+  box.innerHTML='<p><strong>Par praticado: '+pairScore+' de '+pairQuestions.length+' acertos.</strong> '+(correctPair?'Você reconheceu os dois significados.':'Releia as respostas e repita este par antes de avançar.')+'</p>';
   return;
  }
  const question=pairQuestions[pairAt];
@@ -203,19 +204,18 @@ async function runWriting(type){
   $('writingFeedback').textContent='Agora tente escrever na ordem mostrada. Você pode usar o dedo ou o mouse.';
   writer.quiz({showHintAfterMisses:2,onComplete:result=>{
    if(char!==writerChar||!current||seq!==writingTicket)return;
-   const p=progress(),writtenChars=[...new Set([...(p.writtenChars||[]),char])];updateProgress({writtenChars,writingCharacter:char,writingMistakes:Number(result.totalMistakes)||0,writingAttempts:(p.writingAttempts||0)+1});writingCoverage();
-   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). Continue até praticar três caracteres diferentes.'
+   const p=progress(),errors=Number(result.totalMistakes)||0;updateProgress(learning.writing(p,char,errors));writingCoverage();
+   $('writingFeedback').textContent='Escrita de '+char+' concluída ('+(Number(result.totalMistakes)||0)+' erros). '+((Number(result.totalMistakes)||0)<=1?'Prática precisa registrada.':'Repita com até um erro para validar a escrita.')
   }});
  }catch(e){console.error(e);$('writerFrame').innerHTML='<span class="writer-hanzi" lang="zh-Hans">'+esc(char)+'</span>';$('writingFeedback').textContent='A animação exige acesso ao motor externo. O conteúdo e o áudio permanecem disponíveis.'}
 }
-function reviewQueue(){const {chars,words}=components(),p=progress(),records=legacyState().records||{},now=Date.now();if(pedagogia.retentionStatus(p,now).phase==='due')return pedagogia.delayedReviewItems(chars,words,records,now);const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,records,first,now)}
+function reviewQueue(){const {chars,words}=components(),p=progress(),records=legacyState().records||{},now=Date.now();if(learning.retentionStatus(p,now).phase==='due')return pedagogia.delayedReviewItems(chars,words,records,now);const first=!p.reviewed||p.reviewCount<chars.length;return pedagogia.reviewItems(chars,words,records,first,now)}
 function grade(item,q){
- const state=legacyState();state.records=state.records&&typeof state.records==='object'?state.records:{};
- state.records[item.type]=state.records[item.type]&&typeof state.records[item.type]==='object'?state.records[item.type]:{};
- const intervals=[0,1,3,7,14,30,60,120],now=Date.now();
- const r={level:0,due:0,attempts:0,correct:0,last:0,...(state.records[item.type][item.id]||{})};
- r.attempts++;if(q>=2){r.correct++;r.level=Math.min(7,r.level+1)}else if(q===1){r.level=Math.max(1,r.level)}else{r.level=0}
- r.last=now;r.due=now+intervals[r.level]*DAY;state.records[item.type][item.id]=r;saveJSON(LEGACY,state);
+  const state=legacyState();state.records=state.records&&typeof state.records==='object'?state.records:{};
+  state.records[item.type]=state.records[item.type]&&typeof state.records[item.type]==='object'?state.records[item.type]:{};
+  const previous=state.records[item.type][item.id];
+  state.records[item.type][item.id]=learning.review(previous,q).record;
+  saveJSON(LEGACY,state);
 }
 function renderReview(){
  const box=$('reviewCard');
@@ -223,9 +223,9 @@ function renderReview(){
   const p=progress(),c=components().chars.length,charCount=reviewItems.filter(x=>x.type==='char').length;
   const updates={reviewed:p.reviewed||reviewRatings>=c,reviewCount:Math.max(p.reviewCount||0,reviewRatings),reviewedAt:Date.now(),lastRecallTotal:charCount,lastRecallRemembered:reviewRemembered};
   const due=reviewDelayed&&charCount>=Math.ceil(c*.8);
-  if(due){updates.retentionTotal=charCount;updates.retentionRemembered=reviewRemembered;updates.retentionLastAttemptAt=Date.now();if(reviewRemembered>=Math.ceil(charCount*.8))updates.retentionCheckedAt=Date.now()}
+  if(due){updates.retentionTotal=charCount;updates.retentionRemembered=reviewRemembered;updates.retentionLastAttemptAt=Date.now();/* Recuperação declarada não é considerada prova objetiva de retenção. */}
   updateProgress(updates);
-  box.innerHTML='<h4>Você terminou a prática de memória</h4><p>Você declarou lembrar '+reviewRemembered+' de '+charCount+' caracteres. '+(due?'Esta foi uma verificação realizada em outro dia.':'Esta atividade inicial não prova retenção posterior.')+'</p>';
+  box.innerHTML='<h4>Você terminou a prática de memória</h4><p>Você declarou lembrar '+reviewRemembered+' de '+charCount+' caracteres. '+(due?'Esta recuperação foi autoavaliada. Abra Conferir para a prova objetiva de retenção.':'Esta atividade inicial não prova retenção posterior.')+'</p>';
   $('reviewToTest').hidden=false;$('startReview').textContent='Repetir quando houver revisão pendente';$('startReview').hidden=false;return
  }
  const item=reviewItems[reviewAt];
@@ -236,7 +236,7 @@ function renderReview(){
 function beginReview(){
  if(!current)return;
  reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;reviewRemembered=0;
- reviewDelayed=pedagogia.retentionStatus(progress()).phase==='due';
+ reviewDelayed=learning.retentionStatus(progress()).phase==='due';
  $('reviewToTest').hidden=true;
  if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para outra atividade.</p>';$('startReview').textContent='Verificar novamente depois';return}
  $('startReview').hidden=true;renderReview()
@@ -247,8 +247,10 @@ function renderExam(){
  const box=$('testCard');
  if(examAt>=exam.length){
   const percent=Math.round(score/exam.length*100),passed=score>=Math.ceil(exam.length*.8);
-  const prev=progress(),best=Math.max(prev.score||0,score);updateProgress({evaluated:passed||prev.evaluated,score:best,lastScore:score,examTotal:exam.length,lastTestedAt:Date.now(),missedCharacters:wrongChars,retentionDueAt:passed?(prev.retentionDueAt||Date.now()+pedagogia.DAY):prev.retentionDueAt});
-  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (passed?'Você reconheceu pelo menos oito significados nesta prova inicial.':'Reveja os caracteres que errou e tente novamente; são necessários oito acertos.')+'</p><p class="study-muted">Caracteres a rever: '+esc(wrongChars.join(' · ')||'nenhum')+'. Este exercício avalia somente significados.</p>';
+  const prev=progress(),now=Date.now(),best=Math.max(prev.score||0,score);
+   const evidence=learning.objective(prev,score,exam.length,now),initialDue=passed?(prev.retentionDueAt||now+learning.DAY):prev.retentionDueAt;
+   updateProgress({evaluated:passed||prev.evaluated,score:best,lastScore:score,examTotal:exam.length,lastTestedAt:now,missedCharacters:wrongChars,retentionDueAt:initialDue,initialPassedAt:passed?(prev.initialPassedAt||now):prev.initialPassedAt,...evidence});
+  box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (evidence.recorded?(evidence.consolidated?'Segunda verificação objetiva espaçada aprovada.':'Verificação objetiva posterior aprovada; retorne para a próxima.'):passed?'Você reconheceu pelo menos oito significados; volte após 24h para comprovar retenção.':'Reveja os caracteres que errou e tente novamente; são necessários oito acertos.')+'</p><p class="study-muted">Caracteres a rever: '+esc(wrongChars.join(' · ')||'nenhum')+'. Este exercício avalia somente significados.</p>';
   $('startTest').textContent='Tentar as perguntas novamente';
   return
  }
@@ -292,7 +294,7 @@ function registerEvents(){
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
-  const run=()=>navigator.serviceWorker.register('./sw.js?v=7.2.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=8.0.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
   if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
  },{once:true})
 }

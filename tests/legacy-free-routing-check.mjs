@@ -28,6 +28,6 @@ for(const dest of ['laboratorio.html','catalogo.html','avaliacao.html','aulas.ht
 assert.equal(routes['laboratorio-integral'],'laboratorio.html');assert.equal(routes.treinador,'laboratorio.html');
 assert.equal(routes['prova-integral'],'avaliacao.html#prova');
 const sitemap=read('sitemap.xml');assert.ok(!sitemap.includes('/curso.html'),'Old route must not be indexed');for(const file of pages.filter(x=>!x.startsWith('etapa-')||true).slice(1))assert.ok(sitemap.includes(file),'Missing SEO entry '+file);
-assert.ok(read('sw.js').includes("bishun-offline-7.2.1"),'Previous offline cache not invalidated');
-const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'7.2.1');
+assert.ok(read('sw.js').includes("bishun-offline-8.0.0"),'Previous offline cache not invalidated');
+const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'8.0.0');
 console.log(JSON.stringify({ok:true,version:pkg.version,livePages:pages.length,legacyLinks:0,historicalSections:sections.length,independentTools:4,oldRouteIsRedirect:true}));

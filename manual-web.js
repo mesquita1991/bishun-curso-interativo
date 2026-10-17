@@ -74,7 +74,10 @@ function renderMatrix(container,withinPage=false){if(!withinPage){state.view='ma
  container.append(el('h2',null,'Matriz interativa das 410 combinações'),el('p','manual-muted','37 grupos de finais × 22 colunas de iniciais. Toque em uma sílaba para abrir sua ficha; use “Som” para ouvir a referência original. Role horizontalmente em telas pequenas.'));
  const panel=el('div','manual-matrix-scroll'),table=el('table','manual-matrix'),thead=el('thead'),hrow=el('tr');hrow.append(el('th',null,'Final'));for(let c=1;c<=22;c++)hrow.append(el('th',null,'C'+String(c).padStart(2,'0')));thead.append(hrow);table.append(thead);
  const tbody=el('tbody');const bycoord=new Map(state.meta.atlas.map(a=>[a.finalGroup+'-'+a.initialColumn,a]));for(let r=1;r<=37;r++){const tr=el('tr');const label='L'+String(r).padStart(2,'0');const th=el('th',null,label);th.scope='row';tr.append(th);for(let c=1;c<=22;c++){let col='C'+String(c).padStart(2,'0'),a=bycoord.get(label+'-'+col),td=el('td');if(a){td.append(link(a.syllable,pageHref(a.page),'manual-matrix-pinyin'),link('Som ↗',a.audio,'manual-matrix-audio',true))}else td.textContent='—';tr.append(td)}tbody.append(tr)}table.append(tbody);panel.append(table);container.append(panel);if(!withinPage)history.replaceState(null,'','manual.html?secao=matriz');}
-async function showDay(day){let d=Math.min(90,Math.max(1,Number(day)||1));const p=d<=84?6+Math.floor((d-1)/7):18;await showPage(p);$('manualDay').value=String(d);setNotice('Dia '+d+' · consulte as atividades D'+d+' nesta página.')}
+async function showDay(day){let d=Math.min(90,Math.max(1,Number(day)||1));const p=d<=84?6+Math.floor((d-1)/7):18;await showPage(p);$('manualDay').value=String(d);
+ try{const old=JSON.parse(localStorage.getItem('bishunManualV8')||'{}');
+ const visited=new Set(Array.isArray(old.visitedDays)?old.visitedDays:[]);visited.add(d);
+ localStorage.setItem('bishunManualV8',JSON.stringify({visitedDays:[...visited].sort((a,b)=>a-b),lastDay:d,lastVisitAt:Date.now()}));}catch{}setNotice('Dia '+d+' · consulte as atividades D'+d+' nesta página.')}
 async function fullSearch(q){const term=norm(q.trim());const display=$('manualSearchResults'),status=$('manualSearchStatus');display.replaceChildren();if(term.length<2){status.textContent='Digite ao menos dois caracteres para pesquisar todo o conteúdo.';return}
  const generation=++state.searchGeneration;status.textContent='Pesquisando em 198 páginas…';
  try{const pages=(await Promise.all(state.meta.pageParts.map(async f=>{if(!state.partCache.has(f.file))state.partCache.set(f.file,getJSON(f.file));return (await state.partCache.get(f.file)).pages}))).flat();if(generation!==state.searchGeneration)return;const hits=[];
@@ -93,6 +96,8 @@ function events(){document.querySelectorAll('[data-manual-view]').forEach(b=>b.o
  window.addEventListener('popstate',()=>{let qs=new URLSearchParams(location.search);const view=qs.get('secao');if(view==='atlas')showAtlas();else if(view==='escrita')showCharacters();else if(view==='matriz')renderMatrix();else showPage(qs.get('pagina')||1)});
 }
 async function init(){try{state.meta=await getJSON('manual-catalogo.json');if(state.meta.pdfPageCount!==198||state.meta.links!==7762||state.meta.atlas.length!==410||state.meta.characters.length!==164)throw Error('Inventário do conteúdo incompleto');setupToc();events();
+ try{const recent=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}').last;
+ if(recent?.stage&&recent?.unit){const a=link('Retomar a minha unidade atual →','estudar.html?etapa='+recent.stage+'&unidade='+recent.unit,'manual-button secondary');$('manualDayGo').parentNode.after(a)}}catch{}
 const view=query.get('secao');if(view==='atlas')showAtlas();else if(view==='escrita')showCharacters();else if(view==='matriz')renderMatrix();else await showPage(query.get('pagina')||2,query.get('pos'));
 $('manualReady').textContent='198 páginas de conteúdo · 410 sílabas · 164 caracteres · 7.762 links originais';}catch(err){setNotice('Falha ao carregar conteúdo: '+err.message);console.error(err)}}
 init();

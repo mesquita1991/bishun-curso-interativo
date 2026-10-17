@@ -56,7 +56,7 @@ try{
   assert.ok(saved.flow.units['1:1'].retentionDueAt>Date.now(),'Next-day review must be scheduled');
   await page.evaluate(()=>{
    const journey=JSON.parse(localStorage.getItem('bishunUnitJourneyV70'));
-   journey.units['1:1'].retentionDueAt=Date.now()-1000;
+   journey.units['1:1'].retentionDueAt=Date.now()-1000;journey.units['1:1'].initialPassedAt=Date.now()-86400000-1000;
    localStorage.setItem('bishunUnitJourneyV70',JSON.stringify(journey));
    const legacy=JSON.parse(localStorage.getItem('bishunFullV4'));
    for(const record of Object.values(legacy.records.char))record.due=Date.now()+7*86400000;
@@ -64,7 +64,16 @@ try{
   });
   await page.locator('#tab-revisar').click();await page.locator('#startReview').click();
   for(let i=0;i<10;i++){await page.locator('#revealAnswer').click();await page.locator('[data-grade="2"]').click()}
-  assert.match(await page.locator('#retentionNotice').innerText(),/Na revisão posterior/i,'Delayed test must cover the complete unit despite future due dates');
+  assert.match(await page.locator('#retentionNotice').innerText(),/verificação de retenção está vencida/i,'Autoavaliação não substitui prova de retenção');
+  await page.locator('#tab-avaliar').click();await page.locator('#startTest').click();
+  for(let i=0;i<10;i++){
+   const char=await page.locator('#testCard h4 span').innerText(),answers=await page.locator('#testCard .quiz-options button').allTextContents();
+   await page.locator('#testCard .quiz-options button').nth(answers.findIndex(x=>x===definitions[char])).click();
+   await page.locator('#advanceQuestion').click();
+  }
+  const evidence=await page.evaluate(()=>JSON.parse(localStorage.getItem('bishunUnitJourneyV70')).units['1:1']);
+  assert.equal(evidence.objectiveChecks.length,1,'Primeira avaliação posterior com intervalo >=24h');
+  assert.ok(evidence.retentionNextDueAt>Date.now()+2*86400000,'Próxima prova será marcada após três dias');
   await page.locator('#studyUnit').selectOption('2');
   assert.match(await page.locator('#unitTitle').innerText(),/002/);
   assert.equal(await page.locator('#unitProgressBar').getAttribute('aria-valuenow'),'0');

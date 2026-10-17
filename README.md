@@ -1,3 +1,15 @@
+# Bǐshùn 8.0 — integração pedagógica preservando conteúdo
+
+- Motor compartilhado `aprendizagem-v8.js`: novas revisões não elevam domínio nem adiam vencimento quando feitas precocemente.
+- Pares iniciais exigem acerto integral para avançar; escrita precisa de três caracteres distintos praticados com no máximo um erro cada.
+- Duas provas de significados em datas espaçadas, após a aprovação inicial, formam evidência de retenção, sem certificação de fluência.
+- Registros antigos e todos os dados originais permanecem preservados. `verifiedLevel`, `spacedEvidence`, `writingResults` e `objectiveChecks` são informações adicionadas de forma compatível.
+- `avancado.html` recupera a ferramenta histórica de imersão e validação com navegação direta, sem carregar módulos pesados na página inicial.
+- São mantidas as 300 unidades, o manual de 198 páginas e os 48 mnemônicos.
+- Execute os testes sintáticos, de integridade curricular e de navegador antes de promover a versão à main.
+
+---
+
 # Bǐshùn 7.2.1 — correção da qualidade pedagógica
 
 - Cada par de caracteres pede uma **tentativa de recuperação ativa de dois significados** com respostas ocultas, feedback imediato e repetição opcional. Avançar exige responder, não acertar; a avaliação da unidade permanece com dez perguntas. Históricos anteriores são preservados.
