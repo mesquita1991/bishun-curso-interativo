@@ -85,6 +85,7 @@ try{
   await editProgress(page,r=>{r.review1.date=shift(r.correction.date,3)});
   await page.getByRole('button',{name:'Verificar lembrança (5 itens)'}).first().click();
   await answerWords(page);
+  await page.getByRole('button',{name:'Abrir avaliação de retenção →'}).click();
   assert.equal(await page.getByRole('button',{name:'Fazer teste diferido (5 questões)'}).isDisabled(),true,'Retenção não pode ocorrer na mesma data da última revisão');
   await editProgress(page,r=>{r.review2.date=shift(localDate(new Date()),-1)});
   await page.getByRole('button',{name:'Fazer teste diferido (5 questões)'}).click();
