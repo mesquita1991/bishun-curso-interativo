@@ -144,7 +144,7 @@ function correction(root,r){
   btn(root,'Tentar novamente os itens errados',()=>begin('correction',wordItems().filter(x=>misses.includes(x.hanzi)),host),'button');
  }else{
   info(root,'Você acertou todos os itens da prática. Confira o que aprendeu antes de continuar.');
-  btn(root,'Conferi o gabarito; registrar correção',()=>{
+  if(!r.correction?.passed)btn(root,'Conferi o gabarito; registrar correção',()=>{
    r.correction={passed:true,date:day(),score:0,total:0};persist();navigate('review');
   },'button');
  }
@@ -270,6 +270,11 @@ function finish(host){
  const outcome=add(host,'article',null,'quiz-card');
  add(outcome,'h3','Resultado: '+score+'/'+total);
  if(passed){
+  if(session.type==='practice'&&status(r,'practice')){
+   add(outcome,'p','Treino extra concluído; as datas e evidências anteriores foram preservadas.','success-text');
+   btn(outcome,'Voltar à prática →',()=>navigate('practice'),'button');
+   return;
+  }
   r[session.type]={passed:true,score,total,date:today,misses:session.misses.slice()};
   if(session.type==='practice'){delete r.correction;delete r.review1;delete r.review2;delete r.retention}
   if(session.type==='correction'){delete r.review1;delete r.review2;delete r.retention}
