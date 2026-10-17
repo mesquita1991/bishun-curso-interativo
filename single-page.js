@@ -52,7 +52,7 @@ function btn(parent,title,handler,cls='button secondary'){const b=put(parent,'bu
 function renderRail(){
  const el=$('weekList');clear(el);
  for(const w of plan.weeks){
-  const b=put(el,'button',null,'week-choice'+(progress.completed[w.week]?' done':''));
+  const b=put(el,'button',null,'week-choice'+(progress.learning?.[w.week]?.retention?.passed?' done':''));
   b.type='button';b.dataset.week=String(w.week);b.setAttribute('aria-current',w.week===selectedWeek?'step':'false');
   put(b,'span','Semana '+w.week+' · dias '+w.days.join('–'));
   b.append(document.createTextNode(w.title));
@@ -61,8 +61,8 @@ function renderRail(){
  const fin=put(el,'button',null,'week-choice'+(progress.completed[13]?' done':''));
  fin.type='button';fin.dataset.week='13';fin.setAttribute('aria-current',selectedWeek===13?'step':'false');
  put(fin,'span','Dias 85–90');fin.append(document.createTextNode('Consolidação final'));fin.onclick=()=>chooseWeek(13);
- const done=Array.from({length:13},(_,i)=>!!progress.completed[i+1]).filter(Boolean).length;
- $('progressStatus').textContent=done+' de 13 blocos registrados como concluídos';
+ const done=plan.weeks.filter(w=>progress.learning?.[w.week]?.retention?.passed).length;
+ $('progressStatus').textContent=done+' de 12 semanas com retenção de significados verificada';
 }
 function chooseWeek(n){
  selectedWeek=n;progress.week=n;saveProgress();tab='models';quiz=null;renderRail();renderLesson();
@@ -82,46 +82,10 @@ function renderLesson(){
  if(!plan)return;
  if(selectedWeek===13)return renderClosing();
  const w=plan.weeks[selectedWeek-1];
- header(w);
- const tabs=put(courseEl,'div',null,'tabs');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','Tipo de estudo');
- const options=[['models','Frases'],['words','Vocabulário'],['characters','Caracteres'],['grammar','Gramática'],['practice','Praticar']];
- for(const [name,title] of options){const b=btn(tabs,title,()=>{tab=name;quiz=null;renderLesson()});b.setAttribute('aria-pressed',String(tab===name));}
- const body=put(courseEl,'div');body.id='lessonBody';
- if(tab==='models'){
-  put(body,'h3','Frases para usar hoje');
-  for(const zh of w.models){const row=put(body,'div',null,'model');put(row,'span',zh,'hanzi');btn(row,'Ouvir (voz do dispositivo)',()=>speak(zh),'button muted-button')}
-  put(body,'p','Escute, repita e tente formular respostas próprias. Os exemplos são do manual de estudo; o áudio, quando disponível, é sintetizado pelo dispositivo.','muted');
-  put(body,'p',null,'small-note').id='speechHint';
-  put(body,'h3','Meta comunicativa');put(body,'p',w.assessment);
- }else if(tab==='words'||tab==='characters'){
-  const chars=tab==='characters',source=chars?charMap:wordMap,terms=chars?w.characters:w.words;
-  put(body,'h3',chars?'Escrita e reconhecimento':'Vocabulário funcional');
-  put(body,'p',chars?'Os caracteres servem à leitura e escrita de frases; não é preciso memorizar o inventário inteiro para conversar.':'Termos utilizados nesta semana. Algumas palavras são retomadas em outras semanas.','muted');
-  const list=put(body,'div',null,'study-list');
-  for(const item of terms){const rec=source.get(item),box=put(list,'article',null,'entry');
-   if(!rec){put(box,'strong',item);put(box,'p','Registro não encontrado no currículo.');continue}
-   const line=put(box,'div');strong(line,item);put(line,'span',rec.pinyin||'');
-   put(box,'p',rec.meaning||'Sem tradução informada.');
-   put(box,'small',label(rec)+(rec.stage>1?' · origem em etapa posterior':''));
-   btn(box,'Pronunciar',()=>speak(item),'button muted-button');
-  }
- }else if(tab==='grammar'){
-  put(body,'h3','Estruturas necessárias');
-  for(const number of w.grammar){
-   const rec=ruleMap.get(Number(number)),box=put(body,'article',null,'entry');
-   if(!rec){put(box,'p','Ficha #'+number+' indisponível');continue}
-   put(box,'h4','#'+number+' · '+rec.title);put(box,'p',rec.pattern||'Sem padrão registrado.');
-   put(box,'small',label(rec));
-   if(rec.examples?.length)for(const x of rec.examples.slice(0,2)){
-    const row=put(box,'p',x.zh+' · '+x.pinyin+' · '+x.pt);
-    row.lang='zh';
-   }
-   else put(box,'p','Registro curricular sem exemplo próprio; use as frases comunicativas desta semana.','muted');
-  }
- }else renderPractice(body,w);
- const nav=put(courseEl,'div',null,'lesson-actions');
- btn(nav,'← Semana anterior',()=>chooseWeek(Math.max(1,selectedWeek-1))).disabled=selectedWeek===1;
- btn(nav,'Próxima semana →',()=>chooseWeek(Math.min(13,selectedWeek+1))).disabled=selectedWeek===13;
+ window.BishunWeekly.render({
+  root:courseEl,week:w,wordMap,charMap,ruleMap,progress,
+  save:saveProgress,onProgress:renderRail,selectWeek:chooseWeek,speak
+ });
 }
 function doneCount(week,max){return Array.from({length:max},(_,i)=>!!(progress.tasks[week]||{})[i]).filter(Boolean).length}
 function renderPractice(body,w){
