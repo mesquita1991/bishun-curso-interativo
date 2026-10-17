@@ -1,5 +1,5 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';import path from 'node:path';
-const read=p=>fs.readFileSync(path.join(process.cwd(),p),'utf8'),home=read('index.html'),legacy=read('docs/arquivo-curso-6.8.1.html'),sw=read('sw.js'),client=read('etapa.js'),portal=read('portal.js'),pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'8.0.0');
+const read=p=>fs.readFileSync(path.join(process.cwd(),p),'utf8'),home=read('index.html'),legacy=read('docs/arquivo-curso-6.8.1.html'),sw=read('sw.js'),client=read('etapa.js'),portal=read('portal.js'),pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'8.1.0');
 assert.ok(Buffer.byteLength(home)<12000,'Homepage HTML must be <12KB');
 assert.ok(Buffer.byteLength(read('portal.css'))<13000,'First-view CSS must be compact');
 assert.ok(Buffer.byteLength(portal)<4000,'First-view JS must be compact');

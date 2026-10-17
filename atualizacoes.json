@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "current": "8.1.0",
+  "updated": "2026-10-17",
+  "entries": [
+    {
+      "version": "8.1.0",
+      "date": "2026-10-17",
+      "title": "Manual integrado e identidade consistente",
+      "changes": [
+        "Manual conectado à unidade atual, com caminhos para escrita, pronúncia e retorno ao estudo.",
+        "Apresentação e navegação uniformizadas nas páginas públicas, com versão visível.",
+        "Histórico público de atualizações e identificador da versão servida.",
+        "Proteção adicional da integração contínua contra sequências de execuções excessivas."
+      ],
+      "scope": "Integração e interface; conteúdo curricular e manual preservados."
+    },
+    {
+      "version": "8.0.0",
+      "date": "2026-10-17",
+      "title": "Motor pedagógico integrado",
+      "changes": [
+        "Revisão espaçada compartilhada e evidência de retenção posterior.",
+        "Critérios de precisão na escrita e separação de itens novos e vencidos.",
+        "Recuperação do acesso às ferramentas históricas avançadas."
+      ]
+    },
+    {
+      "version": "7.2.1",
+      "date": "2026-10-17",
+      "title": "Aprendizagem por pares e acompanhamento",
+      "changes": [
+        "Dois caracteres por vez com recuperação ativa.",
+        "Escrita de três caracteres distintos e revisão após 24 horas.",
+        "Quatro atividades integradas por unidade."
+      ]
+    },
+    {
+      "version": "7.1.0",
+      "title": "Navegação multipágina padronizada",
+      "changes": [
+        "Páginas de unidades e ferramentas separadas.",
+        "Sistema visual compartilhado e navegação responsiva.",
+        "Dados curriculares carregados por etapa, sob demanda."
+      ]
+    },
+    {
+      "version": "6.8.1",
+      "title": "Estabilização do curso histórico",
+      "changes": [
+        "Preservação dos módulos avançados e dos mnemônicos.",
+        "Correções de navegação, progresso por etapa e estabilidade."
+      ]
+    },
+    {
+      "version": "6.2.1",
+      "title": "Biblioteca visual de caracteres",
+      "changes": [
+        "Coleção de 48 ilustrações pictográficas e mnemônicas preservada."
+      ]
+    }
+  ]
+}

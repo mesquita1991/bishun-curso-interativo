@@ -43,6 +43,19 @@ try{
   await page.locator('#manualSearch').fill('cânhamo');
   await page.waitForFunction(()=>document.querySelector('#manualSearchStatus').textContent.includes('encontrada(s)'),{timeout:15000});
   assert.ok(await page.locator('#manualSearchResults li').count()>=1,'Busca integral sem resultados');
+  await page.goto(host+'/manual.html?secao=escrita&busca=%E6%88%91',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
+  assert.equal(await page.locator('.manual-character-card').count(),1,'Link direto para 我 filtra a consulta');
+  await page.goto(host+'/estudar.html?etapa=1&unidade=1',{waitUntil:'domcontentloaded'});
+  await page.locator('#studyContent').waitFor({state:'visible',timeout:18000});
+  assert.ok(await page.locator('#unitManualLinks a').count()>=3,'Unidade não oferece as referências contextuais');
+  await page.goto(host+'/manual.html?pagina=2',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
+  assert.match(await page.locator('#manualBridgeStatus').innerText(),/etapa 1, unidade 001/i);
+  assert.ok((await page.locator('#manualBridgeStudy').getAttribute('href')).includes('etapa=1'));
+  await page.goto(host+'/historico.html',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('#releaseHistory .release-entry'),{timeout:12000});
+  assert.match(await page.locator('[data-bishun-version]').first().innerText(),/8\.1\.0/);
   assert.deepEqual(errors,[],'Erros JS na versão '+width);await context.close();
  }
  console.log(JSON.stringify({ok:true,viewports:[390,1440],nativeHtml:true,atlas:410,characters:164,search:true,matrix:410,links:true,PDF:false}));

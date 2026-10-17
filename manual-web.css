@@ -3,3 +3,22 @@
 @media(max-width:920px){.manual-native .manual-layout{grid-template-columns:1fr}.manual-native .manual-sidebar{position:static;max-height:none}.manual-native .manual-sidebar #manualToc{max-height:200px;overflow:auto}.manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.manual-native .manual-featured{grid-template-columns:1fr}.manual-native .manual-atlas-grid{grid-template-columns:1fr}.manual-native .manual-annotations{columns:1}.manual-native .manual-reader{padding:13px}.manual-native .manual-hero{padding-top:12px}.manual-native .manual-stats{gap:5px}.manual-native .manual-stats span{font-size:.79rem}.manual-native .manual-character-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.manual-native *{scroll-behavior:auto!important}}
+
+/* v8.1: leitura com os mesmos tokens visuais das unidades */
+.bishun-site.manual-native .manual-hero{border-bottom:1px solid #d8e3f1;margin-bottom:15px}
+.bishun-site.manual-native .manual-eyebrow{color:#32649b}
+.bishun-site.manual-native .manual-featured button{background:#fff;border-color:#d1ddf0;color:#213c6c}
+.bishun-site.manual-native .manual-featured button:hover{background:#edf3ff;border-color:#6d91c3}
+.bishun-site.manual-native .manual-toolbar button[aria-pressed=true]{background:#eaf1ff;border-color:#477dbd;color:#194575}
+.bishun-site.manual-native .manual-button{background:#1f4c94;border-color:#1f4c94}
+.bishun-site.manual-native .manual-button.secondary{background:#fff;color:#204985}
+.bishun-site.manual-native .manual-sidebar,.bishun-site.manual-native .manual-reader{border-color:#d1dbed;box-shadow:0 4px 19px #1529550b}
+.bishun-site.manual-native .manual-inline-link{color:#235da3}
+.bishun-site.manual-native .manual-atlas-card{border-left-color:#386cae}
+.bishun-site.manual-native .manual-related{background:#eaf1ff}
+.bishun-site.manual-native .manual-context-links{margin:0 0 20px}
+.bishun-site.manual-native .manual-first-steps{max-width:none}
+.bishun-site.manual-native .manual-study-bridge .manual-bridge-actions{display:flex;gap:7px;flex-wrap:wrap}
+.bishun-site.manual-native .manual-study-bridge .manual-button{font-size:.8rem;padding:9px 10px}
+.bishun-site.manual-native .manual-character-card a{font-size:.81rem}
+@media(max-width:600px){.bishun-site.manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}.bishun-site.manual-native .manual-featured button{min-height:130px;padding:12px}.bishun-site.manual-native .manual-featured small{font-size:.73rem}}

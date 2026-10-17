@@ -1,0 +1,39 @@
+/* Identidade transversal Bǐshùn 8.1 */
+.bishun-site .site-utility{background:#eaf1fc;border-bottom:1px solid #cbd8f0;color:#173560}
+.bishun-site .site-utility-inner{display:flex;align-items:center;gap:12px 22px;padding:7px 0;flex-wrap:wrap;min-height:41px}
+.bishun-site .site-utility-link{font-size:.85rem;font-weight:700;color:#21477c;text-decoration:none}
+.bishun-site .site-utility-link:hover,.bishun-site .site-utility-link[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
+.bishun-site .site-utility-version{margin-left:auto;font-size:.75rem;font-weight:750;border:1px solid #becde4;padding:4px 9px;border-radius:999px;text-decoration:none;color:#244a79;background:white}
+.bishun-site .site-release-footer{grid-column:1/-1;border-top:1px solid #d9e0ee;padding-top:11px;font-size:.82rem;color:#415477}
+.bishun-site .site-release-footer a{font-weight:700;color:#244a79}
+.bishun-site .release-current{background:#edf3ff;border:1px solid #ccdaf3;border-radius:16px;padding:23px;max-width:780px}
+.bishun-site .release-current p{font-size:clamp(1.8rem,3.8vw,2.6rem);font-weight:800;color:#143875;margin:5px 0}
+.bishun-site .release-history{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:16px;margin:24px 0 40px}
+.bishun-site .release-entry{border:1px solid #d2dff0;background:#fff;border-radius:16px;padding:21px;box-shadow:var(--bishun-shadow,0 5px 18px #dae2ef)}
+.bishun-site .release-entry h2{font-size:1.15rem;margin:7px 0 12px;color:#1a385c}
+.bishun-site .release-version{color:#285c9b;font-size:.84rem;font-weight:800}
+.bishun-site .release-entry ul{padding-left:19px;line-height:1.65;font-size:.9rem}
+.bishun-site .release-scope{font-size:.81rem;color:#526780}
+.bishun-site .manual-study-bridge,.bishun-site .manual-first-steps{background:#edf3ff;border:1px solid #cbdcf6;border-radius:16px;padding:clamp(14px,2vw,22px);margin:16px 0}
+.bishun-site .manual-study-bridge h2,.bishun-site .manual-first-steps h2{font-size:1.15rem;margin:0 0 8px}
+.bishun-site .manual-study-bridge p{font-size:.92rem;color:#3f536e;line-height:1.55;margin:4px 0 11px}
+.bishun-site .manual-study-bridge .manual-bridge-actions,.bishun-site .manual-first-links{display:flex;gap:8px;flex-wrap:wrap}
+.bishun-site .manual-first-steps{background:#f7faff}
+.bishun-site .manual-first-steps .manual-first-links a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:10px;background:#fff;border:1px solid #c5d5eb;color:#234a83;font-weight:700;text-decoration:none;font-size:.86rem}
+.bishun-site .manual-native .manual-hero{border-bottom:1px solid #d8e3f1;margin-bottom:15px}
+.bishun-site .manual-native .manual-featured button{border-color:#d1ddf0;background:#fff;color:#213c6c;box-shadow:0 3px 13px #192e5910}
+.bishun-site .manual-native .manual-featured button:hover{background:#edf3ff;border-color:#6d91c3}
+.bishun-site .manual-native .manual-eyebrow{color:#32649b}
+.bishun-site .manual-native .manual-toolbar button[aria-pressed=true]{background:#eaf1ff;border-color:#477dbd;color:#194575}
+.bishun-site .manual-native .manual-button{background:#1f4c94;border-color:#1f4c94}
+.bishun-site .manual-native .manual-button.secondary{background:#fff;color:#204985}
+.bishun-site .manual-native .manual-sidebar,.bishun-site .manual-native .manual-reader{border-color:#d1dbed;box-shadow:0 4px 19px #1529550b}
+.bishun-site .manual-native .manual-inline-link{color:#235da3}
+.bishun-site .manual-native .manual-atlas-card{border-left-color:#386cae}
+.bishun-site .manual-native .manual-related{background:#eaf1ff}
+.bishun-site .manual-context-links{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px;font-size:.82rem}
+.bishun-site .manual-context-links a{padding:8px 11px;border:1px solid #d3dfef;border-radius:8px;background:#fff;color:#214d89;text-decoration:none;font-weight:700}
+.bishun-site .study-manual-links{margin:10px 0 14px;padding:11px 14px;background:#f0f5fd;border:1px solid #d5e1f4;border-radius:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:.84rem}
+.bishun-site .study-manual-links a{font-weight:700;color:#234e8a;text-underline-offset:3px}
+@media(max-width:600px){.bishun-site .site-utility-inner{gap:8px 12px;padding:7px 0}.bishun-site .site-utility-version{margin-left:0}.bishun-site .manual-study-bridge .manual-bridge-actions>a{flex:1;text-align:center}.bishun-site .manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}.bishun-site .manual-native .manual-featured button{min-height:125px;padding:12px}.bishun-site .manual-native .manual-featured small{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.bishun-site *{scroll-behavior:auto!important}}

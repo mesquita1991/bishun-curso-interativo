@@ -3,6 +3,26 @@
 const $=id=>document.getElementById(id);
 const state={meta:null,partCache:new Map(),visualCache:new Map(),current:1,view:'leitura',searchGeneration:0};
 const query=new URLSearchParams(location.search);
+function manualRecord(){try{const o=JSON.parse(localStorage.getItem('bishunManualV8')||'{}');return o&&typeof o==='object'?o:{}}catch{return{}}}
+function saveManualRecord(patch){try{localStorage.setItem('bishunManualV8',JSON.stringify({...manualRecord(),...patch,updatedAt:Date.now()}))}catch{}}
+function studyContext(){
+ const direct={stage:Number(query.get('etapa')),unit:Number(query.get('unidade'))};
+ if(direct.stage>=1&&direct.stage<=9&&direct.unit>=1&&direct.unit<=(direct.stage<=6?30:40))return direct;
+ try{const o=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}').last||{};
+ if(o.stage>=1&&o.stage<=9&&o.unit>=1&&o.unit<=(o.stage<=6?30:40))return{stage:o.stage,unit:o.unit}}catch{}
+ try{const o=JSON.parse(localStorage.getItem('bishunFullV4')||'{}');
+ if(o.stage>=1&&o.stage<=9&&o.unit>=1&&o.unit<=(o.stage<=6?30:40))return{stage:o.stage,unit:o.unit}}catch{}
+ return null;
+}
+function studyUrl(context){return context?'estudar.html?etapa='+context.stage+'&unidade='+context.unit:'estudar.html'}
+function trainingUrl(context,char){return 'laboratorio.html'+(context?'?etapa='+context.stage+'&unidade='+context.unit+(char?'&caractere='+encodeURIComponent(char):''):'')}
+function renderStudyBridge(){
+ const context=studyContext(),status=$('manualBridgeStatus'),study=$('manualBridgeStudy'),writing=$('manualBridgeWriting');
+ if(!status||!study||!writing)return;
+ status.textContent=context?'Você está na etapa '+context.stage+', unidade '+String((context.stage<=6?(context.stage-1)*30:180+(context.stage-7)*40)+context.unit).padStart(3,'0')+'. Este material apoia seu estudo; não substitui as atividades.':'Ainda não há unidade identificada. Comece pela primeira e retorne para consultar o material.';
+ study.href=studyUrl(context);study.textContent=context?'Continuar minha unidade →':'Começar unidade 1 →';
+ writing.href=trainingUrl(context);
+}
 const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const sectionFor=p=>p<=22?'90 dias':p<=40?'Pronúncia':p<=108?'Atlas de pinyin':p<=113?'Índice alfabético':p<=125?'Prática da escrita':p<=197?'Ordem dos traços':'Matriz sonora';
 const pageHref=(p,top)=>'manual.html?pagina='+p+(top?'&pos='+encodeURIComponent(top):'');
@@ -36,12 +56,15 @@ function addNativeText(page,parent){const container=el('div','manual-document-te
  details.append(list);parent.append(details);
 }
 function related(parent,kind){const r=el('aside','manual-related');r.append(el('strong',null,'Continue aprendendo no Bǐshùn'));
- const nav=el('div','manual-related-links');const common=[['Minha unidade','estudar.html'],['Treinar escrita','laboratorio.html'],['Consultar palavras','catalogo.html#palavras'],['Revisar','avaliacao.html']];
+ const nav=el('div','manual-related-links');const context=studyContext();
+ const common=[['Voltar à minha unidade',studyUrl(context)],['Treinar escrita',trainingUrl(context)],['Consultar palavras','catalogo.html#palavras'],['Revisar','avaliacao.html']];
  for(const [name,url] of common)nav.append(link(name+' →',url));r.append(nav);parent.append(r)}
 async function showPage(p,top){p=Math.min(198,Math.max(1,Number(p)||1));state.current=p;state.view='leitura';setActiveNav('leitura');const out=$('manualContent');out.replaceChildren(el('p','manual-wait','Carregando o conteúdo…'));setNotice('Preparando página '+p+' de 198');
  try{const page=await getPage(p);if(state.current!==p||state.view!=='leitura')return;out.replaceChildren();
  const title=el('header','manual-page-heading');title.append(el('span','manual-eyebrow',sectionFor(p)+' · referência '+p+'/198'),el('h2',null,extractTitle(page)));
- title.append(el('p','manual-muted','Conteúdo textual e hiperlinks da fonte original, convertido para elementos do site.'));out.append(title);
+ title.append(el('p','manual-muted','Conteúdo integral da fonte original. Consulte os exemplos e volte ao percurso de estudo quando terminar.'));out.append(title);
+ const bridge=el('div','manual-context-links');bridge.append(link('← Retomar minha unidade',studyUrl(studyContext())),link('Consultar escrita',trainingUrl(studyContext())),link('Ver o plano de 90 dias',pageHref(2)));out.append(bridge);
+ saveManualRecord({lastPage:p,lastMode:'leitura'});
  const control=el('div','manual-pager');if(p>1)control.append(link('← Página '+(p-1),pageHref(p-1),'manual-button secondary'));control.append(el('span','manual-muted','Página '+p+' de 198'));if(p<198)control.append(link('Página '+(p+1)+' →',pageHref(p+1),'manual-button secondary'));out.append(control);
  if(p>=114&&p<=198){const b64=await getImage(p);if(state.view!=='leitura'||state.current!==p)return;if(b64){const figure=el('figure','manual-figure');const img=el('img');img.src='data:image/webp;base64,'+b64;img.alt=p<=125?'Prancha de prática de escrita, imagem original convertida em WebP':p===126?'Esquemas dos traços e gestos fundamentais':p===198?'Matriz completa original, com 410 células e a legenda explicativa':'Sequências completas dos traços ilustrados nesta página, em ordem';img.loading='lazy';figure.append(img,el('figcaption',null,'Ilustração original convertida em imagem da página '+p+'. O texto e os links correspondentes seguem como elementos HTML.'));out.append(figure)}}
  addNativeText(page,out);
@@ -64,20 +87,22 @@ function cardInfo(a){const article=el('article','manual-atlas-card');let top=el(
 function showAtlas(q=''){state.view='atlas';setActiveNav('atlas');const out=$('manualContent');out.replaceChildren();out.append(el('h2',null,'Atlas integral · 410 combinações de pinyin'),el('p','manual-muted','820 exemplos, pistas de aproximação em português brasileiro e ajustes articulatórios. Cada ficha mantém a referência da página original.'));
  const controls=el('div','manual-searchbox');const inp=el('input');inp.type='search';inp.placeholder='Procure uma sílaba, Hanzi, significado ou ajuste…';inp.value=q;inp.setAttribute('aria-label','Pesquisar fichas de pinyin');controls.append(inp);out.append(controls);
  const result=el('p','manual-muted'),cards=el('div','manual-atlas-grid'),pager=el('div','manual-pager');out.append(result,cards,pager);
- let offset=0;function update(){const needle=norm(inp.value.trim());const vals=state.meta.atlas.filter(a=>!needle||norm([a.pinyin,a.syllable,a.content,a.examples.join(' ')].join(' ')).includes(needle));result.textContent=vals.length+' de 410 fichas encontradas.';cards.replaceChildren(...vals.slice(offset,offset+12).map(cardInfo));pager.replaceChildren();if(offset>0){const prev=el('button','manual-button secondary','← Anteriores');prev.type='button';prev.onclick=()=>{offset-=12;update()};pager.append(prev)}if(offset+12<vals.length){const next=el('button','manual-button secondary','Próximas →');next.type='button';next.onclick=()=>{offset+=12;update()};pager.append(next)}}inp.oninput=()=>{offset=0;update()};update();history.replaceState(null,'','manual.html?secao=atlas');}
+ let offset=0;function update(){const needle=norm(inp.value.trim());const vals=state.meta.atlas.filter(a=>!needle||norm([a.pinyin,a.syllable,a.content,a.examples.join(' ')].join(' ')).includes(needle));result.textContent=vals.length+' de 410 fichas encontradas.';cards.replaceChildren(...vals.slice(offset,offset+12).map(cardInfo));pager.replaceChildren();if(offset>0){const prev=el('button','manual-button secondary','← Anteriores');prev.type='button';prev.onclick=()=>{offset-=12;update()};pager.append(prev)}if(offset+12<vals.length){const next=el('button','manual-button secondary','Próximas →');next.type='button';next.onclick=()=>{offset+=12;update()};pager.append(next)}}inp.oninput=()=>{offset=0;update();history.replaceState(null,'','manual.html?secao=atlas'+(inp.value?'&busca='+encodeURIComponent(inp.value):''))};update();history.replaceState(null,'','manual.html?secao=atlas'+(q?'&busca='+encodeURIComponent(q):''));saveManualRecord({lastMode:'atlas'});}
 function showCharacters(q=''){state.view='escrita';setActiveNav('escrita');const out=$('manualContent');out.replaceChildren();out.append(el('h2',null,'Escrita progressiva · 164 caracteres'),el('p','manual-muted','1.157 etapas gráficas, da primeira linha ao caractere completo. As figuras ilustram cada etapa, e as animações externas foram mantidas.'));
  const div=el('div','manual-searchbox'),inp=el('input');inp.type='search';inp.placeholder='Buscar Hanzi ou pinyin, como 我 / wǒ';inp.setAttribute('aria-label','Pesquisar caracteres');inp.value=q;div.append(inp);out.append(div);
  const list=el('div','manual-character-grid');out.append(list);
- function render(){const q=norm(inp.value.trim());list.replaceChildren();for(const s of state.meta.characters){if(q&&!norm(s.hanzi+' '+s.pinyin+' '+s.id).includes(q))continue;let art=el('article','manual-character-card');art.append(el('strong','manual-hanzi',s.hanzi),el('span','manual-pinyin',s.pinyin),el('span','manual-muted',s.n+' traço'+(s.n===1?'':'s')+' · '+String(s.id).padStart(3,'0')+'/164'));
-  art.append(link('Ver sequência →',pageHref(s.page,s.y)));if(s.listen)art.append(link('Ouvir ↗',s.listen,'',true));if(s.animate)art.append(link('Animação ↗',s.animate,'',true));list.append(art)}}inp.oninput=render;render();history.replaceState(null,'','manual.html?secao=escrita');}
+ function render(){const q=norm(inp.value.trim());list.replaceChildren();let found=0;for(const s of state.meta.characters){if(q&&!norm(s.hanzi+' '+s.pinyin+' '+s.id).includes(q))continue;found++;let art=el('article','manual-character-card');art.append(el('strong','manual-hanzi',s.hanzi),el('span','manual-pinyin',s.pinyin),el('span','manual-muted',s.n+' traço'+(s.n===1?'':'s')+' · '+String(s.id).padStart(3,'0')+'/164'));
+  art.append(link('Ver sequência →',pageHref(s.page,s.y)));if(s.listen)art.append(link('Ouvir ↗',s.listen,'',true));if(s.animate)art.append(link('Animação ↗',s.animate,'',true));list.append(art)}
+ if(!found){const note=el('p','manual-muted','Este caractere não aparece nas 164 pranchas do apêndice. Você pode treinar sua escrita no laboratório completo.');list.append(note,link('Abrir laboratório de escrita →',trainingUrl(studyContext(),inp.value.trim()),'manual-button'))}
+ }
+ inp.oninput=()=>{render();history.replaceState(null,'','manual.html?secao=escrita'+(inp.value?'&busca='+encodeURIComponent(inp.value):''))};render();history.replaceState(null,'','manual.html?secao=escrita'+(q?'&busca='+encodeURIComponent(q):''));saveManualRecord({lastMode:'escrita'});}
 function renderMatrix(container,withinPage=false){if(!withinPage){state.view='matriz';setActiveNav('matriz');container=$('manualContent');container.replaceChildren()}
  container.append(el('h2',null,'Matriz interativa das 410 combinações'),el('p','manual-muted','37 grupos de finais × 22 colunas de iniciais. Toque em uma sílaba para abrir sua ficha; use “Som” para ouvir a referência original. Role horizontalmente em telas pequenas.'));
  const panel=el('div','manual-matrix-scroll'),table=el('table','manual-matrix'),thead=el('thead'),hrow=el('tr');hrow.append(el('th',null,'Final'));for(let c=1;c<=22;c++)hrow.append(el('th',null,'C'+String(c).padStart(2,'0')));thead.append(hrow);table.append(thead);
- const tbody=el('tbody');const bycoord=new Map(state.meta.atlas.map(a=>[a.finalGroup+'-'+a.initialColumn,a]));for(let r=1;r<=37;r++){const tr=el('tr');const label='L'+String(r).padStart(2,'0');const th=el('th',null,label);th.scope='row';tr.append(th);for(let c=1;c<=22;c++){let col='C'+String(c).padStart(2,'0'),a=bycoord.get(label+'-'+col),td=el('td');if(a){td.append(link(a.syllable,pageHref(a.page),'manual-matrix-pinyin'),link('Som ↗',a.audio,'manual-matrix-audio',true))}else td.textContent='—';tr.append(td)}tbody.append(tr)}table.append(tbody);panel.append(table);container.append(panel);if(!withinPage)history.replaceState(null,'','manual.html?secao=matriz');}
+ const tbody=el('tbody');const bycoord=new Map(state.meta.atlas.map(a=>[a.finalGroup+'-'+a.initialColumn,a]));for(let r=1;r<=37;r++){const tr=el('tr');const label='L'+String(r).padStart(2,'0');const th=el('th',null,label);th.scope='row';tr.append(th);for(let c=1;c<=22;c++){let col='C'+String(c).padStart(2,'0'),a=bycoord.get(label+'-'+col),td=el('td');if(a){td.append(link(a.syllable,pageHref(a.page),'manual-matrix-pinyin'),link('Som ↗',a.audio,'manual-matrix-audio',true))}else td.textContent='—';tr.append(td)}tbody.append(tr)}table.append(tbody);panel.append(table);container.append(panel);if(!withinPage){history.replaceState(null,'','manual.html?secao=matriz');saveManualRecord({lastMode:'matriz'})}}
 async function showDay(day){let d=Math.min(90,Math.max(1,Number(day)||1));const p=d<=84?6+Math.floor((d-1)/7):18;await showPage(p);$('manualDay').value=String(d);
- try{const old=JSON.parse(localStorage.getItem('bishunManualV8')||'{}');
- const visited=new Set(Array.isArray(old.visitedDays)?old.visitedDays:[]);visited.add(d);
- localStorage.setItem('bishunManualV8',JSON.stringify({visitedDays:[...visited].sort((a,b)=>a-b),lastDay:d,lastVisitAt:Date.now()}));}catch{}setNotice('Dia '+d+' · consulte as atividades D'+d+' nesta página.')}
+ const visited=new Set(Array.isArray(manualRecord().visitedDays)?manualRecord().visitedDays:[]);
+ visited.add(d);saveManualRecord({visitedDays:[...visited].sort((a,b)=>a-b),lastDay:d,lastVisitAt:Date.now()});setNotice('Dia '+d+' · consulte as atividades D'+d+' nesta página.')}
 async function fullSearch(q){const term=norm(q.trim());const display=$('manualSearchResults'),status=$('manualSearchStatus');display.replaceChildren();if(term.length<2){status.textContent='Digite ao menos dois caracteres para pesquisar todo o conteúdo.';return}
  const generation=++state.searchGeneration;status.textContent='Pesquisando em 198 páginas…';
  try{const pages=(await Promise.all(state.meta.pageParts.map(async f=>{if(!state.partCache.has(f.file))state.partCache.set(f.file,getJSON(f.file));return (await state.partCache.get(f.file)).pages}))).flat();if(generation!==state.searchGeneration)return;const hits=[];
@@ -93,12 +118,13 @@ function events(){document.querySelectorAll('[data-manual-view]').forEach(b=>b.o
  $('manualDayGo').onclick=()=>showDay($('manualDay').value);
  let searchTimer;$('manualSearch').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>fullSearch($('manualSearch').value),260)});
  document.addEventListener('click',evt=>{const a=evt.target.closest('a[href]');if(!a)return;const u=new URL(a.href,location.href);if(u.origin!==location.origin||!u.pathname.endsWith('/manual.html'))return;let p=u.searchParams.get('pagina');if(!p)return;evt.preventDefault();showPage(p,u.searchParams.get('pos'));});
- window.addEventListener('popstate',()=>{let qs=new URLSearchParams(location.search);const view=qs.get('secao');if(view==='atlas')showAtlas();else if(view==='escrita')showCharacters();else if(view==='matriz')renderMatrix();else showPage(qs.get('pagina')||1)});
+ window.addEventListener('popstate',()=>{let qs=new URLSearchParams(location.search);const view=qs.get('secao');if(view==='atlas')showAtlas(qs.get('busca')||'');else if(view==='escrita')showCharacters(qs.get('busca')||'');else if(view==='matriz')renderMatrix();else showPage(qs.get('pagina')||2)});
 }
-async function init(){try{state.meta=await getJSON('manual-catalogo.json');if(state.meta.pdfPageCount!==198||state.meta.links!==7762||state.meta.atlas.length!==410||state.meta.characters.length!==164)throw Error('Inventário do conteúdo incompleto');setupToc();events();
+async function init(){try{state.meta=await getJSON('manual-catalogo.json');if(state.meta.pdfPageCount!==198||state.meta.links!==7762||state.meta.atlas.length!==410||state.meta.characters.length!==164)throw Error('Inventário do conteúdo incompleto');setupToc();events();renderStudyBridge();
  try{const recent=JSON.parse(localStorage.getItem('bishunUnitJourneyV70')||'{}').last;
  if(recent?.stage&&recent?.unit){const a=link('Retomar a minha unidade atual →','estudar.html?etapa='+recent.stage+'&unidade='+recent.unit,'manual-button secondary');$('manualDayGo').parentNode.after(a)}}catch{}
-const view=query.get('secao');if(view==='atlas')showAtlas();else if(view==='escrita')showCharacters();else if(view==='matriz')renderMatrix();else await showPage(query.get('pagina')||2,query.get('pos'));
+const view=query.get('secao'),filter=query.get('busca')||'';
+ if(view==='atlas')showAtlas(filter);else if(view==='escrita')showCharacters(filter);else if(view==='matriz')renderMatrix();else await showPage(query.get('pagina')||manualRecord().lastPage||2,query.get('pos'));
 $('manualReady').textContent='198 páginas de conteúdo · 410 sílabas · 164 caracteres · 7.762 links originais';}catch(err){setNotice('Falha ao carregar conteúdo: '+err.message);console.error(err)}}
 init();
 })();
