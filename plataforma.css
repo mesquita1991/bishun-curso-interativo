@@ -37,3 +37,12 @@
 .bishun-site .study-manual-links a{font-weight:700;color:#234e8a;text-underline-offset:3px}
 @media(max-width:600px){.bishun-site .site-utility-inner{gap:8px 12px;padding:7px 0}.bishun-site .site-utility-version{margin-left:0}.bishun-site .manual-study-bridge .manual-bridge-actions>a{flex:1;text-align:center}.bishun-site .manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}.bishun-site .manual-native .manual-featured button{min-height:125px;padding:12px}.bishun-site .manual-native .manual-featured small{font-size:.75rem}}
 @media(prefers-reduced-motion:reduce){.bishun-site *{scroll-behavior:auto!important}}
+
+/* Navegação contextual consistente para todas as páginas públicas. */
+.bishun-site .site-flow-nav{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:12px 0 20px}
+.bishun-site .site-flow-nav a{display:inline-flex;align-items:center;min-height:38px;padding:8px 13px;border:1px solid #c4d5ec;border-radius:9px;background:#fff;color:#244976;font-size:.88rem;font-weight:700;text-decoration:none;line-height:1.3}
+.bishun-site .site-flow-nav .site-flow-back{background:#eaf2fd;border-color:#a9c4e8}
+.bishun-site .site-flow-nav a:hover{background:#dceafa;border-color:#7fa7dc}
+.bishun-site .site-flow-nav a:focus-visible{outline:3px solid #f6a623;outline-offset:2px}
+.bishun-site .study-flow-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+@media(max-width:420px){.bishun-site .site-flow-nav{gap:7px}.bishun-site .site-flow-nav a{font-size:.8rem;min-height:36px;padding:7px 10px}}

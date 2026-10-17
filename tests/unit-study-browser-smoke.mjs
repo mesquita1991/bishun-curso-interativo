@@ -74,8 +74,11 @@ try{
   const evidence=await page.evaluate(()=>JSON.parse(localStorage.getItem('bishunUnitJourneyV70')).units['1:1']);
   assert.equal(evidence.objectiveChecks.length,1,'Primeira avaliação posterior com intervalo >=24h');
   assert.ok(evidence.retentionNextDueAt>Date.now()+2*86400000,'Próxima prova será marcada após três dias');
-  await page.locator('#studyUnit').selectOption('2');
+  assert.equal(await page.locator('[data-exam-flow="next"]').count(),1,'Resultado deve oferecer continuação contextual');
+  await page.locator('[data-exam-flow="next"]').click();
   assert.match(await page.locator('#unitTitle').innerText(),/002/);
+  await page.goBack();await page.waitForFunction(()=>document.querySelector('#studyUnit').value==='1');
+  await page.goForward();await page.waitForFunction(()=>document.querySelector('#studyUnit').value==='2');
   assert.equal(await page.locator('#unitProgressBar').getAttribute('aria-valuenow'),'0');
   assert.equal(reqs.filter(p=>p.includes('/data/stage-1.json')).length,1);
   await page.reload({waitUntil:'domcontentloaded'});await page.locator('#studyContent').waitFor({state:'visible'});

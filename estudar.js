@@ -11,7 +11,7 @@ const saveJSON=(key,obj)=>{try{localStorage.setItem(key,JSON.stringify(obj));ret
 const readJourney=()=>{const s=readJSON(KEY);s.units=s.units&&typeof s.units==='object'&&!Array.isArray(s.units)?s.units:{};return s};
 const legacyState=()=>readJSON(LEGACY);
 const stageCache=new Map();
-let current=null,stage=1,unit=1,mode='aprender',ticket=0,stageLoading=false;
+let current=null,stage=1,unit=1,mode='aprender',ticket=0,stageLoading=false,failedLoad=null;
 let reviewItems=[],reviewAt=0,reviewRatings=0,reviewRemembered=0,reviewDelayed=false,exam=[],examAt=0,score=0,wrongChars=[],examLocked=false,writer=null,writerPromise=null,writerChar='',writingTicket=0,learnChunk=0,pairQuestions=[],pairAt=0,pairScore=0,pairLocked=false;
 const params=new URLSearchParams(location.search),old=legacyState(),previous=readJourney().last||{};
 const unitLimits=[30,30,30,30,30,30,40,40,40];
@@ -25,7 +25,7 @@ function rememberContext(){
  const state=legacyState();state.stage=stage;state.unit=unit;state.unitsByStage=state.unitsByStage&&typeof state.unitsByStage==='object'&&!Array.isArray(state.unitsByStage)?state.unitsByStage:{};state.unitsByStage[stage]=unit;saveJSON(LEGACY,state);
  const flow=readJourney();flow.last={stage,unit,mode};saveJSON(KEY,flow)
 }
-function setURL(push=false){const url=new URL(location.href);url.searchParams.set('etapa',String(stage));url.searchParams.set('unidade',String(unit));url.searchParams.set('modo',mode);if(push)history.pushState(null,'',url);else history.replaceState(null,'',url)}
+function setURL(push=false){const url=new URL(location.href);url.searchParams.set('etapa',String(stage));url.searchParams.set('unidade',String(unit));url.searchParams.set('modo',mode);if(url.href===location.href)return;if(push)history.pushState(null,'',url);else history.replaceState(null,'',url)}
 function announce(msg,fail=false){const el=$('loadStatus');el.hidden=false;el.textContent=msg;el.dataset.error=String(fail)}
 function takeHide(){if(current)$('loadStatus').hidden=true}
 function components(){
@@ -90,7 +90,8 @@ function renderPairProbe(){
   updateProgress({checkedParts,pairAttempts:(p.pairAttempts||0)+1});
   paintChunk();
   box.hidden=false;
-  box.innerHTML='<p><strong>Par praticado: '+pairScore+' de '+pairQuestions.length+' acertos.</strong> '+(correctPair?'Você reconheceu os dois significados.':'Releia as respostas e repita este par antes de avançar.')+'</p>';
+  const finalPair=learnChunk>=pedagogia.chunks(components().chars,2).length-1;
+  box.innerHTML='<p><strong>Par praticado: '+pairScore+' de '+pairQuestions.length+' acertos.</strong> '+(correctPair?'Você reconheceu os dois significados.':'Releia as respostas e repita este par antes de avançar.')+'</p><div class="study-flow-actions"><button type="button" class="study-button secondary" data-pair-flow="'+(correctPair?(finalPair?'write':'next'):'retry')+'">'+(correctPair?(finalPair?'Continuar para a escrita →':'Próximo par →'):'Refazer este par →')+'</button></div>';
   return;
  }
  const question=pairQuestions[pairAt];
@@ -178,10 +179,11 @@ async function loadStage(target,requestedUnit=1,requestedMode='aprender',push=fa
   if(seq!==ticket)return;
   current=result;stage=wanted;unit=bounds(requestedUnit,1,current.units.length);
   paintUnitIndex();$('studyUnit').disabled=false;paintUnit();setMode(requestedMode,{historyMode:push});
-  $('loadStatus').hidden=true;stageLoading=false;
- }catch(e){if(seq!==ticket)return;console.error(e);announce('Falha ao carregar a etapa '+wanted+'.',true);$('failurePanel').hidden=false;stageLoading=false;$('studyStage').value=String(stage)}
+  failedLoad=null;$('loadStatus').hidden=true;stageLoading=false;
+  if(push)document.querySelector('.study-intro')?.scrollIntoView({behavior:'auto',block:'start'});
+ }catch(e){if(seq!==ticket)return;console.error(e);failedLoad={stage:wanted,unit:requestedUnit,mode:requestedMode,push};announce('Falha ao carregar a etapa '+wanted+'.',true);$('failurePanel').hidden=false;stageLoading=false;$('studyStage').value=String(wanted)}
 }
-function selectUnit(next,push=true){if(!current)return;unit=bounds(next,1,current.units.length);paintUnit();setMode('aprender',{historyMode:push});rememberContext()}
+function selectUnit(next,push=true){if(!current)return;unit=bounds(next,1,current.units.length);paintUnit();setMode('aprender',{historyMode:push});rememberContext();if(push)document.querySelector('.study-intro')?.scrollIntoView({behavior:'auto',block:'start'})}
 function relativeUnit(delta){
  if(!current)return;
  const next=unit+delta;
@@ -242,7 +244,7 @@ function beginReview(){
  reviewItems=reviewQueue();reviewAt=0;reviewRatings=0;reviewRemembered=0;
  reviewDelayed=learning.retentionStatus(progress()).phase==='due';
  $('reviewToTest').hidden=true;
- if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para outra atividade.</p>';$('startReview').textContent='Verificar novamente depois';return}
+ if(!reviewItems.length){$('reviewCard').innerHTML='<p>Nenhum item está vencido nesta unidade. Volte em outro dia ou avance para a avaliação.</p>';$('reviewToTest').hidden=false;$('startReview').textContent='Verificar novamente depois';return}
  $('startReview').hidden=true;renderReview()
 }
 function shuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
@@ -256,6 +258,8 @@ function renderExam(){
    updateProgress({evaluated:passed||prev.evaluated,score:best,lastScore:score,examTotal:exam.length,lastTestedAt:now,missedCharacters:wrongChars,retentionDueAt:initialDue,initialPassedAt:passed?(prev.initialPassedAt||now):prev.initialPassedAt,...evidence});
   box.innerHTML='<h4>Veja como você se saiu</h4><p><strong>'+score+' de '+exam.length+' respostas corretas ('+percent+'%)</strong></p><p>'+ (evidence.recorded?(evidence.consolidated?'Segunda verificação objetiva espaçada aprovada.':'Verificação objetiva posterior aprovada; retorne para a próxima.'):passed?'Você reconheceu pelo menos oito significados; volte após 24h para comprovar retenção.':'Reveja os caracteres que errou e tente novamente; são necessários oito acertos.')+'</p><p class="study-muted">Caracteres a rever: '+esc(wrongChars.join(' · ')||'nenhum')+'. Este exercício avalia somente significados.</p>';
   $('startTest').textContent='Tentar as perguntas novamente';
+  const finalUnit=stage===9&&unit===unitLimits[8];
+  box.innerHTML+='<div class="study-flow-actions"><button type="button" class="study-button ghost" data-exam-flow="review">← Voltar à memória</button>'+(passed?(finalUnit?'<a class="study-button secondary" href="mapa.html">Ver todas as etapas →</a>':'<button type="button" class="study-button secondary" data-exam-flow="next">Continuar para a próxima unidade →</button>'):'')+'</div>';
   return
  }
  const question=exam[examAt];
@@ -279,6 +283,7 @@ function registerEvents(){
  });
  $('learnCharacters').addEventListener('click',e=>{const btn=e.target.closest('[data-say]');if(btn)speak(btn.dataset.say)});
  $('pairPractice').addEventListener('click',startPairProbe);
+ $('pairProbe').addEventListener('click',e=>{const b=e.target.closest('[data-pair-flow]');if(!b)return;if(b.dataset.pairFlow==='retry')startPairProbe();else if(b.dataset.pairFlow==='next')$('nextChunk').click();else if(b.dataset.pairFlow==='write'&&!$('finishLearn').disabled)$('finishLearn').click()});
  $('prevChunk').addEventListener('click',()=>{learnChunk=Math.max(0,learnChunk-1);paintChunk()});
  $('nextChunk').addEventListener('click',()=>{learnChunk=Math.min(pedagogia.chunks(components().chars,2).length-1,learnChunk+1);paintChunk()});
  $('finishLearn').addEventListener('click',()=>{if(!current)return;if($('finishLearn').disabled)return;updateProgress({learned:true,readAt:Date.now()});setMode('escrever',{historyMode:true})});
@@ -290,9 +295,10 @@ function registerEvents(){
  $('startReview').addEventListener('click',beginReview);
  $('reviewToTest').addEventListener('click',()=>setMode('avaliar',{historyMode:true}));
  $('startTest').addEventListener('click',startTest);
+ $('testCard').addEventListener('click',e=>{const b=e.target.closest('[data-exam-flow]');if(!b)return;if(b.dataset.examFlow==='review')setMode('revisar',{historyMode:true});else if(b.dataset.examFlow==='next')relativeUnit(1)});
  $('prevUnit').addEventListener('click',()=>relativeUnit(-1));
  $('nextUnit').addEventListener('click',()=>relativeUnit(1));
- $('retryLoad').addEventListener('click',()=>loadStage(Number($('studyStage').value),unit,mode));
+ $('retryLoad').addEventListener('click',()=>{const r=failedLoad||{stage:Number($('studyStage').value),unit,mode,push:false};loadStage(r.stage,r.unit,r.mode,r.push)});
  addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);const n=bounds(p.get('etapa'),1,9),u=bounds(p.get('unidade'),1,unitLimits[n-1]),m=modes.includes(p.get('modo'))?p.get('modo'):'aprender';if(current&&n===stage){unit=u;paintUnit();setMode(m)}else loadStage(n,u,m)});
 }
 registerEvents();loadStage(initialStage,initialUnit,initialMode);

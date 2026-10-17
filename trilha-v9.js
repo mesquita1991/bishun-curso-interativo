@@ -28,7 +28,7 @@ case'observed':return 'Você confirmou o reconhecimento em outro dia. A próxima
 case'consolidated':return 'Você acertou os significados em duas revisões espaçadas. Continue praticando.';
 case'scheduled':return 'Revisão dos significados prevista para '+new Date(status.dueAt).toLocaleDateString('pt-BR')+'.';
 default:return completed(r)?'Você concluiu a primeira avaliação. Volte em outro dia para testar sua memória.':'Comece pelo reconhecimento; sua revisão será organizada após a primeira avaliação.'}}
-function setLocation(){const u=new URL(location.href);u.searchParams.set('licao',String(index+1));u.searchParams.set('passo',STEP[phase]);history.replaceState(null,'',u)}
+function setLocation(push=false){const u=new URL(location.href);u.searchParams.set('licao',String(index+1));u.searchParams.set('passo',STEP[phase]);if(u.href===location.href)return;history[push?'pushState':'replaceState'](null,'',u)}
 function renderOverview(){if(!lessons.length)return;const unit=lessons[index],r=record(),group=lessons.filter(l=>l.sourceStage===unit.sourceStage),start=lessons.findIndex(l=>l.sourceStage===unit.sourceStage);
 const complete=group.filter(l=>completed(record(l.id-1))).length;
 const countDue=lessons.filter((_,i)=>due(record(i))).length;
@@ -43,18 +43,20 @@ document.querySelectorAll('#pathSteps li').forEach((e,i)=>{const finished=i===0?
 e.classList.toggle('done',finished);e.classList.toggle('current',i===phase);e.querySelector('span').textContent=finished?'✓':String(i+1)});
 $('pathLessonSelect').value=String(index+1);
 $('pathPrevious').disabled=index===0;
+$('pathPreviousStep').disabled=phase===0;
 $('pathNextLesson').disabled=index>=lessons.length-1;
 }
-function setLesson(i,requested){index=Math.max(0,Math.min(lessons.length-1,Number(i)||0));const r=record();
+function setLesson(i,requested,push=true){index=Math.max(0,Math.min(lessons.length-1,Number(i)||0));const r=record();
 phase=STEP.indexOf(requested);if(phase<0||!phaseAvailable(phase,r))phase=nextPhase(r);
-if(due(r))phase=3;
+if(due(r)&&!requested)phase=3;
 pairIndex=0;quiz=null;writer=null;writingSerial++;
 update({openedAt:Date.now()});render();
 $('pathHelp').open=false;
-setLocation();
+setLocation(push);
+if(push)document.querySelector('.path-work')?.scrollIntoView({behavior:'auto',block:'start'});
 }
 function setPhase(step){const r=record();if(!phaseAvailable(step,r)){announce('Conclua primeiro a atividade anterior.');return}
-phase=step;quiz=null;writingSerial++;writer=null;render();setLocation();}
+if(phase===step)return;phase=step;quiz=null;writingSerial++;writer=null;render();setLocation(true);document.querySelector('.path-work')?.scrollIntoView({behavior:'auto',block:'start'});}
 function render(){const r=record();renderOverview();$('pathStepLabel').textContent=({conhecer:'Conhecer',usar:'Usar',escrever:'Escrever',conferir:'Conferir'})[STEP[phase]];
 const data={
 conhecer:['Conheça dois caracteres','Observe a escrita, ouça a pronúncia e descubra os significados. Depois, tente lembrar sem olhar.'],
@@ -141,17 +143,18 @@ const speechButton=e.target.closest('[data-speak]');if(speechButton){speech(spee
 const go=e.target.closest('[data-phase-go]');if(go){setPhase(Number(go.dataset.phaseGo));return}
 const action=e.target.closest('[data-action]');if(action){process(action.dataset.action,action);return}});
 $('pathActivity').addEventListener('change',e=>{if(e.target.id==='pathWritingSelect'){writingChar=e.target.value;writingSerial++;writer=null;renderWriting()}});
+$('pathPreviousStep').addEventListener('click',()=>setPhase(Math.max(0,phase-1)));
 $('pathPrevious').addEventListener('click',()=>setLesson(index-1));$('pathNextLesson').addEventListener('click',()=>setLesson(index+1));
 $('pathLessonSelect').addEventListener('change',()=>setLesson(Number($('pathLessonSelect').value)-1));
 $('pathHelp').addEventListener('toggle',()=>{if($('pathHelp').open)showHelp()});
 $('pathRetry').addEventListener('click',load);
-window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search),n=Number(p.get('licao'));setLesson(Number.isFinite(n)?n-1:recommend(),p.get('passo'))})}
+window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search),n=Number(p.get('licao'));setLesson(Number.isFinite(n)&&n>0?n-1:recommend(),p.get('passo'),false)})}
 function answerQuestion(choice){answer(choice)}
 async function load(){try{$('pathLoading').hidden=false;$('pathError').hidden=true;const r=await fetch('trilha-v9.json',{cache:'default'});if(!r.ok)throw Error('Não foi possível carregar as lições');const data=await r.json();if(data.version!==9||!Array.isArray(data.lessons)||!data.lessons.length)throw Error('Lições incompletas');
 lessons=data.lessons;const select=$('pathLessonSelect');select.replaceChildren();
  for(const stage of [...new Set(lessons.map(l=>l.sourceStage))]){const group=document.createElement('optgroup');group.label=stage===1?'Fundamentos e primeiras conversas':'Etapa '+stage+' · ampliar repertório';
  for(const l of lessons.filter(x=>x.sourceStage===stage)){const option=document.createElement('option');option.value=l.id;option.textContent=String(l.id).padStart(3,'0')+' · '+l.name;group.append(option)}select.append(group)}
-$('pathLoading').hidden=true;$('pathContent').hidden=false;const p=new URLSearchParams(location.search),n=Number(p.get('licao'));setLesson(n>=1&&n<=lessons.length?n-1:recommend(),p.get('passo'));}catch(e){console.warn(e);$('pathLoading').hidden=true;$('pathError').hidden=false}}
+$('pathLoading').hidden=true;$('pathContent').hidden=false;const p=new URLSearchParams(location.search),n=Number(p.get('licao'));setLesson(n>=1&&n<=lessons.length?n-1:recommend(),p.get('passo'),false);}catch(e){console.warn(e);$('pathLoading').hidden=true;$('pathError').hidden=false}}
 bind();load();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=9.0.0',{updateViaCache:'none'}).catch(()=>{}),{once:true})}
 })();

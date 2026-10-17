@@ -40,6 +40,9 @@ await page.locator('#pathLessonSelect').selectOption('33');
 await page.waitForFunction(()=>document.querySelector('#pathTitle').textContent.includes('Ampliar a leitura'),{timeout:10000});
 assert.match(await page.locator('#pathPosition').innerText(),/Etapa 2/);
 assert.equal(await page.locator('.path-char').count(),2);
+await page.goBack();await page.waitForFunction(()=>document.querySelector('#pathLessonSelect').value==='1',{timeout:10000});
+assert.match(await page.locator('#pathTitle').innerText(),/Dizer olá/);
+assert.equal(await page.locator('#pathPreviousStep').isDisabled(),true);
 assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
 assert.deepEqual(errors,[],'Erro JavaScript em '+width+'px');
 await context.close()}

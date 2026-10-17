@@ -2,7 +2,26 @@
 (()=>{'use strict';
 const FALLBACK='9.0.0';
 const add=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e};
+function initNavigation(){
+ const here=location.pathname.split('/').pop()||'index.html',current=location.pathname+location.search+location.hash;
+ const root=new URL('./',location.href).pathname,key='bishunPreviousVisitedPageV1';
+ const internal=(raw)=>{try{const u=new URL(raw,location.href);return u.origin===location.origin&&u.pathname.startsWith(root)?u.pathname+u.search+u.hash:''}catch{return''}};
+ let prior='';try{prior=sessionStorage.getItem(key)||'';if(prior!==current)sessionStorage.setItem(key,current)}catch{}
+ let previous=internal(document.referrer)||internal(prior);
+ if(previous===current)previous='';
+ if(here==='index.html')return;
+ const main=document.querySelector('main');if(!main)return;
+ const fallback=here==='trilha.html'?'./':here==='estudar.html'||here.startsWith('etapa-')?'mapa.html':here==='avaliacao.html'||here==='manual.html'||here==='laboratorio.html'?'estudar.html':'./';
+ const nav=add('nav','site-flow-nav');nav.id='siteFlowNav';nav.setAttribute('aria-label','Retorno e continuidade');
+ const back=add('a','site-flow-back','← Voltar');back.href=previous||fallback;
+ back.setAttribute('aria-label',previous?'Voltar à página de origem':'Voltar à navegação anterior');
+ const resume=add('a','site-flow-link','Minha trilha');resume.href='trilha.html';
+ const stages=add('a','site-flow-link','Todas as etapas');stages.href='mapa.html';
+ nav.append(back);if(here!=='trilha.html')nav.append(resume);if(here!=='mapa.html')nav.append(stages);
+ const crumb=main.querySelector('.breadcrumb');if(crumb)crumb.insertAdjacentElement('afterend',nav);else main.prepend(nav);
+}
 function init(){
+ initNavigation();
  const header=document.querySelector('.site-header'),footer=document.querySelector('.site-footer-inner');
  if(header){const tools=add('div','site-utility');const wrap=add('div','wrap site-utility-inner');
  const manual=add('a','site-utility-link','Manual de estudos');manual.href='manual.html';
