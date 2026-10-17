@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "principle": "exposição ≠ desempenho imediato ≠ retenção ≠ fluência",
+  "criteria": {
+    "examples": "3/3 de compreensão das frases",
+    "practice": "4/5 de reconhecimento de significados",
+    "correction": "corrigir todos os erros da prática",
+    "reviews": "duas verificações aprovadas em datas diferentes, D+1 e D+3 ou depois",
+    "retention": "4/5 em teste realizado a partir de D+7, depois das revisões"
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "concept": "Eu e você, perguntar e responder",
+      "explanation": "Use 我 (eu), 你 (você) e 叫 (chamar-se). Para perguntar um nome, combine 你 + 叫 + 什么 + 名字.",
+      "pitfall": "Não confunda 是 (ser) com 叫 (chamar-se): 我叫… apresenta seu nome, 我是… identifica quem você é.",
+      "examples": [
+        {
+          "zh": "你好！",
+          "pinyin": "nǐ hǎo!",
+          "pt": "Olá!"
+        },
+        {
+          "zh": "我叫安娜。",
+          "pinyin": "wǒ jiào Ānnà.",
+          "pt": "Eu me chamo Ana."
+        },
+        {
+          "zh": "你叫什么名字？",
+          "pinyin": "nǐ jiào shénme míngzi?",
+          "pt": "Como você se chama?"
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "concept": "Pessoas e relações",
+      "explanation": "Use 是 para profissão/identidade, 的 para posse ou vínculo e 没有 para indicar que algo não existe ou que você não tem algo.",
+      "pitfall": "Não traduza 没有 como simplesmente 不: para negar posse, prefira 没有.",
+      "examples": [
+        {
+          "zh": "我是医生。",
+          "pinyin": "wǒ shì yīshēng.",
+          "pt": "Sou médico(a)."
+        },
+        {
+          "zh": "这是我的朋友。",
+          "pinyin": "zhè shì wǒ de péngyou.",
+          "pt": "Este(a) é meu/minha amigo(a)."
+        },
+        {
+          "zh": "我没有妹妹。",
+          "pinyin": "wǒ méiyǒu mèimei.",
+          "pt": "Eu não tenho irmã mais nova."
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "concept": "Organização da rotina",
+      "explanation": "Comece pela referência de tempo (今天, 明天, 八点), depois diga quem faz a ação e o verbo. 几点 pergunta a hora.",
+      "pitfall": "A hora precede o verbo: 我八点起床, não posicione 八点 ao final por influência do português.",
+      "examples": [
+        {
+          "zh": "我每天学中文。",
+          "pinyin": "wǒ měitiān xué Zhōngwén.",
+          "pt": "Estudo chinês todos os dias."
+        },
+        {
+          "zh": "我八点起床。",
+          "pinyin": "wǒ bā diǎn qǐchuáng.",
+          "pt": "Eu me levanto às oito horas."
+        },
+        {
+          "zh": "你几点起床？",
+          "pinyin": "nǐ jǐ diǎn qǐchuáng?",
+          "pt": "A que horas você se levanta?"
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "concept": "Desejos, preferências e pedidos",
+      "explanation": "喜欢 descreve o que você gosta; 想要 expressa desejo de receber algo. Para preços, use 多少钱.",
+      "pitfall": "Não use 喜欢 como tradução de todos os pedidos: 我想要一杯水 é um pedido, não apenas uma preferência.",
+      "examples": [
+        {
+          "zh": "我喜欢喝茶。",
+          "pinyin": "wǒ xǐhuan hē chá.",
+          "pt": "Gosto de beber chá."
+        },
+        {
+          "zh": "我想要一杯水。",
+          "pinyin": "wǒ xiǎng yào yì bēi shuǐ.",
+          "pt": "Quero um copo de água."
+        },
+        {
+          "zh": "多少钱？",
+          "pinyin": "duōshao qián?",
+          "pt": "Quanto custa?"
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "concept": "Localização e deslocamento",
+      "explanation": "在 marca onde alguém está; 哪里 pergunta onde fica um lugar. Nas direções, 左 significa esquerda e 右, direita.",
+      "pitfall": "Compare 我在家 (estou em casa) com 医院在哪里 (onde fica o hospital?).",
+      "examples": [
+        {
+          "zh": "医院在哪里？",
+          "pinyin": "yīyuàn zài nǎlǐ?",
+          "pt": "Onde fica o hospital?"
+        },
+        {
+          "zh": "我在家。",
+          "pinyin": "wǒ zài jiā.",
+          "pt": "Estou em casa."
+        },
+        {
+          "zh": "往左走。",
+          "pinyin": "wǎng zuǒ zǒu.",
+          "pt": "Vá para a esquerda."
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "concept": "Capacidade, possibilidade e permissão",
+      "explanation": "会 indica habilidade adquirida; 能 frequentemente indica capacidade ou possibilidade nas condições; 可以 pode indicar permissão.",
+      "pitfall": "Nas conversas reais, as três formas se sobrepõem às vezes: aprenda primeiro contrastes típicos, sem tratá-las como equivalências absolutas.",
+      "examples": [
+        {
+          "zh": "我会说一点儿中文。",
+          "pinyin": "wǒ huì shuō yìdiǎnr Zhōngwén.",
+          "pt": "Sei falar um pouco de chinês."
+        },
+        {
+          "zh": "我今天不能去。",
+          "pinyin": "wǒ jīntiān bù néng qù.",
+          "pt": "Hoje não posso ir."
+        },
+        {
+          "zh": "你能帮我吗？",
+          "pinyin": "nǐ néng bāng wǒ ma?",
+          "pt": "Você pode me ajudar?"
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "concept": "Fazer e reagendar encontros",
+      "explanation": "有空 pergunta se há tempo livre; 几点见 combina hora e encontro; 可以吗 propõe uma alternativa.",
+      "pitfall": "Não trate 可以吗 como confirmação já obtida: aguarde a resposta antes de considerar o horário combinado.",
+      "examples": [
+        {
+          "zh": "你今天有空吗？",
+          "pinyin": "nǐ jīntiān yǒu kòng ma?",
+          "pt": "Você está livre hoje?"
+        },
+        {
+          "zh": "几点见？",
+          "pinyin": "jǐ diǎn jiàn?",
+          "pt": "A que horas nos vemos?"
+        },
+        {
+          "zh": "三点可以吗？",
+          "pinyin": "sān diǎn kěyǐ ma?",
+          "pt": "Pode ser às três?"
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "concept": "Relatar eventos e experiências",
+      "explanation": "了 pode sinalizar evento concluído em contexto; 过 marca experiência anterior; 没…过 nega essa experiência.",
+      "pitfall": "Não acrescente 了 automaticamente a toda frase passada. 昨天 já localiza temporalmente o relato.",
+      "examples": [
+        {
+          "zh": "我昨天去了公园。",
+          "pinyin": "wǒ zuótiān qù le gōngyuán.",
+          "pt": "Ontem fui ao parque."
+        },
+        {
+          "zh": "我去过中国。",
+          "pinyin": "wǒ qù guo Zhōngguó.",
+          "pt": "Já estive na China."
+        },
+        {
+          "zh": "我没去过中国。",
+          "pinyin": "wǒ méi qù guo Zhōngguó.",
+          "pt": "Nunca estive na China."
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "concept": "Opiniões e justificativas",
+      "explanation": "觉得 introduz uma opinião pessoal, 为什么 pergunta o motivo e 因为 apresenta uma causa. 但是 liga ideias em contraste.",
+      "pitfall": "Não use 因为 como conectivo de contraste; para opor ideias, pratique 但是.",
+      "examples": [
+        {
+          "zh": "我觉得中文很有意思。",
+          "pinyin": "wǒ juéde Zhōngwén hěn yǒu yìsi.",
+          "pt": "Acho chinês muito interessante."
+        },
+        {
+          "zh": "你为什么学中文？",
+          "pinyin": "nǐ wèishénme xué Zhōngwén?",
+          "pt": "Por que você estuda chinês?"
+        },
+        {
+          "zh": "因为我想去中国。",
+          "pinyin": "yīnwèi wǒ xiǎng qù Zhōngguó.",
+          "pt": "Porque quero ir à China."
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "concept": "Comparações funcionais",
+      "explanation": "Na comparação direta, A 比 B + adjetivo indica diferença. 更 adiciona a ideia de grau maior; 最, superlativo.",
+      "pitfall": "Evite traduzir literalmente 'mais do que' com palavras extras quando 比 já organiza a comparação.",
+      "examples": [
+        {
+          "zh": "这个比那个贵。",
+          "pinyin": "zhège bǐ nàge guì.",
+          "pt": "Este é mais caro do que aquele."
+        },
+        {
+          "zh": "今天比昨天热。",
+          "pinyin": "jīntiān bǐ zuótiān rè.",
+          "pt": "Hoje está mais quente do que ontem."
+        },
+        {
+          "zh": "哪个更好？",
+          "pinyin": "nǎge gèng hǎo?",
+          "pt": "Qual é melhor?"
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "concept": "Reparar uma conversa",
+      "explanation": "请 deixa um pedido cortês; 再说一遍 solicita repetição; 听不懂 comunica falta de compreensão auditiva.",
+      "pitfall": "Peça esclarecimento em mandarim antes de trocar imediatamente para português.",
+      "examples": [
+        {
+          "zh": "请再说一遍。",
+          "pinyin": "qǐng zài shuō yí biàn.",
+          "pt": "Por favor, diga mais uma vez."
+        },
+        {
+          "zh": "我听不懂。",
+          "pinyin": "wǒ tīng bu dǒng.",
+          "pt": "Não consigo entender o que ouço."
+        },
+        {
+          "zh": "这个词是什么意思？",
+          "pinyin": "zhège cí shì shénme yìsi?",
+          "pt": "O que significa esta palavra?"
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "concept": "Integrar competências",
+      "explanation": "Combine cumprimentos, perguntas, respostas, rotinas, convites e pedidos de repetição. Priorize turnos de conversa, não listas soltas de palavras.",
+      "pitfall": "Reconhecer palavras em questões objetivas não demonstra, por si só, capacidade de conversar sem roteiro.",
+      "examples": [
+        {
+          "zh": "最近怎么样？",
+          "pinyin": "zuìjìn zěnmeyàng?",
+          "pt": "Como vão as coisas ultimamente?"
+        },
+        {
+          "zh": "我每天学一点儿中文。",
+          "pinyin": "wǒ měitiān xué yìdiǎnr Zhōngwén.",
+          "pt": "Estudo um pouco de chinês todos os dias."
+        },
+        {
+          "zh": "我们可以再聊吗？",
+          "pinyin": "wǒmen kěyǐ zài liáo ma?",
+          "pt": "Podemos conversar de novo?"
+        }
+      ]
+    }
+  ]
+}
