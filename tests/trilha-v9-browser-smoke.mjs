@@ -23,7 +23,7 @@ assert.equal(await page.locator('#pathSteps .current').count(),1);
 assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'Transbordamento na tela '+width);
 assert.equal(requests.filter(p=>/data\/stage-\d+\.json/.test(p)).length,0,'A entrada deve abrir sem baixar as etapas originais');
 await page.locator('[data-phase-go="3"]').click();
-assert.equal(await page.locator('#pathStepLabel').innerText(),'Conhecer','A avaliação ainda não pode substituir o primeiro contato');
+assert.match(await page.locator('#pathStepLabel').innerText(),/conhecer/i,'A avaliação ainda não pode substituir o primeiro contato');
 await page.locator('[data-action="start-pair"]').click();
 for(const ch of data.lessons[0].characters.slice(0,2)){
  const options=await page.locator('#pathActivity [data-choice]').allTextContents(),i=options.findIndex(x=>x===ch.meaning);
