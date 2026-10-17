@@ -67,7 +67,11 @@ function paintChunk(){
  if(size&&seen.length!==((prev.seenParts||[]).length))updateProgress({seenParts:seen});
  $('learnChunkTitle').textContent='Conheça estes '+shown.length+' caracteres';
  $('learnChunkCounter').textContent='Parte '+(learnChunk+1)+' de '+size+' · '+(progress().checkedParts||[]).length+' partes praticadas';
- $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button></article>').join('');
+ $('learnCharacters').innerHTML=shown.map(c=>'<article class="character-tile"><strong class="hanzi" lang="zh-Hans">'+esc(c.char)+'</strong><span class="pinyin">'+esc(c.pinyin)+'</span><span class="meaning">'+esc(c.meaning)+'</span><button type="button" data-say="'+esc(c.char)+'" aria-label="Ouvir '+esc(c.char)+'">Ouvir</button><a class="manual-character-link" href="manual.html?secao=escrita&amp;busca='+encodeURIComponent(c.char)+'">Ver ordem dos traços no manual ↗</a></article>').join('');
+ const ref=$('unitManualLinks'),currentChar=shown[0]||chars[0];
+ if(ref&&currentChar){const syllable=String(currentChar.pinyin||'').split(/[ /]/)[0].normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+ ref.innerHTML='<strong>Material de apoio deste par</strong><a href="manual.html?secao=escrita&amp;busca='+encodeURIComponent(currentChar.char)+'">Traços de '+esc(currentChar.char)+'</a><a href="manual.html?secao=atlas&amp;busca='+encodeURIComponent(syllable)+'">Som '+esc(syllable)+'</a><a href="manual.html?pagina=2">Plano de 90 dias</a>';
+ }
  const relevant=words.filter((w,index)=>{const at=parts.findIndex(group=>group.some(c=>String(w.hanzi||'').includes(c.char)));return (at<0?index%size:at)===learnChunk});
  $('learnWords').innerHTML=relevant.map(w=>'<article class="vocabulary-item"><b lang="zh-Hans">'+esc(w.hanzi)+'</b> <span class="pinyin">'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></article>').join('')||'<p>Não há palavras adicionais nesta parte.</p>';
  $('prevChunk').disabled=learnChunk===0;
@@ -294,7 +298,7 @@ function registerEvents(){
 registerEvents();loadStage(initialStage,initialUnit,initialMode);
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){
  window.addEventListener('load',()=>{
-  const run=()=>navigator.serviceWorker.register('./sw.js?v=8.0.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
+  const run=()=>navigator.serviceWorker.register('./sw.js?v=8.1.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível',e));
   if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)
  },{once:true})
 }

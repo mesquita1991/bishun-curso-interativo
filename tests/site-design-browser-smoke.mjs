@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
-const pages=['index.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
+const pages=['index.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','historico.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
 const port=4182,origin='http://127.0.0.1:'+port,server=spawn('python3',['-m','http.server',String(port)],{stdio:'ignore'});
 let browser;
 try{

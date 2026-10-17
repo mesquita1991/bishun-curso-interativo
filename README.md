@@ -1,4 +1,4 @@
-# Bǐshùn 8.0 — integração pedagógica preservando conteúdo
+# Bǐshùn 8.1 — manual conectado, interface compartilhada e histórico público
 
 - Motor compartilhado `aprendizagem-v8.js`: novas revisões não elevam domínio nem adiam vencimento quando feitas precocemente.
 - Pares iniciais exigem acerto integral para avançar; escrita precisa de três caracteres distintos praticados com no máximo um erro cada.
@@ -36,6 +36,10 @@ Os nove arquivos curriculares e todas as 300 unidades permanecem inalterados. O 
 # Bǐshùn 7.1 — padrões compartilhados em todas as páginas
 
 A experiência visual pública segue um único sistema de identidade `interface.css`, aplicado às **19 páginas** (início, estudo, mapa, quatro ferramentas, três páginas de apoio e nove etapas). A rota `curso.html` permanece exclusivamente como redirecionador de compatibilidade e não volta a carregar a aplicação antiga; o arquivo histórico continua preservado fora da navegação comum.
+
+## Atualização 8.1.0 — 17/10/2026
+
+O manual de 198 páginas continua preservado, mas agora tem uma ponte para a unidade atual, links de volta ao estudo e buscas diretas de traços e pronúncia. O histórico público fica em `historico.html` e `atualizacoes.json`; `plataforma.js` identifica a versão servida em todas as páginas públicas. O workflow mantém um limite operacional de até três avaliações completas em uma janela de 60 segundos: o GitHub pode registrar runs adicionais, mas seus testes custosos são omitidos. Esta limitação **não impede a criação do próprio run**. Uma verificação de qualidade aprovada é obrigatória antes do merge.
 
 ## Orientação ao estudante
 

@@ -1,5 +1,5 @@
-const CACHE='bishun-offline-8.0.0';
-const SHELL=['./','./index.html','./portal.css?v=6.9.0','./portal.js?v=8.0.0','./aprendizagem-v8.js?v=8.0.0','./interface.css?v=7.1.0','./jornada.css?v=7.0.1','./rotas.js?v=6.9.1','./favicon.svg','./manifest.webmanifest'];
+const CACHE='bishun-offline-8.1.0';
+const SHELL=['./','./index.html','./portal.css?v=6.9.0','./portal.js?v=8.1.0','./aprendizagem-v8.js?v=8.1.0','./interface.css?v=7.1.0','./plataforma.css?v=8.1.0','./plataforma.js?v=8.1.0','./atualizacoes.json','./historico.html','./jornada.css?v=7.0.1','./rotas.js?v=6.9.1','./favicon.svg','./manifest.webmanifest'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.addAll(SHELL);await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('bishun-')&&k!==CACHE).map(k=>caches.delete(k)));await self.clients.claim()})()));
 self.addEventListener('fetch',event=>{
