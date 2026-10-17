@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check app.js && node --check course.js && node --check full-course.js && node --check curriculum-data.js && node --check post-standard.js && node --check mastery-v6.js && node --check ux-6.3.0.js && node --check ux-6.4.0.js && node --check ux-6.5.0.js && node --check ux-6.6.0.js && node --check ux-6.7.0.js && node --check visual-mnemonics.js && node --check ux-6.8.0.js && node tests/core-integrity-check.mjs && node tests/ux-regression-check.mjs && node tests/ux-6.4-regression-check.mjs && node tests/ux-6.5-regression-check.mjs && node tests/ux-6.6-regression-check.mjs && node tests/ux-6.7-regression-check.mjs && node tests/ux-6.8-regression-check.mjs && node --check sw.js && node --check ux-6.8.1-stability.js && node tests/ux-6.8.1-stability-check.mjs && node tests/ux-6.8.1-stage-simulation.mjs && node --check portal.js && node --check etapa.js && node tests/multipage-performance-check.mjs && node tests/multipage-interaction-smoke.mjs && node --check rotas.js && node --check laboratorio.js && node --check catalogo.js && node --check avaliacao.js && node --check aulas.js && node tests/legacy-free-routing-check.mjs && node --check estudar.js && node tests/unit-study-check.mjs && node tests/student-guidance-check.mjs && node tests/site-design-check.mjs && node --check pedagogia.js && node tests/pedagogy-check.mjs && node tests/learning-v8-check.mjs && node tests/v8-integration-check.mjs && node tests/manual-integration-v81-check.mjs && node --check trilha-v9.js && node tests/trilha-v9-check.mjs"
+    "check": "node --check single-page.js && node tests/single-page-check.mjs"
   },
-  "description": "Bǐshùn 9 — trilha pedagógica integrada ao acervo original, com compreensão, escrita e revisões espaçadas."
+  "description": "Bǐshùn: acervo completo de mandarim, reunido em uma única página sem navegação ou fluxos."
 }
