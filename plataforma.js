@@ -1,6 +1,6 @@
 /* Bǐshùn — superfície pública de versão e acessos comuns, sem dependências. */
 (()=>{'use strict';
-const FALLBACK='8.1.0';
+const FALLBACK='8.1.1';
 const add=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;return e};
 function init(){
  const header=document.querySelector('.site-header'),footer=document.querySelector('.site-footer-inner');

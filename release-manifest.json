@@ -1,5 +1,5 @@
 {
-  "version": "8.1.0",
+  "version": "8.1.1",
   "generatedAt": "2026-10-17T12:12:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
@@ -824,5 +824,17 @@
     "contextLinks": "study ↔ manual ↔ laboratory",
     "integrityGuard": "tests/manual-integrity-check.mjs",
     "ciThrottling": "up to 3 automatic gate evaluations per rolling minute"
+  },
+  "manualExperienceV811": {
+    "version": "8.1.1",
+    "studentFirstNavigation": true,
+    "originalManualContentUnchanged": true,
+    "sourceLinksPreserved": true,
+    "dailyReadingFocus": true,
+    "advancedControlsInDisclosure": true,
+    "checks": [
+      "tests/manual-integrity-check.mjs",
+      "tests/manual-browser-smoke.mjs"
+    ]
   }
 }

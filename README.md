@@ -1,4 +1,4 @@
-# Bǐshùn 8.1 — manual conectado, interface compartilhada e histórico público
+# Bǐshùn 8.1.1 — aprendizagem de mandarim
 
 - Motor compartilhado `aprendizagem-v8.js`: novas revisões não elevam domínio nem adiam vencimento quando feitas precocemente.
 - Pares iniciais exigem acerto integral para avançar; escrita precisa de três caracteres distintos praticados com no máximo um erro cada.
@@ -36,6 +36,10 @@ Os nove arquivos curriculares e todas as 300 unidades permanecem inalterados. O 
 # Bǐshùn 7.1 — padrões compartilhados em todas as páginas
 
 A experiência visual pública segue um único sistema de identidade `interface.css`, aplicado às **19 páginas** (início, estudo, mapa, quatro ferramentas, três páginas de apoio e nove etapas). A rota `curso.html` permanece exclusivamente como redirecionador de compatibilidade e não volta a carregar a aplicação antiga; o arquivo histórico continua preservado fora da navegação comum.
+
+## Atualização 8.1.1 — 17/10/2026
+
+O manual deixa de destacar a origem técnica dos materiais e passa a orientar o estudante por objetivos: atividades diárias, pronúncia e escrita. O índice, as leituras numeradas e os destinos externos continuam acessíveis por expansão. O plano diário pode ser aberto diretamente por `manual.html?dia=1`, sem marcar leitura como aprendizagem concluída. Nenhum documento ou link do inventário original foi alterado.
 
 ## Atualização 8.1.0 — 17/10/2026
 
