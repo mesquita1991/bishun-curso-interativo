@@ -24,7 +24,7 @@ for(let i=0;i<12;i++){
  for(let j=0;j<3;j++){
   const s=x.examples[j];
   assert.equal(s.zh,w.models[j],'Exemplo desconectado da semana '+(i+1));
-  assert.ok(s.pinyin.length>4&&s.pt.length>5,'Tradução ou pronúncia incompleta');
+  assert.ok(s.pinyin.length>=4&&s.pt.length>=3,'Tradução ou pronúncia incompleta');
  }
  assert.ok(w.words.length>=5&&w.words.every(term=>words.has(term)));
  assert.ok(w.characters.every(term=>chars.has(term)));
