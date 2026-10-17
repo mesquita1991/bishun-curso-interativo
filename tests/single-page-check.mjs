@@ -9,10 +9,14 @@ for(const id of ['curso','weekList','lesson','restante','remainingSummary','rema
  assert.ok(html.includes('id="'+id+'"'),'Elemento ausente: '+id);
 for(const src of ['single-page.js?v=1','library-lite.js?v=1','app-lite.css?v=1'])
  assert.ok(html.includes(src),'Dependência ausente: '+src);
+assert.ok(html.includes('pedagogia-semanal.js?v=1'),'Dependência didática ausente');
 assert.ok(!/href="[^"#]+\.html(?:[?"#]|")/.test(html),'Não criar páginas secundárias');
 assert.ok(css.includes('@media(max-width:540px)')&&css.includes(':focus-visible')&&html.includes('aria-label'),'Acessibilidade e responsividade');
-for(const fragment of ['aria-current','aria-pressed','localStorage','renderQuiz','renderPractice','selected[kind]','remainingPage'])
- assert.ok(js.includes(fragment),'Fluxo funcional ausente: '+fragment);
+for(const fragment of ['aria-current','localStorage','selected[kind]','remainingPage','BishunWeekly.render'])
+ assert.ok(js.includes(fragment),'Fluxo curricular ausente: '+fragment);
+const pedagogy=read('pedagogia-semanal.js');
+for(const fragment of ['aria-pressed','explain','examples','practice','correction','review','retention'])
+ assert.ok(pedagogy.includes(fragment),'Fase didática ausente: '+fragment);
 for(const fragment of ['manual-catalogo.json','data/post/lex-','trilha-v9.json','archive/legacy-','data/mastery-v6.json','visual-mnemonics-6.2.1.json','data/post/search-index-'])
  assert.ok(library.includes(fragment),'Fonte não acessível pela biblioteca: '+fragment);
 for(const file of ['plataforma.js','estudar.js','trilha-v9.js','manual-web.js','app.js','full-course.js'])
