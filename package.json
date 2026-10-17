@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "check": "node --check single-page.js && node tests/single-page-check.mjs"
+    "check": "node --check single-page.js && node --check library-lite.js && node tests/single-page-check.mjs"
   },
-  "description": "Bǐshùn: acervo completo de mandarim, reunido em uma única página sem navegação ou fluxos."
+  "description": "Bǐshùn: aplicativo educacional responsivo de 12 semanas, com currículo e conteúdos restantes disponíveis em uma única página."
 }
