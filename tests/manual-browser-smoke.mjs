@@ -1,11 +1,19 @@
 import {chromium} from 'playwright';
-import {spawn} from 'node:child_process';
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
 import assert from 'node:assert/strict';
-const port=4190,host='http://127.0.0.1:'+port;
-const server=spawn('python3',['-m','http.server',String(port)],{stdio:'ignore'});
+const server=http.createServer((req,res)=>{
+ const location=new URL(req.url,'http://127.0.0.1'),target=path.resolve(process.cwd(),'.'+decodeURIComponent(location.pathname));
+ if(!target.startsWith(process.cwd()+path.sep)||!fs.existsSync(target)||!fs.statSync(target).isFile()){res.writeHead(404);res.end('Arquivo não encontrado');return}
+ const type=target.endsWith('.json')?'application/json':target.endsWith('.js')?'text/javascript':target.endsWith('.css')?'text/css':'text/html';
+ res.writeHead(200,{'Content-Type':type+'; charset=utf-8','Cache-Control':'no-store'});fs.createReadStream(target).pipe(res);
+});
 let browser;
 try{
- let live=false;for(let i=0;i<100;i++){try{if((await fetch(host+'/manual.html')).ok){live=true;break}}catch{}await new Promise(r=>setTimeout(r,130))}assert.ok(live,'Servidor local indisponível');
+ await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve)});
+ const port=server.address().port,host='http://127.0.0.1:'+port;
+ assert.ok((await fetch(host+'/manual.html')).ok,'Servidor HTTP de teste indisponível');
  browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  for(const width of [390,1440]){
   const context=await browser.newContext({viewport:{width,height:840},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
@@ -38,4 +46,4 @@ try{
   assert.deepEqual(errors,[],'Erros JS na versão '+width);await context.close();
  }
  console.log(JSON.stringify({ok:true,viewports:[390,1440],nativeHtml:true,atlas:410,characters:164,search:true,matrix:410,links:true,PDF:false}));
-}finally{await browser?.close();server.kill('SIGTERM')}
+}finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}

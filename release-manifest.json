@@ -504,8 +504,8 @@
     },
     {
       "path": "tests/manual-browser-smoke.mjs",
-      "bytes": 3336,
-      "sha256": "6c3f009e94d73db445862a8c60552bd1c46807f9b07b997f8edb684e51409251"
+      "bytes": 3956,
+      "sha256": "e4d7b54f485c9a4885b9d97afd0e59e9a6863bbed33ccbeae6df445f60ae8a5c"
     },
     {
       "path": "manual-catalogo.json",
