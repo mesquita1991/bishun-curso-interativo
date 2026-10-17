@@ -13,6 +13,13 @@ try{
   assert.ok(await page.locator('a[href="trilha.html"]').count()>0,'Trilha não é apresentada na entrada');
   assert.equal(await page.locator('nav.topnav a').count(),7,'Unified header must have seven consistent links');
   assert.equal(requests.filter(x=>/stage-\d+\.json|full-course\.js|post-standard\.js|mastery-v6\.js|hanzi-writer/.test(x)).length,0,'Heavy modules must not load at home');
+  assert.equal(await page.locator('.journey-choice').count(),2,'Exibir os dois percursos');
+  assert.equal(await page.locator('#portalWeekGrid a').count(),13,'12 semanas e 6 dias finais');
+  assert.equal(await page.locator('#portalWeekGrid a').first().getAttribute('href'),'manual.html?dia=1');
+  assert.equal(await page.locator('#portalWeekGrid a').last().getAttribute('href'),'manual.html?dia=85');
+  assert.equal(await page.locator('.journey-stages .stage-card').count(),9);
+  const colors=await page.locator('.journey-choice').evaluateAll(els=>els.map(e=>getComputedStyle(e).backgroundColor));
+  assert.notEqual(colors[0],colors[1],'Cursos exigem cores distintas');
   assert.ok((await page.evaluate(()=>document.body.scrollWidth))<=width+2,'Home horizontal overflow '+width);
   assert.deepEqual(failures,[],'Home errors');
   const stage=await context.newPage(),stageReq=[];stage.on('request',r=>stageReq.push(new URL(r.url()).pathname));

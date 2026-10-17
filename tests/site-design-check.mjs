@@ -33,6 +33,16 @@ for(const file of pages){
  for(const m of html.matchAll(/\bhref="([^"]+)"/g)){const href=m[1].replaceAll('&amp;','&');if(href.startsWith('#')||href.includes('://')||href.startsWith('mailto:'))continue;const pathname=href.split(/[?#]/)[0];if(pathname==='.'||pathname==='./'||pathname===''||pathname==='/')continue;if(!fs.existsSync(pathname))broken.push({from:file,to:href});}
  pageMeta.push({file,htmlBytes:Buffer.byteLength(html)});
 }
+const home=read('index.html'),homeApp=read('portal.js'),homeCSS=read('jornada.css');
+assert.ok(home.includes('Curso integral · 9 etapas')&&home.includes('Curso de 3 meses · 90 dias'),'Percursos ausentes');
+assert.ok(home.includes('id="percursos"')&&home.includes('id="semanas90"'),'Âncoras ausentes');
+assert.ok(home.includes('href="mapa.html"')&&home.includes('href="manual.html?dia=1"'),'Destinos ausentes');
+assert.equal((home.match(/class="journey-choice journey-choice-/g)||[]).length,2);
+assert.equal((home.match(/class="stage-card"/g)||[]).length,9);
+assert.ok(homeApp.includes('Consolidar e demonstrar')&&homeApp.includes('topics.forEach'));
+assert.ok(homeCSS.includes('.journey-choice-integral')&&homeCSS.includes('.journey-choice-90'));
+assert.ok(home.includes('302 lições')&&home.includes('id="portalResume"'));
+assert.ok(read('plataforma.js').includes('initNavigation()')&&read('estudar.js').includes('data-exam-flow')&&read('trilha-v9.js').includes('setLocation(push=false)'),'Regressão das correções de navegação');
 assert.equal(shell.size,1,'Header navigation differs between pages');
 assert.equal(footers.size,1,'Footers differ between pages');
 assert.deepEqual(broken,[],'Some local links have no file destination');

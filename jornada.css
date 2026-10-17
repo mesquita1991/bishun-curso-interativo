@@ -27,3 +27,35 @@
 @media(max-width:1050px){.journey-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:800px){.journey-hero{padding-top:28px}.journey-example>strong{font-size:3.5rem}}
 @media(max-width:600px){.journey-steps{grid-template-columns:1fr}.journey-steps li{flex-direction:row;gap:16px}.journey-number{flex-shrink:0}.journey-summary{flex-direction:column;align-items:stretch;gap:16px}.journey-hero .actions .button{width:100%}.topnav{flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;max-width:100%;padding-bottom:5px}.topbar .wrap{max-width:100%;padding-inline:16px}.journey-example{padding:18px 20px}.journey-small{line-height:1.5}}
+
+/* Escolhas de curso com identidades cromáticas independentes. */
+.journey-hero{padding-top:30px}
+.journey-hero h1{max-width:30ch;font-size:clamp(1.9rem,3.8vw,3.05rem)}
+.journey-choice-header .lead{max-width:82ch;margin-bottom:0}
+.journey-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:21px 0 0}
+.journey-choice{--course-color:#204584;--course-bg:#edf3ff;--course-border:#b9cceb;min-width:0;border:1px solid var(--course-border);border-left:6px solid var(--course-color);border-radius:19px;padding:22px;background:var(--course-bg);display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.journey-choice-90{--course-color:#07675c;--course-bg:#eaf8f4;--course-border:#addbd0}
+.journey-choice .journey-choice-tag{margin:0;text-transform:uppercase;letter-spacing:.07em;font-size:.74rem;font-weight:850;color:var(--course-color)}
+.journey-choice h2{color:var(--course-color);font-size:clamp(1.25rem,2.2vw,1.67rem);margin:0}
+.journey-choice>p:not(.journey-choice-tag){margin:0 0 8px;line-height:1.55;color:#354960;flex:1}
+.journey-choice .button{background:var(--course-color);border-color:var(--course-color);color:#fff;min-height:44px}
+.journey-choice .button:hover{filter:brightness(.88);background:var(--course-color)}
+.journey-choice-secondary{font-size:.91rem;font-weight:750;color:var(--course-color)}
+.journey-extra{margin-top:23px;padding-top:23px;border-top:1px solid var(--line)}
+.journey-extra h2{font-size:clamp(1.45rem,3vw,2.15rem);max-width:25ch}
+.journey-plan,.journey-stages{padding:25px;border-radius:19px;border:1px solid #c6dfd7;border-left:5px solid #07675c;background:#ecf8f4}
+.journey-plan>.eyebrow{color:#07675c}
+.journey-plan .button.secondary{border-color:#07675c;color:#07675c}
+.journey-plan .button.secondary:hover{background:#d9f1ea}
+.journey-stages{border-color:#c9d8f2;border-left-color:#204584;background:#f1f5ff}
+.journey-stages>.eyebrow{color:#204584}
+.journey-week-intro{color:#365e54;font-size:.92rem;margin:16px 0 10px}
+.journey-week-grid ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.journey-week-grid li{min-width:0}
+.journey-week-grid a{display:flex;flex-direction:column;gap:3px;height:100%;padding:12px 13px;border:1px solid #b6dcd1;border-radius:12px;background:#fff;color:#155e55;text-decoration:none}
+.journey-week-grid a:hover{border-color:#07675c;background:#dff3eb}
+.journey-week-grid small{font-size:.73rem;font-weight:750;color:#256c60}
+.journey-week-grid strong{font-size:.86rem;line-height:1.35;color:#194d47}
+@media(max-width:960px){.journey-week-grid ol{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:750px){.journey-choices{grid-template-columns:1fr}.journey-week-grid ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.journey-hero{padding-top:20px}.journey-choice{padding:17px}.journey-plan,.journey-stages{padding:17px}.journey-week-grid ol{grid-template-columns:1fr}.journey-week-grid a{padding:10px 12px}}
