@@ -22,3 +22,69 @@
 .bishun-site.manual-native .manual-study-bridge .manual-button{font-size:.8rem;padding:9px 10px}
 .bishun-site.manual-native .manual-character-card a{font-size:.81rem}
 @media(max-width:600px){.bishun-site.manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}.bishun-site.manual-native .manual-featured button{min-height:130px;padding:12px}.bishun-site.manual-native .manual-featured small{font-size:.73rem}}
+
+/* Experiência de leitura 8.1.1: estudo primeiro, referências depois. */
+.manual-native .manual-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.bishun-site.manual-native .manual-hero{background:linear-gradient(118deg,#f0f5ff 0%,#fafcff 75%);border:1px solid #d9e4f7;border-radius:22px;padding:clamp(22px,3.2vw,42px);margin:18px 0 29px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(230px,.7fr);gap:30px;align-items:center;box-shadow:0 14px 30px #1338660a}
+.bishun-site.manual-native .manual-hero h1{margin:9px 0 14px;max-width:18ch;font-size:clamp(2rem,4vw,3.1rem);line-height:1.13;color:#17335d}
+.bishun-site.manual-native .manual-hero .manual-lead{max-width:63ch;line-height:1.75;color:#405675;font-size:1.02rem}
+.bishun-site.manual-native .manual-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px;align-items:center}
+.bishun-site.manual-native .manual-hero-actions .manual-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px}
+.bishun-site.manual-native .manual-hero-side{background:#fff;border:1px solid #d8e2f0;border-radius:17px;padding:22px;box-shadow:0 5px 15px #2234540a}
+.bishun-site.manual-native .manual-hero-side strong{color:#183760;font-size:1.02rem}
+.bishun-site.manual-native .manual-hero-side ol{margin:14px 0 0;padding-left:21px;color:#465b79;line-height:1.95;font-size:.91rem}
+.bishun-site.manual-native .manual-explore{margin:20px 0 29px}
+.bishun-site.manual-native .manual-section-head h2{font-size:clamp(1.3rem,2.5vw,1.65rem);color:#1b3762;margin:4px 0 0}
+.bishun-site.manual-native .manual-featured{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:19px 0 20px}
+.bishun-site.manual-native .manual-featured button{display:flex;flex-direction:column;gap:7px;border-radius:16px;border:1px solid #d5e0f1;background:#fff;min-height:206px;padding:20px;box-shadow:0 5px 16px #13386608;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.bishun-site.manual-native .manual-featured button:hover{transform:translateY(-2px);box-shadow:0 10px 24px #13386612;border-color:#7299cb}
+.bishun-site.manual-native .manual-featured b{font-size:1.04rem;color:#193966;line-height:1.3;margin-top:5px}
+.bishun-site.manual-native .manual-featured small{color:#506786;line-height:1.5;font-size:.84rem;flex:1}
+.bishun-site.manual-native .manual-card-symbol{display:grid;place-items:center;width:48px;height:48px;border-radius:13px;background:#ebf2ff;color:#254e8a;font-size:1.55rem;font-weight:600}
+.bishun-site.manual-native .manual-card-action{color:#255797;font-size:.83rem;font-weight:800;margin-top:auto}
+.bishun-site.manual-native .manual-layout{grid-template-columns:minmax(260px,290px) minmax(0,1fr);gap:23px;margin:26px 0 43px}
+.bishun-site.manual-native .manual-sidebar{top:12px;padding:19px;border-radius:17px;background:#fbfcff;max-height:calc(100vh - 24px);border-color:#d6e1f1}
+.bishun-site.manual-native .manual-sidebar>h2{font-size:1.15rem;color:#233d68;margin:0 0 12px}
+.bishun-site.manual-native .manual-sidebar h3{font-size:.95rem;color:#23446d;margin:0 0 10px}
+.bishun-site.manual-native .manual-study-bridge{padding:14px;background:#edf3ff;border:1px solid #d2def2;border-radius:13px;margin-bottom:19px}
+.bishun-site.manual-native .manual-sidebar-label{font-size:.77rem;text-transform:uppercase;letter-spacing:.065em;font-weight:750;color:#315b90;margin:0 0 5px}
+.bishun-site.manual-native .manual-study-bridge #manualBridgeStatus{color:#314d72;font-size:.89rem;line-height:1.55;margin:5px 0 12px}
+.bishun-site.manual-native .manual-study-bridge .manual-bridge-actions{display:grid;grid-template-columns:1fr;gap:7px}
+.bishun-site.manual-native .manual-study-bridge .manual-button{display:block;text-align:center;min-height:40px}
+.bishun-site.manual-native .manual-reader-tools,.bishun-site.manual-native .manual-day-picker,.bishun-site.manual-native .manual-sidebar-search{padding-bottom:17px;margin-bottom:15px;border-bottom:1px solid #dce6f2}
+.bishun-site.manual-native .manual-toolbar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.bishun-site.manual-native .manual-toolbar button{text-align:center;padding:11px 7px;font-size:.85rem;min-height:43px}
+.bishun-site.manual-native .manual-day-picker label,.bishun-site.manual-native .manual-sidebar-search label{margin:0 0 8px;color:#23446d}
+.bishun-site.manual-native .manual-day-picker .manual-inline-control input{flex:0 0 70px}
+.bishun-site.manual-native .manual-day-picker .manual-inline-control button{flex:1}
+.bishun-site.manual-native .manual-sidebar details{margin-top:5px;padding:13px 0}
+.bishun-site.manual-native .manual-sidebar details summary{color:#23446d;font-size:.9rem;line-height:1.4}
+.bishun-site.manual-native .manual-sidebar .manual-note{line-height:1.6}
+.bishun-site.manual-native .manual-reader{background:#fff;padding:clamp(23px,3.2vw,43px);min-height:450px;border-radius:19px}
+.bishun-site.manual-native .manual-page-heading{border-bottom:1px solid #dce6f2;padding-bottom:19px}
+.bishun-site.manual-native .manual-page-heading h2{color:#1c375f;font-size:clamp(1.4rem,2.5vw,2.05rem);line-height:1.23;margin:11px 0}
+.bishun-site.manual-native .manual-reading-intro{line-height:1.7;font-size:.96rem;color:#526784;max-width:70ch;margin:9px 0 0}
+.bishun-site.manual-native .manual-context-links{margin:19px 0 12px}
+.bishun-site.manual-native .manual-document-text{max-width:82ch;font-size:1.025rem;line-height:1.78;letter-spacing:.005em;margin-top:22px}
+.bishun-site.manual-native .manual-document-text .manual-para{margin:15px 0}
+.bishun-site.manual-native .manual-document-text .manual-block-heading{color:#1d416e;font-size:1.33rem;line-height:1.35;margin:30px 0 12px}
+.bishun-site.manual-native .manual-document-text .manual-block-subheading{color:#2c4b75;font-size:1.11rem;margin:22px 0 10px}
+.bishun-site.manual-native .manual-document-text .manual-translation{border-left:3px solid #b8ccea;padding:5px 12px;background:#f6f9ff;border-radius:0 7px 7px 0;color:#3e597e}
+.bishun-site.manual-native .manual-pager{gap:10px;border-bottom:1px solid #e0e9f3;padding-bottom:15px}
+.bishun-site.manual-native .manual-pager-progress{color:#6d7c93;font-size:.82rem}
+.bishun-site.manual-native .manual-original-links{border:1px solid #dae4f0;border-radius:12px;background:#f9fbff;padding:15px 18px;margin-top:28px}
+.bishun-site.manual-native .manual-original-links summary{color:#234876}
+.bishun-site.manual-native .manual-original-links .manual-annotations{max-height:310px;columns:1;margin-top:12px}
+.bishun-site.manual-native .manual-atlas-grid{gap:14px}
+.bishun-site.manual-native .manual-atlas-card{background:#fff;border-radius:13px;padding:18px;border-color:#d3dfef}
+.bishun-site.manual-native .manual-card-top strong{font-size:1.5rem;color:#254e85}
+.bishun-site.manual-native .manual-related{border:1px solid #d9e3f3;padding:17px;border-radius:12px}
+.bishun-site.manual-native .manual-day-focus{border:1px solid #d4e2f7;background:#f0f6ff;border-radius:12px;padding:15px 17px;margin:18px 0}
+.bishun-site.manual-native .manual-day-focus strong{font-size:1.15rem;color:#173e75}
+.bishun-site.manual-native .manual-day-focus p{color:#466385;font-size:.9rem;margin:6px 0 11px}
+.bishun-site.manual-native .manual-day-focus a{display:inline-block;margin:0 13px 0 0;font-size:.85rem;font-weight:750}
+.bishun-site.manual-native .manual-day-highlight{border-left:4px solid #4976b5;background:#f0f6ff;border-radius:0 7px 7px 0;padding:8px 12px!important;scroll-margin-top:20px}
+@media(max-width:1050px){.bishun-site.manual-native .manual-featured{grid-template-columns:repeat(2,minmax(0,1fr))}.bishun-site.manual-native .manual-hero{grid-template-columns:1fr}.bishun-site.manual-native .manual-hero-side{display:none}.bishun-site.manual-native .manual-featured button{min-height:176px}}
+@media(max-width:920px){.bishun-site.manual-native .manual-layout{grid-template-columns:minmax(0,1fr)}.bishun-site.manual-native .manual-sidebar{position:static;max-height:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px}.bishun-site.manual-native .manual-sidebar>h2{grid-column:1/-1}.bishun-site.manual-native .manual-sidebar .manual-index,.bishun-site.manual-native .manual-sidebar .manual-advanced-nav{grid-column:1/-1}.bishun-site.manual-native .manual-reader-tools,.bishun-site.manual-native .manual-day-picker,.bishun-site.manual-native .manual-sidebar-search{padding-bottom:12px}}
+@media(max-width:600px){.bishun-site.manual-native .manual-hero{padding:22px 17px;margin:10px 0 21px;border-radius:15px}.bishun-site.manual-native .manual-hero h1{font-size:clamp(1.75rem,7.5vw,2.3rem)}.bishun-site.manual-native .manual-hero-actions{display:grid;grid-template-columns:1fr;gap:9px}.bishun-site.manual-native .manual-featured{grid-template-columns:1fr 1fr;gap:9px}.bishun-site.manual-native .manual-featured button{min-height:184px;padding:14px;gap:4px}.bishun-site.manual-native .manual-featured b{font-size:.93rem}.bishun-site.manual-native .manual-featured small{font-size:.76rem}.bishun-site.manual-native .manual-card-symbol{width:40px;height:40px;font-size:1.3rem}.bishun-site.manual-native .manual-sidebar{grid-template-columns:1fr;padding:15px}.bishun-site.manual-native .manual-sidebar>h2,.bishun-site.manual-native .manual-sidebar .manual-index,.bishun-site.manual-native .manual-sidebar .manual-advanced-nav{grid-column:auto}.bishun-site.manual-native .manual-reader{padding:19px 14px}.bishun-site.manual-native .manual-document-text{font-size:.99rem;line-height:1.73}.bishun-site.manual-native .manual-pager{justify-content:center}.bishun-site.manual-native .manual-pager-progress{order:-1;flex-basis:100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){.bishun-site.manual-native .manual-featured button{transition:none}.bishun-site.manual-native .manual-featured button:hover{transform:none}}

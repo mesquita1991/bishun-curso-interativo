@@ -1,8 +1,20 @@
 {
   "schema": 1,
-  "current": "8.1.0",
+  "current": "8.1.1",
   "updated": "2026-10-17",
   "entries": [
+    {
+      "version": "8.1.1",
+      "date": "2026-10-17",
+      "title": "Manual pensado para quem está aprendendo",
+      "changes": [
+        "Entrada por atividades diárias, pronúncia e caracteres, sem expor detalhes técnicos.",
+        "Leitura com hierarquia clara, recursos complementares discretos e apoio à unidade atual.",
+        "Dia de estudo destacado, com continuidade e acesso integral aos materiais anteriores.",
+        "Diagramação responsiva revista sem alterar os textos, ilustrações, hiperlinks ou progressos."
+      ],
+      "scope": "Atualização da experiência do aluno; inventários e conteúdo do manual preservados."
+    },
     {
       "version": "8.1.0",
       "date": "2026-10-17",

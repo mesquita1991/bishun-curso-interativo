@@ -42,5 +42,5 @@ loadButton?.addEventListener('click',load);
 selector?.addEventListener('change',()=>renderUnit(Number(selector.value),true));
 document.addEventListener('click',e=>{const b=e.target.closest('[data-speak]');if(b)say(b.dataset.speak)});
 
-if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){window.addEventListener('load',()=>{const run=()=>navigator.serviceWorker.register('./sw.js?v=8.1.0',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível:',e));if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)},{once:true})}
+if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost')){window.addEventListener('load',()=>{const run=()=>navigator.serviceWorker.register('./sw.js?v=8.1.1',{updateViaCache:'none'}).catch(e=>console.warn('Cache offline indisponível:',e));if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:2500});else setTimeout(run,0)},{once:true})}
 })();

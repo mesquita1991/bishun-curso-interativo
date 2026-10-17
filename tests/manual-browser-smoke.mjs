@@ -22,11 +22,14 @@ try{
   await page.waitForFunction(()=>document.getElementById('manualReady').textContent.includes('198 páginas'),{timeout:20000});
   assert.ok((await page.locator('.manual-document-text').innerText()).includes('O que fazer todos os dias'),'A leitura HTML integral não foi carregada');
   assert.equal(await page.locator('iframe,object[type="application/pdf"]').count(),0,'Leitor PDF encontrado');
+  assert.match(await page.locator('#manualTitle').innerText(),/Aprenda a falar, ouvir e escrever/);
+  assert.equal(await page.locator('.manual-featured button').count(),4,'Quatro caminhos claros para o aluno');
+  assert.equal(await page.locator('.manual-advanced-nav').getAttribute('open'),null,'Busca por páginas deve ficar recolhida');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'Transbordamento na entrada '+width);
   assert.equal(await page.locator('#manualToc li').count(),176);
   await page.locator('[data-manual-view="atlas"]').first().click();
   assert.equal(await page.locator('.manual-atlas-card').count(),12);
-  assert.match(await page.locator('.manual-atlas-card').first().innerText(),/#001 · ba/);
+  assert.match(await page.locator('.manual-atlas-card').first().innerText(),/\bba\b/);
   assert.match(await page.locator('.manual-atlas-card').first().locator('a').first().getAttribute('href'),/define=ba/);
   await page.locator('[data-manual-view="escrita"]').first().click();
   assert.equal(await page.locator('.manual-character-card').count(),164);
@@ -41,7 +44,7 @@ try{
   assert.equal(await page.locator('.manual-matrix-audio').count(),410);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'Matriz causou transbordamento na tela '+width);
   await page.locator('#manualSearch').fill('cânhamo');
-  await page.waitForFunction(()=>document.querySelector('#manualSearchStatus').textContent.includes('encontrada(s)'),{timeout:15000});
+  await page.waitForFunction(()=>document.querySelector('#manualSearchResults li')!==null,{timeout:15000});
   assert.ok(await page.locator('#manualSearchResults li').count()>=1,'Busca integral sem resultados');
   await page.goto(host+'/manual.html?secao=escrita&busca=%E6%88%91',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
@@ -51,11 +54,16 @@ try{
   assert.ok(await page.locator('#unitManualLinks a').count()>=3,'Unidade não oferece as referências contextuais');
   await page.goto(host+'/manual.html?pagina=2',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
-  assert.match(await page.locator('#manualBridgeStatus').innerText(),/etapa 1, unidade 001/i);
+  assert.match(await page.locator('#manualBridgeStatus').innerText(),/Etapa 1 · Unidade 001/i);
   assert.ok((await page.locator('#manualBridgeStudy').getAttribute('href')).includes('etapa=1'));
+  await page.goto(host+'/manual.html?dia=1',{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('.manual-day-focus'),{timeout:12000});
+  assert.match(await page.locator('.manual-day-focus').innerText(),/Dia 1/);
+  assert.equal(await page.locator('#manualDay').inputValue(),'1');
+  assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('bishunManualV8')).visitedDays.includes(1)),'Dia consultado deve ser registrado');
   await page.goto(host+'/historico.html',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#releaseHistory .release-entry'),{timeout:12000});
-  assert.match(await page.locator('[data-bishun-version]').first().innerText(),/8\.1\.0/);
+  assert.match(await page.locator('[data-bishun-version]').first().innerText(),/8\.1\.1/);
   assert.deepEqual(errors,[],'Erros JS na versão '+width);await context.close();
  }
  console.log(JSON.stringify({ok:true,viewports:[390,1440],nativeHtml:true,atlas:410,characters:164,search:true,matrix:410,links:true,PDF:false}));
