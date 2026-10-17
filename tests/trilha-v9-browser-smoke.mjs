@@ -35,6 +35,7 @@ assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('bishunTrilhaV
 await page.locator('#pathHelp summary').click();
 await page.locator('.path-help-char').first().waitFor({state:'visible',timeout:15000});
 assert.ok(await page.locator('#pathHelpBody a[href^="manual.html"]').count()>0,'Material original não integrado à lição');
+await page.locator('.path-lesson-picker summary').click();
 await page.locator('#pathLessonSelect').selectOption('33');
 await page.waitForFunction(()=>document.querySelector('#pathTitle').textContent.includes('Ampliar a leitura'),{timeout:10000});
 assert.match(await page.locator('#pathPosition').innerText(),/Etapa 2/);
