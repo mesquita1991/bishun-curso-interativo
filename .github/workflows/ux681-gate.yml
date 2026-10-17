@@ -77,3 +77,4 @@ jobs:
           node tests/unit-study-browser-smoke.mjs
           node tests/site-design-browser-smoke.mjs
           node tests/manual-browser-smoke.mjs
+          node tests/trilha-v9-browser-smoke.mjs

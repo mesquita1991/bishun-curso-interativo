@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
-const pages=['index.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','historico.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
+const pages=['index.html','trilha.html','manual.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','historico.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
 const port=4182,origin='http://127.0.0.1:'+port,server=spawn('python3',['-m','http.server',String(port)],{stdio:'ignore'});
 let browser;
 try{
@@ -13,7 +13,7 @@ try{
   const context=await browser.newContext({viewport:{width,height:860},serviceWorkers:'block'});
   const page=await context.newPage(),faults=[];
   page.on('pageerror',e=>faults.push(e.message));
-  const all=width===768?['index.html','estudar.html','mapa.html','etapa-1.html','laboratorio.html']:pages;
+  const all=width===768?['index.html','trilha.html','estudar.html','mapa.html','etapa-1.html','laboratorio.html']:pages;
   for(const path of all){
    faults.length=0;
    await page.goto(origin+'/'+path,{waitUntil:'load',timeout:30000});
@@ -29,7 +29,7 @@ try{
     assert.ok(await toggle.isVisible(),'Menu button missing '+path);
     await toggle.click();
     assert.equal(await page.locator('.site-mobile-menu nav a:visible').count(),7,'Mobile menu missing links '+path);
-    assert.equal(await page.locator('.site-mobile-menu nav a[aria-current="page"]').count(),['index.html','estudar.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html'].includes(path)?1:0);
+    assert.equal(await page.locator('.site-mobile-menu nav a[aria-current="page"]').count(),['index.html','trilha.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html'].includes(path)?1:0);
     await toggle.click();
    }else{
     assert.ok(await page.locator('nav.topnav').isVisible(),'Desktop menu must be visible '+path);

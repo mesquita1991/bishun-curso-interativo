@@ -1,13 +1,13 @@
 import fs from 'node:fs';import assert from 'node:assert/strict';
 const read=p=>fs.readFileSync(p,'utf8');
-const pages=['index.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','historico.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
-const targets=['./','estudar.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html'];
-const labels=['Início','Minha unidade','Etapas','Escrita','Consultar','Revisão','Biblioteca'];
+const pages=['index.html','trilha.html','manual.html','estudar.html','mapa.html','base.html','imersao.html','validacao.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html','historico.html',...Array.from({length:9},(_,i)=>'etapa-'+(i+1)+'.html')];
+const targets=['./','trilha.html','mapa.html','laboratorio.html','catalogo.html','avaliacao.html','aulas.html'];
+const labels=['Início','Aprender','Etapas','Escrita','Consultar','Revisão','Biblioteca'];
 const shell=new Set(),footers=new Set(),broken=[],pageMeta=[];
 function navLinks(html,pattern){const m=html.match(pattern);assert.ok(m,'Missing navigation');return [...m[1].matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g)].map(x=>({href:x[1],name:x[2]}))}
 for(const file of pages){
  const html=read(file);
- assert.ok(html.includes('<body class="bishun-site">'),'Shared body absent: '+file);
+ assert.ok(html.includes('<body class="bishun-site'),'Shared body absent: '+file);
  assert.ok(html.includes('interface.css?v=7.1.0'),'Shared design stylesheet absent: '+file);
  assert.equal((html.match(/<header class="topbar site-header">/g)||[]).length,1,'Duplicated or missing header: '+file);
  assert.equal((html.match(/<footer class="foot site-footer">/g)||[]).length,1,'Duplicated or missing footer: '+file);
@@ -37,9 +37,9 @@ assert.equal(shell.size,1,'Header navigation differs between pages');
 assert.equal(footers.size,1,'Footers differ between pages');
 assert.deepEqual(broken,[],'Some local links have no file destination');
 assert.ok(!read('interface.css').includes('@import'),'Design system must not require a remote font');
-const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'8.1.1');
+const pkg=JSON.parse(read('package.json'));assert.equal(pkg.version,'9.0.0');
 assert.equal(JSON.parse(read('release-manifest.json')).version,pkg.version);
-assert.ok(read('sw.js').includes('bishun-offline-8.1.1'),'Cache version must be updated');
+assert.ok(read('sw.js').includes('bishun-offline-9.0.0'),'Cache version must be updated');
 assert.ok(read('sw.js').includes('./interface.css?v=7.1.0'),'Shared UI must be part of offline shell');
 assert.ok(read('estudar.html').includes('id="studentGoal"'),'Student guidance must remain');
 assert.ok(read('etapa.js').includes('Estudar esta unidade · 4 atividades'),'Existing stage links remain');

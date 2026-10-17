@@ -14,14 +14,20 @@ function studyContext(){
  if(o.stage>=1&&o.stage<=9&&o.unit>=1&&o.unit<=(o.stage<=6?30:40))return{stage:o.stage,unit:o.unit}}catch{}
  return null;
 }
-function studyUrl(context){return context?'estudar.html?etapa='+context.stage+'&unidade='+context.unit:'estudar.html'}
+function studyUrl(context){
+ const q=new URLSearchParams(location.search);
+ if(q.has('etapa')&&q.has('unidade')&&context)return 'estudar.html?etapa='+context.stage+'&unidade='+context.unit;
+ try{const r=JSON.parse(localStorage.getItem('bishunTrilhaV90')||'{}');const id=Math.max(1,Number(r.lastLesson)||1);return 'trilha.html?licao='+id;}catch{return 'trilha.html'}
+}
 function trainingUrl(context,char){return 'laboratorio.html'+(context?'?etapa='+context.stage+'&unidade='+context.unit+(char?'&caractere='+encodeURIComponent(char):''):'')}
 function renderStudyBridge(){
  const context=studyContext(),status=$('manualBridgeStatus'),study=$('manualBridgeStudy'),writing=$('manualBridgeWriting');
  if(!status||!study||!writing)return;
- status.textContent=context?'Etapa '+context.stage+' · Unidade '+String((context.stage<=6?(context.stage-1)*30:180+(context.stage-7)*40)+context.unit).padStart(3,'0')+' — continue de onde parou.':'Pronto para começar? A primeira unidade espera por você.';
- study.href=studyUrl(context);study.textContent=context?'Continuar minha unidade →':'Começar unidade 1 →';
- writing.href=trainingUrl(context);
+ let track=1;
+ try{const r=JSON.parse(localStorage.getItem('bishunTrilhaV90')||'{}');track=Math.max(1,Number(r.lastLesson)||1)}catch{}
+ status.textContent='Sua trilha · lição '+track+'. Continue quando estiver pronto.';
+ study.href=studyUrl(context);study.textContent='Continuar minha lição →';
+ writing.href='trilha.html?licao='+track+'&passo=escrever';
  const hero=$('manualHeroStudy');if(hero)hero.href=studyUrl(context);
 }
 const norm=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();

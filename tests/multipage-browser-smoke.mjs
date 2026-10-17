@@ -10,6 +10,7 @@ try{
   page.on('pageerror',e=>failures.push(e.message));page.on('request',r=>requests.push(new URL(r.url()).pathname));
   await page.goto(url+'/',{waitUntil:'domcontentloaded',timeout:30000});
   assert.match(await page.locator('h1').innerText(),/Aprenda mandarim/);
+  assert.ok(await page.locator('a[href="trilha.html"]').count()>0,'Trilha não é apresentada na entrada');
   assert.equal(await page.locator('nav.topnav a').count(),7,'Unified header must have seven consistent links');
   assert.equal(requests.filter(x=>/stage-\d+\.json|full-course\.js|post-standard\.js|mastery-v6\.js|hanzi-writer/.test(x)).length,0,'Heavy modules must not load at home');
   assert.ok((await page.evaluate(()=>document.body.scrollWidth))<=width+2,'Home horizontal overflow '+width);

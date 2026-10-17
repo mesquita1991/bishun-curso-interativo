@@ -1,8 +1,20 @@
 {
   "schema": 1,
-  "current": "8.1.1",
+  "current": "9.0.0",
   "updated": "2026-10-17",
   "entries": [
+    {
+      "version": "9.0.0",
+      "date": "2026-10-17",
+      "title": "Uma trilha única para aprender",
+      "changes": [
+        "Novo percurso principal com uma atividade visível por vez, partindo de situações do cotidiano.",
+        "32 lições iniciais reorganizam os 300 caracteres da primeira etapa; as outras 270 unidades continuam no percurso.",
+        "Conteúdo existente reutilizado em reconhecimento, vocabulário, prática de escrita e avaliações espaçadas.",
+        "Manual contextual incorporado à lição; histórico antigo preservado e disponível para consulta."
+      ],
+      "scope": "Reorganização pedagógica da experiência principal; desempenho avaliado por atividade, sem promessa de fluência."
+    },
     {
       "version": "8.1.1",
       "date": "2026-10-17",

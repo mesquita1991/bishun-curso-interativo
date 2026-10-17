@@ -54,8 +54,8 @@ try{
   assert.ok(await page.locator('#unitManualLinks a').count()>=3,'Unidade não oferece as referências contextuais');
   await page.goto(host+'/manual.html?pagina=2',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
-  assert.match(await page.locator('#manualBridgeStatus').innerText(),/Etapa 1 · Unidade 001/i);
-  assert.ok((await page.locator('#manualBridgeStudy').getAttribute('href')).includes('etapa=1'));
+  assert.match(await page.locator('#manualBridgeStatus').innerText(),/Sua trilha · lição 1/i);
+  assert.ok((await page.locator('#manualBridgeStudy').getAttribute('href')).includes('trilha.html?licao=1'));
   await page.goto(host+'/manual.html?dia=1',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('.manual-day-focus'),{timeout:12000});
   assert.match(await page.locator('.manual-day-focus').innerText(),/Dia 1/);
