@@ -1,9 +1,16 @@
-import {chromium} from 'playwright';import {spawn} from 'node:child_process';import assert from 'node:assert/strict';
+import {chromium} from 'playwright';import http from 'node:http';import path from 'node:path';import assert from 'node:assert/strict';
 import fs from 'node:fs';
-const origin='http://127.0.0.1:4190',server=spawn('python3',['-m','http.server','4190'],{stdio:'ignore'});
+const server=http.createServer((req,res)=>{
+ const location=new URL(req.url,'http://127.0.0.1'),target=path.resolve(process.cwd(),'.'+decodeURIComponent(location.pathname));
+ if(!target.startsWith(process.cwd()+path.sep)||!fs.existsSync(target)||!fs.statSync(target).isFile()){res.writeHead(404);res.end('Arquivo não encontrado');return}
+ const type=target.endsWith('.json')?'application/json':target.endsWith('.js')?'text/javascript':target.endsWith('.css')?'text/css':'text/html';
+ res.writeHead(200,{'Content-Type':type+'; charset=utf-8','Cache-Control':'no-store'});fs.createReadStream(target).pipe(res);
+});
 let browser;try{
-let online=false;for(let i=0;i<80;i++){try{if((await fetch(origin+'/trilha-v9.json')).ok){online=true;break}}catch{}await new Promise(r=>setTimeout(r,125))}
-assert.ok(online,'Servidor de teste não iniciou');const data=JSON.parse(fs.readFileSync('trilha-v9.json','utf8'));
+ await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve)});
+ const origin='http://127.0.0.1:'+server.address().port;
+ assert.ok((await fetch(origin+'/trilha-v9.json')).ok,'Servidor de teste não iniciou');
+ const data=JSON.parse(fs.readFileSync('trilha-v9.json','utf8'));
 browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 for(const width of [390,1440]){const context=await browser.newContext({viewport:{width,height:850},serviceWorkers:'block'}),page=await context.newPage(),errors=[],requests=[];
 page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(new URL(r.url()).pathname));
@@ -36,4 +43,4 @@ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWid
 assert.deepEqual(errors,[],'Erro JavaScript em '+width+'px');
 await context.close()}
 console.log(JSON.stringify({ok:true,viewports:[390,1440],lessons:302,stageFetches:0,coreNavigation:true,inContextHelp:true,semanticProgress:true}))
-}finally{await browser?.close();server.kill('SIGTERM')}
+}finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}
