@@ -1,0 +1,648 @@
+{
+  "version": 1,
+  "source": "manual-texto-inicio-01.json (semanas 1–8), manual-texto-inicio-02.json (semanas 9–12 e dias 85–90); itens vinculados aos arquivos data/stage-1.json a data/stage-9.json",
+  "method": "Objetivo comunicativo semanal prioritário; vocabulário, caracteres e registros de gramática apenas quando existentes no currículo integral. Frases e exercícios didaticamente adaptados das atividades do manual; nenhuma competência ou pontuação HSK é inferida.",
+  "weeks": [
+    {
+      "title": "Cumprimentar e se apresentar",
+      "goal": "Cumprimentar, dizer nome e origem e fazer perguntas equivalentes.",
+      "characters": [
+        "我",
+        "你",
+        "好",
+        "叫",
+        "名",
+        "字",
+        "是",
+        "中"
+      ],
+      "words": [
+        "我",
+        "你",
+        "叫",
+        "名字",
+        "是",
+        "人",
+        "中国",
+        "中文",
+        "什么",
+        "哪里",
+        "学",
+        "谢谢",
+        "再见"
+      ],
+      "grammar": [
+        36,
+        33,
+        4
+      ],
+      "models": [
+        "你好！",
+        "我叫安娜。",
+        "你叫什么名字？"
+      ],
+      "tasks": [
+        "Ouvir e repetir tons e saudações, conferindo a pronúncia.",
+        "Fazer perguntas sobre nome e origem sem consultar o texto.",
+        "Gravar uma apresentação e duas perguntas em 30–45 segundos."
+      ],
+      "assessment": "Apresentar-se e perguntar nome e origem a outra pessoa sem ler.",
+      "week": 1,
+      "manualPage": 6,
+      "days": [
+        1,
+        7
+      ]
+    },
+    {
+      "title": "Pessoas, família e profissão",
+      "goal": "Descrever pessoas e perguntar sobre família, vínculos e trabalho.",
+      "characters": [
+        "他",
+        "她",
+        "朋",
+        "友",
+        "老",
+        "师",
+        "医",
+        "生"
+      ],
+      "words": [
+        "他",
+        "她",
+        "朋友",
+        "老师",
+        "医生",
+        "家",
+        "爸爸",
+        "妈妈",
+        "哥哥",
+        "妹妹",
+        "工作",
+        "有",
+        "没有",
+        "的",
+        "这"
+      ],
+      "grammar": [
+        5,
+        20,
+        37
+      ],
+      "models": [
+        "我是医生。",
+        "这是我的朋友。",
+        "我没有妹妹。"
+      ],
+      "tasks": [
+        "Descrever duas pessoas com nome, relação e profissão.",
+        "Alternar 有 e 没有 em quatro respostas pessoais.",
+        "Gravar 45–60 segundos de apresentação de pessoas."
+      ],
+      "assessment": "Construir quatro frases verdadeiras sobre pessoas e fazer duas perguntas.",
+      "week": 2,
+      "manualPage": 7,
+      "days": [
+        8,
+        14
+      ]
+    },
+    {
+      "title": "Rotina e horários",
+      "goal": "Informar horário, local e sequência de atividades habituais.",
+      "characters": [
+        "今",
+        "天",
+        "明",
+        "早",
+        "晚",
+        "起",
+        "床",
+        "学"
+      ],
+      "words": [
+        "今天",
+        "明天",
+        "昨天",
+        "现在",
+        "早上",
+        "晚上",
+        "起床",
+        "上班",
+        "学习",
+        "喝",
+        "看",
+        "书"
+      ],
+      "grammar": [
+        12,
+        16,
+        44
+      ],
+      "models": [
+        "我每天学中文。",
+        "我八点起床。",
+        "你几点起床？"
+      ],
+      "tasks": [
+        "Descrever quatro ações diárias em ordem temporal.",
+        "Ouvir horas e informar dois horários pessoais.",
+        "Gravar 60 segundos de rotina e recontar sem roteiro."
+      ],
+      "assessment": "Relatar a própria rotina com quatro verbos e ao menos dois horários.",
+      "week": 3,
+      "manualPage": 8,
+      "days": [
+        15,
+        21
+      ]
+    },
+    {
+      "title": "Comida, preferências e pedidos",
+      "goal": "Pedir comida ou bebida, perguntar preços e expressar preferências.",
+      "characters": [
+        "吃",
+        "喝",
+        "茶",
+        "水",
+        "喜",
+        "欢",
+        "不",
+        "买"
+      ],
+      "words": [
+        "吃",
+        "喝",
+        "茶",
+        "咖啡",
+        "水",
+        "喜欢",
+        "不",
+        "想",
+        "要",
+        "贵",
+        "买",
+        "菜"
+      ],
+      "grammar": [
+        3,
+        8,
+        43,
+        47
+      ],
+      "models": [
+        "我喜欢喝茶。",
+        "我想要一杯水。",
+        "多少钱？"
+      ],
+      "tasks": [
+        "Dizer três preferências e duas recusas usando 不.",
+        "Simular dois pedidos com bebida, quantidade e preço.",
+        "Responder sem roteiro a três perguntas de compra."
+      ],
+      "assessment": "Fazer dois pedidos, perguntar preço e rejeitar educadamente uma opção.",
+      "week": 4,
+      "manualPage": 9,
+      "days": [
+        22,
+        28
+      ]
+    },
+    {
+      "title": "Lugares, localização e direções",
+      "goal": "Perguntar onde ficam lugares e compreender orientações simples.",
+      "characters": [
+        "在",
+        "哪",
+        "里",
+        "这",
+        "家",
+        "校",
+        "医",
+        "走"
+      ],
+      "words": [
+        "在",
+        "哪里",
+        "这里",
+        "那里",
+        "家",
+        "学校",
+        "医院",
+        "商店",
+        "公园",
+        "左",
+        "右",
+        "走",
+        "近",
+        "远",
+        "书店",
+        "有"
+      ],
+      "grammar": [
+        1,
+        16,
+        70
+      ],
+      "models": [
+        "医院在哪里？",
+        "我在家。",
+        "往左走。"
+      ],
+      "tasks": [
+        "Localizar três lugares usando 在 e 这里.",
+        "Ouvir e apontar esquerda e direita, sem tradução.",
+        "Simular pedido de direção e confirmação do destino."
+      ],
+      "assessment": "Pedir direções para três locais e compreender uma resposta simples.",
+      "week": 5,
+      "manualPage": 10,
+      "days": [
+        29,
+        35
+      ]
+    },
+    {
+      "title": "Habilidade, possibilidade e permissão",
+      "goal": "Distinguir saber fazer, possibilidade e permissão ao falar.",
+      "characters": [
+        "会",
+        "能",
+        "可",
+        "以",
+        "帮",
+        "说",
+        "想",
+        "不"
+      ],
+      "words": [
+        "会",
+        "能",
+        "可以",
+        "帮",
+        "帮忙",
+        "说",
+        "中文",
+        "一点儿",
+        "今天",
+        "游泳",
+        "拍照",
+        "想",
+        "明天"
+      ],
+      "grammar": [
+        2,
+        49,
+        33
+      ],
+      "models": [
+        "我会说一点儿中文。",
+        "我今天不能去。",
+        "你能帮我吗？"
+      ],
+      "tasks": [
+        "Produzir três frases de capacidade com 会.",
+        "Distinguir 能 e 可以 em situações concretas.",
+        "Pedir ajuda e permissão em um diálogo de 90 segundos."
+      ],
+      "assessment": "Explicar uma habilidade, uma limitação e pedir permissão.",
+      "week": 6,
+      "manualPage": 11,
+      "days": [
+        36,
+        42
+      ]
+    },
+    {
+      "title": "Convites, horários e encontros",
+      "goal": "Convidar, aceitar, recusar e reagendar um encontro.",
+      "characters": [
+        "见",
+        "今",
+        "天",
+        "明",
+        "时",
+        "间",
+        "对",
+        "起"
+      ],
+      "words": [
+        "今天",
+        "明天",
+        "见",
+        "见面",
+        "时间",
+        "可以",
+        "对不起",
+        "没关系",
+        "晚",
+        "迟到",
+        "改",
+        "约",
+        "我们"
+      ],
+      "grammar": [
+        44,
+        49,
+        33
+      ],
+      "models": [
+        "你今天有空吗？",
+        "几点见？",
+        "三点可以吗？"
+      ],
+      "tasks": [
+        "Convidar e oferecer dois horários alternativos.",
+        "Escrever um convite e uma recusa cortês.",
+        "Simular reagendamento e corrigir dúvidas de horário."
+      ],
+      "assessment": "Concluir um convite com aceitação ou recusa e horário definido.",
+      "week": 7,
+      "manualPage": 12,
+      "days": [
+        43,
+        49
+      ]
+    },
+    {
+      "title": "Ontem, eventos e experiências",
+      "goal": "Relatar acontecimentos concluídos e distinguir experiência de ocorrência.",
+      "characters": [
+        "昨",
+        "天",
+        "去",
+        "过",
+        "了",
+        "没",
+        "做",
+        "工"
+      ],
+      "words": [
+        "昨天",
+        "去",
+        "过",
+        "了",
+        "没",
+        "没有",
+        "公园",
+        "中国",
+        "吃",
+        "做",
+        "工作",
+        "以前",
+        "经历",
+        "旅行"
+      ],
+      "grammar": [
+        21,
+        40,
+        80
+      ],
+      "models": [
+        "我昨天去了公园。",
+        "我去过中国。",
+        "我没去过中国。"
+      ],
+      "tasks": [
+        "Relatar três fatos de ontem sem repetir automaticamente 了.",
+        "Distinguir 了 de 过 e negar uma experiência com 没…过.",
+        "Gravar 90 segundos e corrigir os erros aspectuais."
+      ],
+      "assessment": "Relatar três eventos e duas experiências, com uma negação adequada.",
+      "week": 8,
+      "manualPage": 13,
+      "days": [
+        50,
+        56
+      ]
+    },
+    {
+      "title": "Opiniões e motivos",
+      "goal": "Expressar opiniões, justificativas e contrastes simples.",
+      "characters": [
+        "觉",
+        "得",
+        "为",
+        "什",
+        "么",
+        "因",
+        "但",
+        "是"
+      ],
+      "words": [
+        "觉得",
+        "为什么",
+        "因为",
+        "但是",
+        "喜欢",
+        "有意思",
+        "难",
+        "容易",
+        "中文",
+        "中国",
+        "学习",
+        "继续",
+        "比较",
+        "认为"
+      ],
+      "grammar": [
+        53,
+        78,
+        39
+      ],
+      "models": [
+        "我觉得中文很有意思。",
+        "你为什么学中文？",
+        "因为我想去中国。"
+      ],
+      "tasks": [
+        "Dizer três opiniões e justificá-las com 因为.",
+        "Contrastar preferências usando 但是.",
+        "Gravar uma resposta pessoal de 90 segundos sobre estudar chinês."
+      ],
+      "assessment": "Responder por que estuda mandarim, o que considera difícil e como pretende continuar.",
+      "week": 9,
+      "manualPage": 14,
+      "days": [
+        57,
+        63
+      ]
+    },
+    {
+      "title": "Comparar, descrever e escolher",
+      "goal": "Comparar opções e justificar escolhas.",
+      "characters": [
+        "比",
+        "更",
+        "最",
+        "贵",
+        "便",
+        "宜",
+        "哪",
+        "好"
+      ],
+      "words": [
+        "比",
+        "更",
+        "最",
+        "贵",
+        "便宜",
+        "好",
+        "热",
+        "冷",
+        "买",
+        "喜欢",
+        "选择"
+      ],
+      "grammar": [
+        18,
+        38,
+        61
+      ],
+      "models": [
+        "这个比那个贵。",
+        "今天比昨天热。",
+        "哪个更好？"
+      ],
+      "tasks": [
+        "Comparar preços e temperaturas usando 比.",
+        "Dizer qual das duas alternativas prefere, empregando 更.",
+        "Gravar uma comparação entre duas escolhas e explicar por quê."
+      ],
+      "assessment": "Comparar duas cidades, pratos ou transportes usando 比, 更 e 因为.",
+      "week": 10,
+      "manualPage": 15,
+      "days": [
+        64,
+        70
+      ]
+    },
+    {
+      "title": "Resolver falhas na comunicação",
+      "goal": "Pedir repetição, esclarecimento e ajuda em mandarim.",
+      "characters": [
+        "请",
+        "再",
+        "说",
+        "慢",
+        "一",
+        "点",
+        "听",
+        "懂"
+      ],
+      "words": [
+        "请",
+        "再",
+        "说",
+        "慢",
+        "一点儿",
+        "听",
+        "懂",
+        "写",
+        "帮忙",
+        "对不起",
+        "没关系"
+      ],
+      "grammar": [
+        34,
+        59,
+        46
+      ],
+      "models": [
+        "请再说一遍。",
+        "我听不懂。",
+        "这个词是什么意思？"
+      ],
+      "tasks": [
+        "Praticar pedidos de repetição e fala mais lenta.",
+        "Ouvir uma frase desconhecida e pedir explicação em chinês.",
+        "Encenar e reparar duas falhas de compreensão."
+      ],
+      "assessment": "Resolver duas incompreensões sem mudar automaticamente para o português.",
+      "week": 11,
+      "manualPage": 16,
+      "days": [
+        71,
+        77
+      ]
+    },
+    {
+      "title": "Conversa integrada",
+      "goal": "Articular identidade, rotina, preferências, passado e planos em conversa.",
+      "characters": [
+        "我",
+        "你",
+        "昨",
+        "明",
+        "觉",
+        "得",
+        "旅",
+        "行"
+      ],
+      "words": [
+        "最近",
+        "怎么样",
+        "我",
+        "你",
+        "学习",
+        "昨天",
+        "明天",
+        "下个月",
+        "旅行",
+        "觉得",
+        "因为",
+        "但是",
+        "再见",
+        "聊"
+      ],
+      "grammar": [
+        39,
+        22,
+        53
+      ],
+      "models": [
+        "最近怎么样？",
+        "我每天学一点儿中文。",
+        "我们可以再聊吗？"
+      ],
+      "tasks": [
+        "Retomar nome, família, rotina, passado e futuro em respostas curtas.",
+        "Produzir cinco perguntas diferentes e cinco respostas.",
+        "Simular uma conversa de 2–3 minutos e corrigir três erros prioritários."
+      ],
+      "assessment": "Sustentar 2–3 minutos de conversa com cinco perguntas e cinco respostas.",
+      "week": 12,
+      "manualPage": 17,
+      "days": [
+        78,
+        84
+      ]
+    }
+  ],
+  "closing": [
+    {
+      "day": 85,
+      "task": "Reouvir dois textos já trabalhados e identificar cinco informações sem olhar o pinyin."
+    },
+    {
+      "day": 86,
+      "task": "Ler ou ouvir material novo do mesmo nível e responder quem, onde, o quê, quando e por quê."
+    },
+    {
+      "day": 87,
+      "task": "Gravar apresentação, rotina e experiência durante dois minutos sem roteiro integral."
+    },
+    {
+      "day": 88,
+      "task": "Realizar conversa real ou simulada de 2–3 minutos e pedir esclarecimento quando necessário."
+    },
+    {
+      "day": 89,
+      "task": "Revisitar dez itens difíceis e registrar o que ainda causa confusão."
+    },
+    {
+      "day": 90,
+      "task": "Refazer avaliação por competências e definir prioridades para as quatro semanas seguintes."
+    }
+  ]
+}
