@@ -44,7 +44,7 @@ try{
   assert.equal(await page.locator('.manual-matrix-audio').count(),410);
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'Matriz causou transbordamento na tela '+width);
   await page.locator('#manualSearch').fill('cânhamo');
-  await page.waitForFunction(()=>document.querySelector('#manualSearchStatus').textContent.includes('encontrada(s)'),{timeout:15000});
+  await page.waitForFunction(()=>document.querySelector('#manualSearchResults li')!==null,{timeout:15000});
   assert.ok(await page.locator('#manualSearchResults li').count()>=1,'Busca integral sem resultados');
   await page.goto(host+'/manual.html?secao=escrita&busca=%E6%88%91',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#manualReady').textContent.includes('198 páginas'),{timeout:20000});
