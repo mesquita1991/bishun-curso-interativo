@@ -63,7 +63,7 @@ try{
   assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('bishunManualV8')).visitedDays.includes(1)),'Dia consultado deve ser registrado');
   await page.goto(host+'/historico.html',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#releaseHistory .release-entry'),{timeout:12000});
-  assert.match(await page.locator('[data-bishun-version]').first().innerText(),/8\.1\.1/);
+  assert.match(await page.locator('[data-bishun-version]').first().innerText(),/9\.0\.0/);
   assert.deepEqual(errors,[],'Erros JS na versão '+width);await context.close();
  }
  console.log(JSON.stringify({ok:true,viewports:[390,1440],nativeHtml:true,atlas:410,characters:164,search:true,matrix:410,links:true,PDF:false}));
