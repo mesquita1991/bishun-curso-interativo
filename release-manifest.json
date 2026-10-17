@@ -1,6 +1,6 @@
 {
   "version": "7.2.1",
-  "generatedAt": "2026-10-16T23:58:00Z",
+  "generatedAt": "2026-10-17T12:12:00Z",
   "baseCommit": "5e2833c37afd56cb15099463b293e25811ee00e8",
   "rollbackLayer": [
     "ux-6.8.0.css?v=6.8.0",
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "index.html",
-      "bytes": 9846,
-      "sha256": "bd80b2ada14740b78158640bd096f0ca3aa8da24f7ce50bca3e957983e43c710"
+      "bytes": 9816,
+      "sha256": "8ba10a50f6d54a5ad508e51a76867daabc65a2a4dec0729ceae1ae8cc868a231"
     },
     {
       "path": "styles.css",
@@ -259,8 +259,8 @@
     },
     {
       "path": "base.html",
-      "bytes": 6137,
-      "sha256": "638f3cf74b76e912cc42cfbfb327de6102421cbd598ea2c186de240ff3daaf59"
+      "bytes": 6513,
+      "sha256": "350e49b97256a9d55a71d636133a150fc8a48b7b5594523df4bd9b99d5967397"
     },
     {
       "path": "imersao.html",
@@ -359,8 +359,8 @@
     },
     {
       "path": "laboratorio.html",
-      "sha256": "ec6ec46499550a52c59da4d84416d93d4d1cf01511e71bbd1e991e79f41f0880",
-      "bytes": 6157
+      "bytes": 6491,
+      "sha256": "26f180181456c23a2ab7609175f1dbd8ef061ed193fa04e14840809a8ac0c0e5"
     },
     {
       "path": "laboratorio.js",
@@ -369,8 +369,8 @@
     },
     {
       "path": "catalogo.html",
-      "sha256": "6b586a13f0fb9c175d5f3237012343101fdaf3005ac4914897b98e9e9a910515",
-      "bytes": 4498
+      "bytes": 4926,
+      "sha256": "1e18a750db66699ff44e5e6ca01ecf721621f846aee80d23d98fab953fa6c9d7"
     },
     {
       "path": "catalogo.js",
@@ -379,8 +379,8 @@
     },
     {
       "path": "avaliacao.html",
-      "sha256": "647aa23142c20dd43edc308bb7dbb2824537cec6f0f7b3e0cbd9aef4bb6e41bb",
-      "bytes": 4180
+      "bytes": 4544,
+      "sha256": "7b44a5003a1470e182fd3f1ee4b1e9284569f2b9a57d03699198bd44ee3c945d"
     },
     {
       "path": "avaliacao.js",
@@ -389,8 +389,8 @@
     },
     {
       "path": "aulas.html",
-      "sha256": "383ef07a2fb67b9afc2b9331c52997a7da533d533db1b43b29da1e17969f3486",
-      "bytes": 3630
+      "bytes": 4045,
+      "sha256": "032a1b4c7577efa3cfed06535c364dfe65dd2aa5b2858c4223cb306b644f4776"
     },
     {
       "path": "aulas.js",
@@ -494,68 +494,143 @@
     },
     {
       "path": "manual.html",
-      "bytes": 18653,
-      "sha256": "a76f0c9636b381006581ab9a5dcad2aabb4b4dae4a94d6632bb628236441809d"
-    },
-    {
-      "path": "manual-index.json",
-      "bytes": 401874,
-      "sha256": "610cf0863577fac0a301a6b88373a1b560f2bd0897c50743e7c776074ae05241"
-    },
-    {
-      "path": "manual-assets.json",
-      "bytes": 1597,
-      "sha256": "8fed1b2d16adfceb7ed6111f4a10050b9f9073b5d1342690d26ea1856e690131"
-    },
-    {
-      "path": "assets/manual/parte-01.bin",
-      "bytes": 720000,
-      "sha256": "816006c5e8e4d9525d3aef8c88d9a0ca8c2c36f3e1d2f4c3da9183d7a8fc1344"
-    },
-    {
-      "path": "assets/manual/parte-02.bin",
-      "bytes": 720000,
-      "sha256": "04b38335623297a4373044f1e8c74db9d2d1e4d9ae4790dac5b189fb7cceefa4"
-    },
-    {
-      "path": "assets/manual/parte-03.bin",
-      "bytes": 720000,
-      "sha256": "7031b8c7e9cc45c7c13566c74c68b4543da108a8d2bc931ed96250b94ad819d6"
-    },
-    {
-      "path": "assets/manual/parte-04.bin",
-      "bytes": 720000,
-      "sha256": "96e99e5f4e7c4344862b132ae2357c3138df5c40a7a717d2565bb41f2ee3a7c0"
-    },
-    {
-      "path": "assets/manual/parte-05.bin",
-      "bytes": 720000,
-      "sha256": "b69fe49f9149cf90e90fab5d602ba16477b02ea69f044ae8dfc669ebf5560c9a"
-    },
-    {
-      "path": "assets/manual/parte-06.bin",
-      "bytes": 720000,
-      "sha256": "4e02db9b0f0a88d57edefa4af5bd32db92c4285d8df3723a7b3b435d1109ef44"
-    },
-    {
-      "path": "assets/manual/parte-07.bin",
-      "bytes": 720000,
-      "sha256": "8353da5bef0d7b8105572bc672aa7dfc4ccf4438ce5a79ae4263324ba6a7c722"
-    },
-    {
-      "path": "assets/manual/parte-08.bin",
-      "bytes": 703579,
-      "sha256": "eed16bc93314d1c8559f6b456b661926c9dfd7cb7ad3ebeefacf851c943ff621"
+      "bytes": 7115,
+      "sha256": "8a4aa98028d26e55c9335dc5d784de829aaf319388c77013da82bc9081afc1ff"
     },
     {
       "path": "tests/manual-integrity-check.mjs",
-      "bytes": 2266,
-      "sha256": "24ddb3160c2ed3c480160a654dc4a0e5abbc39e0808f212382ab8bd3da4c615e"
+      "bytes": 3764,
+      "sha256": "59307735db4604b149a5d9ca3b4212e0f36d44d9811aca48398a8910df7b613e"
     },
     {
       "path": "tests/manual-browser-smoke.mjs",
-      "bytes": 2724,
-      "sha256": "01477f81eea45415bb7ca35797485e6019758a479801692f627f77070fc0ba67"
+      "bytes": 3336,
+      "sha256": "6c3f009e94d73db445862a8c60552bd1c46807f9b07b997f8edb684e51409251"
+    },
+    {
+      "path": "manual-catalogo.json",
+      "bytes": 378282,
+      "sha256": "91f10dbfe4f57e91d8e451348fa22dd1993879ed8e9dcbfe65f9b150b1344f42"
+    },
+    {
+      "path": "manual-graficos-114-121.json",
+      "bytes": 253384,
+      "sha256": "6be86b8135cc7e4f44842f0c8d9586b833d246b70963f5101a7f50b4e5d16c2c"
+    },
+    {
+      "path": "manual-graficos-122-129.json",
+      "bytes": 180324,
+      "sha256": "54bb95bcab9690668ce19ac7fe315b84245c01dcb6d35a33dfd2ed413b123ed3"
+    },
+    {
+      "path": "manual-graficos-130-137.json",
+      "bytes": 158596,
+      "sha256": "5855e6643d24ad865985f1f0b5d98010d0e8ffb474687a39fc06848a46f98b0c"
+    },
+    {
+      "path": "manual-graficos-138-145.json",
+      "bytes": 120140,
+      "sha256": "211f11468d25d5c1865dd5b8f11d768ec1ceac1da10b34419fe118fb339b8498"
+    },
+    {
+      "path": "manual-graficos-146-153.json",
+      "bytes": 115812,
+      "sha256": "8305638177e19703e9cfc0350cc90c3214f9d556a1a2554f66092dd53511485b"
+    },
+    {
+      "path": "manual-graficos-154-161.json",
+      "bytes": 128004,
+      "sha256": "5e81c8c0d167d14f9f8dde1862cf70bfd4989efa66c58016e9fa13e07b77c74a"
+    },
+    {
+      "path": "manual-graficos-162-169.json",
+      "bytes": 138360,
+      "sha256": "8c5d98b988facffb52065485b9211ecc17fc5e047f4c9aa7addf37030a12bae2"
+    },
+    {
+      "path": "manual-graficos-170-177.json",
+      "bytes": 153816,
+      "sha256": "b0271ff826f6cd59e1680ad8937c7ff72cafce9379163b9b5f53998994c8e6a1"
+    },
+    {
+      "path": "manual-graficos-178-185.json",
+      "bytes": 170008,
+      "sha256": "43c84b127370b03cb88cc0d5669855a61a09dd0e7082c1fbf3ca2e01864570c6"
+    },
+    {
+      "path": "manual-graficos-186-193.json",
+      "bytes": 191760,
+      "sha256": "62ba14c7c8d8649d998742f907b7784f5dab1527d5798b342123c6bd1d3c53b4"
+    },
+    {
+      "path": "manual-graficos-194-198.json",
+      "bytes": 689625,
+      "sha256": "da3056ea137f21cdee0bb13744e0fe227eef8c57bf41ee4efcd9900b3ec91515"
+    },
+    {
+      "path": "manual-texto-atlas-01.json",
+      "bytes": 262843,
+      "sha256": "a98c0259d38b4ce6bb6830f3bf78ffe80fe016bd10dac03a84097ef00a99179e"
+    },
+    {
+      "path": "manual-texto-atlas-02.json",
+      "bytes": 255323,
+      "sha256": "c8af499fe4afecff6b9e203f5faf6550d57a76b2fc6b39fcbe3abf86726942a8"
+    },
+    {
+      "path": "manual-texto-atlas-03.json",
+      "bytes": 161893,
+      "sha256": "0b0b18105e8add66bf136fe133bc66b1b4c77fb34a7a61092e2f9229600d88f1"
+    },
+    {
+      "path": "manual-texto-indice-01.json",
+      "bytes": 243957,
+      "sha256": "d6c04bedb7c9efb00bca21f5acbd800578c1fb82b21a49a9e85a430801dfb4ce"
+    },
+    {
+      "path": "manual-texto-indice-02.json",
+      "bytes": 63771,
+      "sha256": "e5d3ed19790c0eef2f594ecfd06c6c0c00f6048f7f96336d0734e9e83cbd248d"
+    },
+    {
+      "path": "manual-texto-inicio-01.json",
+      "bytes": 253193,
+      "sha256": "4a54dac21295f4c07e63dceb240b21bd76b93214e0e77623e7b8b85d5adee0b2"
+    },
+    {
+      "path": "manual-texto-inicio-02.json",
+      "bytes": 254642,
+      "sha256": "89024909a240e7c4320ec2649dc3c9d8ba61187bd782ea9912c09f9b4f4858b9"
+    },
+    {
+      "path": "manual-texto-inicio-03.json",
+      "bytes": 66874,
+      "sha256": "b1b9bfe374bd58ce8499cf1e9b840f9e4442779525ef84de7c0fcc29dbeb1c49"
+    },
+    {
+      "path": "manual-texto-matriz-01.json",
+      "bytes": 128826,
+      "sha256": "3a45fabd9bbb454df464a04f7540fc71e474650a5049f3772623ccc94ef3d6bb"
+    },
+    {
+      "path": "manual-texto-tracos-01.json",
+      "bytes": 252063,
+      "sha256": "21c6aae6d11c20eef8e3fffd9cba6f2329805deb2e6de69ebb2069d148e8c783"
+    },
+    {
+      "path": "manual-texto-tracos-02.json",
+      "bytes": 17897,
+      "sha256": "fcb3a4505ea5bea771d73a337eeec952b0a4b958a6dbef6601c9bf14edd81b39"
+    },
+    {
+      "path": "manual-web.css",
+      "bytes": 8615,
+      "sha256": "ce590422bdcd5a203805430fac1eba54db5dc2f047068b4adf688f3751413bbc"
+    },
+    {
+      "path": "manual-web.js",
+      "bytes": 16904,
+      "sha256": "f830608ed16efdd7e87ea0b567fbf28a28d1fb8acf81f13f374b25d41bc3fb15"
     }
   ],
   "guidedPath": {
@@ -697,7 +772,7 @@
   "designSystem": {
     "version": "7.1.0",
     "styleSheet": "interface.css",
-    "publicPages": 19,
+    "publicPages": 20,
     "sharedNavLinks": 7,
     "accessibleMobileMenu": true,
     "sharedFooter": true,
@@ -706,12 +781,31 @@
   },
   "integratedManual": {
     "sourceFile": "Mandarim_90_dias_manual_integral_pronuncia_escrita_navegavel_PTBR(1).pdf",
-    "pdfSha256": "cdf0ffa3591edc92f2595566e7c56e4e42f99daa1c6b0d99236866846f07e199",
+    "sourceSha256": "cdf0ffa3591edc92f2595566e7c56e4e42f99daa1c6b0d99236866846f07e199",
     "pages": 198,
     "bookmarks": 176,
     "hyperlinks": 7762,
     "internalHyperlinks": 3658,
     "externalHyperlinks": 4104,
-    "copyMode": "original binary split into eight verified parts, reassembled on client with SHA-256"
+    "atlas": 410,
+    "examples": 820,
+    "characters": 164,
+    "strokeSteps": 1157,
+    "representation": "native HTML + JSON + WebP; no PDF served",
+    "pdfBinariesRemoved": true,
+    "preservedCurriculum": true,
+    "crossLinkedModules": [
+      "index.html",
+      "aulas.html",
+      "base.html",
+      "laboratorio.html",
+      "catalogo.html",
+      "avaliacao.html"
+    ],
+    "qualityGates": [
+      "tests/manual-integrity-check.mjs",
+      "tests/manual-browser-smoke.mjs"
+    ],
+    "highResolutionOriginalMatrix": true
   }
 }
