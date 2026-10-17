@@ -1,3 +1,9 @@
+# Bǐshùn 9 — Trilha pedagógica
+
+A página principal agora conduz à [trilha de aprendizagem](trilha.html): 302 lições derivadas exclusivamente dos registros existentes, sendo 32 lições iniciais organizadas na primeira etapa e 270 lições das etapas seguintes. Cada lição separa conhecer, usar, escrever e conferir. Avaliações registram reconhecimento sem confundir prática com fluência; a recuperação espaçada segue o motor original e registros históricos são preservados.
+
+Os dados originais não foram modificados. O acervo das 300 unidades anteriores permanece acessível em [mapa.html](mapa.html) e [estudar.html](estudar.html); o manual continua integral em [manual.html](manual.html). Recursos novos possuem testes de preservação, navegação e regressão.
+
 # Bǐshùn 8.1.1 — aprendizagem de mandarim
 
 - Motor compartilhado `aprendizagem-v8.js`: novas revisões não elevam domínio nem adiam vencimento quando feitas precocemente.

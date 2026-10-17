@@ -5,8 +5,8 @@
 <meta name="theme-color" content="#0b1740"><meta name="robots" content="index,follow">
 <link rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="portal.css?v=6.9.0"><link rel="stylesheet" href="jornada.css?v=7.0.1">
-<script defer src="aprendizagem-v8.js?v=8.0.0"></script><script defer src="portal.js?v=8.0.0"></script>
+<link rel="stylesheet" href="portal.css?v=6.9.0"><link rel="stylesheet" href="jornada.css?v=7.0.1"><link rel="stylesheet" href="trilha-v9.css?v=9.0.0">
+<script defer src="aprendizagem-v8.js?v=8.0.0"></script><script defer src="portal.js?v=9.0.0"></script>
 <meta property="og:type" content="website"><meta property="og:title" content="Bǐshùn — aprenda mandarim passo a passo">
 <meta property="og:description" content="Uma unidade por vez: conhecer, escrever, recordar e conferir.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Bǐshùn — Mandarim passo a passo","description":"Curso de mandarim em português com unidades progressivas, escrita de caracteres, pinyin, palavras, revisão e avaliação de significados.","inLanguage":"pt-BR","provider":{"@type":"Organization","name":"Bǐshùn"},"url":"https://mesquita1991.github.io/bishun-curso-interativo/"}</script>
@@ -15,28 +15,25 @@ if(location.hash&&!['#topo','#conteudo','#rota','#etapas','#continuidade'].inclu
 const next=new URL(window.BishunRoutes.forSection(location.hash),location.href);
 new URLSearchParams(location.search).forEach((v,k)=>next.searchParams.set(k,v));
 location.replace(next.href);
-}</script><link rel="stylesheet" href="interface.css?v=7.1.0"><link rel="stylesheet" href="plataforma.css?v=8.1.0"><script defer src="plataforma.js?v=8.1.1"></script></head>
+}</script><link rel="stylesheet" href="interface.css?v=7.1.0"><link rel="stylesheet" href="plataforma.css?v=8.1.0"><script defer src="plataforma.js?v=9.0.0"></script></head>
 <body class="bishun-site"><a class="skip" href="#conteudo">Pular para conteúdo</a>
-<header class="topbar site-header"><div class="wrap site-header-inner"><a class="brand site-brand" href="./"><span class="site-brand-name">笔顺 Bǐshùn</span><span class="site-brand-tag">Mandarim passo a passo</span></a><nav class="topnav" aria-label="Navegação principal"><a href="./" aria-current="page">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav><details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Navegação no celular"><a href="./" aria-current="page">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav></details></div></header>
+<header class="topbar site-header"><div class="wrap site-header-inner"><a class="brand site-brand" href="./"><span class="site-brand-name">笔顺 Bǐshùn</span><span class="site-brand-tag">Mandarim passo a passo</span></a><nav class="topnav" aria-label="Navegação principal"><a href="./" aria-current="page">Início</a><a href="trilha.html">Aprender</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav><details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Navegação no celular"><a href="./" aria-current="page">Início</a><a href="trilha.html">Aprender</a><a href="mapa.html">Etapas</a><a href="laboratorio.html">Escrita</a><a href="catalogo.html">Consultar</a><a href="avaliacao.html">Revisão</a><a href="aulas.html">Biblioteca</a></nav></details></div></header>
 <main id="conteudo"><div class="wrap">
-<section class="hero journey-hero" id="topo"><div class="hero-grid">
-<div><p class="eyebrow">Seu curso de mandarim em português</p><h1>Aprenda mandarim, uma unidade de cada vez.</h1>
-<p class="lead">Conheça os caracteres, escute como se pronunciam, pratique a escrita e descubra o que já consegue lembrar. Em cada unidade, você seguirá quatro passos simples.</p>
-<div class="actions"><a class="button" href="estudar.html?etapa=1&amp;unidade=1">Começar pela primeira unidade <span aria-hidden="true">→</span></a><a id="portalResume" class="button secondary" href="estudar.html">Continuar de onde parei</a></div>
-<p class="journey-small">Primeira visita? Comece pela unidade 1. Já estudou aqui? Continue de onde parou.</p></div>
-<aside class="hero-aside journey-example"><p class="eyebrow">Um exemplo da primeira unidade</p><strong lang="zh-Hans">爱</strong><p class="journey-pinyin">ài</p><h2>Amar; gostar de</h2>
-<p>Você verá este caractere, ouvirá sua pronúncia e aprenderá a escrevê-lo.</p>
-<a href="estudar.html?etapa=1&amp;unidade=1">Conhecer a primeira unidade →</a></aside>
-</div></section>
+<section class="hero journey-hero" id="topo"><div class="hero-grid"><div>
+<p class="eyebrow">Comece por uma situação real</p><h1>Aprenda mandarim em uma trilha feita para você entender.</h1>
+<p class="lead">Primeiro você aprende a cumprimentar, apresentar-se e fazer perguntas. Depois amplia seu vocabulário, pratica a escrita e verifica o que realmente lembra.</p>
+<div class="actions"><a class="button" href="trilha.html">Começar minha trilha →</a><a id="portalResume" class="button secondary" href="estudar.html">Retomar minhas unidades anteriores</a></div>
+<p class="journey-small">Seu estudo é salvo neste navegador. A avaliação mede reconhecimento e escrita, não fluência.</p>
+</div><aside class="hero-aside journey-example"><p class="eyebrow">Primeira lição</p><strong lang="zh-Hans">你好</strong><p class="journey-pinyin">nǐ hǎo</p><h2>Olá!</h2><p>Conheça os caracteres, ouça a pronúncia e tente lembrar sem consultar.</p><a href="trilha.html?licao=1">Aprender esta expressão →</a></aside></div></section>
 <section class="section journey-route" id="rota" aria-labelledby="routeTitle">
-<div class="section-heading"><div><p class="eyebrow">O seu caminho de aprendizagem</p><h2 id="routeTitle">O que fazer em cada unidade?</h2><p class="subtle">Siga os quatro passos. Se precisar, pratique novamente antes de avançar.</p></div></div>
+<div class="section-heading"><div><p class="eyebrow">O seu caminho de aprendizagem</p><h2 id="routeTitle">Como funciona uma lição?</h2><p class="subtle">Cada lição propõe quatro atividades. Você recebe uma de cada vez e pratica até conseguir avançar.</p></div></div>
 <ol class="journey-steps">
 <li><span class="journey-number">1</span><div><h3>Conhecer e ouvir</h3><p>Veja os caracteres e as palavras, leia os significados e ouça a pronúncia.</p><small>Objetivo: reconhecer o conteúdo novo.</small></div></li>
-<li><span class="journey-number">2</span><div><h3>Observar e escrever</h3><p>Veja a ordem dos traços e tente escrever três caracteres diferentes com precisão.</p><small>Objetivo: aprender como os traços formam o caractere.</small></div></li>
-<li><span class="journey-number">3</span><div><h3>Lembrar sem olhar</h3><p>Tente recordar o significado antes de revelar a resposta. Depois, diga como foi.</p><small>Objetivo: perceber o que já lembra.</small></div></li>
+<li><span class="journey-number">2</span><div><h3>Entender e usar</h3><p>Veja palavras formadas pelos caracteres e descubra como reconhecê-las.</p><small>Objetivo: ligar o que aprendeu ao vocabulário.</small></div></li>
+<li><span class="journey-number">3</span><div><h3>Observar e escrever</h3><p>Acompanhe os traços e tente escrever caracteres da lição com precisão.</p><small>Objetivo: praticar os movimentos corretos.</small></div></li>
 <li><span class="journey-number">4</span><div><h3>Conferir o que aprendeu</h3><p>Responda a dez perguntas sobre o significado dos caracteres.</p><small>Objetivo: verificar seu reconhecimento e decidir o que rever.</small></div></li>
 </ol>
-<div class="journey-summary"><div><strong>E depois?</strong><p>Veja quais passos concluiu, retome o que precisar e siga para a próxima unidade.</p></div><a class="button" href="estudar.html?etapa=1&amp;unidade=1">Iniciar minha primeira unidade →</a></div>
+<div class="journey-summary"><div><strong>E depois?</strong><p>Veja quais passos concluiu, retome o que precisar e siga para a próxima unidade.</p></div><a class="button" href="trilha.html">Ir para minha próxima lição →</a></div>
 </section>
 <section class="section" aria-labelledby="extraTitle"><p class="eyebrow">Para consultar quando precisar</p><h2 id="extraTitle">Ajuda para continuar aprendendo</h2>
 <p class="subtle">Esses materiais são complementares. Você não precisa utilizá-los todos de uma vez.</p><p class="subtle">Para atividades avançadas: <a href="imersao.html">leitura e imersão</a> · <a href="validacao.html">avaliação por competências</a>.</p>
@@ -47,8 +44,8 @@ location.replace(next.href);
 </div></section>
 <section class="section" id="manual-integral" aria-labelledby="manualTitle">
 <p class="eyebrow">Manual completo para consultar</p><h2 id="manualTitle">Pronúncia, escrita e conversação em 90 dias</h2>
-<p class="subtle">Leia e pratique diretamente no site: 90 dias de atividades, 410 combinações de pinyin, 820 exemplos, 164 caracteres e 1.157 etapas de escrita. Todas as seções, imagens e referências estão disponíveis como conteúdo web, sem leitor de PDF.</p>
-<div class="actions"><a class="button secondary" href="manual.html">Explorar o manual interativo →</a><a class="button secondary" href="historico.html">Novidades e versão atual →</a></div>
+<p class="subtle">Leia e pratique diretamente no site: atividades para 90 dias, exemplos de pronúncia em português e orientações de escrita. As explicações e ilustrações continuam disponíveis quando precisar.</p>
+<div class="actions"><a class="button secondary" href="manual.html">Consultar pronúncia e escrita →</a><a class="button secondary" href="historico.html">Novidades e versão atual →</a></div>
 </section>
 <section class="section journey-stages" id="etapas" aria-labelledby="stageTitle"><h2 id="stageTitle">Já estudou mandarim antes?</h2>
 <p class="subtle">Você pode escolher uma etapa diferente. Se está começando, a etapa 1 é o ponto de partida recomendado.</p>
@@ -65,5 +62,5 @@ location.replace(next.href);
 <p>Ao voltar a este navegador, você pode retomar a unidade e os passos registrados. Se trocar de aparelho ou apagar os dados do navegador, seu histórico poderá não estar disponível.</p>
 <p><a href="mapa.html">Ver todas as unidades →</a> · <a href="aulas.html#fontes">Consultar as fontes do curso →</a></p></section>
 </div></main>
-<footer class="foot site-footer"><div class="wrap site-footer-inner"><div><strong class="site-footer-heading">笔顺 Bǐshùn · Mandarim passo a passo</strong><p class="site-footer-description">Conheça, escreva, lembre e confira o que aprendeu. Uma unidade de cada vez.</p></div><nav class="site-footer-nav" aria-label="Links de apoio"><a href="./">Início</a><a href="estudar.html">Minha unidade</a><a href="mapa.html">Etapas</a><a href="catalogo.html">Consultar palavras</a><a href="aulas.html#fontes">Fontes do curso</a></nav><p class="site-footer-meta">Seu progresso fica neste navegador. Atividades concluídas não são uma certificação de proficiência.</p></div></footer>
+<footer class="foot site-footer"><div class="wrap site-footer-inner"><div><strong class="site-footer-heading">笔顺 Bǐshùn · Mandarim passo a passo</strong><p class="site-footer-description">Conheça, escreva, lembre e confira o que aprendeu. Uma unidade de cada vez.</p></div><nav class="site-footer-nav" aria-label="Links de apoio"><a href="./">Início</a><a href="trilha.html">Aprender</a><a href="mapa.html">Etapas</a><a href="catalogo.html">Consultar palavras</a><a href="aulas.html#fontes">Fontes do curso</a></nav><p class="site-footer-meta">Seu progresso fica neste navegador. Atividades concluídas não são uma certificação de proficiência.</p></div></footer>
 </body></html>

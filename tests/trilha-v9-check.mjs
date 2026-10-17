@@ -1,0 +1,33 @@
+import fs from 'node:fs';import assert from 'node:assert/strict';import '../aprendizagem-v8.js';
+const read=p=>fs.readFileSync(p,'utf8'),trilha=JSON.parse(read('trilha-v9.json')),meta=JSON.parse(read('data/meta.json'));
+const pkg=JSON.parse(read('package.json')),release=JSON.parse(read('release-manifest.json')),history=JSON.parse(read('atualizacoes.json'));
+assert.equal(pkg.version,'9.0.0');assert.equal(release.version,pkg.version);assert.equal(history.current,pkg.version);
+assert.equal(meta.totalUnits,300);assert.equal(trilha.version,9);assert.equal(trilha.lessons.length,302);
+assert.equal(trilha.lessons.filter(l=>l.curated).length,12);
+assert.ok(trilha.lessons.every((l,i)=>l.id===i+1&&l.characters.length>=5&&l.characters.length<=10&&l.words.length>=4&&l.name&&l.goal));
+const originals=Array.from({length:9},(_,i)=>JSON.parse(read('data/stage-'+(i+1)+'.json')));
+const seen=new Set(),sources=new Map();
+for(const d of originals)for(const c of d.characters)sources.set(d.stage+':'+c.char,c);
+for(const lesson of trilha.lessons){const stage=lesson.sourceStage;
+ for(const c of lesson.characters){const key=c.sourceStage+':'+c.char,source=sources.get(key);
+ assert.ok(source,'Caractere não proveniente do currículo: '+key);assert.equal(c.pinyin,source.pinyin);assert.equal(c.meaning,source.meaning);
+ assert.ok(originals[c.sourceStage-1].units.find(u=>u.id===c.sourceUnit)?.characters.includes(source.id),'Unidade fonte inconsistente: '+key);seen.add(key)}
+ const vocab=originals[stage-1].vocabulary;
+ for(const word of lesson.words)assert.ok(vocab.some(x=>x.hanzi===word.hanzi&&x.pinyin===word.pinyin&&x.meaning===word.meaning)||lesson.characters.some(c=>c.char===word.hanzi&&c.meaning===word.meaning),'Palavra não proveniente do acervo: '+word.hanzi);
+ for(const sent of lesson.sentences)assert.ok(originals[stage-1].sentences.some(x=>x.zh===sent.zh&&x.pt===sent.pt));
+}
+assert.equal(seen.size,3000,'Os três mil caracteres devem continuar acessíveis na trilha');
+assert.equal(trilha.lessons.filter(l=>l.sourceStage===1).length,32);
+for(let stage=2;stage<=9;stage++)assert.equal(trilha.lessons.filter(l=>l.sourceStage===stage).length,originals[stage-1].units.length);
+const home=read('index.html'),path=read('trilha.html'),app=read('trilha-v9.js'),manual=read('manual-web.js');
+assert.ok(home.includes('href="trilha.html"')&&path.includes('id="pathActivity"'));
+for(const term of ['pathLessonSelect','pathHelpBody','pathRetention','data-phase-go'])assert.ok(path.includes(term));
+assert.ok(app.includes('pathWritingFrame'),'Escrita precisa ter área interativa');
+for(const term of ['objective','writing','learning.review','sourceStage','record()','showHelp'])assert.ok(app.includes(term),'Interação indisponível: '+term);
+assert.ok(manual.includes('bishunTrilhaV90')&&read('manual.html').includes('href="trilha.html"'));
+assert.ok(read('sw.js').includes('bishun-offline-9.0.0'));
+const v8=globalThis.BishunLearning,T=1700000000000,due=T+v8.DAY;
+const rec={initialPassedAt:T,retentionDueAt:due};
+assert.equal(v8.objective(rec,10,10,T).recorded,false,'Não promover no mesmo dia');
+assert.equal(v8.objective(rec,8,10,due).recorded,true,'Avaliação em outra data');
+console.log(JSON.stringify({ok:true,version:pkg.version,lessons:trilha.lessons.length,uniqueCharacters:seen.size,sourceStages:9,curated:12,legacyUnits:meta.totalUnits}));
