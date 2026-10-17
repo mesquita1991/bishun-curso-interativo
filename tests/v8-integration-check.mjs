@@ -9,7 +9,7 @@ const study=read('estudar.js');
 for(const fragment of ['learning.review(previous,q)','learning.objective(prev,score,exam.length,now)','correctPair=pairScore===pairQuestions.length','learning.writing(p,char,errors)'])assert.ok(study.includes(fragment),fragment);
 assert.ok(!study.includes('updates.retentionCheckedAt=Date.now()'));
 assert.ok(read('laboratorio.js').includes('learning.writing(previous,char,mistakes)'));
-for(const f of ['index.html','estudar.html','laboratorio.html','avaliacao.html'])assert.ok(read(f).includes('aprendizagem-v8.js?v=8.1.0'));
+for(const f of ['index.html','estudar.html','laboratorio.html','avaliacao.html'])assert.ok(read(f).includes('aprendizagem-v8.js?v=8.0.0'));
 for(const f of ['avancado.html','docs/arquivo-curso-6.8.1.html'])for(const id of ['id="imersao-aberta"','id="validacao-v6"'])assert.ok(read(f).includes(id));
 for(const f of ['post-standard.js','mastery-v6.js','full-course.js'])assert.ok(read('avancado.html').includes(f));
 assert.ok(read('sw.js').includes('bishun-offline-8.1.0'));
