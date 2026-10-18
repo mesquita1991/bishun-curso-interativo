@@ -22,6 +22,8 @@ try{
   await page.locator('#lessonDialogue li').first().waitFor({state:'attached'});
   assert.equal(await page.locator('#lessonDialogue').isHidden(),true,'O roteiro deve começar fechado para a escuta inicial.');
   assert.equal(await page.locator('#lessonDialogue li').count(),4);
+  assert.match(await page.locator('.blank').first().getAttribute('aria-label'),/eu me chamo Ana/,'O rótulo do primeiro campo deve ser claro e em português.');
+  assert.equal(await page.locator('.blank').first().getAttribute('lang'),'pt-BR','Os campos devem usar idioma acessível correspondente ao rótulo.');
   assert.equal(await page.locator('#lessonDialogue .sound-button').count(),4);
   assert.equal(await page.locator('#answerKey[open]').count(),0,'O gabarito deve começar recolhido.');
   assert.equal(await page.locator('.tone-item').count(),4,'A extensão deve conter os quatro contornos de tom.');

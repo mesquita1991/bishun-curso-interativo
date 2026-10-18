@@ -5,7 +5,7 @@ const html=fs.readFileSync('index.html','utf8');
 const js=fs.readFileSync('autoaula.js','utf8');
 const css=fs.readFileSync('autoaula.css','utf8');
 assert.equal((html.match(/<h1\b/g)||[]).length,1,'A auto-aula deve ter um título principal.');
-assert.ok(html.includes('autoaula.js?v=4')&&html.includes('autoaula.css?v=4'),'A página deve carregar apenas a interface dedicada sem reutilizar os assets em cache.');
+assert.ok(html.includes('autoaula.js?v=5')&&html.includes('autoaula.css?v=5'),'A página deve carregar apenas a interface dedicada sem reutilizar os assets em cache.');
 for(const retired of ['single-page.js','pedagogia-semanal.js','library-lite.js','curriculum-data.js','manual-catalogo.json','didatica-12-semanas.json','remainingSummary','weekList','libraryKind'])assert.ok(!html.includes(retired),'Conteúdo legado referenciado na página: '+retired);
 for(const id of ['dialogo','pratique','tarefa','gabarito','revisao','zero-start-title','audioStatus','playDialogue','toggleDialogueText','lessonDialogue','listenTwice','showDialogue','listenAudioStatus','checkListening','listeningStatus','checkBlanks','sortableConversation','togglePinyin','pausePractice','recordStart','recordStop','rubric','answerKey','progressBar','toneSelfCheck','toneStatus'])assert.ok(html.includes(`id="${id}"`),'Elemento da auto-aula ausente: '+id);
 for(const zh of ['你好','我叫安娜','你呢','很高兴认识你','我也很高兴认识你','安娜','大卫'])assert.ok(html.includes(zh),'Conteúdo da Unidade 1 ausente: '+zh);
@@ -16,6 +16,8 @@ assert.equal((html.match(/id="audioStatus"/g)||[]).length,1,'O feedback da voz d
 assert.ok(/id="lessonDialogue" hidden/.test(html),'O texto e o pinyin devem começar fechados para permitir uma primeira escuta sem apoio visual.');
 assert.ok(/<details class="tone-lab"/.test(html),'A teoria dos quatro tons deve ficar como extensão opcional para não interromper a primeira prática comunicativa.');
 assert.equal((html.match(/data-answers="/g)||[]).length,4,'As quatro lacunas devem aceitar caractere ou pinyin.');
+assert.ok(html.includes('Complete a expressão 我叫, eu me chamo Ana')&&!html.includes('Anota me chamo Ana'),'O rótulo acessível não deve conter o erro “Anota me chamo Ana”.');
+assert.equal((html.match(/class="blank" lang="pt-BR"/g)||[]).length,4,'Os campos de resposta devem anunciar seus rótulos em português mesmo dentro do texto em chinês.');
 assert.ok(js.includes('field.dataset.answers.split')&&js.includes('if(!await speak(line))'),'A correção deve aceitar as duas formas e interromper a falsa conclusão da escuta se não houver áudio.');
 assert.ok(js.includes("phrase.includes('prazeremconhecer')"),'A compreensão aceita a tradução declarada no exercício.');
 assert.ok(!js.includes("Gabarito: Ana e Davi"),'O feedback da escuta não deve revelar respostas corretas junto com uma correção parcial.');
