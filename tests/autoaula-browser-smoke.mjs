@@ -23,6 +23,10 @@ try{
   assert.equal(await page.locator('#lessonDialogue li').count(),4);
   assert.equal(await page.locator('#lessonDialogue .sound-button').count(),4);
   assert.equal(await page.locator('#answerKey[open]').count(),0,'O gabarito deve começar recolhido.');
+  assert.equal(await page.locator('.tone-item').count(),4,'Os quatro contornos de tom devem estar visíveis.');
+  assert.equal(await page.locator('.review-item[data-review="tomorrow"] .review-day').innerText(),'D+1','As revisões só recebem datas depois da conclusão da aula.');
+  await page.getByRole('button',{name:'Marcar prática de tons como feita'}).click();
+  assert.equal(await page.locator('#toneSelfCheck').getAttribute('aria-pressed'),'true');
   await page.getByRole('button',{name:/Ocultar o diálogo e escutar duas vezes/}).click();
   assert.equal(await page.locator('#lessonDialogue').isHidden(),true,'A escuta deve ocultar o roteiro.');
   await page.getByRole('button',{name:'Mostrar roteiro depois da escuta'}).waitFor();
@@ -30,7 +34,10 @@ try{
   assert.equal(await page.locator('#lessonDialogue').isVisible(),true);
   await page.locator('#listenNames').fill('Ana e Davi');
   await page.locator('#listenWho').fill('A');
-  await page.locator('#listenPhrase').fill('hen gaoxing renshi ni');
+  await page.locator('#listenPhrase').fill('hěn gāoxìng rènshi nǐ');
+  await page.getByRole('button',{name:'Conferir compreensão'}).click();
+  assert.match(await page.locator('#listeningStatus').innerText(),/3 de 3 corretas/);
+  assert.equal(await page.locator('#listenPhrase').getAttribute('aria-invalid'),'false');
   for(const [index,value] of ['叫','呢','你','也'].entries())await page.locator('.blank').nth(index).fill(value);
   await page.getByRole('button',{name:'Conferir minhas respostas'}).click();
   assert.match(await page.locator('#blankStatus').innerText(),/4 de 4/);
@@ -47,6 +54,7 @@ try{
   for(let i=1;i<=5;i++)await page.locator(`input[name="criterion${i}"][value="1"]`).check();
   assert.match(await page.locator('#scoreBadge').innerText(),/5 \/ 5/);
   assert.match(await page.locator('#decision').innerText(),/5 pontos: avance/);
+  assert.match(await page.locator('.review-item[data-review="tomorrow"] .review-day').innerText(),/^D\+1 · /,'A data de revisão parte da conclusão da autoavaliação.');
   await page.locator('input[name="criterion1"][value="0"]').check();
   assert.match(await page.locator('#scoreBadge').innerText(),/4 \/ 5/);
   assert.match(await page.locator('#decision').innerText(),/4 pontos com os critérios 3 e 4 cumpridos/);
