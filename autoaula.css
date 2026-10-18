@@ -15,6 +15,18 @@
 @media(max-width:640px){.zero-start{grid-template-columns:32px minmax(0,1fr);gap:10px;padding:14px 12px}.zero-start-mark{width:30px;height:30px;font-size:.68rem}.zero-start h2{font-size:1.08rem}.zero-start p:not(.section-kicker){font-size:.74rem}}
 .dialogue-list[hidden]{display:none}.conversation-actions{display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.conversation-top{gap:12px}
 .audio-fallback{display:inline-block;font-size:.72rem;color:var(--blue);margin:5px 0 1px}
+.tone-preview{padding:11px 13px;margin:15px 0 0;background:#f2f3ed;border-left:2px solid #91a994;color:#56645a;font-size:.77rem;line-height:1.55}
+.tone-lab-toggle{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;list-style:none}
+.tone-lab-toggle::-webkit-details-marker{display:none}
+.tone-lab-toggle>span:first-child{display:grid;gap:3px}
+.tone-lab-toggle .section-kicker{margin:0}
+.tone-lab-toggle strong{font:500 1.2rem/1.25 var(--serif);color:#34483c}
+.tone-open-label,.tone-close-label{font-size:.72rem;color:var(--blue);font-weight:700}
+.tone-close-label{display:none}
+.tone-lab[open] .tone-open-label{display:none}
+.tone-lab[open] .tone-close-label{display:inline}
+.tone-lab-content{padding-top:15px}
+.tone-lab-heading{margin-bottom:14px}
 @media(max-width:640px){.conversation-actions{gap:6px}.conversation-actions .text-button{font-size:.68rem}.conversation-top{align-items:flex-start}}
 .time-breakdown{font-size:.72rem!important;line-height:1.55;color:#68756e!important;margin:11px 0 0!important;font-family:inherit!important}
 .tone-lab{margin:20px 0 17px;padding:20px 21px;background:#f1f2eb;border:1px solid #dfe2d8;border-radius:4px}
