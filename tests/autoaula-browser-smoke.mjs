@@ -1,4 +1,5 @@
 import {chromium} from 'playwright';
+import axeCore from 'axe-core';
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
@@ -87,6 +88,23 @@ try{
   assert.ok(!requests.some(request=>/single-page|library-lite|pedagogia-semanal|curriculum-data|manual-catalogo|data\/stage|archive\/legacy/.test(request)),'A página não pode carregar materiais legados.');
   await context.close();
  }
+ for(const width of [390,768,1440]){
+  const auditContext=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),auditPage=await auditContext.newPage();
+  await auditPage.goto(origin,{waitUntil:'domcontentloaded'});
+  await auditPage.keyboard.press('Tab');
+  assert.equal(await auditPage.evaluate(()=>document.activeElement.classList.contains('skip-link')),true,`O primeiro foco deve oferecer pular para o conteúdo em ${width}px.`);
+  await auditPage.keyboard.press('Enter');
+  await auditPage.waitForFunction(()=>location.hash==='#main'&&document.activeElement.id==='main');
+  await auditPage.evaluate(()=>window.scrollTo(0,0));
+  await auditPage.addScriptTag({content:axeCore.source});
+  const tags=['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa'];
+  const initial=await auditPage.evaluate(async tags=>await axe.run(document,{runOnly:{type:'tag',values:tags}}),tags);
+  assert.deepEqual(initial.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],`Falhas WCAG no estado inicial em ${width}px.`);
+  for(const selector of ['.tone-lab summary','.writing-extension summary','#answerKey summary','.reveal-dialogue summary','.fallback-script summary'])await auditPage.locator(selector).click();
+  const expanded=await auditPage.evaluate(async tags=>await axe.run(document,{runOnly:{type:'tag',values:tags}}),tags);
+  assert.deepEqual(expanded.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],`Falhas WCAG com extensões abertas em ${width}px.`);
+  await auditContext.close();
+ }
  for(const legacy of ['/single-page.js','/manual-catalogo.json','/archive/legacy-1.json','/data/stage-1.json','/trilha-v9.json'])assert.equal((await fetch(origin+legacy)).status,404,'Material legado publicado: '+legacy);
  const noVoiceContext=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block'});
  await noVoiceContext.addInitScript(()=>{Object.defineProperty(window,'SpeechSynthesisUtterance',{configurable:true,value:class{constructor(text){this.text=text;this.lang=''}}});Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{cancel(){},speak(){throw new Error('A voz não deveria ser usada')},getVoices(){return[]}}})});
@@ -101,5 +119,5 @@ try{
  await speechRacePage.locator('#playDialogue').click();await speechRacePage.waitForTimeout(40);await speechRacePage.getByText('Abrir prática de pronúncia').click();await speechRacePage.getByRole('button',{name:'Ouvir mā, tom 1'}).click();
  await speechRacePage.waitForFunction(()=>!document.querySelector('#playDialogue').disabled);assert.deepEqual(speechRaceErrors,[],'Interromper um áudio para iniciar outro não deve prender o controle da conversa.');await speechRaceContext.close();
  assert.deepEqual(fs.readdirSync(root).sort(),['autoaula.css','autoaula.js','favicon.svg','index.html','manifest.webmanifest'].sort(),'A publicação deve conter só a auto-aula ativa e seus recursos.');
- console.log(JSON.stringify({ok:true,viewports:[390,768,1440],exercises:['A','B','C','D','E'],recordingAndRubric:true,spacedReview:true,legacyUrls:'404',publishedFiles:5,noBrowserErrors:true}));
+ console.log(JSON.stringify({ok:true,viewports:[390,768,1440],exercises:['A','B','C','D','E'],accessibilityAudit:{standard:'WCAG 2.2 AA',states:['default','all reveals open'],violations:0},recordingAndRubric:true,spacedReview:true,legacyUrls:'404',publishedFiles:5,noBrowserErrors:true}));
 }finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}

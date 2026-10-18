@@ -8,7 +8,7 @@ O site está dedicado à **Auto-aula 01 — Primeiro contato e apresentação**.
 
 O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção do site copia apenas `index.html`, `autoaula.css`, `autoaula.js`, `favicon.svg` e `manifest.webmanifest`.
 
-Para validar a experiência atual, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`.
+Para validar a experiência atual, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`. O [protocolo de piloto com iniciantes](docs/PILOTO-AUTOAULA-01.md) define como medir usabilidade, aprendizagem e retenção sem confundir teste técnico com eficácia pedagógica.
 
 ---
 

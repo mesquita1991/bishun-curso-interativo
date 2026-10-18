@@ -25,7 +25,7 @@ jobs:
         run: npm run build
       - name: Instalar navegador de teste
         run: |
-          npm install --no-save playwright
+          npm install --no-save playwright axe-core@4.10.3
           npx playwright install --with-deps chromium
       - name: Testar os exercícios, progresso, rubricagem e telas reais
         run: node tests/autoaula-browser-smoke.mjs
