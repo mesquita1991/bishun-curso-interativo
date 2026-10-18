@@ -1,4 +1,4 @@
-name: Bǐshùn — integridade e navegação da página única
+name: Bǐshùn — validação da auto-aula
 on:
   push:
     branches: [main]
@@ -19,11 +19,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verificar todo o currículo e estrutura
+      - name: Verificar a aula ativa e a preservação do legado
         run: npm run check
+      - name: Montar publicação sem os arquivos legados
+        run: npm run build
       - name: Instalar navegador de teste
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
-      - name: Testar percurso, progresso, biblioteca e telas reais
-        run: node tests/app-browser-smoke.mjs
+      - name: Testar os exercícios, progresso, rubricagem e telas reais
+        run: node tests/autoaula-browser-smoke.mjs

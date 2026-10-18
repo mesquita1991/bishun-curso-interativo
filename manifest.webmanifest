@@ -1,13 +1,13 @@
 {
-  "name": "Bǐshùn — aprenda mandarim passo a passo",
+  "name": "Bǐshùn — auto-aula de mandarim",
   "short_name": "Bǐshùn",
-  "description": "Aprenda mandarim uma unidade de cada vez: conheça e ouça, observe e escreva, tente lembrar e confira os significados.",
+  "description": "Pratique uma apresentação em mandarim com pinyin tonal, áudio, gravação e revisão espaçada.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f4f7fc",
-  "theme_color": "#071126",
+  "background_color": "#f8f6f0",
+  "theme_color": "#244d55",
   "icons": [
     {
       "src": "favicon.svg",
