@@ -1,10 +1,18 @@
-# Bǐshùn 9 — Autoaula de mandarim
+# Bǐshùn · Auto-aula de mandarim
 
-A página inicial conduz uma autoaula em 12 unidades ao longo de 90 dias. Cada unidade tem seis fases: explicação, exemplos compreensíveis, prática ativa, correção, revisões em dias diferentes e avaliação diferida. A primeira sessão está estimada em 25–35 minutos; as revisões D+1, D+3 e a checagem a partir de D+7 são sessões posteriores, não parte de uma aula de uma hora.
+## Experiência publicada
 
-A unidade 1 começa com saudações e apresentação. Inclui pinyin tonal, áudio disponível no navegador, um padrão reaproveitável e um diálogo. As extensões do diálogo são material didático e não devem ser lidas como ranking de frequência baseado em corpus. As distinções entre reconhecimento, retenção e fluência permanecem explícitas.
+O site está dedicado à **Auto-aula 01 — Primeiro contato e apresentação**. A página ativa oferece diálogo com áudio, treino de apresentação, exercícios de compreensão e recuperação, gravação local, autoavaliação, gabarito e revisões espaçadas. A publicação usa uma lista explícita de cinco arquivos em `dist/`; o restante do repositório não é enviado ao GitHub Pages.
 
-A interface oferece início e retomada do percurso, enquanto o acervo complementar continua acessível na mesma página. Permanecem preservados os dados curriculares de nove etapas, 300 unidades, 3.000 caracteres e 11.092 palavras, além do manual, das leituras, da trilha complementar e dos arquivos históricos. Os novos comportamentos têm verificações de conteúdo, navegação, progresso e responsividade.
+## Conteúdo anterior preservado
+
+O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção do site copia apenas `index.html`, `autoaula.css`, `autoaula.js`, `favicon.svg` e `manifest.webmanifest`.
+
+Para validar a experiência atual, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`.
+
+---
+
+## Histórico do aplicativo anterior
 
 # Bǐshùn 8.1.1 — aprendizagem de mandarim
 

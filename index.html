@@ -3,88 +3,137 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#13213b">
-<title>Bǐshùn · Autoaula de mandarim</title>
-<meta name="description" content="Autoaula de mandarim para iniciantes: frases em contexto, pinyin com tons, áudio, prática guiada e revisão espaçada. O currículo e a biblioteca integral continuam disponíveis.">
+<meta name="theme-color" content="#f8f6f0">
+<meta name="description" content="Auto-aula de mandarim para praticar apresentações com áudio, pinyin tonal, exercícios, gravação e revisão espaçada.">
+<title>Auto-aula 01 · Primeiro contato | Bǐshùn</title>
 <link rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app-lite.css?v=2">
-<script defer src="pedagogia-semanal.js?v=2"></script>
-<script defer src="single-page.js?v=2"></script>
-<script defer src="library-lite.js?v=1"></script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="autoaula.css?v=1">
+<script defer src="autoaula.js?v=1"></script>
 </head>
 <body>
-<a class="skip" href="#curso">Ir para o curso</a>
-<header class="topbar">
- <div class="wrap head"><strong class="brand">笔顺 <span>Bǐshùn</span></strong>
- <nav aria-label="Seções desta página"><a href="#curso">12 semanas</a><a href="#restante">Ainda não ensinado</a><a href="#biblioteca">Biblioteca</a></nav></div>
+<a class="skip-link" href="#main">Pular para a aula</a>
+<header class="site-header">
+ <a class="brand" href="#top" aria-label="Bǐshùn — início da auto-aula"><span class="brand-mark" lang="zh-Hans">笔顺</span><span>Bǐshùn</span></a>
+ <nav aria-label="Navegação da aula"><a href="#pratique">Pratique</a><a href="#tarefa">Tarefa final</a><a href="#revisao">Revisões</a></nav>
+ <span class="course-label">MANDARIM · AUTO-AULA</span>
 </header>
-<main class="wrap">
- <section class="intro" aria-labelledby="mainTitle">
-  <p class="kicker">Autoaula de mandarim · português brasileiro</p>
-  <h1 id="mainTitle">Cumprimente, converse e avance uma unidade de cada vez.</h1>
-  <p>Comece com frases curtas em contexto. Aprenda significado, caracteres, pinyin com tons e áudio; pratique, confira seus erros e volte em dias diferentes. A primeira sessão leva cerca de 25–35 minutos, conforme seu ritmo. As revisões D+1, D+3 e a checagem a partir de D+7 acontecem depois, em sessões separadas.</p>
-  <div class="entry-actions"><button class="button" id="startStudy" type="button">Começar autoaula · Unidade 1</button><a class="button secondary" href="#curso">Ver as 12 unidades</a></div>
-  <p class="small-note" id="speechHint" role="status">O áudio usa a voz chinesa disponível no navegador; a qualidade varia entre dispositivos.</p>
-  <ol class="study-path" aria-label="Etapas da autoaula">
-   <li><strong>Entenda</strong><span>Significado, contexto e estrutura.</span></li>
-   <li><strong>Escute</strong><span>Caracteres, pinyin tonal e áudio.</span></li>
-   <li><strong>Pratique</strong><span>Recupere a frase sem consultar.</span></li>
-   <li><strong>Corrija</strong><span>Veja o feedback e refaça os erros.</span></li>
-   <li><strong>Revise</strong><span>Retome em dias separados.</span></li>
-   <li><strong>Confira</strong><span>Teste diferido; sem alegar fluência.</span></li>
-  </ol>
-  <div class="metrics" id="metrics" aria-label="Inventário curricular"><span>12 unidades · percurso de 90 dias</span><span>9 etapas · 300 unidades de referência</span><span>Acervo complementar preservado</span></div>
- </section>
- <section id="curso" aria-labelledby="courseTitle">
-  <div class="section-head"><div><p class="kicker">Percurso principal</p><h2 id="courseTitle">Curso comunicativo</h2></div><p id="progressStatus" class="muted" aria-live="polite">Carregando…</p></div>
-  <div class="course-layout">
-   <aside class="week-rail" aria-label="Escolher unidade"><h3>Seu percurso</h3><p class="muted">A unidade atual fica destacada. Você pode voltar às anteriores quando quiser.</p><div id="weekList" class="week-list" role="group" aria-label="Unidades e consolidação"><p>Preparando unidades…</p></div></aside>
-   <div class="course-main">
-    <div id="lesson" aria-live="polite" aria-atomic="false"><p>Carregando conteúdo…</p></div>
-   </div>
+<main id="main" class="page-shell">
+ <section id="top" class="hero" aria-labelledby="page-title">
+  <div class="hero-copy"><p class="eyebrow"><span class="unit-chip">UNIDADE 01</span><span>PRIMEIRO CONTATO E APRESENTAÇÃO</span></p>
+   <h1 id="page-title">Comece uma conversa.<br><em>Apresente-se em mandarim.</em></h1>
+   <p class="hero-intro">Aprenda a dizer seu nome, devolver a pergunta e responder a um primeiro cumprimento. Faça uma etapa de cada vez; o progresso fica salvo neste navegador.</p>
+   <a class="primary-button" href="#dialogo">Começar a aula <span aria-hidden="true">↓</span></a>
   </div>
+  <aside class="hero-aside" aria-label="Objetivo da aula"><span class="aside-index">01 / 01</span><p>Ao final, você terá praticado uma apresentação breve em dois papéis e preparado sua própria gravação.</p><div class="time-tag"><span aria-hidden="true">◷</span> ≈ 20–30 min de primeira prática</div></aside>
+  <div class="hero-stamp" lang="zh-Hans" aria-hidden="true">你好</div>
  </section>
- <section id="restante" aria-labelledby="remainingTitle" class="section-separated">
-  <div class="section-head"><div><p class="kicker">Acervo que não entrou no plano de 12 semanas</p><h2 id="remainingTitle">Conteúdo ainda não selecionado</h2></div></div>
-  <p>Os itens abaixo pertencem às 9 etapas originais, mas não foram selecionados para as atividades centrais. Podem ser consultados sem antecipar o estudo obrigatório. “Não selecionado” não significa que o aluno desconheça o item.</p>
-  <div id="remainingSummary" class="metrics" aria-live="polite"><span>Calculando inventário…</span></div>
-  <div class="filters">
-   <label>Tipo de conteúdo<select id="remainderKind"><option value="vocabulary">Vocabulário</option><option value="characters">Caracteres</option><option value="grammar">Gramática</option></select></label>
-   <label>Etapa de origem<select id="remainderStage"><option value="all">Todas as etapas</option></select></label>
-   <label class="search-label">Encontrar por hanzi, pinyin ou português<input id="remainderQuery" type="search" placeholder="Ex.: 朋友, péngyou, amizade" autocomplete="off"></label>
+
+ <div class="lesson-layout">
+  <aside class="lesson-rail" aria-label="Etapas desta auto-aula">
+   <p class="rail-heading">NESTA AUTO-AULA</p>
+   <a href="#dialogo"><span>01</span> Observe e escute</a>
+   <a href="#pratique"><span>02</span> Pratique e confira</a>
+   <a href="#tarefa"><span>03</span> Sua tarefa final</a>
+   <a href="#gabarito"><span>04</span> Gabarito e base</a>
+   <div class="rail-progress"><div class="progress-label"><span>Seu percurso</span><strong id="progressText">0 de 4</strong></div><div class="progress-track"><span id="progressBar"></span></div><p id="progressHint" aria-live="polite">Seu progresso fica salvo neste dispositivo.</p></div>
+  </aside>
+
+  <div class="lesson-content">
+   <section id="dialogo" class="lesson-section" aria-labelledby="dialogue-title">
+    <header class="section-heading"><div><p class="section-kicker">01 / OBSERVE E ESCUTE</p><h2 id="dialogue-title">A primeira conversa</h2></div><p>Leia uma vez. Depois escute, acompanhando o sentido e os tons.</p></header>
+    <div class="conversation-card">
+     <div class="conversation-top"><span>UM DIÁLOGO CURTO</span><button class="text-button" id="playDialogue" type="button">▶ Ouvir conversa</button></div>
+     <ol class="dialogue-list" id="lessonDialogue">
+      <li><span class="turn">A</span><div class="turn-copy"><strong lang="zh-Hans">你好！</strong><span class="pinyin" lang="zh-Latn-pinyin">nǐ hǎo!</span><span class="translation">Olá!</span></div><button class="sound-button" data-speak="你好！" aria-label="Ouvir: Olá" type="button">▶</button></li>
+      <li><span class="turn">A</span><div class="turn-copy"><strong lang="zh-Hans">我叫安娜。你呢？</strong><span class="pinyin" lang="zh-Latn-pinyin">wǒ jiào Ānnà. Nǐ ne?</span><span class="translation">Eu me chamo Ana. E você?</span></div><button class="sound-button" data-speak="我叫安娜。你呢？" aria-label="Ouvir: Eu me chamo Ana. E você?" type="button">▶</button></li>
+      <li><span class="turn">B</span><div class="turn-copy"><strong lang="zh-Hans">你好！我叫大卫。很高兴认识你。</strong><span class="pinyin" lang="zh-Latn-pinyin">nǐ hǎo! Wǒ jiào Dàwèi. Hěn gāoxìng rènshi nǐ.</span><span class="translation">Olá! Eu me chamo Davi. Prazer em conhecer você.</span></div><button class="sound-button" data-speak="你好！我叫大卫。很高兴认识你。" aria-label="Ouvir: fala de Davi" type="button">▶</button></li>
+      <li><span class="turn">A</span><div class="turn-copy"><strong lang="zh-Hans">我也很高兴认识你。</strong><span class="pinyin" lang="zh-Latn-pinyin">wǒ yě hěn gāoxìng rènshi nǐ.</span><span class="translation">Também fico muito feliz em conhecer você.</span></div><button class="sound-button" data-speak="我也很高兴认识你。" aria-label="Ouvir: Também fico feliz em conhecer você" type="button">▶</button></li>
+     </ol>
+     <p class="conversation-foot"><span class="tone-dot" aria-hidden="true"></span>Em <span lang="zh-Hans">你好</span>, o terceiro tom de 你 costuma subir antes de 好: algo próximo de “ní hǎo”. O pinyin registra os tons lexicais como <i>nǐ hǎo</i>; pratique a fala encadeada pelo áudio.</p>
+    </div>
+    <div class="pattern-note"><span class="pattern-symbol" lang="zh-Hans">我</span><div><strong>Um padrão para reaproveitar</strong><p><span lang="zh-Hans">我叫</span> + seu nome. <span lang="zh-Hans">你呢？</span> devolve a pergunta: “E você?”</p></div><button class="sound-button light" data-speak="我叫安娜。你呢？" aria-label="Ouvir o padrão com um exemplo" type="button">▶</button></div>
+    <button class="complete-button" data-complete="dialogue" type="button">Marcar observação como feita <span aria-hidden="true">✓</span></button>
+   </section>
+
+   <section id="pratique" class="lesson-section" aria-labelledby="practice-title">
+    <header class="section-heading"><div><p class="section-kicker">02 / PRATIQUE E CONFIRA</p><h2 id="practice-title">Tente lembrar antes de consultar</h2></div><p>Faça os exercícios antes de abrir o gabarito. Se faltar uma resposta, marque-a e volte ao áudio; não adivinhe palavra por palavra.</p></header>
+    <aside class="practice-note"><span aria-hidden="true">✳</span><p>Use os botões de áudio para escutar. A voz é gerada pelo navegador e pode variar entre aparelhos.</p></aside>
+    <article class="exercise-card" aria-labelledby="exercise-a"><div class="exercise-heading"><span class="exercise-letter">A</span><div><h3 id="exercise-a">Compreensão auditiva</h3><p>Sem olhar o diálogo, escute-o duas vezes. Anote os dois nomes, quem pergunta “e você?” e a expressão que indica prazer em conhecer alguém.</p></div></div>
+     <div class="listen-controls"><button class="primary-button small" id="listenTwice" type="button">▶ Ocultar o diálogo e escutar duas vezes</button><button class="text-button" id="showDialogue" type="button" hidden>Mostrar roteiro depois da escuta</button><span id="audioStatus" class="inline-status" role="status">O diálogo será ocultado durante a escuta.</span></div>
+     <div class="answer-grid"><label>Os dois nomes<input id="listenNames" type="text" autocomplete="off" placeholder="Anote o que ouviu"></label><label>Quem pergunta “e você?”<input id="listenWho" type="text" autocomplete="off" placeholder="A ou B?"></label><label class="wide">Expressão de prazer em conhecer<input id="listenPhrase" type="text" autocomplete="off" placeholder="Escreva em pinyin ou caracteres"></label></div>
+     <details class="reveal-dialogue"><summary>Abrir roteiro para conferir</summary><p lang="zh-Hans">你好！我叫安娜。你呢？ / 你好！我叫大卫。很高兴认识你。 / 我也很高兴认识你。</p></details>
+    </article>
+    <article class="exercise-card" aria-labelledby="exercise-b"><div class="exercise-heading"><span class="exercise-letter">B</span><div><h3 id="exercise-b">Complete de memória</h3><p>Preencha sem consultar o diálogo. Os caracteres aparecem depois, no gabarito.</p></div></div>
+     <div class="fill-in-list"><label><span>1.</span><span lang="zh-Hans">我 <input class="blank" data-answer="叫" aria-label="Complete 我 em Anota me chamo Ana" autocomplete="off"> 安娜。</span></label><label><span>2.</span><span lang="zh-Hans">你 <input class="blank" data-answer="呢" aria-label="Complete 你 em pergunta e você" autocomplete="off">？</span></label><label><span>3.</span><span lang="zh-Hans">很高兴认识 <input class="blank" data-answer="你" aria-label="Complete muito feliz em conhecer você" autocomplete="off">。</span></label><label><span>4.</span><span lang="zh-Hans">我 <input class="blank" data-answer="也" aria-label="Complete eu também fico feliz" autocomplete="off"> 很高兴认识你。</span></label></div>
+     <div class="check-row"><button class="secondary-button" id="checkBlanks" type="button">Conferir minhas respostas</button><span id="blankStatus" role="status" aria-live="polite"></span></div>
+    </article>
+    <article class="exercise-card" aria-labelledby="exercise-c"><div class="exercise-heading"><span class="exercise-letter">C</span><div><h3 id="exercise-c">Ordene a conversa</h3><p>Use os controles para pôr as falas em ordem. Depois diga a conversa em voz alta, usando seu nome.</p></div></div>
+     <ol id="sortableConversation" class="sortable-conversation">
+      <li data-order="2"><span class="drag-num">1</span><span lang="zh-Hans">你好！我叫大卫。很高兴认识你。</span><div class="sort-controls"><button type="button" data-move="up" aria-label="Mover fala para cima">↑</button><button type="button" data-move="down" aria-label="Mover fala para baixo">↓</button></div></li>
+      <li data-order="3"><span class="drag-num">2</span><span lang="zh-Hans">我也很高兴认识你。</span><div class="sort-controls"><button type="button" data-move="up" aria-label="Mover fala para cima">↑</button><button type="button" data-move="down" aria-label="Mover fala para baixo">↓</button></div></li>
+      <li data-order="1"><span class="drag-num">3</span><span lang="zh-Hans">你好！我叫安娜。你呢？</span><div class="sort-controls"><button type="button" data-move="up" aria-label="Mover fala para cima">↑</button><button type="button" data-move="down" aria-label="Mover fala para baixo">↓</button></div></li>
+     </ol><button class="secondary-button" id="checkOrder" type="button">Conferir ordem</button> <span id="orderStatus" role="status" aria-live="polite"></span>
+    </article>
+    <article class="exercise-card" aria-labelledby="exercise-d"><div class="exercise-heading"><span class="exercise-letter">D</span><div><h3 id="exercise-d">Reconheça os caracteres sem pinyin</h3><p>Oculte o pinyin e localize (a) o cumprimento; (b) o padrão para dizer seu nome; (c) a partícula em <span lang="zh-Hans">你呢？</span>. Revele para conferir. Não precisa escrever de memória.</p></div></div>
+     <div class="recognition-strip" lang="zh-Hans">你好！我叫安娜。你呢？</div><p class="recognition-prompt">Localize a expressão de cumprimento, o padrão para dizer seu nome e a partícula da pergunta.</p>
+     <button class="secondary-button" id="togglePinyin" type="button" aria-pressed="false">Cobrir pinyin e tentar</button><p class="pinyin-sample is-hidden" id="pinyinSample">nǐ hǎo · wǒ jiào · ne</p>
+     <button class="complete-button" data-complete="practice" type="button">Marcar prática como feita <span aria-hidden="true">✓</span></button>
+    </article>
+    <article class="exercise-card" aria-labelledby="exercise-e"><div class="exercise-heading"><span class="exercise-letter">E</span><div><h3 id="exercise-e">Treino solo com pausa</h3><p>Escute até <span lang="zh-Hans">你呢？</span> e responda com seu nome. Depois pratique a resposta à frase de cortesia. Troque os papéis na repetição seguinte.</p></div></div>
+     <div class="solo-practice"><button class="primary-button small" id="pausePractice" type="button">▶ Ouvir e pausar depois de 你呢？</button><label>Seu nome para responder<input id="studentName" type="text" autocomplete="given-name" placeholder="Seu nome"></label><p id="pauseStatus" class="inline-status" role="status" aria-live="polite">Quando o áudio parar, responda em voz alta.</p></div>
+     <button class="secondary-button" id="speakSecondTurn" type="button">▶ Ouvir “prazer em conhecer você” e responder</button>
+     <details class="fallback-script"><summary>Se o áudio não der tempo para pausar</summary><p>Leia a fala A, conte três segundos, responda como B e só então revele a resposta.</p></details>
+     <p class="variation-tip"><strong>Variação útil.</strong> Troque os nomes por nomes de pessoas que conhece. A estrutura é <span lang="zh-Hans">我叫</span> + nome; <span lang="zh-Hans">你呢？</span> devolve a vez.</p>
+     <button class="complete-button" data-complete="practice" type="button">Marcar treino solo como feito <span aria-hidden="true">✓</span></button>
+    </article>
+   </section>
+
+   <section id="tarefa" class="lesson-section final-task" aria-labelledby="task-title">
+    <header class="section-heading"><div><p class="section-kicker">03 / SUA TAREFA FINAL</p><h2 id="task-title">Grave uma conversa de 20 a 30 segundos</h2></div><p>Sem consultar o diálogo, faça os dois papéis: diga a fala A, espere três segundos, responda como B e conclua como A. Use seu nome e outro nome conhecido.</p></header>
+    <div class="task-script"><span class="script-label">ROTEIRO DE GRAVAÇÃO</span><p><b>A</b> · Cumprimente, diga seu nome e pergunte <span lang="zh-Hans">你呢？</span></p><p><b>B</b> · Cumprimente, diga o outro nome e diga <span lang="zh-Hans">很高兴认识你。</span></p><p><b>A</b> · Responda <span lang="zh-Hans">我也很高兴认识你。</span></p></div>
+    <div class="recording-card"><div><span class="record-icon" aria-hidden="true">●</span><strong>Gravação neste aparelho</strong><p>O áudio fica nesta página enquanto ela estiver aberta. Você pode ouvir ou baixar o arquivo; nada é enviado.</p></div><div class="record-controls"><button id="recordStart" class="record-button" type="button">● Começar gravação</button><button id="recordStop" class="secondary-button" type="button" disabled>Parar</button><span id="recordStatus" role="status" aria-live="polite">Microfone será solicitado só quando você iniciar.</span></div><audio id="recordedAudio" controls hidden></audio><a id="downloadRecording" class="text-button" hidden download="minha-apresentacao-mandarim.webm">Baixar gravação</a></div>
+    <div class="self-check"><div class="self-check-head"><div><p class="section-kicker">AUTOAVALIAÇÃO · 0 OU 1</p><h3>O que conseguiu fazer?</h3></div><span class="score-badge" id="scoreBadge">0 / 5</span></div>
+     <div class="rubric" id="rubric">
+      <fieldset data-criterion="1"><legend>Entendi os dois nomes quando ouvi o diálogo.</legend><label><input type="radio" name="criterion1" value="0"><span>Ainda não</span></label><label><input type="radio" name="criterion1" value="1"><span>Sim</span></label></fieldset>
+      <fieldset data-criterion="2"><legend>Cumprimentei e usei <span lang="zh-Hans">我叫</span> + nome sem ler a frase inteira.</legend><label><input type="radio" name="criterion2" value="0"><span>Ainda não</span></label><label><input type="radio" name="criterion2" value="1"><span>Sim</span></label></fieldset>
+      <fieldset data-criterion="3"><legend>Perguntei <span lang="zh-Hans">你呢？</span> e respondi quando ouvi a pergunta.</legend><label><input type="radio" name="criterion3" value="0"><span>Ainda não</span></label><label><input type="radio" name="criterion3" value="1"><span>Sim</span></label></fieldset>
+      <fieldset data-criterion="4"><legend>Usei <span lang="zh-Hans">很高兴认识你</span> e respondi com <span lang="zh-Hans">我也很高兴认识你</span>.</legend><label><input type="radio" name="criterion4" value="0"><span>Ainda não</span></label><label><input type="radio" name="criterion4" value="1"><span>Sim</span></label></fieldset>
+      <fieldset data-criterion="5"><legend>Minha fala foi compreensível; usei o pinyin tonal como referência.</legend><label><input type="radio" name="criterion5" value="0"><span>Ainda não</span></label><label><input type="radio" name="criterion5" value="1"><span>Sim</span></label></fieldset>
+     </div><div class="decision-box" id="decision" aria-live="polite">Marque os cinco critérios para receber uma orientação de estudo.</div>
+     <p class="honest-note">Não procure sotaque nativo. Escute se outra pessoa entenderia o cumprimento, o nome e a pergunta. Corrija diferenças de tom quando confundirem a expressão; mantenha seu sotaque natural.</p>
+    </div>
+    <details class="writing-extension"><summary>Extensão opcional · escrita de caracteres</summary><p>Copie <span lang="zh-Hans">你</span> e <span lang="zh-Hans">我</span> três vezes olhando um modelo confiável da ordem dos traços. Cubra o modelo e tente reproduzir cada um uma vez. Escrever não é requisito para concluir esta tarefa oral.</p></details>
+    <button class="complete-button" data-complete="task" type="button">Marcar tarefa final como feita <span aria-hidden="true">✓</span></button>
+   </section>
+
+   <section id="gabarito" class="lesson-section answer-section" aria-labelledby="key-title">
+    <header class="section-heading"><div><p class="section-kicker">04 / GABARITO E REFERÊNCIAS</p><h2 id="key-title">Confira depois de tentar</h2></div><p>Volte aos itens em que hesitou e escute as frases outra vez.</p></header>
+    <details class="answer-key" id="answerKey"><summary><span>Mostrar gabarito</span><span aria-hidden="true">＋</span></summary><div class="answer-content">
+     <h3>A. Compreensão auditiva</h3><p>Os nomes são Ana (<span lang="zh-Hans">安娜</span>) e Davi (<span lang="zh-Hans">大卫</span>). A pessoa A pergunta <span lang="zh-Hans">你呢？</span>. B diz <span lang="zh-Hans">很高兴认识你</span>. A resposta correspondente é <span lang="zh-Hans">我也很高兴认识你</span>.</p>
+     <h3>B. Complete de memória</h3><p>1) <span lang="zh-Hans">叫</span> · 2) <span lang="zh-Hans">呢</span> · 3) <span lang="zh-Hans">你</span> · 4) <span lang="zh-Hans">也</span>.</p>
+     <h3>C. Ordem da conversa</h3><p lang="zh-Hans">A: 你好！我叫安娜。你呢？ / B: 你好！我叫大卫。很高兴认识你。 / A: 我也很高兴认识你。</p>
+     <h3>D. Reconhecimento</h3><p>(a) <span lang="zh-Hans">你好</span> · (b) <span lang="zh-Hans">我叫</span> · (c) <span lang="zh-Hans">呢</span>.</p>
+     <h3>E. Treino solo</h3><p>Depois de <span lang="zh-Hans">你呢？</span>, responda com seu nome. Depois de <span lang="zh-Hans">很高兴认识你</span>, responda <span lang="zh-Hans">我也很高兴认识你</span>.</p>
+    </div></details>
+    <div class="review-panel" id="revisao"><div class="review-heading"><div><p class="section-kicker">REVISÃO ESPAÇADA</p><h3>Retome em dias diferentes</h3></div><span class="review-icon" aria-hidden="true">↻</span></div>
+     <div class="review-list">
+      <div class="review-item" data-review="today"><span class="review-day">HOJE</span><div><strong>Grave o diálogo sem ler.</strong><p>Use a autoavaliação acima.</p></div><button type="button" class="review-check" aria-label="Marcar revisão de hoje como feita">○</button></div>
+      <div class="review-item" data-review="tomorrow"><span class="review-day">DIA SEGUINTE</span><div><strong>Escute antes de ver o texto.</strong><p>Recupere as expressões e confira o que faltou.</p></div><button type="button" class="review-check" aria-label="Marcar revisão do dia seguinte como feita">○</button></div>
+      <div class="review-item" data-review="threeDays"><span class="review-day">3–4 DIAS</span><div><strong>Troque os nomes e faça os dois papéis.</strong><p>Confira se <span lang="zh-Hans">你呢？</span> vem depois da apresentação.</p></div><button type="button" class="review-check" aria-label="Marcar revisão de três ou quatro dias como feita">○</button></div>
+      <div class="review-item" data-review="week"><span class="review-day">1 SEMANA</span><div><strong>Grave uma nova versão sem roteiro.</strong><p>Use o critério de avanço da autoavaliação.</p></div><button type="button" class="review-check" aria-label="Marcar revisão de uma semana como feita">○</button></div>
+     </div><p class="review-disclaimer">As datas são lembretes de prática, não uma medida automática de domínio.</p>
+    </div>
+    <div class="source-notes"><h3>Base e limites</h3><p>As expressões-base foram conferidas na lista de 500 frases usada na seleção didática: <span lang="zh-Hans">你好</span> (#1), <span lang="zh-Hans">你呢</span> (#7), <span lang="zh-Hans">我叫……</span> (#21) e <span lang="zh-Hans">很高兴认识你</span> (#23). A lista foi selecionada para o curso; sua ordem não demonstra frequência real entre falantes. A resposta com <span lang="zh-Hans">也</span> é uma expansão didática, sem alegação de posição em ranking.</p>
+     <p>Grafia do pinyin baseada na <a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=5645BD8DB9D8D73053AD3A2397E15E74" target="_blank" rel="noreferrer">norma GB/T 16159-2012</a>, indicada como vigente no catálogo oficial consultado. Ela orienta a grafia; a fala encadeada é praticada no áudio.</p>
+     <p>Para ouvir uma alternativa, o botão <a href="https://translate.google.com/?sl=zh-CN&amp;tl=pt&amp;text=%E4%BD%A0%E5%A5%BD&amp;op=translate" target="_blank" rel="noreferrer">abre o Google Tradutor</a>. Consulte a <a href="https://support.google.com/translate/answer/6142468/?co=GENIE.Platform%3DDesktop&amp;hl=pt-BR" target="_blank" rel="noreferrer">ajuda oficial para reproduzir o texto traduzido</a>. Requer conexão e pode variar com o serviço.</p>
+    </div>
+    <p class="completion-note"><span aria-hidden="true">✳</span> Você concluiu esta auto-aula quando consegue iniciar a apresentação, devolver a pergunta e responder sem ler o texto completo. A unidade seguinte será oferecida quando estiver preparada.</p>
+   </section>
   </div>
-  <p id="remainderCount" class="muted" role="status">Carregando inventário…</p>
-  <div id="remainderItems" class="result-list" aria-live="polite"></div>
-  <div class="pager"><button type="button" id="remainderPrev" class="button secondary">Anterior</button><span id="remainderPage" aria-live="polite"></span><button type="button" id="remainderNext" class="button secondary">Próximo</button></div>
- </section>
- <section id="biblioteca" aria-labelledby="libraryTitle" class="section-separated">
-  <div class="section-head"><div><p class="kicker">Todo o restante permanece no mesmo endereço</p><h2 id="libraryTitle">Biblioteca e fontes originais</h2></div></div>
-  <p>Abra somente o que precisar. Manual de 198 páginas, fonética, escrita, trilha de 302 lições, mnemônicos, leitura, avaliações, extensão lexical e as antigas páginas arquivadas continuam disponíveis aqui, sem carregar tudo na abertura.</p>
-  <div class="filters library-controls">
-   <label>Material<select id="libraryKind">
-    <option value="manual">Manual integral (198 páginas)</option>
-    <option value="atlas">Pronúncia (410 combinações)</option>
-    <option value="strokes">Escrita (164 caracteres)</option>
-    <option value="mnemonics">Mnemônicos visuais (48)</option>
-    <option value="trail">Trilha complementar (302 lições)</option>
-    <option value="readings">Leituras complementares (52)</option>
-    <option value="pragmatics">Pragmática (100 fichas)</option>
-    <option value="missions">Missões avançadas (120)</option>
-    <option value="benchmarks">Avaliações complementares (36)</option>
-    <option value="idioms">Expressões idiomáticas (5.295)</option>
-    <option value="lexicon">Léxico pós-padrão (124.370 registros)</option>
-    <option value="fundamentals">Fundamentos originais (47 seções)</option>
-    <option value="archives">Páginas antigas arquivadas (24)</option>
-    <option value="sources">Arquivos-fonte completos e índices</option>
-   </select></label>
-   <label>Localizar dentro do material<input id="libraryQuery" type="search" placeholder="Pesquisar neste material" autocomplete="off"></label>
-   <button type="button" class="button" id="libraryOpen">Abrir material</button>
-  </div>
-  <p id="libraryStatus" class="muted" role="status">Escolha um material e abra-o quando precisar.</p>
-  <div id="libraryContent" aria-live="polite"></div>
- </section>
- <footer class="footer"><p>Plano educativo, não certificação HSK. Testes verificam reconhecimento de significados, não fluência. Progresso salvo somente neste navegador. Pronúncia sintética, quando disponível, não substitui áudio de falante nativo.</p></footer>
+ </div>
 </main>
-<noscript>Ative o JavaScript para carregar as semanas, consultar o currículo integral e abrir os documentos da biblioteca nesta página.</noscript>
-</body></html>
+<footer class="site-footer"><span>Bǐshùn · Auto-aula de mandarim</span><span>Seu progresso é salvo neste navegador.</span></footer>
+</body>
+</html>
