@@ -30,7 +30,25 @@
           "pinyin": "nǐ jiào shénme míngzi?",
           "pt": "Como você se chama?"
         }
-      ]
+      ],
+      "selfStudy": {
+        "pattern": {
+          "title": "Diga seu nome e devolva a pergunta",
+          "hanzi": "我叫 + nome。你呢？",
+          "pinyin": "wǒ jiào + nome. Nǐ ne?",
+          "meaning": "Eu me chamo + nome. E você?",
+          "prompt": "Diga a frase com seu próprio nome; depois pergunte 你呢？ sem olhar a tradução."
+        },
+        "dialogueNote": "Este diálogo amplia os três modelos da semana com respostas naturais para a conversa. As extensões são material didático; não representam um ranking de frequência medido em corpus.",
+        "toneNote": "Pinyin lexical: nǐ hǎo. Na fala encadeada, o terceiro tom de 你 pode soar ascendente antes de 好 (algo próximo de ní hǎo). Mantenha os tons lexicais escritos e pratique a realização com o áudio.",
+        "dialogue": [
+          {"speaker":"A","zh":"你好！","pinyin":"nǐ hǎo!","pt":"Olá!"},
+          {"speaker":"A","zh":"我叫安娜。你呢？","pinyin":"wǒ jiào Ānnà. Nǐ ne?","pt":"Eu me chamo Ana. E você?"},
+          {"speaker":"B","zh":"我叫小明。","pinyin":"wǒ jiào Xiǎomíng.","pt":"Eu me chamo Xiaoming."},
+          {"speaker":"A","zh":"很高兴认识你。","pinyin":"hěn gāoxìng rènshi nǐ.","pt":"Prazer em conhecer você."},
+          {"speaker":"B","zh":"我也很高兴认识你。","pinyin":"wǒ yě hěn gāoxìng rènshi nǐ.","pt":"Também fico feliz em conhecer você."}
+        ]
+      }
     },
     {
       "week": 2,

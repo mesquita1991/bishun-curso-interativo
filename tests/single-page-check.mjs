@@ -5,11 +5,13 @@ const html=read('index.html'),js=read('single-page.js'),library=read('library-li
 assert.deepEqual(fs.readdirSync('.').filter(p=>p.endsWith('.html')),['index.html'],'Deve existir uma única página HTML');
 assert.ok(!fs.existsSync('docs/arquivo-curso-6.8.1.html'),'Os HTMLs históricos foram arquivados como JSON');
 assert.equal((html.match(/<h1\b/g)||[]).length,1,'Cabeçalho principal único');
-for(const id of ['curso','weekList','lesson','restante','remainingSummary','remainderItems','remainderStage','remainderQuery','biblioteca','libraryKind','libraryOpen','libraryContent'])
+for(const id of ['startStudy','speechHint','curso','weekList','lesson','restante','remainingSummary','remainderItems','remainderStage','remainderQuery','biblioteca','libraryKind','libraryOpen','libraryContent'])
  assert.ok(html.includes('id="'+id+'"'),'Elemento ausente: '+id);
-for(const src of ['single-page.js?v=1','library-lite.js?v=1','app-lite.css?v=1'])
+for(const src of ['single-page.js?v=2','library-lite.js?v=1','app-lite.css?v=2'])
  assert.ok(html.includes(src),'Dependência ausente: '+src);
-assert.ok(html.includes('pedagogia-semanal.js?v=1'),'Dependência didática ausente');
+assert.ok(html.includes('pedagogia-semanal.js?v=2'),'Dependência didática ausente');
+for(const text of ['primeira sessão leva cerca de 25–35 minutos','Etapas da autoaula','revisões D+1, D+3'])
+ assert.ok(html.includes(text),'Orientação de autoestudo ausente: '+text);
 assert.ok(!/href="[^"#]+\.html(?:[?"#]|")/.test(html),'Não criar páginas secundárias');
 assert.ok(css.includes('@media(max-width:540px)')&&css.includes(':focus-visible')&&html.includes('aria-label'),'Acessibilidade e responsividade');
 for(const fragment of ['aria-current','localStorage','selected[kind]','remainingPage','BishunWeekly.render'])

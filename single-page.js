@@ -63,6 +63,13 @@ function renderRail(){
  put(fin,'span','Dias 85–90');fin.append(document.createTextNode('Consolidação final'));fin.onclick=()=>chooseWeek(13);
  const done=plan.weeks.filter(w=>progress.learning?.[w.week]?.retention?.passed).length;
  $('progressStatus').textContent=done+' de 12 semanas com retenção de significados verificada';
+ const start=$('startStudy');
+ if(start){
+  const hasProgress=Object.values(progress.learning||{}).some(r=>r&&Object.keys(r).length>0)||Object.keys(progress.completed||{}).length>0;
+  const n=Math.max(1,Math.min(13,Number(progress.week)||1));
+  start.textContent=hasProgress?(n===13?'Retomar consolidação final':'Retomar autoaula · Unidade '+n):'Começar autoaula · Unidade 1';
+  start.setAttribute('aria-label',hasProgress?(n===13?'Retomar a consolidação final':'Retomar a autoaula na unidade '+n):'Começar a autoaula pela unidade 1');
+ }
 }
 function chooseWeek(n){
  selectedWeek=n;progress.week=n;saveProgress();tab='models';quiz=null;renderRail();renderLesson();
@@ -70,7 +77,7 @@ function chooseWeek(n){
 }
 function header(w){
  const head=put(courseEl,'div',null,'lesson-title'),content=put(head,'div');
- put(content,'p',w?('Semana '+w.week+' · dias '+w.days[0]+'–'+w.days[1]):'Dias 85–90','kicker');
+ put(content,'p',w?('UNIDADE '+w.week+' · SEMANA '+w.week+' · DIAS '+w.days[0]+'–'+w.days[1]):'CONSOLIDAÇÃO · DIAS 85–90','kicker');
  put(content,'h2',w?w.title:'Consolidação dos 90 dias');
  put(content,'p',w?w.goal:'Revisar escuta, leitura, produção, pronúncia e dificuldades recorrentes.');
  put(content,'p',w?('Seleção curricular · origem no manual, página '+w.manualPage):'Fechamento: seis tarefas do manual de 90 dias.','small-note');
@@ -200,6 +207,7 @@ function summary(){
 }
 async function start(){
  try{
+  $('startStudy').addEventListener('click',()=>chooseWeek(Math.max(1,Math.min(13,Number(progress.week)||1))));
   [$('remainderKind'),$('remainderStage'),$('remainderQuery')].forEach(x=>x.addEventListener(x.tagName==='INPUT'?'input':'change',()=>{remainingPage=0;remain()}));
   $('remainderPrev').onclick=()=>{remainingPage--;remain()};
   $('remainderNext').onclick=()=>{remainingPage++;remain()};

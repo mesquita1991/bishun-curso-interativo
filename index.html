@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#13213b">
-<title>Bǐshùn · Mandarim em 12 semanas</title>
-<meta name="description" content="Mandarim em 12 semanas comunicativas e seis dias de consolidação, com conteúdo verificado do currículo integral de nove etapas. Todo o acervo complementar disponível na mesma página.">
+<title>Bǐshùn · Autoaula de mandarim</title>
+<meta name="description" content="Autoaula de mandarim para iniciantes: frases em contexto, pinyin com tons, áudio, prática guiada e revisão espaçada. O currículo e a biblioteca integral continuam disponíveis.">
 <link rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="app-lite.css?v=1">
-<script defer src="pedagogia-semanal.js?v=1"></script>
-<script defer src="single-page.js?v=1"></script>
+<link rel="stylesheet" href="app-lite.css?v=2">
+<script defer src="pedagogia-semanal.js?v=2"></script>
+<script defer src="single-page.js?v=2"></script>
 <script defer src="library-lite.js?v=1"></script>
 </head>
 <body>
@@ -21,15 +21,25 @@
 </header>
 <main class="wrap">
  <section class="intro" aria-labelledby="mainTitle">
-  <p class="kicker">Mandarim em português brasileiro · página única</p>
-  <h1 id="mainTitle">Aprenda a usar o mandarim, uma semana de cada vez.</h1>
-  <p>12 semanas por situações reais + 6 dias de consolidação. Cada semana segue seis fases: explicação, exemplo compreensível, prática ativa, correção, revisões em dias diferentes e avaliação diferida. O conteúdo vem do currículo de 9 etapas. O restante não desaparece: fica pesquisável logo abaixo.</p>
-  <div class="metrics" id="metrics" aria-label="Inventário curricular"><span>12 semanas · revisão até D+7</span><span>9 etapas · 300 unidades</span><span>302 lições preservadas</span></div>
+  <p class="kicker">Autoaula de mandarim · português brasileiro</p>
+  <h1 id="mainTitle">Cumprimente, converse e avance uma unidade de cada vez.</h1>
+  <p>Comece com frases curtas em contexto. Aprenda significado, caracteres, pinyin com tons e áudio; pratique, confira seus erros e volte em dias diferentes. A primeira sessão leva cerca de 25–35 minutos, conforme seu ritmo. As revisões D+1, D+3 e a checagem a partir de D+7 acontecem depois, em sessões separadas.</p>
+  <div class="entry-actions"><button class="button" id="startStudy" type="button">Começar autoaula · Unidade 1</button><a class="button secondary" href="#curso">Ver as 12 unidades</a></div>
+  <p class="small-note" id="speechHint" role="status">O áudio usa a voz chinesa disponível no navegador; a qualidade varia entre dispositivos.</p>
+  <ol class="study-path" aria-label="Etapas da autoaula">
+   <li><strong>Entenda</strong><span>Significado, contexto e estrutura.</span></li>
+   <li><strong>Escute</strong><span>Caracteres, pinyin tonal e áudio.</span></li>
+   <li><strong>Pratique</strong><span>Recupere a frase sem consultar.</span></li>
+   <li><strong>Corrija</strong><span>Veja o feedback e refaça os erros.</span></li>
+   <li><strong>Revise</strong><span>Retome em dias separados.</span></li>
+   <li><strong>Confira</strong><span>Teste diferido; sem alegar fluência.</span></li>
+  </ol>
+  <div class="metrics" id="metrics" aria-label="Inventário curricular"><span>12 unidades · percurso de 90 dias</span><span>9 etapas · 300 unidades de referência</span><span>Acervo complementar preservado</span></div>
  </section>
  <section id="curso" aria-labelledby="courseTitle">
   <div class="section-head"><div><p class="kicker">Percurso principal</p><h2 id="courseTitle">Curso comunicativo</h2></div><p id="progressStatus" class="muted" aria-live="polite">Carregando…</p></div>
   <div class="course-layout">
-   <aside class="week-rail" aria-label="Escolher semana"><h3>Plano de estudo</h3><div id="weekList" class="week-list" role="group" aria-label="Semanas e consolidação"><p>Preparando semanas…</p></div></aside>
+   <aside class="week-rail" aria-label="Escolher unidade"><h3>Seu percurso</h3><p class="muted">A unidade atual fica destacada. Você pode voltar às anteriores quando quiser.</p><div id="weekList" class="week-list" role="group" aria-label="Unidades e consolidação"><p>Preparando unidades…</p></div></aside>
    <div class="course-main">
     <div id="lesson" aria-live="polite" aria-atomic="false"><p>Carregando conteúdo…</p></div>
    </div>

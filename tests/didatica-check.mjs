@@ -9,7 +9,10 @@ const stages=Array.from({length:9},(_,i)=>JSON.parse(read('data/stage-'+(i+1)+'.
 const words=new Map(stages.flatMap(s=>s.vocabulary.map(x=>[x.hanzi,x])));
 const chars=new Set(stages.flatMap(s=>s.characters.map(x=>x.char)));
 assert.equal(didactics.weeks.length,12);
-assert.ok(html.includes('<script defer src="pedagogia-semanal.js?v=1"></script>'));
+assert.equal(didactics.weeks[0].selfStudy.dialogue.length,5);
+assert.match(didactics.weeks[0].selfStudy.pattern.pinyin,/wǒ jiào/);
+assert.match(didactics.weeks[0].selfStudy.toneNote,/tons lexicais escritos/);
+assert.ok(html.includes('<script defer src="pedagogia-semanal.js?v=2"></script>'));
 assert.ok(html.indexOf('pedagogia-semanal.js')<html.indexOf('single-page.js'));
 assert.ok(read('single-page.js').includes('window.BishunWeekly.render'));
 for(const key of ['explain','examples','practice','correction','review','retention','review1','review2','retentionDue','failedDate','localStorage']){
