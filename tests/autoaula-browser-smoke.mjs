@@ -51,9 +51,12 @@ try{
   await rows.nth(1).getByRole('button',{name:'Mover fala 2 para cima'}).click();
   await page.getByRole('button',{name:'Conferir ordem'}).click();
   assert.match(await page.locator('#orderStatus').innerText(),/Ordem correta/);
-  await page.getByRole('button',{name:'Cobrir pinyin e tentar'}).click();
-  assert.equal(await page.locator('.dialogue-list .pinyin').first().evaluate(el=>getComputedStyle(el).visibility),'hidden');
+  await page.getByRole('button',{name:'Revelar pinyin para conferir'}).click();
+  assert.equal(await page.locator('.dialogue-list .pinyin').first().evaluate(el=>getComputedStyle(el).visibility),'visible','O exercício local não deve esconder o apoio do diálogo anterior.');
   assert.equal(await page.locator('#pinyinSample').isVisible(),true);
+  assert.equal(await page.locator('#togglePinyin').getAttribute('aria-pressed'),'true');
+  await page.getByRole('button',{name:'Ocultar pinyin de referência'}).click();
+  assert.equal(await page.locator('#pinyinSample').isVisible(),false);
   await page.getByRole('button',{name:'Marcar observação como feita'}).click();
   assert.match(await page.locator('#audioStatus').innerText(),/Voz do navegador/,'A voz usada deve ser identificada para que o aluno possa julgar a qualidade do modelo.');
   await page.getByRole('button',{name:'Marcar prática como feita'}).first().click();
