@@ -60,6 +60,14 @@ try{
   assert.equal(await page.locator('.phase-bar button').count(),6);
   assert.equal(await page.locator('.phase-bar button').nth(1).isDisabled(),true,'Exemplos precisam aguardar explicação');
   assert.equal(await page.locator('#remainingSummary span').count(),3);
+  assert.match(await page.locator('#startStudy').innerText(),/Começar autoaula · Unidade 1/);
+  await page.locator('#startStudy').click();
+  assert.match(await page.locator('#lesson .kicker').first().innerText(),/UNIDADE 1 · SEMANA 1/);
+  await page.getByRole('button',{name:/Li a explicação/}).click();
+  assert.equal(await page.locator('#guidedDialogue .dialogue-line').count(),5,'A unidade 1 deve oferecer diálogo contextual para autoestudo');
+  assert.equal(await page.locator('#guidedDialogue button').count(),5,'Cada fala deve ter controle de áudio');
+  assert.match(await page.locator('.tone-note').innerText(),/tons lexicais escritos/);
+  assert.match(await page.locator('#startStudy').innerText(),/Retomar autoaula · Unidade 1/);
   assert.ok(!requests.some(p=>/post\/lex-\d+\.json|archive\/legacy-/.test(p)),'Acervo pesado não pode carregar na abertura');
   await page.locator('#weekList button[data-week="2"]').click();
   await page.getByRole('button',{name:/Li a explicação/}).click();

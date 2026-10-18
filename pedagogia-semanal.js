@@ -47,7 +47,7 @@ function phaseBar(root,r){
 }
 function info(root,text){add(root,'p',text,'muted')}
 function header(root,r){
- add(root,'p','SEMANA '+context.week.week+' · DIAS '+context.week.days.join('–'),'kicker');
+ add(root,'p','UNIDADE '+context.week.week+' · SEMANA '+context.week.week+' · DIAS '+context.week.days.join('–'),'kicker');
  add(root,'h2',context.week.title);
  add(root,'p',context.week.goal);
  const doneCount=PHASES.filter(([key])=>done(r,key)).length;
@@ -97,6 +97,28 @@ function examples(root,r,lesson){
   add(card,'div',x.pinyin,'small-note');
   add(card,'p',x.pt);
   btn(card,'Ouvir (voz sintética)',()=>context.speak(x.zh),'button muted-button');
+ }
+ if(lesson.selfStudy){
+  const study=lesson.selfStudy,section=add(root,'section',null,'self-study-extension');
+  add(section,'h3','Reaproveite o padrão em uma conversa');
+  const pattern=add(section,'article',null,'pattern-card');
+  add(pattern,'h4',study.pattern.title);
+  const hanzi=add(pattern,'p',study.pattern.hanzi,'hanzi');hanzi.lang='zh-Hans';
+  add(pattern,'p',study.pattern.pinyin,'pinyin-line');
+  add(pattern,'p',study.pattern.meaning);
+  add(pattern,'p',study.pattern.prompt,'muted');
+  const tones=add(section,'aside',study.toneNote,'tone-note');tones.setAttribute('aria-label','Nota de pronúncia e tons');
+  add(section,'h4','Diálogo para imitar');
+  info(section,study.dialogueNote);
+  const dialogue=add(section,'ol',null,'guided-dialogue');dialogue.id='guidedDialogue';
+  for(const line of study.dialogue){
+   const row=add(dialogue,'li',null,'dialogue-line');
+   add(row,'span','Pessoa '+line.speaker,'speaker-label');
+   const phrase=add(row,'strong',line.zh,'hanzi');phrase.lang='zh-Hans';
+   add(row,'span',line.pinyin,'pinyin-line');
+   add(row,'span',line.pt,'translation-line');
+   btn(row,'Ouvir fala',()=>context.speak(line.zh),'button muted-button');
+  }
  }
  add(root,'h4','Conferência de compreensão');
  info(root,'Aponte a frase chinesa correspondente ao significado apresentado. Critério: 3 de 3 em uma tentativa.');

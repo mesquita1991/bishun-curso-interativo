@@ -42,3 +42,20 @@ h1,h2,h3,h4{line-height:1.28;margin:0 0 12px}h1{font-size:clamp(1.9rem,3.8vw,2.8
 .success-text{color:#176445;font-weight:750}
 @media(max-width:720px){.phase-bar{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:390px){.phase-bar{grid-template-columns:1fr 1fr}.phase-button{font-size:.77rem;padding:7px}}
+
+/* Autoaula: entrada clara, percurso visível e primeira conversa guiada. */
+.entry-actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 11px}
+.entry-actions a{text-decoration:none;display:inline-flex;align-items:center}
+.study-path{list-style:none;counter-reset:path;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:0;margin:18px 0 14px}
+.study-path li{counter-increment:path;position:relative;min-height:82px;padding:12px 12px 12px 45px;border:1px solid #d6e1ee;background:#fff;border-radius:10px}
+.study-path li::before{content:counter(path);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#e9f1fc;color:#1b477c;font-weight:800;font-size:.83rem}
+.study-path strong,.study-path span{display:block}.study-path strong{font-size:.91rem}.study-path span{font-size:.79rem;color:#53657c;margin-top:3px}
+.self-study-extension{border-top:1px solid #e1e8f1;margin-top:18px;padding-top:18px}
+.pattern-card,.tone-note{border:1px solid #d4dfec;border-radius:10px;padding:13px 15px;margin:10px 0;background:#fbfdff}
+.pattern-card{border-left:3px solid #789dd0}.pattern-card .hanzi{font-size:1.35rem;margin:4px 0}.pinyin-line{font-size:.91rem;color:#38587b}.tone-note{border-left:3px solid #b78128;color:#384a60;font-size:.88rem}
+.guided-dialogue{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+.dialogue-line{display:grid;grid-template-columns:minmax(72px,auto) minmax(0,1fr);gap:4px 12px;padding:12px;border:1px solid #dce5f0;border-radius:9px;background:white}
+.speaker-label{grid-row:span 3;align-self:start;color:#53657c;font-size:.79rem;font-weight:700;padding-top:4px}
+.dialogue-line .hanzi{font-size:1.2rem}.dialogue-line .button{justify-self:start}
+@media(max-width:800px){.study-path{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.entry-actions{display:grid;grid-template-columns:1fr}.entry-actions>*{justify-content:center}.study-path{grid-template-columns:1fr 1fr;gap:7px}.study-path li{padding-left:40px}.dialogue-line{grid-template-columns:64px minmax(0,1fr);gap:4px 8px}}

@@ -1,8 +1,10 @@
-# Bǐshùn 9 — Trilha pedagógica
+# Bǐshùn 9 — Autoaula de mandarim
 
-A página principal agora conduz à [trilha de aprendizagem](trilha.html): 302 lições derivadas exclusivamente dos registros existentes, sendo 32 lições iniciais organizadas na primeira etapa e 270 lições das etapas seguintes. Cada lição separa conhecer, usar, escrever e conferir. Avaliações registram reconhecimento sem confundir prática com fluência; a recuperação espaçada segue o motor original e registros históricos são preservados.
+A página inicial conduz uma autoaula em 12 unidades ao longo de 90 dias. Cada unidade tem seis fases: explicação, exemplos compreensíveis, prática ativa, correção, revisões em dias diferentes e avaliação diferida. A primeira sessão está estimada em 25–35 minutos; as revisões D+1, D+3 e a checagem a partir de D+7 são sessões posteriores, não parte de uma aula de uma hora.
 
-Os dados originais não foram modificados. O acervo das 300 unidades anteriores permanece acessível em [mapa.html](mapa.html) e [estudar.html](estudar.html); o manual continua integral em [manual.html](manual.html). Recursos novos possuem testes de preservação, navegação e regressão.
+A unidade 1 começa com saudações e apresentação. Inclui pinyin tonal, áudio disponível no navegador, um padrão reaproveitável e um diálogo. As extensões do diálogo são material didático e não devem ser lidas como ranking de frequência baseado em corpus. As distinções entre reconhecimento, retenção e fluência permanecem explícitas.
+
+A interface oferece início e retomada do percurso, enquanto o acervo complementar continua acessível na mesma página. Permanecem preservados os dados curriculares de nove etapas, 300 unidades, 3.000 caracteres e 11.092 palavras, além do manual, das leituras, da trilha complementar e dos arquivos históricos. Os novos comportamentos têm verificações de conteúdo, navegação, progresso e responsividade.
 
 # Bǐshùn 8.1.1 — aprendizagem de mandarim
 
