@@ -1,5 +1,6 @@
 .u3 { --u3-accent: #315b47; }
 .u3 .hero-stamp { font-size: 6rem; }
+@media (max-width: 900px) { .u3 .hero-stamp { display: none; } }
 .u3-dialogue { margin-top: 14px; border-top: 1px solid #e8e7df; padding-top: 13px; }
 .u3 .u3-speaker-note { color: #4f5b53; }
 .u3-reveal-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 13px; }

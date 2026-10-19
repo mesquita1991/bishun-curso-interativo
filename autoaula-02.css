@@ -1,5 +1,6 @@
 .u2 { --u2-accent: #315b47; }
 .u2 .hero-stamp { color: #315b47; }
+@media (max-width: 900px) { .u2 .hero-stamp { display: none; } }
 .next-unit-link { margin: 11px 0 0; font-size: .72rem; }
 .next-unit-link a { color: #315b47; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .u2-dialogue { margin-top: 14px; border-top: 1px solid #e8e7df; padding-top: 13px; }

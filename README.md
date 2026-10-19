@@ -2,11 +2,11 @@
 
 ## Experiência publicada
 
-O site publica três páginas de estudo autônomo: **Auto-aula 01 — Primeiro contato e apresentação** (`index.html`), **Auto-aula 02 — Cortesia e despedida** (`unidade-02.html`) e **Auto-aula 03 — Pedir uma informação** (`unidade-03.html`). As três oferecem diálogo com áudio, exercícios, tarefa oral, gravação local, autoavaliação, gabarito e revisões espaçadas. A publicação usa uma lista explícita de onze arquivos em `dist/`; o restante do repositório não é enviado ao GitHub Pages.
+O site abre em uma página inicial de curso (`index.html`) com o percurso sugerido, quatro unidades, links diretos e o progresso local de cada aula. A Unidade 1 — Primeiro contato e apresentação — está em `unidade-01.html`; as Unidades 2–4 permanecem em suas páginas próprias. Cada auto-aula oferece diálogo com áudio, exercícios, tarefa oral, gravação local opcional, autoavaliação, gabarito e revisões espaçadas. O documento integrado gerado em `dist/curso-completo.html` reúne as quatro aulas com seus recursos interativos e preserva o progresso isolado de cada unidade. O build filtra os arquivos publicados; o restante do repositório não é enviado ao GitHub Pages.
 
 ## Conteúdo anterior preservado
 
-O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção copia apenas os três HTMLs das auto-aulas, seus seis arquivos CSS/JavaScript, `favicon.svg` e `manifest.webmanifest`.
+O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção copia apenas as quatro páginas e seus recursos, os arquivos de identidade do site e o documento integrado gerado a partir das mesmas aulas.
 
 Para verificar as experiências atuais, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`. O [protocolo de piloto com iniciantes](docs/PILOTO-AUTOAULA-01.md) define como medir usabilidade, aprendizagem e retenção sem confundir teste técnico com eficácia pedagógica.
 

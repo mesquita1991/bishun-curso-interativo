@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 
-const html=fs.readFileSync('index.html','utf8');
+const html=fs.readFileSync('unidade-01.html','utf8');
+const home=fs.readFileSync('index.html','utf8');
 const js=fs.readFileSync('autoaula.js','utf8');
 const css=fs.readFileSync('autoaula.css','utf8');
 assert.equal((html.match(/<h1\b/g)||[]).length,1,'A auto-aula deve ter um título principal.');
@@ -49,7 +50,7 @@ assert.ok(unit2js.includes("const KEY='bishun-autoaula-02-v1'")&&!unit2js.includ
 assert.ok(unit2js.includes('MediaRecorder')&&unit2js.includes('getUserMedia')&&unit2js.includes('completedAt'),'A tarefa oral deve gravar localmente e ancorar as revisões quando marcada.');
 for(const feature of ['@media (max-width: 640px)',':focus-visible','[hidden]'])assert.ok(unit2css.includes(feature),'Acessibilidade/responsividade da Unidade 2 ausente: '+feature);
 assert.ok(unit2css.includes('.u2-blanks .blank')&&css.includes('.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--blue);color:white;border-radius:10px;font-size:13px;line-height:1;letter-spacing:0;white-space:nowrap;overflow:hidden}'),'Campos e marca devem caber no layout sem misturar pinyin a caracteres nem cortar o glifo da marca.');
-assert.ok(unit2.includes('href="index.html"')&&html.includes('href="unidade-02.html"'),'As duas auto-aulas devem permitir navegação de ida e volta.');
+assert.ok(unit2.includes('href="unidade-01.html"')&&html.includes('href="unidade-02.html"'),'As duas auto-aulas devem permitir navegação de ida e volta.');
 assert.ok(fs.readFileSync('scripts/build-site.mjs','utf8').includes("'unidade-02.html'")&&fs.readFileSync('scripts/build-site.mjs','utf8').includes("'autoaula-02.js'"),'A publicação deve incluir explicitamente a página e os recursos da Unidade 2.');
 const unit3=fs.readFileSync('unidade-03.html','utf8'),unit3js=fs.readFileSync('autoaula-03.js','utf8'),unit3css=fs.readFileSync('autoaula-03.css','utf8'),build=fs.readFileSync('scripts/build-site.mjs','utf8');
 assert.ok(html.includes('Os 20–30 min cobrem esta sessão; os retornos em D+1, D+3–4 e D+7 são sessões separadas.'),'A estimativa da Unidade 1 deve distinguir primeira sessão e revisões futuras.');
@@ -64,5 +65,26 @@ for(const feature of ['@media (max-width: 640px)',':focus-visible','[hidden]'])a
 assert.ok(unit3.includes('href="unidade-02.html"')&&fs.readFileSync('unidade-02.html','utf8').includes('href="unidade-03.html"'),'As Unidades 2 e 3 devem permitir continuar e voltar.');
 for(const file of ["'unidade-03.html'","'autoaula-03.css'","'autoaula-03.js'"])assert.ok(build.includes(file),'A publicação filtrada deve incluir '+file);
 const pilot=fs.readFileSync('docs/PILOTO-AUTOAULA-01.md','utf8');
-for(const phrase of ['Autoaulas 01–03','Unidade 1:** apresenta-se','Unidade 2:** agradece','Unidade 3:** pergunta onde fica','sessões separadas','Não declare as auto-aulas “10/10” em eficácia'])assert.ok(pilot.includes(phrase),'O protocolo de validação das três unidades está incompleto: '+phrase);
-console.log(JSON.stringify({ok:true,activeLesson:'autoaula-01+02',legacyPreserved:true,legacyNotLoaded:true,unit2PracticeSections:5,localRecording:true,unit2SpacedReviews:4,outputWhitelist:true}));
+for(const phrase of ['Autoaulas 01–04','Unidade 1:** apresenta-se','Unidade 2:** agradece','Unidade 3:** pergunta onde fica','Unidade 4:** pede uma bebida','sessões separadas','Não declare as auto-aulas “10/10” em eficácia'])assert.ok(pilot.includes(phrase),'O protocolo de validação das quatro unidades está incompleto: '+phrase);
+const unit4=fs.readFileSync('unidade-04.html','utf8'),unit4js=fs.readFileSync('autoaula-04.js','utf8'),unit4css=fs.readFileSync('autoaula-04.css','utf8');
+for(const id of ['dialogueCharacters','dialoguePinyin','dialogueMeaning','playDialogue','checkListening','checkBlanks','sortableConversation','variationChoice','pausePractice','recordStart','recordStop','rubric','answerKey','revisao','progressBar'])assert.ok(unit4.includes(`id="${id}"`),'Elemento da Unidade 4 ausente: '+id);
+for(const text of ['UNIDADE 04','PEDIR UMA BEBIDA','20–30 min · percurso principal','Os 20–30 min cobrem esta sessão; os retornos em D+1, D+3–4 e D+7 são sessões separadas.','我想要一杯茶','wǒ xiǎng yào yì bēi chá','好的','不客气','我想要','一杯','咖啡','Peça com cortesia.','href="unidade-03.html"','áudio alternativo','não cronometrada com alunos','não é analisada automaticamente'])assert.ok(unit4.includes(text),'Conteúdo ou limite da Unidade 4 ausente: '+text);
+assert.ok(unit4.includes('<details class="writing-extension u4-expression-reveal">')&&unit4.includes('role="status" aria-live="polite"'),'Os apoios da Unidade 4 devem ser graduais e anunciar feedback acessível.');
+assert.deepEqual([...unit4.matchAll(/data-answers="([^"]+)"/g)].map(m=>m[1]),['想要|xiǎngyào|xiang3yao4','一杯|yìbēi|yi4bei1','茶|chá|cha2'],'As respostas da Unidade 4 devem aceitar caracteres ou pinyin com tons, nunca pinyin sem tons.');
+assert.ok(unit4js.includes("const KEY='bishun-autoaula-04-v1'")&&!unit4js.includes('bishun-autoaula-03-v1')&&!unit4js.includes('bishun-autoaula-02-v1')&&!unit4js.includes('bishun-autoaula-01-v1'),'O progresso da Unidade 4 deve usar chave exclusiva.');
+assert.ok(unit4js.includes(".normalize('NFC')")&&unit4js.includes('MediaRecorder')&&unit4js.includes('getUserMedia')&&unit4js.includes('completedAt'),'A correção deve preservar marcas tonais, oferecer gravação local opcional e ancorar revisões na conclusão da tarefa.');
+for(const feature of ['@media (max-width: 640px)',':focus-visible','[hidden]'])assert.ok(unit4css.includes(feature),'Acessibilidade/responsividade da Unidade 4 ausente: '+feature);
+assert.ok(unit3.includes('href="unidade-04.html"')&&unit4.includes('href="unidade-03.html"'),'A navegação das Unidades 3 e 4 deve permitir avançar e voltar.');
+assert.ok(unit3.includes('洗手间在哪里？')&&unit3.includes('Xǐshǒujiān zài nǎlǐ?'),'A Unidade 3 deve reconhecer a alternativa comum a 在哪儿 sem substituir o padrão ensinado.');
+assert.ok(unit4.includes('Em um balcão de bebidas')&&!unit4.includes('casa de chá'),'O cenário da Unidade 4 deve comportar todas as bebidas praticadas.');
+for(const file of ["'unidade-04.html'","'autoaula-04.css'","'autoaula-04.js'"])assert.ok(build.includes(file),'A publicação filtrada deve incluir '+file);
+for(const phrase of ['Autoaulas 01–04','Unidade 4:** pede uma bebida','Unidades 2–4'])assert.ok(pilot.includes(phrase),'O protocolo deve cobrir a Unidade 4 sem confundir exposição anterior com aprendizagem.');
+const courseBuilder=fs.readFileSync('scripts/build-course-document.mjs','utf8');
+assert.ok(courseBuilder.includes('srcdoc=')&&courseBuilder.includes('postMessage')&&courseBuilder.includes('bishun-course-height'),'O documento integrado deve embutir as aulas e ajustar os quadros ao conteúdo.');
+assert.ok(courseBuilder.includes("file: 'unidade-01.html'")&&courseBuilder.includes("js: 'autoaula.js'")&&courseBuilder.includes("js: 'autoaula-04.js'")&&courseBuilder.includes("'unidade-04.html'"),'O documento integrado deve reunir o conteúdo e os recursos próprios das quatro unidades.');
+assert.ok(fs.readFileSync('scripts/build-site.mjs','utf8').includes("build-course-document.mjs"),'O documento integrado deve fazer parte do build publicado.');
+assert.equal((home.match(/class="unit-card"/g)||[]).length,4,'A página inicial deve apresentar as quatro unidades.');
+for(const phrase of ['Comece por uma conversa.','unidade-01.html','unidade-02.html','unidade-03.html','unidade-04.html','curso-completo.html','bishun-autoaula-01-v1','0 de 4 etapas'])assert.ok(home.includes(phrase)||fs.readFileSync('inicio.js','utf8').includes(phrase),'A página inicial deve permitir encontrar as aulas e consultar o progresso local: '+phrase);
+assert.ok(home.includes('inicio.css?v=1')&&home.includes('inicio.js?v=1'),'A página inicial deve usar recursos próprios e versionados.');
+assert.ok(fs.readFileSync('scripts/build-site.mjs','utf8').includes("'unidade-01.html'")&&fs.readFileSync('scripts/build-site.mjs','utf8').includes("'inicio.css'")&&fs.readFileSync('scripts/build-site.mjs','utf8').includes("'inicio.js'"),'A lista de publicação deve incluir a página inicial e a Unidade 1 preservada.');
+console.log(JSON.stringify({ok:true,courseHome:true,activeLessons:['autoaula-01','autoaula-02','autoaula-03','autoaula-04'],integratedCourseDocument:true,legacyPreserved:true,legacyNotLoaded:true,unit4DrinkPattern:true,localRecording:true,spacedReviews:4,outputWhitelist:true}));

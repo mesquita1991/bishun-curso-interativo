@@ -1,7 +1,7 @@
 {
   "name": "Bǐshùn — auto-aula de mandarim",
   "short_name": "Bǐshùn",
-  "description": "Pratique uma apresentação em mandarim com pinyin tonal, áudio, gravação e revisão espaçada.",
+  "description": "Curso inicial de mandarim com quatro auto-aulas, pinyin tonal, áudio e revisão espaçada.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",

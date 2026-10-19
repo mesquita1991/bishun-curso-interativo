@@ -1,4 +1,4 @@
-# Piloto com iniciantes — Autoaulas 01–03
+# Piloto com iniciantes — Autoaulas 01–04
 
 ## Finalidade
 
@@ -8,7 +8,7 @@ Este protocolo verifica se adultos sem experiência em mandarim entendem as inst
 
 Convide de 5 a 8 adultos que nunca estudaram mandarim nem pinyin. Teste uma pessoa por vez, no aparelho que ela normalmente usaria. Não explique a interface; apresente somente o objetivo da unidade. Não peça que a pessoa instale uma voz, habilite o microfone ou grave para participar.
 
-Se a pessoa fizer a sequência completa, distribua as aulas por encontros separados. Não concentre três percursos de 20–30 minutos em uma sessão. Registre o tempo de cada primeira sessão separadamente das revisões de D+1, D+3–4 e D+7.
+Se a pessoa fizer a sequência completa, distribua as aulas por encontros separados. Não concentre quatro percursos de 20–30 minutos em uma sessão. Registre o tempo de cada primeira sessão separadamente das revisões de D+1, D+3–4 e D+7.
 
 Observe e registre, sem gravar tela ou voz por padrão:
 
@@ -17,11 +17,12 @@ Observe e registre, sem gravar tela ou voz por padrão:
 3. **Unidade 1:** apresenta-se, devolve a pergunta com `你呢？` e responde à cortesia sem o roteiro.
 4. **Unidade 2:** agradece por um favor, responde a um agradecimento e se despede.
 5. **Unidade 3:** pergunta onde fica um lugar, entende `在那儿` com o gesto indicado e agradece.
-6. Em quais instruções hesita, tenta outra ação ou pede ajuda; se consegue navegar e ordenar as falas por teclado quando essa tecnologia fizer parte do uso habitual.
-7. Tempo no percurso principal de cada unidade, excluindo pausas externas e extensões opcionais. As revisões em outros dias são sessões separadas.
-8. Se distingue tarefa principal, extensão opcional, gabarito e revisão.
+6. **Unidade 4:** pede uma bebida com `我想要一杯…`, reconhece a confirmação e agradece; registre se a pessoa já conhece expressões reutilizadas das unidades anteriores.
+7. Em quais instruções hesita, tenta outra ação ou pede ajuda; se consegue navegar e ordenar as falas por teclado quando essa tecnologia fizer parte do uso habitual.
+8. Tempo no percurso principal de cada unidade, excluindo pausas externas e extensões opcionais. As revisões em outros dias são sessões separadas.
+9. Se distingue tarefa principal, extensão opcional, gabarito e revisão.
 
-Para conferir a autonomia de entrada das Unidades 2 e 3, inclua participantes que iniciem diretamente nelas. Registre esse resultado à parte do percurso sequencial: não misture quem já aprendeu as expressões nas unidades anteriores com quem está vendo o conteúdo pela primeira vez.
+Para conferir a autonomia de entrada das Unidades 2, 3 e 4, inclua participantes que iniciem diretamente nelas. Registre esse resultado à parte do percurso sequencial: não misture quem já aprendeu as expressões nas unidades anteriores com quem está vendo o conteúdo pela primeira vez.
 
 ### Portas de qualidade propostas
 
@@ -47,7 +48,7 @@ Use tarefas equivalentes, mas não idênticas, e registre cada unidade separadam
 | 3–4 dias | Retomada curta, alinhada à revisão proposta na página. |
 | Uma semana | Transferência para uma situação nova, sem roteiro. |
 
-Para a Unidade 1, avalie apresentação, `你呢？` e resposta de cortesia. Para a Unidade 2, avalie agradecimento, resposta e despedida. Para a Unidade 3, avalie pedido cortês de localização, interpretação da indicação e agradecimento. Nas Unidades 2 e 3, registre se a pessoa já conhece as expressões reutilizadas; ganhos com conteúdo anterior não podem ser atribuídos automaticamente à unidade atual.
+Para a Unidade 1, avalie apresentação, `你呢？` e resposta de cortesia. Para a Unidade 2, avalie agradecimento, resposta e despedida. Para a Unidade 3, avalie pedido cortês de localização, interpretação da indicação e agradecimento. Para a Unidade 4, avalie pedido de bebida, compreensão da confirmação e agradecimento. Nas Unidades 2–4, registre se a pessoa já conhece as expressões reutilizadas; ganhos com conteúdo anterior não podem ser atribuídos automaticamente à unidade atual.
 
 Uma pessoa competente em mandarim, sem saber a condição do participante, deve avaliar inteligibilidade e adequação com uma rubrica definida antes do teste. Não use “parecer nativo” como critério. Registre separadamente compreensão auditiva, recuperação, transferência, conclusão da tarefa, inteligibilidade e tempo. A gravação é opcional e exige consentimento explícito.
 
