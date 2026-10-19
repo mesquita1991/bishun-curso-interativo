@@ -67,3 +67,7 @@
 .time-breakdown{color:#4f5b53!important}
 .tone-lab-heading>p,.tone-practice [role="status"],.honest-note{color:#4f5b53!important}
 .next-unit-link{font-size:.72rem;margin:11px 0 0}.next-unit-link a{color:#315b47;font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+
+/* Orientation and supporting detail stay clear, optional and keyboard reachable. */
+.learning-bridge{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:11px 0 2px}.learning-bridge p{margin:0!important;padding:10px 12px;background:#f8f9f4;border:1px solid #dce4d9;border-radius:3px}.learning-bridge strong{display:block;color:#3c5746;margin-bottom:3px}.lesson-pacing{margin-top:9px}.lesson-pacing summary,.source-notes summary{cursor:pointer;color:#315b47;font-size:.72rem;font-weight:700;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}.lesson-pacing summary{padding:4px 0}.lesson-pacing[open] summary,.source-notes[open] summary{margin-bottom:8px}.source-notes{padding:13px 0}.source-notes summary{display:block;padding:3px 0}.source-notes-content{padding-top:5px}.source-notes h3{font-size:1rem}.source-notes-content p{font-size:.72rem}.lesson-pacing summary:focus-visible,.source-notes summary:focus-visible{outline:3px solid #315b47;outline-offset:3px;border-radius:2px}
+@media(max-width:640px){.learning-bridge{grid-template-columns:1fr;gap:7px}.learning-bridge p{padding:9px 10px}.source-notes{margin-inline:0}}
