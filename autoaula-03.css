@@ -58,3 +58,4 @@
  .u3 .hero-stamp { right: -10px; font-size: 5rem; }
 }
 .u3 .hero-stamp { color: #315b47; }
+.u3-route{display:flex;align-items:center;gap:14px;margin:18px 0;padding:14px 16px;border:1px solid #d8e2d7;background:#f6f8f2;border-radius:4px}.u3-route-map{display:flex;align-items:center;gap:12px;flex:0 0 auto;color:#31513b;font-size:.68rem;font-weight:700;letter-spacing:.04em}.u3-route-map>span:first-child,.u3-route-map>span:last-child{padding:8px 10px;border:1px solid #bdcdbd;background:#fffefa;border-radius:3px}.u3-route-map [lang="zh-Hans"]{font:500 1.05rem var(--serif)}.u3-route-arrow{color:#55735e;font-size:1.2rem;letter-spacing:.1em}.u3-route figcaption{color:#536158;font-size:.77rem;line-height:1.5}@media(max-width:640px){.u3-route{align-items:flex-start;flex-direction:column;gap:9px}.u3-route-map{width:100%;justify-content:space-between;gap:6px}.u3-route-map>span:first-child{font-size:.6rem}.u3-route figcaption{font-size:.75rem}}
