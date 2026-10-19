@@ -5,7 +5,8 @@
   ['02','bishun-autoaula-02-v1'],
   ['03','bishun-autoaula-03-v1'],
   ['04','bishun-autoaula-04-v1'],
-  ['05','bishun-autoaula-05-v1']
+  ['05','bishun-autoaula-05-v1'],
+  ['06','bishun-autoaula-06-v1']
  ];
  const readProgress=key=>{try{const state=JSON.parse(localStorage.getItem(key)||'{}');const completed=state.completed||{};return ['dialogue','practice','task','key'].filter(step=>completed[step]).length}catch{return 0}};
  document.querySelectorAll('[data-progress]').forEach(card=>{

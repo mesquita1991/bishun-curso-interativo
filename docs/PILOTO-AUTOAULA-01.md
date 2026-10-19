@@ -1,4 +1,4 @@
-# Piloto com iniciantes — Autoaulas 01–05
+# Piloto com iniciantes — Autoaulas 01–06
 
 ## Finalidade
 
@@ -19,11 +19,12 @@ Observe e registre, sem gravar tela ou voz por padrão:
 5. **Unidade 3:** pergunta onde fica um lugar, entende `在那儿` com o gesto indicado e agradece.
 6. **Unidade 4:** pede uma bebida com `我想要一杯…`, reconhece a confirmação e agradece; registre se a pessoa já conhece expressões reutilizadas das unidades anteriores.
 7. **Unidade 5:** pede uma tigela de macarrão ou arroz com `我想要一碗…`, reconhece a confirmação e agradece; registre se a pessoa distingue `一碗` de `一杯` e se já conhece o padrão `我想要` da Unidade 4.
-8. Em quais instruções hesita, tenta outra ação ou pede ajuda; se consegue navegar e ordenar as falas por teclado quando essa tecnologia fizer parte do uso habitual.
-9. Tempo no percurso principal de cada unidade, excluindo pausas externas e extensões opcionais. As revisões em outros dias são sessões separadas.
-10. Se distingue tarefa principal, extensão opcional, gabarito e revisão.
+8. **Unidade 6:** pergunta quanto custa um prato com `多少钱`, compreende o preço informado e confirma o pedido; registre se já conhece os contadores e `我想要` das Unidades 4–5.
+9. Em quais instruções hesita, tenta outra ação ou pede ajuda; se consegue navegar e ordenar as falas por teclado quando essa tecnologia fizer parte do uso habitual.
+10. Tempo no percurso principal de cada unidade, excluindo pausas externas e extensões opcionais. As revisões em outros dias são sessões separadas.
+11. Se distingue tarefa principal, extensão opcional, gabarito e revisão.
 
-Para conferir a autonomia de entrada das Unidades 2–5, inclua participantes que iniciem diretamente nelas. Registre esse resultado à parte do percurso sequencial: não misture quem já aprendeu as expressões nas unidades anteriores com quem está vendo o conteúdo pela primeira vez.
+Para conferir a autonomia de entrada das Unidades 2–6, inclua participantes que iniciem diretamente nelas. Registre esse resultado à parte do percurso sequencial: não misture quem já aprendeu as expressões nas unidades anteriores com quem está vendo o conteúdo pela primeira vez.
 
 ### Portas de qualidade propostas
 
@@ -49,7 +50,7 @@ Use tarefas equivalentes, mas não idênticas, e registre cada unidade separadam
 | 3–4 dias | Retomada curta, alinhada à revisão proposta na página. |
 | Uma semana | Transferência para uma situação nova, sem roteiro. |
 
-Para a Unidade 1, avalie apresentação, `你呢？` e resposta de cortesia. Para a Unidade 2, avalie agradecimento, resposta e despedida. Para a Unidade 3, avalie pedido cortês de localização, interpretação da indicação e agradecimento. Para a Unidade 4, avalie pedido de bebida, compreensão da confirmação e agradecimento. Para a Unidade 5, avalie escolha entre os dois pratos, uso de `一碗` e conclusão do pedido. Nas Unidades 2–5, registre se a pessoa já conhece as expressões reutilizadas; ganhos com conteúdo anterior não podem ser atribuídos automaticamente à unidade atual.
+Para a Unidade 1, avalie apresentação, `你呢？` e resposta de cortesia. Para a Unidade 2, avalie agradecimento, resposta e despedida. Para a Unidade 3, avalie pedido cortês de localização, interpretação da indicação e agradecimento. Para a Unidade 4, avalie pedido de bebida, compreensão da confirmação e agradecimento. Para a Unidade 5, avalie escolha entre os dois pratos, uso de `一碗` e conclusão do pedido. Para a Unidade 6, avalie a pergunta de preço, compreensão do valor e confirmação do pedido. Nas Unidades 2–6, registre se a pessoa já conhece as expressões reutilizadas; ganhos com conteúdo anterior não podem ser atribuídos automaticamente à unidade atual.
 
 Uma pessoa competente em mandarim, sem saber a condição do participante, deve avaliar inteligibilidade e adequação com uma rubrica definida antes do teste. Não use “parecer nativo” como critério. Registre separadamente compreensão auditiva, recuperação, transferência, conclusão da tarefa, inteligibilidade e tempo. A gravação é opcional e exige consentimento explícito.
 
