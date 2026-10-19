@@ -2,13 +2,13 @@
 
 ## Experiência publicada
 
-O site está dedicado à **Auto-aula 01 — Primeiro contato e apresentação**. A página ativa oferece diálogo com áudio, treino de apresentação, exercícios de compreensão e recuperação, gravação local, autoavaliação, gabarito e revisões espaçadas. A publicação usa uma lista explícita de cinco arquivos em `dist/`; o restante do repositório não é enviado ao GitHub Pages.
+O site publica três páginas de estudo autônomo: **Auto-aula 01 — Primeiro contato e apresentação** (`index.html`), **Auto-aula 02 — Cortesia e despedida** (`unidade-02.html`) e **Auto-aula 03 — Pedir uma informação** (`unidade-03.html`). As três oferecem diálogo com áudio, exercícios, tarefa oral, gravação local, autoavaliação, gabarito e revisões espaçadas. A publicação usa uma lista explícita de onze arquivos em `dist/`; o restante do repositório não é enviado ao GitHub Pages.
 
 ## Conteúdo anterior preservado
 
-O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção do site copia apenas `index.html`, `autoaula.css`, `autoaula.js`, `favicon.svg` e `manifest.webmanifest`.
+O histórico abaixo documenta versões anteriores do Bǐshùn. Seus dados, manuais, bibliotecas e motores permanecem no repositório como legado de desenvolvimento, sem navegação nem acesso pelo site publicado. A construção copia apenas os três HTMLs das auto-aulas, seus seis arquivos CSS/JavaScript, `favicon.svg` e `manifest.webmanifest`.
 
-Para validar a experiência atual, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`. O [protocolo de piloto com iniciantes](docs/PILOTO-AUTOAULA-01.md) define como medir usabilidade, aprendizagem e retenção sem confundir teste técnico com eficácia pedagógica.
+Para verificar as experiências atuais, use `npm run check`, `npm run build` e `node tests/autoaula-browser-smoke.mjs`. O [protocolo de piloto com iniciantes](docs/PILOTO-AUTOAULA-01.md) define como medir usabilidade, aprendizagem e retenção sem confundir teste técnico com eficácia pedagógica.
 
 ---
 
