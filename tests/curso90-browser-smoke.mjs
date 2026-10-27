@@ -29,7 +29,7 @@ try{
   assert.match(await page.locator('#remainingSummary').innerText(),/Vocabulário/);
   assert.ok(await page.locator('#remainderItems .entry').count()>0,'Acervo não selecionado');
   await page.locator('#weekList [data-week="2"]').click();
-  await page.locator('#lesson h2').waitFor();
+  await page.waitForFunction(()=>document.querySelector('#lesson h2')?.textContent.includes('Pessoas'),{timeout:15000});
   assert.match(await page.locator('#lesson h2').innerText(),/Pessoas/);
   await page.locator('#libraryKind').selectOption('manual');
   await page.locator('#libraryOpen').click();

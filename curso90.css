@@ -79,3 +79,6 @@ h1,h2,h3,h4{line-height:1.28;margin:0 0 12px}h1{font-size:clamp(1.9rem,3.8vw,2.8
 @media(max-width:540px){.entry-actions{display:grid;grid-template-columns:1fr}.entry-actions>*{justify-content:center}.study-path{grid-template-columns:1fr 1fr;gap:7px}.study-path li{padding-left:40px}.dialogue-line{grid-template-columns:64px minmax(0,1fr);gap:4px 8px}}
 
 }
+
+/* Contraste AA nos rótulos das semanas, inclusive no botão selecionado. */
+.curso90 .week-choice span{color:#344c68;font-weight:650}
