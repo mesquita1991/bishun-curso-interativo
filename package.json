@@ -5,7 +5,7 @@
   "scripts": {
     "start": "python3 -m http.server 4173",
     "build": "node scripts/build-site.mjs",
-    "check": "node --check inicio.js && node --check autoaula.js && node --check autoaula-02.js && node --check autoaula-03.js && node --check autoaula-04.js && node --check autoaula-05.js && node --check autoaula-06.js && node tests/autoaula-check.mjs"
+    "check": "node --check inicio.js && node --check autoaula.js && node --check autoaula-02.js && node --check autoaula-03.js && node --check autoaula-04.js && node --check autoaula-05.js && node --check autoaula-06.js && node tests/autoaula-check.mjs && node tests/curso90-integrity-check.mjs"
   },
   "description": "Bǐshùn: auto-aula independente de mandarim com prática de apresentação, tons e revisão espaçada."
 }

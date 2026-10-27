@@ -8,5 +8,19 @@ if(!fs.existsSync(path.join(root,'index.html')))throw new Error('Execute a const
 fs.rmSync(output,{recursive:true,force:true});
 fs.mkdirSync(output,{recursive:true});
 for(const file of publicFiles)fs.copyFileSync(path.join(root,file),path.join(output,file));
+// Deploy the 12-week app and the complete source-backed reference library.
+// All large lexical records remain separate JSON files and are fetched only when requested.
+const weeklyFiles=['curso90.css','app-lite.css','single-page.js','pedagogia-semanal.js','library-lite.js',
+ 'programa-12-semanas.json','didatica-12-semanas.json','manual-catalogo.json','trilha-v9.json',
+ 'conteudos.json','visual-mnemonics-6.2.1.json'];
+const manualParts=fs.readdirSync(root).filter(name=>/^manual-(?:texto|graficos)-.*\.json$/.test(name));
+for(const file of [...weeklyFiles,...manualParts]){
+ if(!fs.existsSync(path.join(root,file)))throw new Error('Fonte ausente: '+file);
+ fs.copyFileSync(path.join(root,file),path.join(output,file));
+}
+for(const dir of ['data','archive']){
+ fs.cpSync(path.join(root,dir),path.join(output,dir),{recursive:true});
+}
+
 await import('./build-course-document.mjs');
 console.log(`Site limpo pronto: ${publicFiles.join(', ')}`);

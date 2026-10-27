@@ -4,19 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f8f6f0">
-<meta name="description" content="Comece o curso autônomo Bǐshùn: seis auto-aulas de mandarim para conversas simples, com pinyin tonal, áudio, prática e revisão.">
-<title>Bǐshùn · Comece mandarim por conversas</title>
+<meta name="description" content="Bǐshùn: curso central de 90 dias em 12 semanas, revisão espaçada e todo o material das 9 etapas na página inicial; seis autoaulas preservadas.">
+<title>Bǐshùn · Mandarim em 90 dias e autoaulas</title>
 <link rel="canonical" href="https://mesquita1991.github.io/bishun-curso-interativo/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="stylesheet" href="inicio.css?v=1">
+<link rel="stylesheet" href="curso90.css?v=1">
 <script defer src="inicio.js?v=1"></script>
+<script defer src="pedagogia-semanal.js?v=2"></script>
+<script defer src="single-page.js?v=2"></script>
+<script defer src="library-lite.js?v=1"></script>
 </head>
 <body>
 <a class="skip-link" href="#aulas">Pular para as unidades</a>
 <header class="site-header">
  <a class="brand" href="index.html" aria-label="Bǐshùn — página inicial"><span class="brand-mark" lang="zh-Hans" aria-hidden="true">笔顺</span><span>Bǐshùn</span></a>
- <nav aria-label="Navegação da página"><a href="#percurso">O percurso</a><a href="#aulas">As unidades</a><a href="curso-completo.html">Documento completo</a></nav>
+ <nav aria-label="Navegação da página"><a href="#estudo90">90 dias</a><a href="#restante">Não selecionado</a><a href="#biblioteca">Biblioteca</a><a href="#aulas">6 autoaulas</a><a href="curso-completo.html">Documento completo</a></nav>
  <span class="course-label">MANDARIM · INICIANTES</span>
 </header>
 <main id="main">
@@ -25,7 +29,66 @@
   <aside class="hero-note" aria-label="Como funciona o curso"><span class="note-index">PARA ESTUDAR NO SEU RITMO</span><p>As aulas foram preparadas para estudo individual. Cada uma combina diálogo, caracteres simplificados, pinyin com tons, prática e gabarito.</p><p>Reserve cerca de 20–30 minutos para cada aula; é uma estimativa flexível. Estude no seu ritmo e volte às revisões nos dias indicados.</p></aside>
  </section>
  <section class="course-overview" aria-label="O que você encontra em cada auto-aula"><article><span class="overview-mark" aria-hidden="true">听</span><div><h2>Escute ou acompanhe por escrito</h2><p>Use a fala automática do aparelho, quando disponível, ou siga os apoios de texto e pinyin.</p></div></article><article><span class="overview-mark" aria-hidden="true">说</span><div><h2>Pratique antes de conferir</h2><p>Recupere expressões, varie as frases e faça uma tarefa oral; gravar é opcional.</p></div></article><article><span class="overview-mark" aria-hidden="true">复</span><div><h2>Retome em outros dias</h2><p>As revisões sugeridas ficam registradas neste navegador, separadas por unidade.</p></div></article></section>
- <section class="units-section" id="aulas" aria-labelledby="units-title" tabindex="-1"><header class="section-heading"><div><p class="section-kicker">SEQUÊNCIA SUGERIDA · 6 AUTO-AULAS</p><h2 id="units-title">Escolha por onde continuar</h2></div><p>Comece pela primeira aula se está aprendendo do zero; cada página também mostra o contexto necessário para estudar por conta própria.</p></header>
+ <section id="estudo90" class="curso90" aria-label="Plano principal de 90 dias">
+ <div class="intro-90">
+  <p class="kicker">PERCURSO PRINCIPAL · 12 SEMANAS + 6 DIAS FINAIS</p>
+  <h2>Mandarim para usar em conversas — 90 dias</h2>
+  <p>As situações de comunicação organizam o estudo. Em cada semana: explicação, exemplos contextualizados, prática ativa, correção, revisões posteriores e avaliação de retenção. Os caracteres, as palavras e a gramática vêm das nove etapas originais. As seis autoaulas introdutórias continuam disponíveis adiante.</p>
+  <div class="entry-actions"><button type="button" id="startStudy" class="button">Começar pelas 12 semanas</button><a class="button secondary" href="#restante">Ver itens ainda não selecionados</a></div>
+  <p id="speechHint" class="muted">A reprodução de frases utiliza voz sintética do dispositivo, quando disponível; não é gravação de falante nativo.</p>
+ </div>
+ <section id="curso" aria-labelledby="courseTitle">
+  <div class="section-head"><div><p class="kicker">Percurso principal</p><h2 id="courseTitle">Curso comunicativo</h2></div><p id="progressStatus" class="muted" aria-live="polite">Carregando…</p></div>
+  <div class="course-layout">
+   <aside class="week-rail" aria-label="Escolher semana"><h3>Plano de estudo</h3><div id="weekList" class="week-list" role="group" aria-label="Semanas e consolidação"><p>Preparando semanas…</p></div></aside>
+   <div class="course-main">
+    <div id="lesson" aria-live="polite" aria-atomic="false"><p>Carregando conteúdo…</p></div>
+   </div>
+  </div>
+ </section>
+ <section id="restante" aria-labelledby="remainingTitle" class="section-separated">
+  <div class="section-head"><div><p class="kicker">Acervo que não entrou no plano de 12 semanas</p><h2 id="remainingTitle">Conteúdo ainda não selecionado</h2></div></div>
+  <p>Os itens abaixo pertencem às 9 etapas originais, mas não foram selecionados para as atividades centrais. Podem ser consultados sem antecipar o estudo obrigatório. “Não selecionado” não significa que o aluno desconheça o item.</p>
+  <div id="remainingSummary" class="metrics" aria-live="polite"><span>Calculando inventário…</span></div>
+  <div class="filters">
+   <label>Tipo de conteúdo<select id="remainderKind"><option value="vocabulary">Vocabulário</option><option value="characters">Caracteres</option><option value="grammar">Gramática</option></select></label>
+   <label>Etapa de origem<select id="remainderStage"><option value="all">Todas as etapas</option></select></label>
+   <label class="search-label">Encontrar por hanzi, pinyin ou português<input id="remainderQuery" type="search" placeholder="Ex.: 朋友, péngyou, amizade" autocomplete="off"></label>
+  </div>
+  <p id="remainderCount" class="muted" role="status">Carregando inventário…</p>
+  <div id="remainderItems" class="result-list" aria-live="polite"></div>
+  <div class="pager"><button type="button" id="remainderPrev" class="button secondary">Anterior</button><span id="remainderPage" aria-live="polite"></span><button type="button" id="remainderNext" class="button secondary">Próximo</button></div>
+ </section>
+ <section id="biblioteca" aria-labelledby="libraryTitle" class="section-separated">
+  <div class="section-head"><div><p class="kicker">Todo o restante permanece no mesmo endereço</p><h2 id="libraryTitle">Biblioteca e fontes originais</h2></div></div>
+  <p>Abra somente o que precisar. Manual de 198 páginas, fonética, escrita, trilha de 302 lições, mnemônicos, leitura, avaliações, extensão lexical e as antigas páginas arquivadas continuam disponíveis aqui, sem carregar tudo na abertura.</p>
+  <div class="filters library-controls">
+   <label>Material<select id="libraryKind">
+    <option value="manual">Manual integral (198 páginas)</option>
+    <option value="atlas">Pronúncia (410 combinações)</option>
+    <option value="strokes">Escrita (164 caracteres)</option>
+    <option value="mnemonics">Mnemônicos visuais (48)</option>
+    <option value="trail">Trilha complementar (302 lições)</option>
+    <option value="readings">Leituras complementares (52)</option>
+    <option value="pragmatics">Pragmática (100 fichas)</option>
+    <option value="missions">Missões avançadas (120)</option>
+    <option value="benchmarks">Avaliações complementares (36)</option>
+    <option value="idioms">Expressões idiomáticas (5.295)</option>
+    <option value="lexicon">Léxico pós-padrão (124.370 registros)</option>
+    <option value="fundamentals">Fundamentos originais (47 seções)</option>
+    <option value="archives">Páginas antigas arquivadas (24)</option>
+    <option value="sources">Arquivos-fonte completos e índices</option>
+   </select></label>
+   <label>Localizar dentro do material<input id="libraryQuery" type="search" placeholder="Pesquisar neste material" autocomplete="off"></label>
+   <button type="button" class="button" id="libraryOpen">Abrir material</button>
+  </div>
+  <p id="libraryStatus" class="muted" role="status">Escolha um material e abra-o quando precisar.</p>
+  <div id="libraryContent" aria-live="polite"></div>
+ </section>
+
+ <p class="course90-disclaimer">As respostas de reconhecimento são verificadas automaticamente; produção oral e escrita livre precisam de avaliação adicional. A marcação de atividades não equivale a domínio da língua.</p>
+</section>
+<section class="units-section" id="aulas" aria-labelledby="units-title" tabindex="-1"><header class="section-heading"><div><p class="section-kicker">APOIO AO PERCURSO PRINCIPAL · 6 AUTO-AULAS INTRODUTÓRIAS</p><h2 id="units-title">Escolha por onde continuar</h2></div><p>Estas seis autoaulas já existentes continuam disponíveis para praticar conversas iniciais. Não correspondem automaticamente às primeiras seis semanas do plano de 90 dias.</p></header>
   <div class="unit-grid">
    <article class="unit-card"><div class="card-top"><span class="unit-number">01</span><span class="unit-time">20–30 min</span></div><p class="card-kicker">PRIMEIRO CONTATO</p><h3>Apresente-se</h3><p>Aprenda a cumprimentar, dizer seu nome, devolver uma pergunta e responder a um cumprimento.</p><p class="card-chinese" lang="zh-Hans">你好 · 我叫…… · 你呢？</p><div class="card-progress" data-progress="01" aria-live="polite">0 de 4 etapas concluídas neste aparelho</div><a class="card-link" href="unidade-01.html">Abrir Unidade 01 <span aria-hidden="true">→</span></a></article>
    <article class="unit-card"><div class="card-top"><span class="unit-number">02</span><span class="unit-time">20–30 min</span></div><p class="card-kicker">CORTESIA</p><h3>Agradeça e despeça-se</h3><p>Agradeça por um favor, responda a um agradecimento e encerre uma conversa curta.</p><p class="card-chinese" lang="zh-Hans">谢谢 · 不客气 · 再见</p><div class="card-progress" data-progress="02" aria-live="polite">0 de 4 etapas concluídas neste aparelho</div><a class="card-link" href="unidade-02.html">Abrir Unidade 02 <span aria-hidden="true">→</span></a></article>

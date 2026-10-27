@@ -28,4 +28,6 @@ jobs:
           npm install --no-save playwright axe-core@4.10.3
           npx playwright install --with-deps chromium
       - name: Testar os exercícios, progresso, rubricagem e telas reais
-        run: node tests/autoaula-browser-smoke.mjs
+        run: |
+          node tests/autoaula-browser-smoke.mjs
+          node tests/curso90-browser-smoke.mjs
