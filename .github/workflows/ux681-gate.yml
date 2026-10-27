@@ -29,5 +29,5 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Testar os exercícios, progresso, rubricagem e telas reais
         run: |
-          node tests/autoaula-browser-smoke.mjs
           node tests/curso90-browser-smoke.mjs
+          node tests/autoaula-browser-smoke.mjs
