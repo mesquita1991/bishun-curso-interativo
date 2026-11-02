@@ -6,7 +6,7 @@ import http from 'node:http';
 import assert from 'node:assert/strict';
 
 const root=path.resolve('dist');
-const mime=file=>file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.webmanifest')?'application/manifest+json':'text/html';
+const mime=file=>(file.endsWith('.js')||file.endsWith('.mjs'))?'text/javascript':file.endsWith('.json')?'application/json':file.endsWith('.css')?'text/css':file.endsWith('.svg')?'image/svg+xml':file.endsWith('.webmanifest')?'application/manifest+json':'text/html';
 const server=http.createServer((req,res)=>{const url=new URL(req.url,'http://localhost'),pathname=decodeURIComponent(url.pathname),target=path.resolve(root,pathname==='/'?'index.html':'.'+pathname);if(!target.startsWith(root+path.sep)||!fs.existsSync(target)||!fs.statSync(target).isFile()){res.writeHead(404);res.end('Não encontrado');return}res.writeHead(200,{'Content-Type':mime(target)+'; charset=utf-8','Cache-Control':'no-store'});fs.createReadStream(target).pipe(res)});
 let browser;
 try{
@@ -279,10 +279,26 @@ try{
   await page.getByRole('link',{name:/02 · Cortesia/}).click();assert.equal(new URL(page.url()).hash,'#unidade-02','A navegação global deve levar à unidade escolhida.');assert.deepEqual(errors,[],'O documento integrado não deve gerar erros JavaScript.');
   await page.waitForFunction(()=>[...document.querySelectorAll('.unit-frame')].every(frame=>parseInt(frame.style.height,10)>1000));courseResults.push(width);await context.close();
  }
+ // Trilha aditiva 101: garantir carregamento real do módulo ES e de seus dados JSON.
+ for(const width of [390,1440]){
+  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'});
+  const page=await context.newPage(),errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.goto(origin+'/curso-101.html',{waitUntil:'domcontentloaded'});
+  await page.locator('.module-link').first().waitFor();
+  assert.equal(await page.locator('.module-link').count(),4,'A trilha 101 deve disponibilizar quatro módulos.');
+  assert.equal(await page.locator('.question').count(),10,'Cada módulo deve disponibilizar dez questões.');
+  await page.locator('[data-module="004"]').click();
+  assert.equal(await page.locator('.question').count(),10,'O módulo 004 deve abrir com dez questões.');
+  assert.equal(new URL(page.url()).searchParams.get('m'),'4','O link deve permitir retomar o módulo selecionado.');
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),true,'A trilha 101 não deve transbordar horizontalmente em '+width+'px.');
+  assert.deepEqual(errors,[],'A trilha 101 não deve produzir erros JavaScript.');
+  await context.close();
+ }
   const rootFiles=fs.readdirSync(root);
-  for(const needed of ['autoaula.css','autoaula.js','autoaula-02.css','autoaula-02.js','autoaula-03.css','autoaula-03.js','autoaula-04.css','autoaula-04.js','autoaula-05.css','autoaula-05.js','autoaula-06.css','autoaula-06.js','curso-completo.html','favicon.svg','index.html','inicio.css','inicio.js','manifest.webmanifest',...Array.from({length:6},(_,i)=>'unidade-0'+(i+1)+'.html'), 'curso90.css','single-page.js','pedagogia-semanal.js','library-lite.js','programa-12-semanas.json','didatica-12-semanas.json','manual-catalogo.json','trilha-v9.json','conteudos.json','visual-mnemonics-6.2.1.json','data','archive'])
+  for(const needed of ['autoaula.css','autoaula.js','autoaula-02.css','autoaula-02.js','autoaula-03.css','autoaula-03.js','autoaula-04.css','autoaula-04.js','autoaula-05.css','autoaula-05.js','autoaula-06.css','autoaula-06.js','curso-completo.html','curso-101.html','curso101','favicon.svg','index.html','inicio.css','inicio.js','manifest.webmanifest',...Array.from({length:6},(_,i)=>'unidade-0'+(i+1)+'.html'), 'curso90.css','single-page.js','pedagogia-semanal.js','library-lite.js','programa-12-semanas.json','didatica-12-semanas.json','manual-catalogo.json','trilha-v9.json','conteudos.json','visual-mnemonics-6.2.1.json','data','archive'])
    assert.ok(rootFiles.includes(needed),'Fonte necessária ausente da publicação: '+needed);
-  assert.deepEqual(rootFiles.filter(x=>x.endsWith('.html')).sort(),['index.html','curso-completo.html',...Array.from({length:6},(_,i)=>'unidade-0'+(i+1)+'.html')].sort(),'Não criar páginas de estudo adicionais desnecessárias');
+  assert.deepEqual(rootFiles.filter(x=>x.endsWith('.html')).sort(),['index.html','curso-completo.html','curso-101.html',...Array.from({length:6},(_,i)=>'unidade-0'+(i+1)+'.html')].sort(),'Não criar páginas de estudo adicionais desnecessárias');
   assert.ok(fs.existsSync(path.join(root,'data/post/lex-127.json'))&&fs.existsSync(path.join(root,'archive/legacy-3.json')),'Biblioteca de referência incompleta');
  console.log(JSON.stringify({ok:true,viewports:[390,768,1440],homeViewports,unit3FlowViewports:unit3ViewportResults,unit4FlowViewports,unit5FlowViewports,unit6FlowViewports,integratedDocumentViewports:courseResults,units:['autoaula-01','autoaula-02','autoaula-03','autoaula-04','autoaula-05','autoaula-06'],unit5Exercises:['compreensão','lacunas','ordenação','variação','prática oral'],accessibilityAudit:{standard:'WCAG 2.2 AA',states:['home default','unit default','unit expanded'],violations:0},recordingAndRubric:true,spacedReview:true,referenceSources:'200',publishedFiles:24,noBrowserErrors:true}));
 }finally{await browser?.close();await new Promise(resolve=>server.close(resolve))}
