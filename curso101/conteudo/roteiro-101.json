@@ -1,0 +1,2553 @@
+{
+  "schemaVersion": 1,
+  "note": "Roteiro de 101 módulos. Apenas os módulos 001–004 têm conteúdo interativo. Demais módulos são metadados de planejamento sem atividades publicadas.",
+  "totalModules": 101,
+  "totalRadicals": 201,
+  "implementedModules": 4,
+  "plannedModules": 97,
+  "modules": [
+    {
+      "id": "001",
+      "status": "implementado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Eu e você",
+      "radicalIds": [
+        1,
+        2
+      ],
+      "radicais": [
+        "一",
+        "丨"
+      ],
+      "hanziFoco": [
+        "我",
+        "你"
+      ],
+      "vocabularioFoco": "我 wǒ — eu; 你 nǐ — você",
+      "gramatica": "Pronomes pessoais; estrutura sujeito–predicado; tons 2 e 3",
+      "fonetica": "Tons 2/3; w e n",
+      "objetivo": "Identificar interlocutores e responder a uma saudação",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "002",
+      "status": "implementado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Ele e ela",
+      "radicalIds": [
+        3,
+        4
+      ],
+      "radicais": [
+        "丿",
+        "丶"
+      ],
+      "hanziFoco": [
+        "他",
+        "她",
+        "们"
+      ],
+      "vocabularioFoco": "他 tā — ele; 她 tā — ela; 他们 tāmen — eles",
+      "gramatica": "Terceira pessoa; plural 们; homofonia 他/她",
+      "fonetica": "tā homófono: 他/她; vogal a",
+      "objetivo": "Apresentar uma terceira pessoa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "003",
+      "status": "implementado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Identidade com 是",
+      "radicalIds": [
+        5,
+        6
+      ],
+      "radicais": [
+        "乛",
+        "十"
+      ],
+      "hanziFoco": [
+        "是",
+        "人",
+        "学",
+        "生"
+      ],
+      "vocabularioFoco": "是 shì — ser; 学生 xuésheng — estudante",
+      "gramatica": "Frase nominal afirmativa: A 是 B; negação ainda não exigida",
+      "fonetica": "shì (retroflexa) versus xī",
+      "objetivo": "Dizer quem é e sua condição de estudante",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "004",
+      "status": "implementado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Negação com 不",
+      "radicalIds": [
+        7,
+        8
+      ],
+      "radicais": [
+        "厂",
+        "匚"
+      ],
+      "hanziFoco": [
+        "不",
+        "是",
+        "老",
+        "师"
+      ],
+      "vocabularioFoco": "不是 bú shì — não ser; 老师 lǎoshī — professor",
+      "gramatica": "不 + verbo/adjetivo; 不 muda para bú antes de 4º tom",
+      "fonetica": "bú shì: sandhi de 不",
+      "objetivo": "Negar ou corrigir uma identidade",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "005",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Cumprimentar e perguntar",
+      "radicalIds": [
+        9,
+        10
+      ],
+      "radicais": [
+        "卜",
+        "冂"
+      ],
+      "hanziFoco": [
+        "好",
+        "很",
+        "吗"
+      ],
+      "vocabularioFoco": "你好 nǐ hǎo — olá; 很好 hěn hǎo — muito bem",
+      "gramatica": "Adjetivos predicativos com 很; pergunta com 吗",
+      "fonetica": "nǐ hǎo: sandhi de 3º tom",
+      "objetivo": "Perguntar e responder como alguém está",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "006",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Nomes e apresentações",
+      "radicalIds": [
+        11,
+        12
+      ],
+      "radicais": [
+        "八",
+        "人"
+      ],
+      "hanziFoco": [
+        "叫",
+        "名",
+        "字",
+        "什",
+        "么"
+      ],
+      "vocabularioFoco": "名字 míngzi — nome; 叫什么 jiào shénme — como se chama",
+      "gramatica": "Verbo 叫; interrogativo 什么; ordem interrogativa in situ",
+      "fonetica": "jiào e míng; contraste -n/-ng",
+      "objetivo": "Perguntar e informar nomes",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "007",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Agradecimentos",
+      "radicalIds": [
+        13,
+        14
+      ],
+      "radicais": [
+        "勹",
+        "儿"
+      ],
+      "hanziFoco": [
+        "谢",
+        "客",
+        "气"
+      ],
+      "vocabularioFoco": "谢谢 xièxie — obrigado; 不客气 bú kèqi — de nada",
+      "gramatica": "Fórmulas fixas de cortesia; reduplicação lexical",
+      "fonetica": "x/xiè e tons neutros",
+      "objetivo": "Agradecer e responder naturalmente",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "008",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Despedidas",
+      "radicalIds": [
+        15,
+        16
+      ],
+      "radicais": [
+        "匕",
+        "几"
+      ],
+      "hanziFoco": [
+        "再",
+        "见",
+        "明",
+        "天"
+      ],
+      "vocabularioFoco": "再见 zàijiàn — até logo; 明天 míngtiān — amanhã",
+      "gramatica": "Sequência de turnos; elipse pragmática",
+      "fonetica": "z/zài, j/jiàn",
+      "objetivo": "Encerrar uma conversa educadamente",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "009",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Este e aquele",
+      "radicalIds": [
+        17,
+        18
+      ],
+      "radicais": [
+        "亠",
+        "冫"
+      ],
+      "hanziFoco": [
+        "这",
+        "那",
+        "个"
+      ],
+      "vocabularioFoco": "这个 zhège — este; 那个 nàge — aquele",
+      "gramatica": "Demonstrativos + classificador 个; posição do determinante",
+      "fonetica": "zh/zhè; n/nà",
+      "objetivo": "Apontar e identificar objetos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "010",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Quem e o quê",
+      "radicalIds": [
+        19,
+        20
+      ],
+      "radicais": [
+        "冖",
+        "凵"
+      ],
+      "hanziFoco": [
+        "谁",
+        "什么",
+        "哪"
+      ],
+      "vocabularioFoco": "谁 shéi — quem; 什么 shénme — o quê; 哪 nǎ — qual",
+      "gramatica": "Interrogativos in situ; substituição de sintagma",
+      "fonetica": "shéi e shénme: sh",
+      "objetivo": "Perguntar sobre pessoas, objetos e escolhas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "011",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Números básicos",
+      "radicalIds": [
+        21,
+        22
+      ],
+      "radicais": [
+        "卩",
+        "刀"
+      ],
+      "hanziFoco": [
+        "一",
+        "二",
+        "三",
+        "四",
+        "五",
+        "六",
+        "七",
+        "八",
+        "九",
+        "十"
+      ],
+      "vocabularioFoco": "一个 yí ge — um item; 十个 shí ge — dez itens",
+      "gramatica": "Cardinais 0–10; mudança tonal de 一 em contexto",
+      "fonetica": "tons de numerais e sandhi de 一",
+      "objetivo": "Contar objetos e dizer quantidades simples",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "012",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Idade e nacionalidade",
+      "radicalIds": [
+        23,
+        24
+      ],
+      "radicais": [
+        "力",
+        "又"
+      ],
+      "hanziFoco": [
+        "岁",
+        "年",
+        "国",
+        "中"
+      ],
+      "vocabularioFoco": "几岁 jǐ suì — quantos anos; 中国 Zhōngguó — China",
+      "gramatica": "Idade com 岁; predicado nominal; perguntas com 几",
+      "fonetica": "suì e grupos -ui",
+      "objetivo": "Dizer idade e nacionalidade",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "013",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Hoje, ontem, amanhã",
+      "radicalIds": [
+        25,
+        26
+      ],
+      "radicais": [
+        "厶",
+        "廴"
+      ],
+      "hanziFoco": [
+        "今",
+        "昨",
+        "明",
+        "天"
+      ],
+      "vocabularioFoco": "今天 jīntiān — hoje; 昨天 zuótiān — ontem; 明天 míngtiān — amanhã",
+      "gramatica": "Adjuntos temporais antes do verbo; ausência de flexão temporal",
+      "fonetica": "jīn/jīng; -n/-ng",
+      "objetivo": "Localizar acontecimentos no tempo",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "014",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Dias e calendário",
+      "radicalIds": [
+        27,
+        28
+      ],
+      "radicais": [
+        "干",
+        "工"
+      ],
+      "hanziFoco": [
+        "星",
+        "期",
+        "月",
+        "日"
+      ],
+      "vocabularioFoco": "星期 xīngqī — semana; 星期一 xīngqīyī — segunda-feira",
+      "gramatica": "Expressões de datas; mês/dia/semana",
+      "fonetica": "qī e xī; iniciais palatais",
+      "objetivo": "Marcar um encontro usando dia e data",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "015",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Horas",
+      "radicalIds": [
+        29,
+        30
+      ],
+      "radicais": [
+        "土",
+        "艹"
+      ],
+      "hanziFoco": [
+        "点",
+        "分",
+        "半",
+        "现",
+        "在"
+      ],
+      "vocabularioFoco": "几点 jǐ diǎn — que horas; 现在 xiànzài — agora",
+      "gramatica": "Horários com 点/分/半; posição temporal",
+      "fonetica": "diǎn, fēn; ditado de números",
+      "objetivo": "Perguntar e informar horários",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "016",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Ter e não ter",
+      "radicalIds": [
+        31,
+        32
+      ],
+      "radicais": [
+        "寸",
+        "廾"
+      ],
+      "hanziFoco": [
+        "有",
+        "没",
+        "东",
+        "西"
+      ],
+      "vocabularioFoco": "有 yǒu — ter; 没有 méiyǒu — não ter; 东西 dōngxi — coisa",
+      "gramatica": "有/没有; pergunta 有…吗; diferença inicial 不/没",
+      "fonetica": "yǒu/méi; ditongos",
+      "objetivo": "Indicar posse e ausência",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "017",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Família",
+      "radicalIds": [
+        33,
+        34
+      ],
+      "radicais": [
+        "大",
+        "尢"
+      ],
+      "hanziFoco": [
+        "家",
+        "爸",
+        "妈",
+        "哥",
+        "姐"
+      ],
+      "vocabularioFoco": "家人 jiārén — família; 妈妈 māma — mãe; 爸爸 bàba — pai",
+      "gramatica": "Posse com 的; termos de parentesco",
+      "fonetica": "mā/má/mǎ/mà; neutralização",
+      "objetivo": "Apresentar familiares e relações",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "018",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Localização",
+      "radicalIds": [
+        35,
+        36
+      ],
+      "radicais": [
+        "弋",
+        "小"
+      ],
+      "hanziFoco": [
+        "在",
+        "哪",
+        "儿",
+        "里"
+      ],
+      "vocabularioFoco": "在哪儿 zài nǎr — onde fica; 这里 zhèlǐ — aqui",
+      "gramatica": "在 + lugar; 哪里/哪儿; variantes regionais",
+      "fonetica": "érhuà regional e -r em 哪儿",
+      "objetivo": "Perguntar onde alguém ou algo está",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "019",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Desejos e necessidades",
+      "radicalIds": [
+        37,
+        38
+      ],
+      "radicais": [
+        "口",
+        "囗"
+      ],
+      "hanziFoco": [
+        "想",
+        "要",
+        "需"
+      ],
+      "vocabularioFoco": "想 xiǎng — querer/gostaria; 要 yào — querer/precisar",
+      "gramatica": "Verbos modais 想/要; gradação de intenção",
+      "fonetica": "aspiração nas oclusivas",
+      "objetivo": "Expressar o que deseja fazer",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "020",
+      "status": "planejado",
+      "etapa": "I — Fundamentos",
+      "titulo": "Síntese I: primeiro contato",
+      "radicalIds": [
+        39,
+        40
+      ],
+      "radicais": [
+        "山",
+        "巾"
+      ],
+      "hanziFoco": [
+        "认",
+        "识",
+        "会"
+      ],
+      "vocabularioFoco": "认识 rènshi — conhecer; 会 huì — saber fazer",
+      "gramatica": "Integração de afirmação, negação e pergunta",
+      "fonetica": "diagnóstico de iniciais/finais/tons",
+      "objetivo": "Conduzir apresentação social independente",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "021",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Comidas e bebidas",
+      "radicalIds": [
+        41,
+        42
+      ],
+      "radicais": [
+        "彳",
+        "彡"
+      ],
+      "hanziFoco": [
+        "吃",
+        "喝",
+        "饭",
+        "水"
+      ],
+      "vocabularioFoco": "吃饭 chīfàn — comer; 喝水 hē shuǐ — beber água",
+      "gramatica": "Verbo + objeto; preferências simples",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Pedir alimento ou bebida",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "022",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Gostos pessoais",
+      "radicalIds": [
+        43,
+        44
+      ],
+      "radicais": [
+        "夕",
+        "夂"
+      ],
+      "hanziFoco": [
+        "喜",
+        "欢",
+        "爱"
+      ],
+      "vocabularioFoco": "喜欢 xǐhuan — gostar; 爱 ài — amar",
+      "gramatica": "喜欢 + nome/verbo; 不喜欢; objetos temáticos",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Falar do que gosta e não gosta",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "023",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Classificadores",
+      "radicalIds": [
+        45,
+        46
+      ],
+      "radicais": [
+        "丬",
+        "广"
+      ],
+      "hanziFoco": [
+        "个",
+        "本",
+        "杯",
+        "张"
+      ],
+      "vocabularioFoco": "一本书 yì běn shū — um livro; 一杯水 yì bēi shuǐ — um copo de água",
+      "gramatica": "Numeral + classificador + substantivo",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Quantificar itens cotidianos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "024",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Compras e preços",
+      "radicalIds": [
+        47,
+        48
+      ],
+      "radicais": [
+        "门",
+        "宀"
+      ],
+      "hanziFoco": [
+        "买",
+        "卖",
+        "钱",
+        "贵",
+        "便",
+        "宜"
+      ],
+      "vocabularioFoco": "多少钱 duōshao qián — quanto custa; 太贵了 tài guì le — caro demais",
+      "gramatica": "多少钱; 太 + adjetivo + 了",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Perguntar preço e negociar escolha",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "025",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Cores",
+      "radicalIds": [
+        49,
+        50
+      ],
+      "radicais": [
+        "辶",
+        "彐"
+      ],
+      "hanziFoco": [
+        "红",
+        "蓝",
+        "白",
+        "黑",
+        "绿"
+      ],
+      "vocabularioFoco": "红色 hóngsè — vermelho; 蓝色 lánsè — azul",
+      "gramatica": "Adjetivo de cor + substantivo; 的 quando necessário",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Descrever e escolher itens por cor",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "026",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Tamanho e comparação",
+      "radicalIds": [
+        51,
+        52
+      ],
+      "radicais": [
+        "尸",
+        "己"
+      ],
+      "hanziFoco": [
+        "大",
+        "小",
+        "长",
+        "短"
+      ],
+      "vocabularioFoco": "大一点 dà yìdiǎn — um pouco maior; 比 bǐ — comparado a",
+      "gramatica": "A 比 B + adjetivo; 一点",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Comparar duas opções",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "027",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Endereços e direções",
+      "radicalIds": [
+        53,
+        54
+      ],
+      "radicais": [
+        "弓",
+        "子"
+      ],
+      "hanziFoco": [
+        "路",
+        "街",
+        "左",
+        "右",
+        "前",
+        "后"
+      ],
+      "vocabularioFoco": "左边 zuǒbian — lado esquerdo; 右边 yòubian — lado direito",
+      "gramatica": "Localizadores; 在…旁边; ordem espacial",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Dar direções simples",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "028",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Transporte urbano",
+      "radicalIds": [
+        55,
+        56
+      ],
+      "radicais": [
+        "屮",
+        "女"
+      ],
+      "hanziFoco": [
+        "车",
+        "地",
+        "铁",
+        "公",
+        "交"
+      ],
+      "vocabularioFoco": "地铁 dìtiě — metrô; 公交车 gōngjiāochē — ônibus",
+      "gramatica": "坐 + transporte; 去 + destino",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Escolher transporte e informar destino",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "029",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Movimento e destino",
+      "radicalIds": [
+        57,
+        58
+      ],
+      "radicais": [
+        "飞",
+        "马"
+      ],
+      "hanziFoco": [
+        "去",
+        "来",
+        "到",
+        "回"
+      ],
+      "vocabularioFoco": "去 qù — ir; 回来 huílái — voltar",
+      "gramatica": "V + 来/去; direção e ponto de referência",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Dizer de onde vem e aonde vai",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "030",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Rotina matinal",
+      "radicalIds": [
+        59,
+        60
+      ],
+      "radicais": [
+        "幺",
+        "巛"
+      ],
+      "hanziFoco": [
+        "起",
+        "床",
+        "洗",
+        "早"
+      ],
+      "vocabularioFoco": "起床 qǐchuáng — levantar-se; 早上 zǎoshang — manhã",
+      "gramatica": "Sequência temporal com 先…再…",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Contar rotina ao acordar",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "031",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Trabalho e profissão",
+      "radicalIds": [
+        61,
+        62
+      ],
+      "radicais": [
+        "王",
+        "无"
+      ],
+      "hanziFoco": [
+        "工",
+        "作",
+        "医",
+        "生",
+        "公",
+        "司"
+      ],
+      "vocabularioFoco": "工作 gōngzuò — trabalhar; 医生 yīshēng — médico",
+      "gramatica": "Ocupação com 是; local de trabalho com 在",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Apresentar profissão e ambiente profissional",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "032",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Escola e estudo",
+      "radicalIds": [
+        63,
+        64
+      ],
+      "radicais": [
+        "韦",
+        "木"
+      ],
+      "hanziFoco": [
+        "学",
+        "校",
+        "读",
+        "写"
+      ],
+      "vocabularioFoco": "学校 xuéxiào — escola; 学习 xuéxí — estudar",
+      "gramatica": "正在 + V (introdução); verbos de estudo",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Descrever hábitos de estudo",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "033",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Idiomas e habilidades",
+      "radicalIds": [
+        65,
+        66
+      ],
+      "radicais": [
+        "支",
+        "犬"
+      ],
+      "hanziFoco": [
+        "说",
+        "听",
+        "读",
+        "写"
+      ],
+      "vocabularioFoco": "中文 Zhōngwén — chinês; 听得懂 tīngdedǒng — entender pelo ouvido",
+      "gramatica": "会 + habilidade; 能 + possibilidade; contraste inicial",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Explicar proficiência em idiomas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "034",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Perguntas de sim/não",
+      "radicalIds": [
+        67,
+        68
+      ],
+      "radicais": [
+        "歹",
+        "车"
+      ],
+      "hanziFoco": [
+        "会",
+        "能",
+        "可",
+        "以"
+      ],
+      "vocabularioFoco": "可以 kěyǐ — poder; 能 néng — conseguir",
+      "gramatica": "Pergunta V不V; 吗; usos de 可以",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Pedir permissão e confirmar capacidades",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "035",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Frequência",
+      "radicalIds": [
+        69,
+        70
+      ],
+      "radicais": [
+        "牙",
+        "戈"
+      ],
+      "hanziFoco": [
+        "每",
+        "常",
+        "总",
+        "有",
+        "时"
+      ],
+      "vocabularioFoco": "每天 měitiān — todos os dias; 有时候 yǒu shíhou — às vezes",
+      "gramatica": "Advérbios de frequência antes do verbo",
+      "fonetica": "Tons neutros e prosódia",
+      "objetivo": "Descrever hábitos regulares",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "036",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Negação temporal",
+      "radicalIds": [
+        71,
+        72
+      ],
+      "radicais": [
+        "比",
+        "瓦"
+      ],
+      "hanziFoco": [
+        "没",
+        "过",
+        "已",
+        "经"
+      ],
+      "vocabularioFoco": "没去 méi qù — não foi; 已经 yǐjīng — já",
+      "gramatica": "没(有) + V; contrastes 不/没; 了 (introdução)",
+      "fonetica": "Tons neutros e prosódia",
+      "objetivo": "Distinguir planos de fatos não realizados",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "037",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Ações concluídas",
+      "radicalIds": [
+        73,
+        74
+      ],
+      "radicais": [
+        "止",
+        "攴"
+      ],
+      "hanziFoco": [
+        "了",
+        "做",
+        "完"
+      ],
+      "vocabularioFoco": "做完 zuòwán — terminar de fazer; 吃了 chī le — comeu",
+      "gramatica": "了 aspectual; verbos com objeto; escopo da conclusão",
+      "fonetica": "Escuta e sombra de fala",
+      "objetivo": "Informar o que já fez",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "038",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Experiências",
+      "radicalIds": [
+        75,
+        76
+      ],
+      "radicais": [
+        "日",
+        "贝"
+      ],
+      "hanziFoco": [
+        "过",
+        "旅",
+        "游"
+      ],
+      "vocabularioFoco": "去过 qùguo — já ter ido; 旅游 lǚyóu — viajar",
+      "gramatica": "V + 过 experiencial; 没(有)…过",
+      "fonetica": "Escuta e sombra de fala",
+      "objetivo": "Dizer o que já experimentou",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "039",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Planos futuros",
+      "radicalIds": [
+        77,
+        78
+      ],
+      "radicais": [
+        "水",
+        "见"
+      ],
+      "hanziFoco": [
+        "打",
+        "算",
+        "将",
+        "来"
+      ],
+      "vocabularioFoco": "打算 dǎsuàn — planejar; 将来 jiānglái — no futuro",
+      "gramatica": "打算 + V; 要 + V; marcadores temporais",
+      "fonetica": "Fluência e segmentação",
+      "objetivo": "Apresentar planos próximos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "040",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Clima",
+      "radicalIds": [
+        79,
+        80
+      ],
+      "radicais": [
+        "牛",
+        "手"
+      ],
+      "hanziFoco": [
+        "天",
+        "气",
+        "雨",
+        "热",
+        "冷"
+      ],
+      "vocabularioFoco": "天气 tiānqì — clima; 下雨 xiàyǔ — chover",
+      "gramatica": "Predicados meteorológicos; 会 para previsão",
+      "fonetica": "Fluência e segmentação",
+      "objetivo": "Perguntar pelo clima e planejar atividade",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "041",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Estações do ano",
+      "radicalIds": [
+        81,
+        82
+      ],
+      "radicais": [
+        "气",
+        "毛"
+      ],
+      "hanziFoco": [
+        "春",
+        "夏",
+        "秋",
+        "冬"
+      ],
+      "vocabularioFoco": "春天 chūntiān — primavera; 冬天 dōngtiān — inverno",
+      "gramatica": "Localização temporal com 在 + estação; preferência",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Descrever estação favorita",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "042",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Casa e cômodos",
+      "radicalIds": [
+        83,
+        84
+      ],
+      "radicais": [
+        "长",
+        "片"
+      ],
+      "hanziFoco": [
+        "房",
+        "间",
+        "厨",
+        "房"
+      ],
+      "vocabularioFoco": "房间 fángjiān — quarto/cômodo; 厨房 chúfáng — cozinha",
+      "gramatica": "Existência com 有; localizadores dentro de casa",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Descrever moradia",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "043",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Existência com 有 e 在",
+      "radicalIds": [
+        85,
+        86
+      ],
+      "radicais": [
+        "斤",
+        "爪"
+      ],
+      "hanziFoco": [
+        "桌",
+        "子",
+        "椅",
+        "上",
+        "下"
+      ],
+      "vocabularioFoco": "桌子上 zhuōzi shang — em cima da mesa; 下面 xiàmiàn — embaixo",
+      "gramatica": "Lugar + 有 + coisa; coisa + 在 + lugar",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Informar onde objetos estão",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "044",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Marcar encontros",
+      "radicalIds": [
+        87,
+        88
+      ],
+      "radicais": [
+        "父",
+        "月"
+      ],
+      "hanziFoco": [
+        "约",
+        "见",
+        "空"
+      ],
+      "vocabularioFoco": "有空 yǒu kòng — estar livre; 见面 jiànmiàn — encontrar-se",
+      "gramatica": "跟/和 + pessoa; horário + 见",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Combinar hora e local",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "045",
+      "status": "planejado",
+      "etapa": "II — Cotidiano",
+      "titulo": "Síntese II: cotidiano",
+      "radicalIds": [
+        89,
+        90
+      ],
+      "radicais": [
+        "氏",
+        "欠"
+      ],
+      "hanziFoco": [
+        "问",
+        "答",
+        "选",
+        "择"
+      ],
+      "vocabularioFoco": "选择 xuǎnzé — escolher; 回答 huídá — responder",
+      "gramatica": "Integração de aspecto, posse, quantidade e direção",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Resolver situação cotidiana completa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "046",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Descrever ações atuais",
+      "radicalIds": [
+        91,
+        92
+      ],
+      "radicais": [
+        "风",
+        "殳"
+      ],
+      "hanziFoco": [
+        "正",
+        "在",
+        "呢"
+      ],
+      "vocabularioFoco": "正在 zhèngzài — estar fazendo; 呢 ne — partícula situacional",
+      "gramatica": "正在/在 + V + 呢; presente em progresso",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Dizer o que acontece agora",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "047",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Duração",
+      "radicalIds": [
+        93,
+        94
+      ],
+      "radicais": [
+        "文",
+        "方"
+      ],
+      "hanziFoco": [
+        "小",
+        "时",
+        "分",
+        "钟",
+        "久"
+      ],
+      "vocabularioFoco": "小时 xiǎoshí — hora; 多久 duōjiǔ — quanto tempo",
+      "gramatica": "V + duração; tempo decorrido vs duração da ação",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Descrever tempo dedicado a atividades",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "048",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Falar de resultados",
+      "radicalIds": [
+        95,
+        96
+      ],
+      "radicais": [
+        "火",
+        "斗"
+      ],
+      "hanziFoco": [
+        "好",
+        "完",
+        "懂",
+        "见"
+      ],
+      "vocabularioFoco": "看懂 kàndǒng — compreender leitura; 做完 zuòwán — terminar",
+      "gramatica": "Complementos resultativos 懂/完/好/见",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Relatar tarefas terminadas e compreendidas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "049",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Capacidade de realizar",
+      "radicalIds": [
+        97,
+        98
+      ],
+      "radicais": [
+        "户",
+        "心"
+      ],
+      "hanziFoco": [
+        "得",
+        "不",
+        "清",
+        "楚"
+      ],
+      "vocabularioFoco": "看得清楚 kàn de qīngchu — ver claramente; 听不懂 tīngbudǒng — não entender",
+      "gramatica": "Complementos potenciais V得/不 + resultado",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Explicar dificuldades práticas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "050",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Intensidade e grau",
+      "radicalIds": [
+        99,
+        100
+      ],
+      "radicais": [
+        "毋",
+        "示"
+      ],
+      "hanziFoco": [
+        "太",
+        "比",
+        "更",
+        "最"
+      ],
+      "vocabularioFoco": "更好 gèng hǎo — melhor ainda; 最好 zuì hǎo — o melhor",
+      "gramatica": "很/太/更/最; comparações graduais",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Comparar opções com nuances",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "051",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Passado narrativo",
+      "radicalIds": [
+        101,
+        102
+      ],
+      "radicais": [
+        "甘",
+        "石"
+      ],
+      "hanziFoco": [
+        "先",
+        "后",
+        "然",
+        "后"
+      ],
+      "vocabularioFoco": "然后 ránhòu — depois; 以前 yǐqián — antes",
+      "gramatica": "Sequenciadores 先/然后/最后; referência de passado",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Narrar episódio cronológico",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "052",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Causa e consequência",
+      "radicalIds": [
+        103,
+        104
+      ],
+      "radicais": [
+        "龙",
+        "业"
+      ],
+      "hanziFoco": [
+        "因",
+        "为",
+        "所",
+        "以"
+      ],
+      "vocabularioFoco": "因为 yīnwèi — porque; 所以 suǒyǐ — portanto",
+      "gramatica": "因为…所以…; coordenação causal",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Explicar por que tomou uma decisão",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "053",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Condição e hipótese",
+      "radicalIds": [
+        105,
+        106
+      ],
+      "radicais": [
+        "目",
+        "田"
+      ],
+      "hanziFoco": [
+        "如",
+        "果",
+        "就"
+      ],
+      "vocabularioFoco": "如果 rúguǒ — se; 就 jiù — então",
+      "gramatica": "如果…就…; real vs hipotético simples",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Propor soluções condicionais",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "054",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Contraste e concessão",
+      "radicalIds": [
+        107,
+        108
+      ],
+      "radicais": [
+        "罒",
+        "皿"
+      ],
+      "hanziFoco": [
+        "但",
+        "是",
+        "虽",
+        "然"
+      ],
+      "vocabularioFoco": "但是 dànshì — mas; 虽然 suīrán — embora",
+      "gramatica": "虽然…但是…; 但是 como contraste",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Concordar parcialmente e fazer ressalvas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "055",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Pedidos educados",
+      "radicalIds": [
+        109,
+        110
+      ],
+      "radicais": [
+        "生",
+        "矢"
+      ],
+      "hanziFoco": [
+        "请",
+        "帮",
+        "忙"
+      ],
+      "vocabularioFoco": "请 qǐng — por favor; 帮忙 bāngmáng — ajudar",
+      "gramatica": "请 + V; 能不能; 麻烦 + pessoa",
+      "fonetica": "Tons neutros e prosódia",
+      "objetivo": "Pedir ajuda de forma apropriada",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "056",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Obrigações",
+      "radicalIds": [
+        111,
+        112
+      ],
+      "radicais": [
+        "禾",
+        "白"
+      ],
+      "hanziFoco": [
+        "必",
+        "须",
+        "应",
+        "该"
+      ],
+      "vocabularioFoco": "必须 bìxū — dever obrigatoriamente; 应该 yīnggāi — deveria",
+      "gramatica": "应该/必须/得 děi; níveis de obrigação",
+      "fonetica": "Tons neutros e prosódia",
+      "objetivo": "Dar recomendações e instruções",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "057",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Saúde e sintomas",
+      "radicalIds": [
+        113,
+        114
+      ],
+      "radicais": [
+        "瓜",
+        "鸟"
+      ],
+      "hanziFoco": [
+        "身",
+        "体",
+        "病",
+        "疼"
+      ],
+      "vocabularioFoco": "身体 shēntǐ — corpo; 生病 shēngbìng — adoecer",
+      "gramatica": "有点儿 + adjetivo; parte do corpo + 疼",
+      "fonetica": "Escuta e sombra de fala",
+      "objetivo": "Descrever sintomas básicos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "058",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Consulta e orientação",
+      "radicalIds": [
+        115,
+        116
+      ],
+      "radicais": [
+        "疒",
+        "立"
+      ],
+      "hanziFoco": [
+        "医",
+        "院",
+        "药",
+        "检",
+        "查"
+      ],
+      "vocabularioFoco": "医院 yīyuàn — hospital; 检查 jiǎnchá — exame",
+      "gramatica": "把 + objeto + V (introdução); imperativos",
+      "fonetica": "Escuta e sombra de fala",
+      "objetivo": "Solicitar atendimento e compreender instrução",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "059",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Alimentação e restrições",
+      "radicalIds": [
+        117,
+        118
+      ],
+      "radicais": [
+        "穴",
+        "疋"
+      ],
+      "hanziFoco": [
+        "菜",
+        "肉",
+        "素",
+        "过",
+        "敏"
+      ],
+      "vocabularioFoco": "过敏 guòmǐn — alergia; 素菜 sùcài — prato vegetariano",
+      "gramatica": "不能 + V; 对…过敏; escolhas negativas",
+      "fonetica": "Fluência e segmentação",
+      "objetivo": "Informar restrições alimentares",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "060",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Restaurantes",
+      "radicalIds": [
+        119,
+        120
+      ],
+      "radicais": [
+        "皮",
+        "癶"
+      ],
+      "hanziFoco": [
+        "服",
+        "务",
+        "员",
+        "菜",
+        "单"
+      ],
+      "vocabularioFoco": "菜单 càidān — cardápio; 服务员 fúwùyuán — atendente",
+      "gramatica": "点菜; 要/不要; 怎么样",
+      "fonetica": "Fluência e segmentação",
+      "objetivo": "Fazer pedido completo e pagar",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "061",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Viagem e hospedagem",
+      "radicalIds": [
+        121,
+        122
+      ],
+      "radicais": [
+        "矛",
+        "耒"
+      ],
+      "hanziFoco": [
+        "机",
+        "场",
+        "酒",
+        "店",
+        "预",
+        "定"
+      ],
+      "vocabularioFoco": "机场 jīchǎng — aeroporto; 预订 yùdìng — reservar",
+      "gramatica": "打算/已经 + V; reserva com 要 + número",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Reservar hospedagem",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "062",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Fronteiras e documentos",
+      "radicalIds": [
+        123,
+        124
+      ],
+      "radicais": [
+        "老",
+        "耳"
+      ],
+      "hanziFoco": [
+        "护",
+        "照",
+        "签",
+        "证"
+      ],
+      "vocabularioFoco": "护照 hùzhào — passaporte; 签证 qiānzhèng — visto",
+      "gramatica": "Perguntas burocráticas; 请出示 + documento",
+      "fonetica": "Contrastivo: n/ng",
+      "objetivo": "Responder a controle de documentos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "063",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Distâncias e trajetos",
+      "radicalIds": [
+        125,
+        126
+      ],
+      "radicais": [
+        "臣",
+        "覀"
+      ],
+      "hanziFoco": [
+        "离",
+        "近",
+        "远",
+        "直"
+      ],
+      "vocabularioFoco": "离 lí — distar de; 附近 fùjìn — perto",
+      "gramatica": "A 离 B + 远/近; 一直 + V",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Explicar distância e caminho",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "064",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Mudança de cidade",
+      "radicalIds": [
+        127,
+        128
+      ],
+      "radicais": [
+        "而",
+        "页"
+      ],
+      "hanziFoco": [
+        "搬",
+        "住",
+        "适",
+        "应"
+      ],
+      "vocabularioFoco": "搬家 bānjiā — mudar de casa; 适应 shìyìng — adaptar-se",
+      "gramatica": "从…到…; mudança de estado; 了 modal",
+      "fonetica": "Aspiração: p/t/k x b/d/g",
+      "objetivo": "Explicar mudança residencial",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "065",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Preferências e decisões",
+      "radicalIds": [
+        129,
+        130
+      ],
+      "radicais": [
+        "至",
+        "虍"
+      ],
+      "hanziFoco": [
+        "决",
+        "定",
+        "或",
+        "者",
+        "还",
+        "是"
+      ],
+      "vocabularioFoco": "决定 juédìng — decidir; 还是 háishi — ou (pergunta)",
+      "gramatica": "或者 em declarações; 还是 em perguntas alternativas",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Escolher entre alternativas e justificar",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "066",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Mensagens e aplicativos",
+      "radicalIds": [
+        131,
+        132
+      ],
+      "radicais": [
+        "虫",
+        "肉"
+      ],
+      "hanziFoco": [
+        "手",
+        "机",
+        "消",
+        "息",
+        "发"
+      ],
+      "vocabularioFoco": "手机 shǒujī — celular; 消息 xiāoxi — mensagem",
+      "gramatica": "给 + destinatário; V + 给; 了 aspectual",
+      "fonetica": "Palatais j/q/x",
+      "objetivo": "Enviar mensagem clara",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "067",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Internet",
+      "radicalIds": [
+        133,
+        134
+      ],
+      "radicais": [
+        "缶",
+        "舌"
+      ],
+      "hanziFoco": [
+        "网",
+        "络",
+        "搜",
+        "索"
+      ],
+      "vocabularioFoco": "网络 wǎngluò — rede; 搜索 sōusuǒ — pesquisar",
+      "gramatica": "用 + ferramenta; 在网上 + V",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Procurar informação e explicar fonte",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "068",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Opiniões",
+      "radicalIds": [
+        135,
+        136
+      ],
+      "radicais": [
+        "竹",
+        "臼"
+      ],
+      "hanziFoco": [
+        "觉",
+        "得",
+        "认",
+        "为"
+      ],
+      "vocabularioFoco": "觉得 juéde — achar/sentir; 认为 rènwéi — considerar",
+      "gramatica": "觉得/认为 + oração; 我看",
+      "fonetica": "Retroflexas zh/ch/sh/r",
+      "objetivo": "Expressar opinião com justificativa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "069",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Concordância e discordância",
+      "radicalIds": [
+        137,
+        138
+      ],
+      "radicais": [
+        "自",
+        "血"
+      ],
+      "hanziFoco": [
+        "同",
+        "意",
+        "反",
+        "对"
+      ],
+      "vocabularioFoco": "同意 tóngyì — concordar; 反对 fǎnduì — opor-se",
+      "gramatica": "同意 + proposição; 不一定; 我不同意",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Discordar com civilidade",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "070",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Emoções e estados",
+      "radicalIds": [
+        139,
+        140
+      ],
+      "radicais": [
+        "舟",
+        "色"
+      ],
+      "hanziFoco": [
+        "开",
+        "心",
+        "紧",
+        "张",
+        "担"
+      ],
+      "vocabularioFoco": "开心 kāixīn — feliz; 紧张 jǐnzhāng — nervoso",
+      "gramatica": "觉得 + adjetivo; 让 + pessoa + estado",
+      "fonetica": "Tons em sequências de 3 sílabas",
+      "objetivo": "Expressar sentimento e sua causa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "071",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Relacionamentos sociais",
+      "radicalIds": [
+        141,
+        142
+      ],
+      "radicais": [
+        "齐",
+        "衣"
+      ],
+      "hanziFoco": [
+        "朋",
+        "友",
+        "关",
+        "系"
+      ],
+      "vocabularioFoco": "朋友 péngyou — amigo; 关系 guānxi — relação",
+      "gramatica": "跟…一起; 互相 + V (introdução)",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Apresentar vínculos e atividades coletivas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "072",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Convites e recusa",
+      "radicalIds": [
+        143,
+        144
+      ],
+      "radicais": [
+        "羊",
+        "米"
+      ],
+      "hanziFoco": [
+        "邀",
+        "请",
+        "参",
+        "加"
+      ],
+      "vocabularioFoco": "邀请 yāoqǐng — convidar; 参加 cānjiā — participar",
+      "gramatica": "愿意/不方便; 邀请 + pessoa + V",
+      "fonetica": "Finais i/ü e suas grafias",
+      "objetivo": "Convidar e recusar delicadamente",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "073",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Educação e experiências",
+      "radicalIds": [
+        145,
+        146
+      ],
+      "radicais": [
+        "聿",
+        "艮"
+      ],
+      "hanziFoco": [
+        "课",
+        "考",
+        "试",
+        "成",
+        "绩"
+      ],
+      "vocabularioFoco": "考试 kǎoshì — prova; 成绩 chéngjì — resultado/nota",
+      "gramatica": "对…感兴趣; 考得 + complemento",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Falar de aprendizagem e provas",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "074",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Trabalho colaborativo",
+      "radicalIds": [
+        147,
+        148
+      ],
+      "radicais": [
+        "羽",
+        "糸"
+      ],
+      "hanziFoco": [
+        "项",
+        "目",
+        "团",
+        "队",
+        "责",
+        "任"
+      ],
+      "vocabularioFoco": "项目 xiàngmù — projeto; 团队 tuánduì — equipe",
+      "gramatica": "由…负责; 一起 + V; tarefas",
+      "fonetica": "Ditongo ei/ai, ou/ao",
+      "objetivo": "Organizar pequeno projeto",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "075",
+      "status": "planejado",
+      "etapa": "III — Comunicação",
+      "titulo": "Síntese III: interação social",
+      "radicalIds": [
+        149,
+        150
+      ],
+      "radicais": [
+        "麦",
+        "走"
+      ],
+      "hanziFoco": [
+        "经",
+        "验",
+        "沟",
+        "通"
+      ],
+      "vocabularioFoco": "经验 jīngyàn — experiência; 沟通 gōutōng — comunicar-se",
+      "gramatica": "Integração de complemento, condição, causa e contraste",
+      "fonetica": "Tons neutros e prosódia",
+      "objetivo": "Sustentar diálogo situacional",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "076",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Narrar eventos complexos",
+      "radicalIds": [
+        151,
+        152
+      ],
+      "radicais": [
+        "赤",
+        "豆"
+      ],
+      "hanziFoco": [
+        "发",
+        "生",
+        "经",
+        "过"
+      ],
+      "vocabularioFoco": "发生 fāshēng — acontecer; 经过 jīngguò — processo/atravessar",
+      "gramatica": "Perspectiva temporal; 先后; 结果",
+      "fonetica": "Entonação de explicação",
+      "objetivo": "Relatar incidente com início, meio e fim",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "077",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Mudanças e tendências",
+      "radicalIds": [
+        153,
+        154
+      ],
+      "radicais": [
+        "酉",
+        "辰"
+      ],
+      "hanziFoco": [
+        "变",
+        "化",
+        "越",
+        "来",
+        "越"
+      ],
+      "vocabularioFoco": "变化 biànhuà — mudança; 越来越 yuèláiyuè — cada vez mais",
+      "gramatica": "越来越 + adjetivo/verbo de estado",
+      "fonetica": "Entonação de explicação",
+      "objetivo": "Descrever mudanças ao longo do tempo",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "078",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Probabilidade",
+      "radicalIds": [
+        155,
+        156
+      ],
+      "radicais": [
+        "豕",
+        "卤"
+      ],
+      "hanziFoco": [
+        "可",
+        "能",
+        "大",
+        "概",
+        "一",
+        "定"
+      ],
+      "vocabularioFoco": "可能 kěnéng — talvez/possível; 大概 dàgài — provavelmente",
+      "gramatica": "可能/大概/一定 + predicado; graus de certeza",
+      "fonetica": "Entonação de explicação",
+      "objetivo": "Distinguir hipótese e certeza",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "079",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Voz passiva",
+      "radicalIds": [
+        157,
+        158
+      ],
+      "radicais": [
+        "里",
+        "足"
+      ],
+      "hanziFoco": [
+        "被",
+        "让"
+      ],
+      "vocabularioFoco": "被 bèi — marcador de passiva; 让 ràng — deixar/fazer",
+      "gramatica": "A 被 B + V; foco no paciente; agente opcional",
+      "fonetica": "Entonação de explicação",
+      "objetivo": "Explicar ação recebida e consequência",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "080",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Construção com 把",
+      "radicalIds": [
+        159,
+        160
+      ],
+      "radicais": [
+        "邑",
+        "身"
+      ],
+      "hanziFoco": [
+        "把",
+        "放",
+        "收",
+        "拿"
+      ],
+      "vocabularioFoco": "把 bǎ — marcador de disposição; 放 fàng — colocar",
+      "gramatica": "A 把 B + V + resultado/destino",
+      "fonetica": "Entonação de explicação",
+      "objetivo": "Dar instruções sobre objetos definidos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "081",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Comparação avançada",
+      "radicalIds": [
+        161,
+        162
+      ],
+      "radicais": [
+        "釆",
+        "谷"
+      ],
+      "hanziFoco": [
+        "不",
+        "如",
+        "跟",
+        "一",
+        "样"
+      ],
+      "vocabularioFoco": "不如 bùrú — não tão bom quanto; 一样 yíyàng — igual",
+      "gramatica": "跟…一样; 不如; 没有…那么",
+      "fonetica": "Sotaques e variação",
+      "objetivo": "Comparar serviços com precisão",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "082",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Ênfase e restrição",
+      "radicalIds": [
+        163,
+        164
+      ],
+      "radicais": [
+        "豸",
+        "龟"
+      ],
+      "hanziFoco": [
+        "只",
+        "才",
+        "就",
+        "都"
+      ],
+      "vocabularioFoco": "只有 zhǐyǒu — somente se; 才 cái — só então",
+      "gramatica": "才/就; 只有…才…; 都/只",
+      "fonetica": "Sotaques e variação",
+      "objetivo": "Explicar restrições e condições necessárias",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "083",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Descrições relativas",
+      "radicalIds": [
+        165,
+        166
+      ],
+      "radicais": [
+        "角",
+        "言"
+      ],
+      "hanziFoco": [
+        "的",
+        "所"
+      ],
+      "vocabularioFoco": "我买的书 wǒ mǎi de shū — livro que comprei; 所有 suǒyǒu — todos",
+      "gramatica": "Oração relativa + 的 + substantivo",
+      "fonetica": "Sotaques e variação",
+      "objetivo": "Identificar pessoas/objetos por atributos",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "084",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Relatos de terceiros",
+      "radicalIds": [
+        167,
+        168
+      ],
+      "radicais": [
+        "辛",
+        "青"
+      ],
+      "hanziFoco": [
+        "说",
+        "告",
+        "诉",
+        "听",
+        "说"
+      ],
+      "vocabularioFoco": "听说 tīngshuō — ouvi dizer; 告诉 gàosu — contar",
+      "gramatica": "说 + oração; 告诉 + destinatário + conteúdo",
+      "fonetica": "Sotaques e variação",
+      "objetivo": "Repassar informação distinguindo fonte",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "085",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Informação e evidência",
+      "radicalIds": [
+        169,
+        170
+      ],
+      "radicais": [
+        "龺",
+        "雨"
+      ],
+      "hanziFoco": [
+        "数",
+        "据",
+        "证",
+        "据"
+      ],
+      "vocabularioFoco": "数据 shùjù — dados; 证据 zhèngjù — evidência",
+      "gramatica": "根据…; 表明…; 一方面…另一方面…",
+      "fonetica": "Sotaques e variação",
+      "objetivo": "Justificar afirmações com dados",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "086",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Explicação de processos",
+      "radicalIds": [
+        171,
+        172
+      ],
+      "radicais": [
+        "非",
+        "齿"
+      ],
+      "hanziFoco": [
+        "首",
+        "先",
+        "接",
+        "着",
+        "最",
+        "后"
+      ],
+      "vocabularioFoco": "首先 shǒuxiān — primeiro; 接着 jiēzhe — em seguida",
+      "gramatica": "Sequência procedural; 是…的 para foco de circunstância",
+      "fonetica": "Prosódia de debate",
+      "objetivo": "Explicar como executar uma tarefa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "087",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Ciência e tecnologia",
+      "radicalIds": [
+        173,
+        174
+      ],
+      "radicais": [
+        "黾",
+        "隹"
+      ],
+      "hanziFoco": [
+        "科",
+        "学",
+        "技",
+        "术"
+      ],
+      "vocabularioFoco": "科学 kēxué — ciência; 技术 jìshù — tecnologia",
+      "gramatica": "通过…; 利用…; finalidade 为了…",
+      "fonetica": "Prosódia de debate",
+      "objetivo": "Explicar aplicação tecnológica simples",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "088",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Meio ambiente",
+      "radicalIds": [
+        175,
+        176
+      ],
+      "radicais": [
+        "阜",
+        "金"
+      ],
+      "hanziFoco": [
+        "环",
+        "境",
+        "保",
+        "护"
+      ],
+      "vocabularioFoco": "环境 huánjìng — ambiente; 保护 bǎohù — proteger",
+      "gramatica": "应该/必须; 为了…; 造成…",
+      "fonetica": "Prosódia de debate",
+      "objetivo": "Descrever problema ambiental e proposta",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "089",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Sociedade e cultura",
+      "radicalIds": [
+        177,
+        178
+      ],
+      "radicais": [
+        "鱼",
+        "隶"
+      ],
+      "hanziFoco": [
+        "社",
+        "会",
+        "文",
+        "化",
+        "传",
+        "统"
+      ],
+      "vocabularioFoco": "社会 shèhuì — sociedade; 文化 wénhuà — cultura",
+      "gramatica": "一般来说; 相比之下; 由于",
+      "fonetica": "Prosódia de debate",
+      "objetivo": "Comparar práticas culturais sem generalização indevida",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "090",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Noticiário",
+      "radicalIds": [
+        179,
+        180
+      ],
+      "radicais": [
+        "革",
+        "面"
+      ],
+      "hanziFoco": [
+        "新",
+        "闻",
+        "报",
+        "道"
+      ],
+      "vocabularioFoco": "新闻 xīnwén — notícia; 报道 bàodào — reportagem",
+      "gramatica": "据报道; 时间/地点/事件; atribuição",
+      "fonetica": "Prosódia de debate",
+      "objetivo": "Resumir notícia distinguindo fato e opinião",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "091",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Argumentar",
+      "radicalIds": [
+        181,
+        182
+      ],
+      "radicais": [
+        "韭",
+        "骨"
+      ],
+      "hanziFoco": [
+        "观",
+        "点",
+        "理",
+        "由"
+      ],
+      "vocabularioFoco": "观点 guāndiǎn — ponto de vista; 理由 lǐyóu — motivo",
+      "gramatica": "不仅…而且…; 既然…就…",
+      "fonetica": "Escuta extensiva",
+      "objetivo": "Defender posição com encadeamento lógico",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "092",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Negociar e persuadir",
+      "radicalIds": [
+        183,
+        184
+      ],
+      "radicais": [
+        "香",
+        "鬼"
+      ],
+      "hanziFoco": [
+        "建",
+        "议",
+        "解",
+        "决"
+      ],
+      "vocabularioFoco": "建议 jiànyì — sugerir; 解决 jiějué — resolver",
+      "gramatica": "不如…; 要不…; 如果…就…",
+      "fonetica": "Escuta extensiva",
+      "objetivo": "Propor acordo ou solução",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "093",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Leitura funcional",
+      "radicalIds": [
+        185,
+        186
+      ],
+      "radicais": [
+        "食",
+        "音"
+      ],
+      "hanziFoco": [
+        "通",
+        "知",
+        "规",
+        "定"
+      ],
+      "vocabularioFoco": "通知 tōngzhī — comunicado; 规定 guīdìng — regra",
+      "gramatica": "Marcadores administrativos e frases elípticas",
+      "fonetica": "Escuta extensiva",
+      "objetivo": "Entender avisos e regulamentos simples",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "094",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Escrita formal",
+      "radicalIds": [
+        187,
+        188
+      ],
+      "radicais": [
+        "首",
+        "髟"
+      ],
+      "hanziFoco": [
+        "申",
+        "请",
+        "说",
+        "明"
+      ],
+      "vocabularioFoco": "申请 shēnqǐng — solicitação; 说明 shuōmíng — explicação",
+      "gramatica": "Saudação formal; motivo; solicitação; encerramento",
+      "fonetica": "Escuta extensiva",
+      "objetivo": "Redigir mensagem profissional concisa",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "095",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Leitura sem pinyin I",
+      "radicalIds": [
+        189,
+        190
+      ],
+      "radicais": [
+        "鬲",
+        "鬥"
+      ],
+      "hanziFoco": [
+        "阅",
+        "读",
+        "理",
+        "解"
+      ],
+      "vocabularioFoco": "阅读 yuèdú — leitura; 理解 lǐjiě — compreensão",
+      "gramatica": "Inferência contextual; conectores já estudados",
+      "fonetica": "Escuta extensiva",
+      "objetivo": "Ler texto cotidiano sem transcrição",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "096",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Leitura sem pinyin II",
+      "radicalIds": [
+        191,
+        192
+      ],
+      "radicais": [
+        "高",
+        "黄"
+      ],
+      "hanziFoco": [
+        "文",
+        "章",
+        "段",
+        "落"
+      ],
+      "vocabularioFoco": "文章 wénzhāng — texto/artigo; 段落 duànluò — parágrafo",
+      "gramatica": "Coesão referencial; tópicos e exemplos",
+      "fonetica": "Automonitoramento",
+      "objetivo": "Identificar tema e detalhes de um texto",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "097",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Escuta natural",
+      "radicalIds": [
+        193,
+        194
+      ],
+      "radicais": [
+        "麻",
+        "鹿"
+      ],
+      "hanziFoco": [
+        "语",
+        "速",
+        "重",
+        "复"
+      ],
+      "vocabularioFoco": "语速 yǔsù — velocidade da fala; 重复 chóngfù — repetir",
+      "gramatica": "Redução, ritmo, tons em fala encadeada",
+      "fonetica": "Automonitoramento",
+      "objetivo": "Compreender diálogo em velocidade moderada",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "098",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Interação espontânea",
+      "radicalIds": [
+        195,
+        196
+      ],
+      "radicais": [
+        "鼎",
+        "黑"
+      ],
+      "hanziFoco": [
+        "交",
+        "流",
+        "回",
+        "应"
+      ],
+      "vocabularioFoco": "交流 jiāoliú — interagir; 回应 huíyìng — responder",
+      "gramatica": "Reformulação, pedidos de esclarecimento e autocorreção",
+      "fonetica": "Automonitoramento",
+      "objetivo": "Sustentar conversa não roteirizada",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "099",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Revisão integrada e diagnóstico",
+      "radicalIds": [
+        197,
+        198
+      ],
+      "radicais": [
+        "黍",
+        "鼓"
+      ],
+      "hanziFoco": [
+        "复",
+        "习",
+        "错",
+        "误"
+      ],
+      "vocabularioFoco": "复习 fùxí — revisar; 错误 cuòwù — erro",
+      "gramatica": "Revisão contrastiva: 不/没, 了/过, 把/被",
+      "fonetica": "Automonitoramento",
+      "objetivo": "Localizar e corrigir lacunas individuais",
+      "criterio": "80% na tarefa + reconhecimento imediato dos 2 radicais"
+    },
+    {
+      "id": "100",
+      "status": "planejado",
+      "etapa": "IV — Autonomia",
+      "titulo": "Preparação para prova e autonomia",
+      "radicalIds": [
+        199,
+        200,
+        201
+      ],
+      "radicais": [
+        "鼠",
+        "鼻",
+        "龠"
+      ],
+      "hanziFoco": [
+        "模",
+        "拟",
+        "考",
+        "核"
+      ],
+      "vocabularioFoco": "模拟 mónǐ — simulação; 考核 kǎohé — avaliação",
+      "gramatica": "Integração final; leitura sem pinyin e resposta livre",
+      "fonetica": "Automonitoramento",
+      "objetivo": "Executar prova simulada e revisar os 201 radicais",
+      "criterio": "80% no simulado + reconhecimento dos 3 radicais novos"
+    },
+    {
+      "id": "101",
+      "status": "planejado",
+      "etapa": "V — Certificação",
+      "titulo": "Certificação interna final",
+      "radicalIds": [],
+      "radicais": [],
+      "hanziFoco": [
+        "综",
+        "合",
+        "测",
+        "评"
+      ],
+      "vocabularioFoco": "综合 zōnghé — integrado; 测评 cèpíng — avaliação",
+      "gramatica": "Sem conteúdo novo: desempenho integrado em situações inéditas",
+      "fonetica": "Compreensão e produção integradas",
+      "objetivo": "Demonstrar leitura, compreensão, fala, escrita e reconhecimento de radicais",
+      "criterio": "≥80% global; ≥70% por domínio; ≥90% nos 201 radicais"
+    }
+  ]
+}
