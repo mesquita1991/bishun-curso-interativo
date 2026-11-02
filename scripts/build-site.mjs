@@ -22,5 +22,10 @@ for(const dir of ['data','archive']){
  fs.cpSync(path.join(root,dir),path.join(output,dir),{recursive:true});
 }
 
+// Bǐshùn trilha 101: adição isolada; preserva as seis autoaulas e o curso de 90 dias.
+for(const file of ['curso-101.html','curso101/curso101.css','curso101/curso101.mjs','curso101/conteudo/modulos-01-04.json','curso101/conteudo/roteiro-101.json']){
+ const destination=path.join(output,file);fs.mkdirSync(path.dirname(destination),{recursive:true});fs.copyFileSync(path.join(root,file),destination);
+}
+
 await import('./build-course-document.mjs');
 console.log(`Site limpo pronto: ${publicFiles.join(', ')}`);

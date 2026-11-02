@@ -1,0 +1,1010 @@
+{
+  "schemaVersion": 1,
+  "name": "Bǐshùn · Mandarim Estrutural · 101 módulos",
+  "scope": "Unidades 001–004; os demais 97 não são apresentados como implementados.",
+  "source": "Matriz curricular autoral dos 101 módulos, baseada na lista fornecida de 201 radicais principais.",
+  "progressKey": "bishun-course101-v1",
+  "modules": [
+    {
+      "id": "001",
+      "unit": "Eu e você",
+      "theme": "Pronomes pessoais e primeiros sons",
+      "goal": "Reconhecer e usar 我 e 你; distinguir dois terceiros tons no pinyin e iniciar uma apresentação por fórmula pronta.",
+      "warning": "O módulo ensina 我 e 你 (ambos com terceiro tom). 你好 e 我叫… aparecem apenas como fórmulas de sobrevivência; sua gramática será desenvolvida depois. O pinyin nǐ hǎo mantém os tons lexicais apesar do ajuste tonal na fala.",
+      "characters": [
+        {
+          "hanzi": "我",
+          "pinyin": "wǒ",
+          "meaning": "eu",
+          "note": "Pronome de primeira pessoa; terceiro tom."
+        },
+        {
+          "hanzi": "你",
+          "pinyin": "nǐ",
+          "meaning": "você",
+          "note": "Pronome de segunda pessoa; terceiro tom."
+        }
+      ],
+      "grammar": [
+        [
+          "Eu e você",
+          "我 = falante; 你 = interlocutor. Em chinês, não alteramos o pronome por gênero."
+        ],
+        [
+          "Tons",
+          "我 wǒ e 你 nǐ têm terceiro tom lexical. Isoladamente podem apresentar contorno baixo-descendente-ascendente; em frase, frequentemente fica baixo."
+        ],
+        [
+          "Frase pronta",
+          "你好！ é uma saudação. 你呢？ devolve uma pergunta contextual. Não é preciso analisar 叫 agora."
+        ]
+      ],
+      "dialogue": [
+        [
+          "A",
+          "你好！",
+          "nǐ hǎo!",
+          "Olá!"
+        ],
+        [
+          "B",
+          "你好！",
+          "nǐ hǎo!",
+          "Olá!"
+        ],
+        [
+          "A",
+          "我叫安娜。你呢？",
+          "wǒ jiào Ānnà. Nǐ ne?",
+          "Eu me chamo Ana. E você?"
+        ],
+        [
+          "B",
+          "我叫大卫。",
+          "wǒ jiào Dàwèi.",
+          "Eu me chamo Davi."
+        ]
+      ],
+      "oralTask": "Ouça 我, 你 e 你好. Apresente-se com a fórmula 我叫 + nome e devolva a pergunta 你呢？. Grave se desejar e compare com o áudio; a plataforma não valida automaticamente sua pronúncia.",
+      "quizzes": [
+        {
+          "id": "m1r1",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 001?",
+          "explanation": "O radical 001 é 一, traço horizontal.",
+          "options": [
+            "一",
+            "丨",
+            "丿",
+            "十"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "m1r2",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 002?",
+          "explanation": "O radical 002 é 丨, traço vertical.",
+          "options": [
+            "丿",
+            "丨",
+            "丶",
+            "厂"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m1c1",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Que caractere representa “eu”?",
+          "explanation": "我 (wǒ) significa “eu”.",
+          "options": [
+            "你",
+            "他",
+            "我",
+            "是"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m1c2",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Que caractere representa “você”?",
+          "explanation": "你 (nǐ) significa “você”.",
+          "options": [
+            "我",
+            "你",
+            "她",
+            "不"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m1p1",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin com tom de 我.",
+          "explanation": "我 = wǒ, terceiro tom. “wo” sem marca de tom não é aceito.",
+          "accepted": [
+            "wǒ",
+            "wo3"
+          ]
+        },
+        {
+          "id": "m1p2",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin com tom de 你.",
+          "explanation": "你 = nǐ, terceiro tom.",
+          "accepted": [
+            "nǐ",
+            "ni3"
+          ]
+        },
+        {
+          "id": "m1g1",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Em uma conversa, que pronome identifica quem está falando?",
+          "explanation": "我 é o falante; 你 é a pessoa a quem se fala.",
+          "options": [
+            "你",
+            "我",
+            "他",
+            "她"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m1g2",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "O que significa a fórmula 你呢？ em uma troca de apresentações?",
+          "explanation": "你呢？ devolve a pergunta conforme o contexto.",
+          "options": [
+            "Bom dia",
+            "Quem é ele?",
+            "E você?",
+            "Eu sou estudante"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m1a1",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler e selecione o significado.",
+          "explanation": "O áudio diz 我 (wǒ), “eu”.",
+          "options": [
+            "eu",
+            "você",
+            "ele",
+            "não"
+          ],
+          "correct": 0,
+          "audio": "我"
+        },
+        {
+          "id": "m1a2",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler e selecione o significado.",
+          "explanation": "O áudio diz 你 (nǐ), “você”.",
+          "options": [
+            "estudante",
+            "eu",
+            "você",
+            "professor"
+          ],
+          "correct": 2,
+          "audio": "你"
+        }
+      ],
+      "radicals": [
+        {
+          "id": 1,
+          "hanzi": "一",
+          "stroke": "héng",
+          "label": "Traço horizontal",
+          "guide": "Um traço horizontal, da esquerda para a direita.",
+          "example": "三"
+        },
+        {
+          "id": 2,
+          "hanzi": "丨",
+          "stroke": "shù",
+          "label": "Traço vertical",
+          "guide": "Um traço vertical, de cima para baixo.",
+          "example": "中"
+        }
+      ],
+      "vocabPreview": [
+        [
+          "我",
+          "wǒ",
+          "eu"
+        ],
+        [
+          "你",
+          "nǐ",
+          "você"
+        ],
+        [
+          "你好",
+          "nǐ hǎo",
+          "olá (fórmula antecipada)"
+        ],
+        [
+          "你呢？",
+          "nǐ ne?",
+          "e você? (fórmula antecipada)"
+        ]
+      ]
+    },
+    {
+      "id": "002",
+      "unit": "Ele e ela",
+      "theme": "Terceira pessoa, 们 e homofonia",
+      "goal": "Reconhecer 他, 她, 们 e distinguir os referentes pela escrita e pelo contexto, nunca apenas pelo som tā.",
+      "warning": "他 e 她 têm exatamente a mesma pronúncia tā. Não é possível distinguir “ele” e “ela” exclusivamente pela gravação isolada; o exercício auditivo avalia 我们 versus 他们. 们 marca plural de pronomes pessoais neste nível.",
+      "characters": [
+        {
+          "hanzi": "他",
+          "pinyin": "tā",
+          "meaning": "ele",
+          "note": "Componente 亻; distingue-se de 她 na escrita."
+        },
+        {
+          "hanzi": "她",
+          "pinyin": "tā",
+          "meaning": "ela",
+          "note": "Componente 女; mesma pronúncia de 他."
+        },
+        {
+          "hanzi": "们",
+          "pinyin": "men",
+          "meaning": "marca de plural pronominal",
+          "note": "Tom neutro em 我们 / 他们."
+        }
+      ],
+      "grammar": [
+        [
+          "Terceira pessoa",
+          "他 e 她 marcam diferenças gráficas de gênero, mas ambos se pronunciam tā."
+        ],
+        [
+          "Plural dos pronomes",
+          "我→我们; 他→他们; 她→她们. O 们 normalmente tem tom neutro."
+        ],
+        [
+          "Limite auditivo",
+          "Sem contexto, tā não informa qual caractere foi escrito. Não se atribui reconhecimento de gênero por áudio isolado."
+        ]
+      ],
+      "dialogue": [
+        [
+          "A",
+          "他。",
+          "tā.",
+          "Ele."
+        ],
+        [
+          "B",
+          "她。",
+          "tā.",
+          "Ela."
+        ],
+        [
+          "A",
+          "他们。",
+          "tāmen.",
+          "Eles."
+        ],
+        [
+          "B",
+          "我们。",
+          "wǒmen.",
+          "Nós."
+        ]
+      ],
+      "oralTask": "Compare 我们 e 他们. Em seguida, apresente duas pessoas olhando para cartões “他” e “她”; reconheça que o som tā é o mesmo, mudando somente o referente/contexto.",
+      "quizzes": [
+        {
+          "id": "m2r1",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual radical é o nº 003?",
+          "explanation": "丿 é o traço piě, inclinado à esquerda.",
+          "options": [
+            "丿",
+            "丶",
+            "一",
+            "丨"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "m2r2",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual radical é o nº 004?",
+          "explanation": "丶 corresponde ao ponto diǎn.",
+          "options": [
+            "十",
+            "丨",
+            "丶",
+            "匚"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m2c1",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual é a forma escrita usada para “ela”?",
+          "explanation": "她 usa o componente 女 e significa “ela”.",
+          "options": [
+            "他",
+            "她",
+            "们",
+            "我"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m2c2",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual palavra representa “nós”?",
+          "explanation": "我们 = wǒmen, “nós”.",
+          "options": [
+            "他们",
+            "她们",
+            "我们",
+            "你们"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m2p1",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin com tom de 他.",
+          "explanation": "他 e 她 se pronunciam tā, primeiro tom.",
+          "accepted": [
+            "tā",
+            "ta1"
+          ]
+        },
+        {
+          "id": "m2p2",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin de 他们 (marque o tom da primeira sílaba).",
+          "explanation": "他们 = tāmen: primeiro tom e tom neutro.",
+          "accepted": [
+            "tāmen",
+            "ta1men",
+            "ta1men5"
+          ]
+        },
+        {
+          "id": "m2g1",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Qual alternativa descreve corretamente 他 e 她?",
+          "explanation": "Ambos são tā, primeiro tom; a escrita distingue os referentes.",
+          "options": [
+            "Soam iguais e têm grafias diferentes",
+            "Têm tons diferentes",
+            "São sempre plurais",
+            "São variantes tradicionais"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "m2g2",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "O que faz 们 em 我们?",
+          "explanation": "们 forma plurais como 我们, 他们 e 她们.",
+          "options": [
+            "Torna a frase negativa",
+            "Marca plural pronominal",
+            "Marca pergunta",
+            "É um numeral"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m2a1",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler: qual grupo é referido?",
+          "explanation": "O áudio diz 我们 (wǒmen), “nós”.",
+          "options": [
+            "nós",
+            "eles",
+            "ela",
+            "você"
+          ],
+          "correct": 0,
+          "audio": "我们"
+        },
+        {
+          "id": "m2a2",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler: qual grupo é referido?",
+          "explanation": "O áudio diz 他们 (tāmen), “eles”.",
+          "options": [
+            "nós",
+            "vocês",
+            "eles",
+            "eu"
+          ],
+          "correct": 2,
+          "audio": "他们"
+        }
+      ],
+      "radicals": [
+        {
+          "id": 3,
+          "hanzi": "丿",
+          "stroke": "piě",
+          "label": "Traço descendente à esquerda",
+          "guide": "Traço descendente, geralmente da direita para a esquerda.",
+          "example": "久"
+        },
+        {
+          "id": 4,
+          "hanzi": "丶",
+          "stroke": "diǎn",
+          "label": "Ponto",
+          "guide": "Pequeno traço diagonal ou ponto, segundo o caractere.",
+          "example": "主"
+        }
+      ],
+      "vocabPreview": [
+        [
+          "他",
+          "tā",
+          "ele"
+        ],
+        [
+          "她",
+          "tā",
+          "ela"
+        ],
+        [
+          "他们",
+          "tāmen",
+          "eles / grupo misto"
+        ],
+        [
+          "她们",
+          "tāmen",
+          "elas"
+        ],
+        [
+          "我们",
+          "wǒmen",
+          "nós"
+        ]
+      ]
+    },
+    {
+      "id": "003",
+      "unit": "Identidade com 是",
+      "theme": "Frases afirmativas A 是 B",
+      "goal": "Formular frases de identificação com 是 e falar da condição de estudante: 我是学生, 他是学生.",
+      "warning": "是 liga sujeito e identidade/categoria nominal neste módulo. Não transforme automaticamente frases com adjetivos em 是 + adjetivo; isso será ensinado mais tarde. 不 ainda não é exigido.",
+      "characters": [
+        {
+          "hanzi": "是",
+          "pinyin": "shì",
+          "meaning": "ser / identificar",
+          "note": "Verbo copulativo em estruturas nominais."
+        },
+        {
+          "hanzi": "人",
+          "pinyin": "rén",
+          "meaning": "pessoa",
+          "note": "Substantivo."
+        },
+        {
+          "hanzi": "学",
+          "pinyin": "xué",
+          "meaning": "estudar / aprender",
+          "note": "Parte de 学生."
+        },
+        {
+          "hanzi": "生",
+          "pinyin": "shēng",
+          "meaning": "nascer / estudante em composto",
+          "note": "Parte de 学生; combinação pronunciada xuésheng."
+        }
+      ],
+      "grammar": [
+        [
+          "Estrutura nominal",
+          "[sujeito] + 是 + [identidade]. Ex.: 我是学生。"
+        ],
+        [
+          "Ordem",
+          "A ordem é fixa neste padrão: 我 / 是 / 学生. Não usar *是我学生 como tradução de “eu sou estudante”."
+        ],
+        [
+          "Pronúncia",
+          "是 shì possui inicial retroflexa sh; 学 xué tem inicial x palatal. Não se tratam como a mesma consoante."
+        ]
+      ],
+      "dialogue": [
+        [
+          "A",
+          "我是学生。",
+          "wǒ shì xuésheng.",
+          "Eu sou estudante."
+        ],
+        [
+          "B",
+          "他是学生。",
+          "tā shì xuésheng.",
+          "Ele é estudante."
+        ],
+        [
+          "A",
+          "她是学生。",
+          "tā shì xuésheng.",
+          "Ela é estudante."
+        ]
+      ],
+      "oralTask": "Diga 我是学生 e substitua 我 por 他 e 她, apontando para as pessoas correspondentes. Compare a ordem sujeito–是–categoria.",
+      "quizzes": [
+        {
+          "id": "m3r1",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 005?",
+          "explanation": "乛 é o quinto radical da lista utilizada.",
+          "options": [
+            "乛",
+            "十",
+            "厂",
+            "匚"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "m3r2",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 006?",
+          "explanation": "十 é o sexto radical; escreve-se horizontal antes do vertical.",
+          "options": [
+            "一",
+            "厂",
+            "十",
+            "丨"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m3c1",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual caractere estabelece identidade nominal?",
+          "explanation": "是 (shì) liga o sujeito à categoria nominal neste padrão.",
+          "options": [
+            "是",
+            "不",
+            "她",
+            "你"
+          ],
+          "correct": 0
+        },
+        {
+          "id": "m3c2",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual sequência significa “estudante”?",
+          "explanation": "学生 (xuésheng) = estudante.",
+          "options": [
+            "生学",
+            "学习",
+            "学生",
+            "学人"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m3p1",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin com tom de 是.",
+          "explanation": "是 = shì, quarto tom, inicial retroflexa.",
+          "accepted": [
+            "shì",
+            "shi4"
+          ]
+        },
+        {
+          "id": "m3p2",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin de 学生 (tom do 学 e neutro no 生).",
+          "explanation": "学生 = xuésheng; o segundo elemento tem tom neutro.",
+          "accepted": [
+            "xuésheng",
+            "xue2sheng",
+            "xue2sheng5"
+          ]
+        },
+        {
+          "id": "m3g1",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Qual frase corresponde a “Eu sou estudante”?",
+          "explanation": "Sujeito + 是 + categoria: 我是学生。",
+          "options": [
+            "是我学生。",
+            "我是学生。",
+            "我学生是。",
+            "学生我。"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m3g2",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Neste módulo, para que serve 是?",
+          "explanation": "是 serve para identificação nominal no padrão estudado.",
+          "options": [
+            "Para pluralizar",
+            "Para marcar o passado",
+            "Para ligar sujeito e identidade",
+            "Para formar perguntas"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m3a1",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler: qual o significado?",
+          "explanation": "O áudio diz 我是学生, “Eu sou estudante”.",
+          "options": [
+            "Eu sou estudante.",
+            "Ele é professor.",
+            "Ela não é estudante.",
+            "Eu não sou professor."
+          ],
+          "correct": 0,
+          "audio": "我是学生"
+        },
+        {
+          "id": "m3a2",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler: qual o significado?",
+          "explanation": "O áudio diz tā shì xuésheng. Sem contexto, o áudio não distingue 他 de 她; por isso a resposta inclui ambos os referentes.",
+          "options": [
+            "Eles são estudantes.",
+            "Eu sou estudante.",
+            "Ele ou ela é estudante.",
+            "Você é professor."
+          ],
+          "correct": 2,
+          "audio": "他是学生"
+        }
+      ],
+      "radicals": [
+        {
+          "id": 5,
+          "hanzi": "乛",
+          "stroke": "hénggōu",
+          "label": "Traço horizontal com gancho",
+          "guide": "Categoria gráfica de traço com dobra ou gancho; suas variantes exigem observação própria.",
+          "example": "乛"
+        },
+        {
+          "id": 6,
+          "hanzi": "十",
+          "stroke": "héng → shù",
+          "label": "Cruz de dois traços",
+          "guide": "Primeiro o traço horizontal; depois o vertical.",
+          "example": "早"
+        }
+      ],
+      "vocabPreview": [
+        [
+          "是",
+          "shì",
+          "ser / identificar"
+        ],
+        [
+          "人",
+          "rén",
+          "pessoa"
+        ],
+        [
+          "学生",
+          "xuésheng",
+          "estudante"
+        ],
+        [
+          "我是学生",
+          "wǒ shì xuésheng",
+          "sou estudante"
+        ],
+        [
+          "他是学生",
+          "tā shì xuésheng",
+          "ele é estudante"
+        ]
+      ]
+    },
+    {
+      "id": "004",
+      "unit": "Negação com 不",
+      "theme": "不 e mudança tonal em 不是",
+      "goal": "Negar identidades corretamente com 不是, inclusive a mudança de 不 (bù) para bú antes de shì.",
+      "warning": "O caractere 不 tem tom lexical bù; antes de sílaba em quarto tom, costuma ser pronunciado bú, como em 不是 bú shì. Não generalize 不 para negar posse: “não ter” é 没有, conteúdo posterior.",
+      "characters": [
+        {
+          "hanzi": "不",
+          "pinyin": "bù / bú",
+          "meaning": "não",
+          "note": "bù isolado; bú antes de quarto tom na fala."
+        },
+        {
+          "hanzi": "是",
+          "pinyin": "shì",
+          "meaning": "ser / identificar",
+          "note": "Revisão do módulo 3."
+        },
+        {
+          "hanzi": "老",
+          "pinyin": "lǎo",
+          "meaning": "velho; parte de 老师",
+          "note": "Em 老师 integra a palavra “professor”."
+        },
+        {
+          "hanzi": "师",
+          "pinyin": "shī",
+          "meaning": "mestre / professor",
+          "note": "Em 老师 completa o substantivo “professor”."
+        }
+      ],
+      "grammar": [
+        [
+          "Negação de identidade",
+          "[sujeito] + 不 + 是 + [categoria]. Ex.: 我不是老师。"
+        ],
+        [
+          "Mudança tonal",
+          "不 tem leitura lexical bù, mas vira bú antes do quarto tom: 不是 = bú shì. A grafia 不 não muda."
+        ],
+        [
+          "Contraste",
+          "我是学生。 / 我不是老师。 = sou estudante / não sou professor."
+        ],
+        [
+          "Armadilha",
+          "Não formar *我不老师. O verbo 是 continua presente na negação nominal."
+        ]
+      ],
+      "dialogue": [
+        [
+          "A",
+          "你是老师。",
+          "nǐ shì lǎoshī.",
+          "Você é professor(a)."
+        ],
+        [
+          "B",
+          "我不是老师。",
+          "wǒ bú shì lǎoshī.",
+          "Eu não sou professor(a)."
+        ],
+        [
+          "B",
+          "我是学生。",
+          "wǒ shì xuésheng.",
+          "Eu sou estudante."
+        ]
+      ],
+      "oralTask": "Transforme oralmente 我是老师 em 我不是老师 e 他是学生 em 他不是学生. Diga o 不 como bú antes de 是. A fala é autoavaliada, não corrigida automaticamente.",
+      "quizzes": [
+        {
+          "id": "m4r1",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 007?",
+          "explanation": "厂 é o radical nº 007, com dois traços.",
+          "options": [
+            "匚",
+            "厂",
+            "十",
+            "丿"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m4r2",
+          "type": "mc",
+          "area": "radical",
+          "prompt": "Qual é o radical nº 008?",
+          "explanation": "匚 é o radical nº 008, com abertura à direita.",
+          "options": [
+            "丨",
+            "一",
+            "匚",
+            "丶"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m4c1",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual caractere significa “não”?",
+          "explanation": "不 = bù; aparece como bú em 不是.",
+          "options": [
+            "是",
+            "不",
+            "老",
+            "师"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m4c2",
+          "type": "mc",
+          "area": "caractere",
+          "prompt": "Qual palavra significa “professor(a)”?",
+          "explanation": "老师 = lǎoshī.",
+          "options": [
+            "学生",
+            "老师",
+            "不是",
+            "他们"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m4p1",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin de 不是, com os tons pronunciados.",
+          "explanation": "Antes de 是 (shì), 不 muda de bù para bú: bú shì.",
+          "accepted": [
+            "bú shì",
+            "búshì",
+            "bu2 shi4",
+            "bu2shi4"
+          ]
+        },
+        {
+          "id": "m4p2",
+          "type": "input",
+          "area": "pinyin",
+          "prompt": "Digite o pinyin com tons de 老师.",
+          "explanation": "老师 = lǎoshī, terceiro + primeiro tons.",
+          "accepted": [
+            "lǎoshī",
+            "lao3shi1"
+          ]
+        },
+        {
+          "id": "m4g1",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Qual frase diz “Não sou professor(a)”?",
+          "explanation": "Negação nominal: sujeito + 不是 + categoria.",
+          "options": [
+            "我不老师。",
+            "我是老师。",
+            "我不是老师。",
+            "不我是老师。"
+          ],
+          "correct": 2
+        },
+        {
+          "id": "m4g2",
+          "type": "mc",
+          "area": "gramática",
+          "prompt": "Qual alternativa sobre 不 é correta?",
+          "explanation": "O quarto tom de 是 desencadeia o sandhi de 不, pronunciado bú.",
+          "options": [
+            "Nunca muda de tom",
+            "Antes de 是 se pronuncia bú",
+            "Dispensa 是 em nomes",
+            "É marcador de plural"
+          ],
+          "correct": 1
+        },
+        {
+          "id": "m4a1",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler e escolha.",
+          "explanation": "O áudio diz 不是 (bú shì) = não ser.",
+          "options": [
+            "ser",
+            "não ser",
+            "professor",
+            "estudante"
+          ],
+          "correct": 1,
+          "audio": "不是"
+        },
+        {
+          "id": "m4a2",
+          "type": "audio",
+          "area": "escuta",
+          "prompt": "Ouça sem ler e escolha.",
+          "explanation": "O áudio diz 我不是老师 = Não sou professor(a).",
+          "options": [
+            "Sou estudante.",
+            "Ele é professor.",
+            "Não sou professor(a).",
+            "Você é estudante."
+          ],
+          "correct": 2,
+          "audio": "我不是老师"
+        }
+      ],
+      "radicals": [
+        {
+          "id": 7,
+          "hanzi": "厂",
+          "stroke": "héng → piě",
+          "label": "Barranco / radical 厂",
+          "guide": "Horizontal seguido de traço descendente à esquerda.",
+          "example": "厅"
+        },
+        {
+          "id": 8,
+          "hanzi": "匚",
+          "stroke": "héng → shùzhé",
+          "label": "Caixa aberta à direita",
+          "guide": "Horizontal superior e contorno vertical com base em um único segundo traço.",
+          "example": "区"
+        }
+      ],
+      "vocabPreview": [
+        [
+          "不",
+          "bù",
+          "não (forma lexical)"
+        ],
+        [
+          "不是",
+          "bú shì",
+          "não ser"
+        ],
+        [
+          "老师",
+          "lǎoshī",
+          "professor(a)"
+        ],
+        [
+          "我不是老师",
+          "wǒ bú shì lǎoshī",
+          "não sou professor(a)"
+        ],
+        [
+          "我是学生",
+          "wǒ shì xuésheng",
+          "sou estudante"
+        ]
+      ]
+    }
+  ]
+}
