@@ -286,11 +286,13 @@ try{
   page.on('pageerror',error=>errors.push(error.message));
   await page.goto(origin+'/curso-101.html',{waitUntil:'domcontentloaded'});
   await page.locator('.module-link').first().waitFor();
-  assert.equal(await page.locator('.module-link').count(),4,'A trilha 101 deve disponibilizar quatro módulos.');
+  assert.equal(await page.locator('.module-link').count(),101,'A trilha 101 deve disponibilizar 101 módulos.');
   assert.equal(await page.locator('.question').count(),10,'Cada módulo deve disponibilizar dez questões.');
   await page.locator('[data-module="004"]').click();
   assert.equal(await page.locator('.question').count(),10,'O módulo 004 deve abrir com dez questões.');
   assert.equal(new URL(page.url()).searchParams.get('m'),'4','O link deve permitir retomar o módulo selecionado.');
+  await page.locator('[data-module="100"]').click();assert.equal(await page.locator('.question').count(),11,'Módulo 100 precisa de 11 itens.');
+  await page.locator('[data-module="101"]').click();assert.equal(await page.locator('.question').count(),211,'Prova final deve conter 201 itens de radical e dez dos demais domínios.');
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),true,'A trilha 101 não deve transbordar horizontalmente em '+width+'px.');
   assert.deepEqual(errors,[],'A trilha 101 não deve produzir erros JavaScript.');
   await context.close();
