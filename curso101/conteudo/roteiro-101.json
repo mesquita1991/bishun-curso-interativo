@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "note": "Roteiro de 101 módulos. Apenas os módulos 001–004 têm conteúdo interativo. Demais módulos são metadados de planejamento sem atividades publicadas.",
+  "note": "101 módulos interativos com 201 radicais, foco lexical, gramática sintética, escuta com voz sintética e avaliação objetiva. Não equivale a certificação HSK ou validação da fala.",
   "totalModules": 101,
   "totalRadicals": 201,
-  "implementedModules": 4,
-  "plannedModules": 97,
+  "implementedModules": 101,
+  "plannedModules": 0,
   "modules": [
     {
       "id": "001",
@@ -105,7 +105,7 @@
     },
     {
       "id": "005",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Cumprimentar e perguntar",
       "radicalIds": [
@@ -129,7 +129,7 @@
     },
     {
       "id": "006",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Nomes e apresentações",
       "radicalIds": [
@@ -155,7 +155,7 @@
     },
     {
       "id": "007",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Agradecimentos",
       "radicalIds": [
@@ -179,7 +179,7 @@
     },
     {
       "id": "008",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Despedidas",
       "radicalIds": [
@@ -204,7 +204,7 @@
     },
     {
       "id": "009",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Este e aquele",
       "radicalIds": [
@@ -228,7 +228,7 @@
     },
     {
       "id": "010",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Quem e o quê",
       "radicalIds": [
@@ -252,7 +252,7 @@
     },
     {
       "id": "011",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Números básicos",
       "radicalIds": [
@@ -283,7 +283,7 @@
     },
     {
       "id": "012",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Idade e nacionalidade",
       "radicalIds": [
@@ -308,7 +308,7 @@
     },
     {
       "id": "013",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Hoje, ontem, amanhã",
       "radicalIds": [
@@ -333,7 +333,7 @@
     },
     {
       "id": "014",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Dias e calendário",
       "radicalIds": [
@@ -358,7 +358,7 @@
     },
     {
       "id": "015",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Horas",
       "radicalIds": [
@@ -384,7 +384,7 @@
     },
     {
       "id": "016",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Ter e não ter",
       "radicalIds": [
@@ -409,7 +409,7 @@
     },
     {
       "id": "017",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Família",
       "radicalIds": [
@@ -435,7 +435,7 @@
     },
     {
       "id": "018",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Localização",
       "radicalIds": [
@@ -460,7 +460,7 @@
     },
     {
       "id": "019",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Desejos e necessidades",
       "radicalIds": [
@@ -484,7 +484,7 @@
     },
     {
       "id": "020",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "I — Fundamentos",
       "titulo": "Síntese I: primeiro contato",
       "radicalIds": [
@@ -508,7 +508,7 @@
     },
     {
       "id": "021",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Comidas e bebidas",
       "radicalIds": [
@@ -533,7 +533,7 @@
     },
     {
       "id": "022",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Gostos pessoais",
       "radicalIds": [
@@ -557,7 +557,7 @@
     },
     {
       "id": "023",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Classificadores",
       "radicalIds": [
@@ -582,7 +582,7 @@
     },
     {
       "id": "024",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Compras e preços",
       "radicalIds": [
@@ -609,7 +609,7 @@
     },
     {
       "id": "025",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Cores",
       "radicalIds": [
@@ -635,7 +635,7 @@
     },
     {
       "id": "026",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Tamanho e comparação",
       "radicalIds": [
@@ -660,7 +660,7 @@
     },
     {
       "id": "027",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Endereços e direções",
       "radicalIds": [
@@ -687,7 +687,7 @@
     },
     {
       "id": "028",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Transporte urbano",
       "radicalIds": [
@@ -713,7 +713,7 @@
     },
     {
       "id": "029",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Movimento e destino",
       "radicalIds": [
@@ -738,7 +738,7 @@
     },
     {
       "id": "030",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Rotina matinal",
       "radicalIds": [
@@ -763,7 +763,7 @@
     },
     {
       "id": "031",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Trabalho e profissão",
       "radicalIds": [
@@ -790,7 +790,7 @@
     },
     {
       "id": "032",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Escola e estudo",
       "radicalIds": [
@@ -815,7 +815,7 @@
     },
     {
       "id": "033",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Idiomas e habilidades",
       "radicalIds": [
@@ -840,7 +840,7 @@
     },
     {
       "id": "034",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Perguntas de sim/não",
       "radicalIds": [
@@ -865,7 +865,7 @@
     },
     {
       "id": "035",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Frequência",
       "radicalIds": [
@@ -891,7 +891,7 @@
     },
     {
       "id": "036",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Negação temporal",
       "radicalIds": [
@@ -916,7 +916,7 @@
     },
     {
       "id": "037",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Ações concluídas",
       "radicalIds": [
@@ -940,7 +940,7 @@
     },
     {
       "id": "038",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Experiências",
       "radicalIds": [
@@ -964,7 +964,7 @@
     },
     {
       "id": "039",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Planos futuros",
       "radicalIds": [
@@ -989,7 +989,7 @@
     },
     {
       "id": "040",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Clima",
       "radicalIds": [
@@ -1015,7 +1015,7 @@
     },
     {
       "id": "041",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Estações do ano",
       "radicalIds": [
@@ -1040,7 +1040,7 @@
     },
     {
       "id": "042",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Casa e cômodos",
       "radicalIds": [
@@ -1065,7 +1065,7 @@
     },
     {
       "id": "043",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Existência com 有 e 在",
       "radicalIds": [
@@ -1091,7 +1091,7 @@
     },
     {
       "id": "044",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Marcar encontros",
       "radicalIds": [
@@ -1115,7 +1115,7 @@
     },
     {
       "id": "045",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "II — Cotidiano",
       "titulo": "Síntese II: cotidiano",
       "radicalIds": [
@@ -1140,7 +1140,7 @@
     },
     {
       "id": "046",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Descrever ações atuais",
       "radicalIds": [
@@ -1164,7 +1164,7 @@
     },
     {
       "id": "047",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Duração",
       "radicalIds": [
@@ -1190,7 +1190,7 @@
     },
     {
       "id": "048",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Falar de resultados",
       "radicalIds": [
@@ -1215,7 +1215,7 @@
     },
     {
       "id": "049",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Capacidade de realizar",
       "radicalIds": [
@@ -1240,7 +1240,7 @@
     },
     {
       "id": "050",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Intensidade e grau",
       "radicalIds": [
@@ -1265,7 +1265,7 @@
     },
     {
       "id": "051",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Passado narrativo",
       "radicalIds": [
@@ -1290,7 +1290,7 @@
     },
     {
       "id": "052",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Causa e consequência",
       "radicalIds": [
@@ -1315,7 +1315,7 @@
     },
     {
       "id": "053",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Condição e hipótese",
       "radicalIds": [
@@ -1339,7 +1339,7 @@
     },
     {
       "id": "054",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Contraste e concessão",
       "radicalIds": [
@@ -1364,7 +1364,7 @@
     },
     {
       "id": "055",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Pedidos educados",
       "radicalIds": [
@@ -1388,7 +1388,7 @@
     },
     {
       "id": "056",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Obrigações",
       "radicalIds": [
@@ -1413,7 +1413,7 @@
     },
     {
       "id": "057",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Saúde e sintomas",
       "radicalIds": [
@@ -1438,7 +1438,7 @@
     },
     {
       "id": "058",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Consulta e orientação",
       "radicalIds": [
@@ -1464,7 +1464,7 @@
     },
     {
       "id": "059",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Alimentação e restrições",
       "radicalIds": [
@@ -1490,7 +1490,7 @@
     },
     {
       "id": "060",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Restaurantes",
       "radicalIds": [
@@ -1516,7 +1516,7 @@
     },
     {
       "id": "061",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Viagem e hospedagem",
       "radicalIds": [
@@ -1543,7 +1543,7 @@
     },
     {
       "id": "062",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Fronteiras e documentos",
       "radicalIds": [
@@ -1568,7 +1568,7 @@
     },
     {
       "id": "063",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Distâncias e trajetos",
       "radicalIds": [
@@ -1593,7 +1593,7 @@
     },
     {
       "id": "064",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Mudança de cidade",
       "radicalIds": [
@@ -1618,7 +1618,7 @@
     },
     {
       "id": "065",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Preferências e decisões",
       "radicalIds": [
@@ -1645,7 +1645,7 @@
     },
     {
       "id": "066",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Mensagens e aplicativos",
       "radicalIds": [
@@ -1671,7 +1671,7 @@
     },
     {
       "id": "067",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Internet",
       "radicalIds": [
@@ -1696,7 +1696,7 @@
     },
     {
       "id": "068",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Opiniões",
       "radicalIds": [
@@ -1721,7 +1721,7 @@
     },
     {
       "id": "069",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Concordância e discordância",
       "radicalIds": [
@@ -1746,7 +1746,7 @@
     },
     {
       "id": "070",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Emoções e estados",
       "radicalIds": [
@@ -1772,7 +1772,7 @@
     },
     {
       "id": "071",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Relacionamentos sociais",
       "radicalIds": [
@@ -1797,7 +1797,7 @@
     },
     {
       "id": "072",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Convites e recusa",
       "radicalIds": [
@@ -1822,7 +1822,7 @@
     },
     {
       "id": "073",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Educação e experiências",
       "radicalIds": [
@@ -1848,7 +1848,7 @@
     },
     {
       "id": "074",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Trabalho colaborativo",
       "radicalIds": [
@@ -1875,7 +1875,7 @@
     },
     {
       "id": "075",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "III — Comunicação",
       "titulo": "Síntese III: interação social",
       "radicalIds": [
@@ -1900,7 +1900,7 @@
     },
     {
       "id": "076",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Narrar eventos complexos",
       "radicalIds": [
@@ -1925,7 +1925,7 @@
     },
     {
       "id": "077",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Mudanças e tendências",
       "radicalIds": [
@@ -1951,7 +1951,7 @@
     },
     {
       "id": "078",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Probabilidade",
       "radicalIds": [
@@ -1978,7 +1978,7 @@
     },
     {
       "id": "079",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Voz passiva",
       "radicalIds": [
@@ -2001,7 +2001,7 @@
     },
     {
       "id": "080",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Construção com 把",
       "radicalIds": [
@@ -2026,7 +2026,7 @@
     },
     {
       "id": "081",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Comparação avançada",
       "radicalIds": [
@@ -2052,7 +2052,7 @@
     },
     {
       "id": "082",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Ênfase e restrição",
       "radicalIds": [
@@ -2077,7 +2077,7 @@
     },
     {
       "id": "083",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Descrições relativas",
       "radicalIds": [
@@ -2100,7 +2100,7 @@
     },
     {
       "id": "084",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Relatos de terceiros",
       "radicalIds": [
@@ -2126,7 +2126,7 @@
     },
     {
       "id": "085",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Informação e evidência",
       "radicalIds": [
@@ -2151,7 +2151,7 @@
     },
     {
       "id": "086",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Explicação de processos",
       "radicalIds": [
@@ -2178,7 +2178,7 @@
     },
     {
       "id": "087",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Ciência e tecnologia",
       "radicalIds": [
@@ -2203,7 +2203,7 @@
     },
     {
       "id": "088",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Meio ambiente",
       "radicalIds": [
@@ -2228,7 +2228,7 @@
     },
     {
       "id": "089",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Sociedade e cultura",
       "radicalIds": [
@@ -2255,7 +2255,7 @@
     },
     {
       "id": "090",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Noticiário",
       "radicalIds": [
@@ -2280,7 +2280,7 @@
     },
     {
       "id": "091",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Argumentar",
       "radicalIds": [
@@ -2305,7 +2305,7 @@
     },
     {
       "id": "092",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Negociar e persuadir",
       "radicalIds": [
@@ -2330,7 +2330,7 @@
     },
     {
       "id": "093",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Leitura funcional",
       "radicalIds": [
@@ -2355,7 +2355,7 @@
     },
     {
       "id": "094",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Escrita formal",
       "radicalIds": [
@@ -2380,7 +2380,7 @@
     },
     {
       "id": "095",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Leitura sem pinyin I",
       "radicalIds": [
@@ -2405,7 +2405,7 @@
     },
     {
       "id": "096",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Leitura sem pinyin II",
       "radicalIds": [
@@ -2430,7 +2430,7 @@
     },
     {
       "id": "097",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Escuta natural",
       "radicalIds": [
@@ -2455,7 +2455,7 @@
     },
     {
       "id": "098",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Interação espontânea",
       "radicalIds": [
@@ -2480,7 +2480,7 @@
     },
     {
       "id": "099",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Revisão integrada e diagnóstico",
       "radicalIds": [
@@ -2505,7 +2505,7 @@
     },
     {
       "id": "100",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "IV — Autonomia",
       "titulo": "Preparação para prova e autonomia",
       "radicalIds": [
@@ -2532,7 +2532,7 @@
     },
     {
       "id": "101",
-      "status": "planejado",
+      "status": "implementado",
       "etapa": "V — Certificação",
       "titulo": "Certificação interna final",
       "radicalIds": [],
